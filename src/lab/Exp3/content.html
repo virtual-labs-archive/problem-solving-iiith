@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<head></head>
+<h1 id="main-title">
+More on Numbers
+</h1>
+
+<div id="introduction"> 
+<h2>Introduction </h2> 
+<p> 
+Many students in some class or either might have been interested in Number theory as it is so much fun in solving those riddles.Here we present two problems to refresh your skills. Hope you will love them. And the difference is that you may not have learnt computer programming back then but you know some computer programming now, so you can use the computer and program the task. 
+</p>
+<br>
+<ol>
+<li><h2>Problem 1:</h2>
+<p> 
+Given a positive integer there is an easy way to check whether this integer is divisible by 9 or not. This was very popular before your mod operator was invented. The solution is simple, if you add the digits of the number repeatedly and finally get 9, then the given number is divisible by 9, else it is not divisible by 9. For example,
+
+</p>
+<br><hr />
+<b>Input Specification</b><br />
+<p>
+Input contains a single positive integer(&lt 10<sup>10</sup>). Use long long for the number.
+</p>
+<br><hr />
+<b>Output Specification</b><br />
+<p>
+Output "YES" or "NO" (quotes for clarity) corresponding to whether the number in input is divisible by 9 or not.
+</p>
+<br><hr />
+<b>Sample Input and Output</b><br />
+Input: 12101<br />
+Output: NO<br />
+Input: 9009 <br />
+Output: YES<br/>
+
+<br><hr />
+<br>
+</li>
+
+<li><h2>Problem 2:</h2>
+<p> 
+A whole number is said to be CIRCULAR if, when you multiply the number by its units decimal digit,
+the result is the number with its decimal digits rotated to the right, where the units digit becoming
+its high-order digit. For example, 102564 is a circular number because of the multiplication:
+<br>
+
+102564<br>
+*4<br>
+-------<br>
+410256<br>
+-------<br>
+
+</p>
+<br><hr />
+<b>Input Specification</b><br />
+<p>
+Input contains a single postive integer N(&lt 10).
+</p>
+<br><hr />						
+<b>Output Specification</b><br />
+<p>
+Output must contain a smallest circular positive number whose units digit must be N.
+</p>
+<br><hr />
+<b>Sample Input and Output</b><br />
+Input: 2  <br />
+Output:105263157894736842<br />
+Input: 4<br />
+Output: 102564<br/>
+Please note that result may not fit even in long long(64 bit integer).
+<br><hr />
+</li>
+</div> 
+
+<div id="theory"> 
+<h2>Theory</h2> 
+<h2>Problem 1</h2>
+<p>
+Lets look at the remainder after with 9 for 10,100,1000,10000 etc. It is equal to 1 in all the cases. It is not difficult of see that for multiples of these numbers, the remainder after division with 9 will only depend on the multiple. So, for 20,40,800,500,7000,2000 etc., the remainder after division with 9 are 2,4,8,5,7 and 2. Now, any number, say N, written as sequence, WXYZ can be expressed as:
+</p>
+<p>
+N=W*1000*X+100+Y*10+Z<br>
+eg: For N=3548<br>
+N=3*1000+5*100+4*10+8<br>
+</p>
+<p>
+So, clearly the remainder after divison with 9 depends upon remainder after division with 3000, 500, 40 and 8, which are 3, 5, 4, and 8 respectively. Hence, the divisibility test for 9 states that a number is divisible by 9 if the sum digits of the number is divisible by 9. How to check whether sum of the digits is divisible by nine? Keep on doing the same test on the sum until the problem becomes trivial.
+</p>
+<p>
+So, how do we find the sum of the digits of a number. For this one can repeatedly take mod of the number by 10 and then divide the number by 10, until the number becomes less than 10. For example:<br>
+346 gives 6 as the remainder  SUM=6<br>
+34 gives 4 as the remainder   SUM=10<br>
+3 gives 3 as remainder        SUM=13<br>
+</p>
+<p>
+Now repeat the same procedure with SUM=13<br>
+13 gives 3 as the remainder   SUM=3<br>
+1 gives 1 as the remainder    SUM=4<br>
+Now, SUM=4 is not divisible by 9. Hence, 346 is not divisible by 9.<br>
+</p>
+</p>
+<br>
+
+<h2>Problem 2</h2>
+<p>
+Suppose the number we require is say (X[0],X[1],...,X[N]). We dont know what X[0] ,X[1],...X[N-1] are
+and also the value of N. But fortunately we know some properties about this number with which we can find
+out what number it is. We know the value of X[N]. Let take the sample input. X[N] = 4 in that case.
+Say we represent the product as (P[0],P[1],...,P[M]). Now X[N] = 4 and when we multiply it with
+<b>X[N]</b> we get 16(which is 4*4), which implies  P[M]=6.Since the number has to be circular it is obvious
+that X[N-1] must be 6.Now again multiplying X[N-1] = 6 with X[N]=4 and yea dont forget to add the carry which
+we obtained in previous step.So P[M-1] = (6*4 + 1)%10 = 5 and carry is 2 this time. So we carry on like this.
+<br> <br>
+Step1: xxxxxx4  <br>
+*4<br>
+------<br>
+6 and carry = 1<br>
+------<br>
+Step2:<br>
+xxxxx64<br>
+*4<br>
+------<br>
+56 and carry = 2<br>
+------<br>
+Step3:<br>
+xxxx564<br>
+*4<br>
+------<br>
+256 and carry = 2<br>
+------<br>
+Step4:<br>
+xxx2564<br>
+*4<br>
+------<br>
+0256 and carry = 1<br>
+------<br>
+Step5:<br>
+xx02564<br>
+*4<br>
+------<br>
+10256 and carry = 0<br>
+------<br>
+Step6:<br>
+x102564<br>
+*4<br>
+------<br>
+410256 and carry = 0<br>
+------<br>
+
+At step 6, you can observe that the number is exactly the circular number. So we stop doing it.
+The stopping criteria is simple. The carry must be 0 and the units digit with which we multiply
+must be same as the last digit generated in the product. Here multiplication digit is 4. Thus the output is 102564.
+
+
+</p>					
+</div> 
+
+<div id="Lab">
+        <h2>Lab</h2>
+        <h3>Manual</h3>
+        <ol>
+        <li> Write the code for the problem or upload a solution. </li>
+        <li> Press the i button get info about the problem which you have to solve.</li>
+        <li> If you are finding it difficult to solve the solution, then you can use the 4 levels of incresingly descriptive hints, but try to use minimum number of hints.</li>
+        <li> Compile the code by pressing the compile button. </li>
+        <li> If code is not compling then correct the error and/or warnings. </li>
+	<li> To execute the code and see output, press the execute button. </li>
+	</ol>
+        <a href="lab.html" target="_blank">Go to Lab (Click here)</a>
+</div>
