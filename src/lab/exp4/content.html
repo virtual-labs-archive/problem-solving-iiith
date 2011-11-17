@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head></head>
+<h1 id="main-title">
+Factorials 
+</h1>
+
+<div id="introduction"> 
+<h2>Introduction </h2> 
+<p>
+Although the factorial function has its roots in combinatorics, formulas involving factorials occur in many areas of mathematics.<br />
+	There are n! different ways of arranging n distinct objects into a sequence, the permutations of those objects.
+Factorials occur in algebra for various reasons, such as via the already mentioned coefficients of the binomial formula, or through averaging over permutations for symmetrization of certain operations.
+Factorials also turn up in calculus; for example they occur in the denominators of the terms of Taylor's formula, basically to compensate for the fact that the n-th derivative of xn is n!.
+	Factorials are also used extensively in probability theory.
+	Factorials can be useful to facilitate expression manipulation.
+<br />Here we present two problems based on factorials.<br />
+
+</p>
+<br>
+<ol>
+<li><h2>Problem 1:</h2>
+Given a positive integer, find the number of digits in the factorial of the number.
+<p> 
+</p>
+<br><hr />
+<b>Input Specification</b><br />
+<p>
+Input will contain a single positive integer N(&lt 10<sup>6</sup>) input from keyboard.
+</p>
+<br><hr />
+<b>Output Specification</b><br />
+<p>
+Output must be the number of digits in the factorial of the given number.
+</p>
+<br><hr />
+<b>Sample Input and Output</b><br />
+Input: 5<br />                                  
+Output:2<br />                                  
+Input: 52<br />                                 
+Output: 68<br/>    
+<br><hr />
+<br>
+</li>
+
+<li><h2>Problem 2:</h2>
+<p> 
+Find the number of zeroes at the end of factorial of a number.
+</p>
+<br><hr />
+<b>Input Specification</b><br />
+<p>
+Input will contain a single positive integer N input from keyboard, lesser than 10^9.
+</p>
+<br><hr />						
+<b>Output Specification</b><br />
+<p>
+Output must be the number of zeroes at the end of the factorial of the given number.
+</p>
+<br><hr />
+<b>Sample Input and Output</b><br />
+Input: 5<br />
+Output:1<br />
+Input: 25<br />
+Output: 6<br/>
+<br><hr />
+</li>
+</div> 
+
+<div id="theory"> 
+<h2>Theory</h2> 
+<h2>Problem 1</h2>
+<p>
+We shall try to calculate the factorial of a number  and then find out the number of digits in it.<br>
+1! = 1<br>
+2! = 1*2 = 2<br>
+3! = 1*2*3 = 6<br>
+4! = 1*2*3*4 = 24<br>
+.<br>
+.<br>
+.<br>
+10! = 3628800<br>
+So n! means multiplying all the numbers from 1 to n. For the sample input, 52, we can see from the sample output that the factorial of 52 is 68 digits and this cannot fit in long long data type in C. You may now attempt to store the answer in a string and do multiplication operation on strings(by multiplying each digit of the string individually). Now, let us see how many operations do we need for multiplying 2 strings. Consider 11!, 11! = 11*10!, assume we already have 10! stored in a string and 11 stored in a string. Now, to calculate 11! from 10! we need to multiply each digit of 11 with each digit of 10!, i.e it would take No_digits(11) * No_digits(3628800) = 2*7 = 14 operations. We consider only multiplication operations(we also have to consider addition operations for each of the biproducts and carries).<br>
+</p>
+<p>
+Similarly 53! would take 2*68=136 operations from 52!.<br>
+52! would take 2*67 = 134 operations from 51!<br>
+51! would take 2*65 = 130 operations from 50!.<br>
+
+We can see that there would be a operations required for calculating  53! (No_operations = 136+134+130+...+1). Also in 1000000! the number of digits is 5565709, so we would require large amount of storage and both these difficulties make calculation of  N! hard. <br>
+</p>
+<p>
+Is there any way to find the number of digits without actually calculating N!? Let us consider a simple problem of finding the number of digits in a number N.Consider N = 12 , we can also write this as 0.12*10<sup>2</sup> which is a 2 digit number . Consider N=125 , which can be written as 0.125 *10<sup>3</sup> which is a 3 digit number. Evidently calculating the exponent of 10 in the scientific notaion and gives the number of digits. <br>
+
+For any N, <br>
+N=x*10<sup>exp</sup><br> 
+=&gt log10(N) = log10(x) + exp.<br> 
+For n=95,<br>
+log10(95) = log10(0.95)+exp, since 95 = 0.95 *10<sup>2</sup><br>
+N = x*10<sup>exp</sup> , x &lt 1 <br> 
+Taking step on both sides. <br>
+=&gt step(log10(N)) = step(log10(x)+exp)<br>
+=&gt step(log10(N)) = exp-1<br>
+=&gt exp = step(log10(N))+1<br>
+=&gt No_digits(N) = step(log10(N))+1<br>
+</p>
+<p>
+Applying the above formula to calculate the number of digits of N! gives<br>
+No_digits(N!) = step(log10(N!) ) +1<br>
+=&gt No_digits(N!) = step(log10(N*(N-1)*(N-2)*(N-3)...*2*1)) + 1<br>
+=&gt No_digits(N!) = step(log10(N) + log10(N-1) + log10(N-2) + ...+log10(2) + log10(1) ) +1<br></p>
+<p>
+log10(N) can be easily calculated by the log10 function in math.h.<br>
+</p>
+<br>
+
+<h2>Problem 2</h2>
+<p>
+Let us observe the zeroes in the factorial of a few numbers.<br>
+
+4!=24           (0 zeroes)<br>
+5!=120          (1 zeroes)<br>
+6!=720          (1 zeroes)<br>
+7!=5040         (1 zeroes)<br>
+8!=40320        (1 zeroes)<br>
+9!=362880       (1 zeroes)<br>
+10!=3628800     (2 zeroes)<br>
+11!-14!         (2 zeroes)<br>
+15!             (3 zeroes)<br>
+</p>
+<p>
+We can observe that for every multiple of 5, we have a zero being added to the product. This is due to the multiplication of 5 with an even number in the product. So, our problem simplifies to counting the number of 5's in the factors of the number to be calculated. Let us formalize the proof. <br>
+</p>
+<p>
+Let p be a prime number.<br>
+
+n!=1×2×…×(n−1)×n <br>
+We see that any integer m such that 0 &lt m ≤ n which is divisible by p<sup>j</sup> and not p<sup>(j+1)</sup> must be counted exactly j times. That is: once in ⌊n/p⌋, once in ⌊n/(p<sup>2</sup>)⌋, …, once in ⌊n(p<sup>j</sup>)⌋. And that is all the occurrences of p as a factor of n!.<br>
+Thus:<br>
+μ(No. of occurences of p)=⌊n/p⌋+⌊n/(p<sup>2</sup>)⌋+⋯+⌊n/(p<sup>j</sup>)⌋<br>
+Ex:Number of zeroes in 25! = Number of occurences of 5 in 25! = (⌊25/5⌋+⌊25/(5^2)⌋)=5+1=6<br>
+</p>					
+</div> 
+
+<div id="Lab">
+        <h2>Lab</h2>
+        <h3>Manual</h3>
+        <ol>
+        <li> Write the code for the problem or upload a solution. </li>
+        <li> Press the i button get info about the problem which you have to solve.</li>
+        <li> If you are finding it difficult to solve the solution, then you can use the 4 levels of incresingly descriptive hints, but try to use minimum number of hints.</li>
+        <li> Compile the code by pressing the compile button. </li>
+        <li> If code is not compling then correct the error and/or warnings. </li>
+	<li> To execute the code and see output, press the execute button. </li>
+	</ol>
+        <a href="lab.html" target="_blank">Go to Lab (Click here)</a>
+</div>
