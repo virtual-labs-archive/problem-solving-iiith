@@ -1,110 +1,375 @@
+<!-- This file needs to be edited by the lab developer to suit
+the requirements of their lab in particular.-->
+
+<!-- Add class="default" to include any element as it is
+specified in default.html. 
+Do not include class="default" to the elements that you want to
+edit -->
+
 <!DOCTYPE html>
+<html>
 <head></head>
-<h1 id="main-title">
-Permutation
-</h1>
+<body>
 
-<div id="introduction"> 
-<h2>Introduction </h2> 
-<p> 
-Permutations occur, in more or less prominent ways, in almost every domain of mathematics. They often arise when different orderings on certain finite sets are considered, possibly only because one wants to ignore such orderings and needs to know how many configurations are thus identified. For similar reasons permutations arise in the study of sorting algorithms in computer science. Here we present two problems based on permutations and combinations.
+<div id="experiment"> <!-- The Experiment Document Container-->
 
-</p>
-<br>
-<ol>
-<li><h2>Problem 1:</h2>
-<p>  
-Given n distict and unique integral weights and an integral value, Sum. You have to tell in how many
-ways you can balance that Sum using one or all weights. If there is no combination possible, print -1.
+  <!-- The lab Header contains the logo and the name of the lab,
+  usually displayed on the top of the page-->
 
-</p>
-<br><hr />
-<b>Input Specification</b><br />
-<p>
-Input contains 2 lines . First line contains N(&lt 10) denoting the number of weights. The next line
-contains N weights (&lt=wt&lt=100) followed by a Sum(&lt=100) which we need to balance.
+  <header id="experiment-header" class="default">
+  
+    <div id="experiment-header-logo" class="logo">
+      <!-- Enclose the logo image of your lab or write it in 
+      text-->
+      <img src="../images/logo.jpg" />
+    </div>
 
-</p>
-<br><hr />
-<b>Output Specification</b><br />
-<p>
-Output must be a integer. Print -1 in case there is no way in which we can achieve the value Sum by using some weights otherwise print the number of ways in which we can attain the weight Sum. Please note that if Sum S can be attained by keeping some weights a1,a2,a3,.. on left side and p1,p2,.. on the right then keeping p1,p2,... on the left and a1,a2,.. on right will also result in achieving sum S, but it has to be counted only once not twice in the solution.
+    <div id="experiment-header-heading" class="heading">
+      <!-- Write the name of your lab and link it to the home 
+      page of your lab (h1 tag is preferred while writing your 
+      lab name)-->
+      <a href="../index.html">Physics Lab</a>	
+    </div>
 
-</p>
-<br><hr />
-<b>Sample Input and Output</b><br />
-Input: 3<br> 
-1 2 3 56 <br />
-Output:-1<br />
-<br><hr />
-<br>
-</li>
+    <!-- Add any additional element you want to add to the lab 
+    header, For example : Help (Enclosing them with suitable 
+    div is recommended)-->
 
-<li><h2>Problem 2:</h2>
-<p> 
-Given N followed by N weights, see how many different ways, one can generate sets of balancing weights. The weight on the right side of the pan must be a single weight.Please note that we cannot place multiple weights on right side.
+  </header>
 
-</p>
-<br><hr />
-<b>Input Specification</b><br />
-<p>
-Input contains a integer N followed by N weights separated by spaces. The value of N is &lt=10 and each weight W &lt=100.
-</p>
-<br><hr />						
-<b>Output Specification</b><br />
-<p>
-Output must be the number of ways we can generate sets of balancing weights according to the given restriction.
-</p>
-<br><hr />
-<b>Sample Input and Output</b><br />
-Input: 3 1 2 3<br />
-Output:1<br />
-Input: 5 1 2 3 4 5<br />
-Output: 4<br/>
 
-<br><hr />
-</li>
-</div> 
+  <!-- The lab article is the main content area where all the 
+  experiment content sits-->
+  <article id="experiment-article">
+  
+    <!-- The lab article has an header, optional navigational 
+    menu, number of sections, an optional sidebar and a closing 
+    footer-->
+     <div id="experiment-article-breadcrumb" class="breadcrumb">
+     </div>
+    
+      <header id="experiment-article-heading" class="heading">
+        <!-- You can add a welcome message or title of the 
+        experiment here -->
+        Simple Pendulum
+        <!-- Add any additional element if required with proper 
+        enclosing-->
+      </header>
 
-<div id="theory"> 
-<h2>Theory</h2> 
-<h2>Problem 1</h2>
-<p>
-Recursion can be applied to a problem if the problem for the given input can be expressed as dependent upon the solution of the same problem for simpler inputs. One has to hardcode the solution for some simple cases, so that this recursion does not go on endlessly. Now, the given problem of expressing a weight(W) as a sum of other weights can be expressed as the problem of choosing one weight(w) such that it is not greater than W and then solving the same problem for the remaining weight W-w. For this particular problem, the solution can be expressed easily by choosing all the weight(w) as the first weights one by one, also taking care the the total weight(S) is not greater than reqired weight W. Those weights which make the total weight(S) greater than W are exluded from the list of avaliable weights for the next recursive. Now we only have to solve the same problem for a simpler case to get the complete solution, i.e., solving the same problem for the remaining weight, W-w, and available pool of weights now also does not have w. If accumulated weight is equal to w, then we increment the counter. If at any time, the pool of remaining weights is exhausted, then that attempt is aborted. So, our recursion function would be needing 2 variables, one containing the list of available weights and the other signifying remaining weight to be accrued.
+      <!-- Navigation menu is useful to organize the view of 
+      multiple sections inside the article-->
+      <nav id="experiment-article-navigation" class="default">
+        <ul id="experiment-article-navigation-menu">
+          <!-- The menu can be dynamically generated to contain 
+          the headings of your sections or instead write the 
+          menu items of your choice individually enclosedu in 
+          <li> tag as shown below-->
+        </ul>
+      </nav>
 
-</p>
+      <!-- All the sections of your lab or experiment can be 
+      enclosed together with a div element as shown below-->
+      <div id="experiment-article-sections">
 
-<br>
+        <!-- First section of the article-->
+        <section id="experiment-article-section-1">
+          
+          <div id="experiment-article-section-1-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab -->
+	    <img src="../images/introduction.jpg" />
+	  </div>	
+          
+          <!-- The heading for the section can be enclosed in a 
+          div tag. -->
+          <div id="experiment-article-section-1-heading" 
+          class="heading">
+            Introduction
+          </div>
 
-<h2>Problem 2</h2>
-<p>
-For each weight in the input we keep it on right pan and try using other weights to balance it. Let us say we have kept i<sup>th</sup> weight on the right pan, out task is now to keep weights on left side of the pan so that the sum of the weights on left side of the pan is equal to the weight on the right side,i.e weight[i]. For each weight W[k], we can keep it either on left pan or we donot to keep it at all. Make sure to disregard the weight when k is equal to i because that weight is already on right side.
-</p>
+          <!-- Write the section content inside a paragraph 
+          element, You can also include images with <img> tag -->
+          <div id="experiment-article-section-1-content" 
+		  class="content">	
 
-<h4>Recursive formulation </h4>
-<p>
-Let F(index,i,S) denotes the number of ways in which we can obtain weight[i] using weights from weight[index], weight[index+1], weight[index+2],..., weight[n-1] and currently because of choosing some weights from weight[0], weight[1],..., weight[index-1] the sum of the weights has become S. So we need to achieve weight[i]-S by choosing some weights from weight[index], weight[index+1],..., weight[n-1].
-</p>
-<p>
-A pseudo code would look like: <br>
 
-F(index,i,S) = F(index+1,i,S)   If index=i <br>
-= 1             If index=N and S=weight[i] <br>
-= 0             If index=N and S!=weight[i]<br>
-= F(index+1,i,S+weight[index])+F(index+1,i,S) otherwise <br>
-</p>					
-</div> 
 
-<div id="Lab">
-        <h2>Lab</h2>
-        <h3>Manual</h3>
-        <ol>
-        <li> Write the code for the problem or upload a solution. </li>
-        <li> Press the i button get info about the problem which you have to solve.</li>
-        <li> If you are finding it difficult to solve the solution, then you can use the 4 levels of incresingly descriptive hints, but try to use minimum number of hints.</li>
-        <li> Compile the code by pressing the compile button. </li>
-        <li> If code is not compling then correct the error and/or warnings. </li>
-	<li> To execute the code and see output, press the execute button. </li>
-	</ol>
-        <a href="lab.html" target="_blank">Go to Lab (Click here)</a>
-</div>
+
+
+
+
+
+        </div>
+
+
+      </section>
+
+      <!-- Second section of the article-->
+      <section id="experiment-article-section-2">
+        
+        <div id="experiment-article-section-2-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab. -->
+	  <img src="../images/theory.jpg" />
+	</div>
+				
+        <!-- The heading for the section can be enclosed in a 
+        div tag. -->
+        <div id="experiment-article-section-2-heading" 
+        class="heading">
+          Theory
+        </div>
+
+
+        <!-- Write the section content inside a paragraph 
+        element, we can also include images with <img> tag -->
+        <div id="experiment-article-section-2-content" 
+        class="content">
+
+
+
+
+
+
+
+
+
+        </div>
+      </section>
+
+
+      <section id="experiment-article-section-3">
+        
+        <div id="experiment-article-section-3-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab. -->
+	  <img src="../images/objective.jpg" />
+	</div>
+     
+        <div id="experiment-article-section-3-heading" 
+        class="heading">
+          Objective
+        </div>
+
+        <div id="experiment-article-section-3-content" 
+        class="content">
+
+	<p>
+	To learn to solve problems related to Number Theory using Computer Programming.
+	</p>
+
+        </div>
+
+      </section>
+
+
+      <section id="experiment-article-section-4">
+
+        <div id="experiment-article-section-4-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab.-->
+	  <img src="../images/simulation.jpg" />
+	</div>
+
+        <div id="experiment-article-section-4-heading" 
+        class="heading">
+          Experiment
+        </div>
+
+        <div id="experiment-article-section-4-content" 
+        class="content">
+          <p>
+	        
+ <a href="lab.html" target="_blank">Go to Lab (Click here)</a>
+
+          </p>
+        </div>
+
+      </section>
+
+      <section id="experiment-article-section-5">
+   
+        <div id="experiment-article-section-5-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab.-->
+	  <img src="../images/manual.jpg" />
+	</div>
+
+        <div id="experiment-article-section-5-heading" 
+        class="heading">
+          Manual
+        </div>
+
+        <div id="experiment-article-section-5-content" 
+        class="content">
+	<p> 
+	        For each problem you have to write a program in C or C++. Each question is evaluted on test cases. An answer is correct only when all the test cases are cleared. 
+          </p> 
+          </div>
+
+        </section>
+
+        <section id="experiment-article-section-6">
+      
+          <div id="experiment-article-section-6-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab.-->
+	    <img src="../images/quizzes.jpg" />
+	  </div>
+
+          <div id="experiment-article-section-6-heading" 
+          class="heading">
+            Quizzes
+          </div>
+
+          <div id="experiment-article-section-6-content" 
+          class="content">
+            
+            <p>
+              
+              <b>Q1.</b> 
+              Time taken for one complete oscillation 
+              is called Time Period of the oscillator. <br> 
+              <input type="radio" name="q1" id="q1" value="1"> 
+                <font color="green"> True </font> <br> 
+              <input type="radio" name="q1" id="q1" value="0">
+                <font color="red"> False </font> <br/><br/> 
+              
+              <b>Q2.</b> 
+              Time period of the oscillator is constant for 
+              given values of mass, length and initial 
+              conditions.<br> 
+              <input type="radio" name="q2" id="q2" value="1"> 
+                <font color="green"> True </font> <br> 
+              <input type="radio" name="q2" id="q2"value="0">
+                <font color="red"> False </font> <br/><br/> 
+              
+              <b>Q3.</b> 
+              Value of Time period depends on initial 
+              conditions. <br> 
+              <input type="radio" name="q3" id="q3" value="1"> 
+                <font color="green"> True </font> <br> 
+              <input type="radio" name="q3" id="q3"value="0">
+                <font color="red"> False </font> <br/><br/> 
+              
+              <b>Q4.</b> 
+              Value of time period depends on mass. <br> 
+              <input type="radio" name="q4" id="q4" value="1"> 
+                <font color="green"> True </font> <br> 
+              <input type="radio" name="q4" id="q4" value="0">
+                <font color="red"> False </font> <br/><br/> 
+              
+              <b>Q5.</b> 
+              Value of time period depends on length of the 
+              oscillator. <br> 
+              <input type="radio" name="q5" id="q5" value="1"> 
+                <font color="green"> True </font> <br> 
+              <input type="radio" name="q5" id="q5"value="0">
+                <font color="red"> False </font> <br/><br/> 
+              <input type="submit" value="Submit Answers" 
+                class="button" />
+            </p>
+
+          </div>
+
+        </section>
+
+        <section id="experiment-article-section-7">
+	  
+          <div id="experiment-article-section-7-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab. -->
+	    <img src="../images/procedure.jpg" />
+	  </div>
+	
+          <div id="experiment-article-section-7-heading" 
+          class="heading">
+	    Procedure
+	  </div>
+	
+          <div id="experiment-article-section-7-content" 
+		  class="content">
+		  <p>
+		  Procedure for the experiment is as follows.
+		  <ol>
+			  <li> Write the code for the problem or upload a solution. </li>
+			  <li> Press the i button get info about the problem which you have to solve.</li>
+			  <li> If you are finding it difficult to solve the solution, then you can use the 4 levels of incresingly descriptive hints, but try to use minimum number of hints.</li>
+			  <li> Compile the code by pressing the compile button. </li>
+			  <li> If code is not compling then correct the error and/or warnings. </li>
+			  <li> To execute the code and see output, press the execute button. </li>
+		  </ol>
+
+		  </p>
+	  </div>
+	
+        </section>
+			
+		
+        <section id="experiment-article-section-8">
+   
+          <div id="experiment-article-section-8-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab.-->
+	    <img src="../images/readings.jpg" />
+	  </div>
+
+          <div id="experiment-article-section-8-heading" 
+          class="heading">
+            Further Readings
+          </div>
+
+          <div id="experiment-article-section-8-content" 
+          class="content">
+            <ul>	
+              <li>
+                <a href="http://en.wikipedia.org/wiki/
+                Simple_harmonic_motion">http://en.wikipedia.org/wiki/Simple_harmonic_motion</a>
+              </li>
+              <li>
+                <a href="http://www.physics.uoguelph.ca/
+                tutorials/shm/Q.shm.html">http://www.physics.uoguelph.ca/tutorials/shm/Q.shm.html</a>
+              </li> 
+              <li>
+                Dynamics of structures by Anil K chopra. 
+              </li> 
+              <li>
+                <a href="http://surendranath.tripod.com/Applets/
+                Oscillations/SHM/SHMApplet.html">http://surendranath.tripod.com/Applets/Oscillations/SHM/SHMApplet.html</a> 
+              </li>
+            </ul>
+          </div>
+
+        </section>
+
+      </div>
+
+
+    <!-- An article can have a sidebar that contain related 
+    links and additional material (however it is kept optional 
+    at this moment) -->
+    <aside id="lab-article-sidebar" class="default">
+      <!-- put the content that you want to appear in the 
+      sidebar -->	
+    </aside>
+
+
+    <!-- Article footer can display related content and 
+    additional links -->						
+    <footer id="lab-article-footer" class="default">
+      <!-- Put the content that you want to appear here -->
+    </footer>
+
+  </article>
+
+
+  <!-- Links to other labs, about us page can be kept the lab 
+  footer-->
+  <footer id="lab-footer" class="default">
+    <!-- Put the content here-->
+  </footer>
+
+</div>		
+
+</body>
+</html>

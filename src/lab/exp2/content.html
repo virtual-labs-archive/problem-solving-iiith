@@ -28,7 +28,7 @@ edit -->
       <!-- Write the name of your lab and link it to the home 
       page of your lab (h1 tag is preferred while writing your 
       lab name)-->
-      <a href="../index.html">Problem Solving Lab</a>	
+      <a href="../index.html">Physics Lab</a>	
     </div>
 
     <!-- Add any additional element you want to add to the lab 
@@ -50,8 +50,8 @@ edit -->
     
       <header id="experiment-article-heading" class="heading">
         <!-- You can add a welcome message or title of the 
-	experiment here -->
-	Beauty of Numbers
+        experiment here -->
+        Simple Pendulum
         <!-- Add any additional element if required with proper 
         enclosing-->
       </header>
@@ -91,45 +91,46 @@ edit -->
           element, You can also include images with <img> tag -->
           <div id="experiment-article-section-1-content" 
 		  class="content">	
-		  <p>
-		  Many students in some class or either might have been interested in Number theory as it is so much fun in solving those riddles.Here we present two problems to refresh your skills. Hope you will love them. And the difference is that you may not have learnt computer programming back then, but now you know some computer programming. So you can use the computer to program the task. 
+		  ny students in some class or either might have been interested in Number theory as it is
+		  so much fun in solving those riddles.Here we present two problems to refresh your skills.
+		  Hope you will love them.And yea the difference is that you may not have learnt computer programming
+		  back then but you know some computer programming now  so you can use the computer :) and program the task. 
 		  </p>
 		  <br>
-		  <ol>
 			  <h2>Problem 1:</h2>
+			  <p> 
+			  A number is called perfect, if the sum of all its proper divisors is the number itself. Write a program to test, whether a given number is perfect or not. The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors and 1 + 2 + 3 = 6.
+			  </p>
+			  <br><hr />
+			  <b>Input Specification</b><br />
+			  <p>
+			  Input contains a single positive integer(&lt 10<sup>10</sup>). Use long long for the number.
+			  </p>
+			  <br><hr />
+			  <b>Output Specification</b><br />
+			  <p>
+			  Output "YES" or "NO" (quotes for clarity) corresponding to whether the number in input is perfect or not.
+			  </p>
+			  <br><hr />
+			  <b>Sample Input and Output</b><br />
+			  <br><hr />
+			  Input: 28<br>
+			  Output: YES<br>
+			  Input: 16<br>
+			  Output: NO<br>
+			  <br>
 
-			 <p>
-			 A number is called perfect, if the sum of all its proper divisors is the number itself. Write a program to test, whether a given number is perfect or not. The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors and 1 + 2 + 3 = 6.
-			 </p>
-			 <br><hr />
-			 <b>Input Specification</b><br />
-			 <p>
-			 Input contains a single positive integer(&lt 10<sup>10</sup>). Use long long for the number.
-			 </p>
-			 <br><hr />
-			 <b>Output Specification</b><br />
-			 <p>
-			 Output "YES" or "NO" (quotes for clarity) corresponding to whether the number in input is perfect or not.
-			 </p>
-			 <br><hr />
-			 <b>Sample Input and Output</b><br />
-			 <br><hr />
-			 Input: 28<br>
-			 Output: YES<br>
-			 Input: 16<br>
-			 Output: NO<br>
-			 <br>
 
 			  <h2>Problem 2:</h2>
-			  <p>
-			  Interestingly, every positive rational number can be expressed in the form q + 1/E. where q is a non-negative integer and E is either the number 1 or an expression of the same form as above. We call such an expression a continued fraction. For eg., 239/51 is equivalent to 239/51 = 4 + 1/(1+(1/2+(1/(5+1/(2+(1/1)))))) Write a program which takes two integers (eg. 239 and 51) and output a set of integers (eg. 4 1 2 5 2 ) which are the sequence of q's until E becomes 1. For another example for 27 and 10 Output 2 1 2 2.
+			  <p> 
+			  Interestingly, every positive rational number can be expressed in the form q + 1/E. where q is a non-negative integer and E is either the number 1 or an expression of the same form as above. We call such an expression a continued fraction. For eg., 239/51 is equivalent to 239/51 = 4 + 1/(1+(1/2+(1/(5+1/(2+(1/1)))))) Write a program which takes two integers (eg. 239 and 51) and output a set of integers (eg. 4 1 2 5 2 ) which are the sequence of q's until E becomes 1. For another example for 27 and 10 Output 2 1 2 2. 
 			  </p>
 			  <br><hr />
 			  <b>Input Specification</b><br />
 			  <p>
 			  Input contains 2 positive integers separated by a space.
 			  </p>
-			  <br><hr />
+			  <br><hr />    
 			  <b>Output Specification</b><br />
 			  <p>
 			  Output a set of  integers which are the sequence of q's until E becomes 1, the set of integers
@@ -144,7 +145,12 @@ edit -->
 
 			  <br><hr />
 
-        </div>
+
+
+
+
+
+		</div>
 
 
       </section>
@@ -170,6 +176,10 @@ edit -->
         element, we can also include images with <img> tag -->
         <div id="experiment-article-section-2-content" 
         class="content">
+
+
+
+
 	<h2>Problem 1</h2>
 	<p>
 	P is divisor of Q, if dividing Q by P does not leave any remainder. A number, N, is called a perfect number, if the sum of all such divisors of N(not including N) is equal to N. 6 is the smallest perfect number. It's factors are 1,2,3 and their sum is 1+2+3=6. So, to check whether a number, say N, is perfect or not, it is required to find all the divisors of that number. The easiest way to do this is to check every number form 2 to N-1 if it is dividing N completely or not, and take the sum of all the divisor. While this may work well for small numbers, it would be very time consuming for large numbers.
@@ -199,7 +209,6 @@ edit -->
 	</p>
 	<br>
 
-
 	<h2>Problem 2</h2>
 	<p>
 	Consider the fraction A/B. We use two variables A,B to represent a fraction. Lets see how can we solve the
@@ -211,74 +220,84 @@ edit -->
 	It is recommended to use while loop and handle the termination case properly while coding.
 	</p>
 
-</div>
-</section>
 
 
-<section id="experiment-article-section-3">
 
-<div id="experiment-article-section-3-icon" 
-class="icon">
-  <!-- Enclose the icon image of your lab. -->
-  <img src="../images/objective.jpg" />
-</div>
 
-<div id="experiment-article-section-3-heading" 
-class="heading">
-  Objective
-</div>
+        </div>
+      </section>
 
-<div id="experiment-article-section-3-content" 
-	class="content">
+
+      <section id="experiment-article-section-3">
+        
+        <div id="experiment-article-section-3-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab. -->
+	  <img src="../images/objective.jpg" />
+	</div>
+     
+        <div id="experiment-article-section-3-heading" 
+        class="heading">
+          Objective
+        </div>
+
+        <div id="experiment-article-section-3-content" 
+        class="content">
+
 	<p>
 	To learn to solve problems related to Number Theory using Computer Programming.
 	</p>
-</div>
 
-</section>
+        </div>
+
+      </section>
 
 
-<section id="experiment-article-section-4">
+      <section id="experiment-article-section-4">
 
-<div id="experiment-article-section-4-icon" 
-class="icon">
-  <!-- Enclose the icon image of your lab.-->
-  <img src="../images/simulation.jpg" />
-</div>
+        <div id="experiment-article-section-4-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab.-->
+	  <img src="../images/simulation.jpg" />
+	</div>
 
-<div id="experiment-article-section-4-heading" 
-class="heading">
-  Experiment
-</div>
+        <div id="experiment-article-section-4-heading" 
+        class="heading">
+          Experiment
+        </div>
 
-<div id="experiment-article-section-4-content" 
-class="content">
-	<p>
-        <a href="lab.html" target="_blank">Go to Lab (Click here)</a>
-  </p>
-</div>
+        <div id="experiment-article-section-4-content" 
+        class="content">
+          <p>
+	        
+ <a href="lab.html" target="_blank">Go to Lab (Click here)</a>
 
-</section>
+          </p>
+        </div>
 
-<section id="experiment-article-section-5">
-<div id="experiment-article-section-5-icon" 
-class="icon">
-  <!-- Enclose the icon image of your lab.-->
-  <img src="../images/manual.jpg" />
-</div>
+      </section>
 
-<div id="experiment-article-section-5-heading" 
-	class="heading">
-	Manual
-</div>
+      <section id="experiment-article-section-5">
+   
+        <div id="experiment-article-section-5-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab.-->
+	  <img src="../images/manual.jpg" />
+	</div>
 
-<div id="experiment-article-section-5-content" 
-	class="content">
+        <div id="experiment-article-section-5-heading" 
+        class="heading">
+          Manual
+        </div>
+
+        <div id="experiment-article-section-5-content" 
+        class="content">
 	<p> 
-	For each problem you have to write a program in C or C++. Each question is evaluted on test cases. An answer is correct only when all the test cases are cleared. 
-	</p> 
-</div>
-</section>
+	        For each problem you have to write a program in C or C++. Each question is evaluted on test cases. An answer is correct only when all the test cases are cleared. 
+          </p> 
+          </div>
+
+        </section>
 
         <section id="experiment-article-section-6">
       
@@ -296,8 +315,49 @@ class="icon">
           <div id="experiment-article-section-6-content" 
           class="content">
             
-	  <p>
-	  Quiz questions            
+            <p>
+              
+              <b>Q1.</b> 
+              Time taken for one complete oscillation 
+              is called Time Period of the oscillator. <br> 
+              <input type="radio" name="q1" id="q1" value="1"> 
+                <font color="green"> True </font> <br> 
+              <input type="radio" name="q1" id="q1" value="0">
+                <font color="red"> False </font> <br/><br/> 
+              
+              <b>Q2.</b> 
+              Time period of the oscillator is constant for 
+              given values of mass, length and initial 
+              conditions.<br> 
+              <input type="radio" name="q2" id="q2" value="1"> 
+                <font color="green"> True </font> <br> 
+              <input type="radio" name="q2" id="q2"value="0">
+                <font color="red"> False </font> <br/><br/> 
+              
+              <b>Q3.</b> 
+              Value of Time period depends on initial 
+              conditions. <br> 
+              <input type="radio" name="q3" id="q3" value="1"> 
+                <font color="green"> True </font> <br> 
+              <input type="radio" name="q3" id="q3"value="0">
+                <font color="red"> False </font> <br/><br/> 
+              
+              <b>Q4.</b> 
+              Value of time period depends on mass. <br> 
+              <input type="radio" name="q4" id="q4" value="1"> 
+                <font color="green"> True </font> <br> 
+              <input type="radio" name="q4" id="q4" value="0">
+                <font color="red"> False </font> <br/><br/> 
+              
+              <b>Q5.</b> 
+              Value of time period depends on length of the 
+              oscillator. <br> 
+              <input type="radio" name="q5" id="q5" value="1"> 
+                <font color="green"> True </font> <br> 
+              <input type="radio" name="q5" id="q5"value="0">
+                <font color="red"> False </font> <br/><br/> 
+              <input type="submit" value="Submit Answers" 
+                class="button" />
             </p>
 
           </div>
@@ -318,18 +378,19 @@ class="icon">
 	  </div>
 	
           <div id="experiment-article-section-7-content" 
-          class="content">
-	    <p>
-	      Procedure for the experiment is as follows.
-	<ol>
-		<li> Write the code for the problem or upload a solution. </li>
-		<li> Press the 'i' button get info about the problem which you have to solve.</li>
-		<li> If you are finding it difficult to solve the solution, then you can use the 4 levels of incresingly descriptive hints, but try to use minimum number of hints.</li>
-		<li> Compile the code by pressing the compile button. </li>
-		<li> If code is not compling then correct the error and/or warnings. </li>
-		<li> To execute the code and see output, press the execute button. </li>
-	</ol>
-	    </p>
+		  class="content">
+		  <p>
+		  Procedure for the experiment is as follows.
+		  <ol>
+			  <li> Write the code for the problem or upload a solution. </li>
+			  <li> Press the i button get info about the problem which you have to solve.</li>
+			  <li> If you are finding it difficult to solve the solution, then you can use the 4 levels of incresingly descriptive hints, but try to use minimum number of hints.</li>
+			  <li> Compile the code by pressing the compile button. </li>
+			  <li> If code is not compling then correct the error and/or warnings. </li>
+			  <li> To execute the code and see output, press the execute button. </li>
+		  </ol>
+
+		  </p>
 	  </div>
 	
         </section>
@@ -358,6 +419,9 @@ class="icon">
               <li>
                 <a href="http://www.physics.uoguelph.ca/
                 tutorials/shm/Q.shm.html">http://www.physics.uoguelph.ca/tutorials/shm/Q.shm.html</a>
+              </li> 
+              <li>
+                Dynamics of structures by Anil K chopra. 
               </li> 
               <li>
                 <a href="http://surendranath.tripod.com/Applets/
