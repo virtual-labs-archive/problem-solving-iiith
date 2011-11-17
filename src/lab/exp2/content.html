@@ -1,122 +1,402 @@
+<!-- This file needs to be edited by the lab developer to suit
+the requirements of their lab in particular.-->
+
+<!-- Add class="default" to include any element as it is
+specified in default.html. 
+Do not include class="default" to the elements that you want to
+edit -->
+
 <!DOCTYPE html>
+<html>
 <head></head>
-<h1 id="main-title">
-Beauty of Numbers 
-</h1>
+<body>
 
-<div id="introduction"> 
-<h2>Introduction </h2> 
-<p> 
-Many students in some class or either might have been interested in Number theory as it is
-so much fun in solving those riddles.Here we present two problems to refresh your skills.
-Hope you will love them.And yea the difference is that you may not have learnt computer programming
-back then but you know some computer programming now  so you can use the computer :) and program the task. 
-</p>
-<br>
-<ol>
-<li><h2>Problem 1:</h2>
-<p> 
-A number is called perfect, if the sum of all its proper divisors is the number itself. Write a program to test, whether a given number is perfect or not. The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors and 1 + 2 + 3 = 6.
-</p>
-<br><hr />
-<b>Input Specification</b><br />
-<p>
-Input contains a single positive integer(&lt 10<sup>10</sup>). Use long long for the number.
-</p>
-<br><hr />
-<b>Output Specification</b><br />
-<p>
-Output "YES" or "NO" (quotes for clarity) corresponding to whether the number in input is perfect or not.
-</p>
-<br><hr />
-<b>Sample Input and Output</b><br />
-<br><hr />
-Input: 28<br>
-Output: YES<br>
-Input: 16<br>
-Output: NO<br>
-<br>
-</li>
+<div id="experiment"> <!-- The Experiment Document Container-->
 
-<li><h2>Problem 2:</h2>
-<p> 
-Interestingly, every positive rational number can be expressed in the form q + 1/E. where q is a non-negative integer and E is either the number 1 or an expression of the same form as above. We call such an expression a continued fraction. For eg., 239/51 is equivalent to 239/51 = 4 + 1/(1+(1/2+(1/(5+1/(2+(1/1)))))) Write a program which takes two integers (eg. 239 and 51) and output a set of integers (eg. 4 1 2 5 2 ) which are the sequence of q's until E becomes 1. For another example for 27 and 10 Output 2 1 2 2.
-</p>
-<br><hr />
-<b>Input Specification</b><br />
-<p>
-Input contains 2 positive integers separated by a space.
-</p>
-<br><hr />						
-<b>Output Specification</b><br />
-<p>
-Output a set of  integers which are the sequence of q's until E becomes 1, the set of integers
-must be  separated by spaces.
-</p>
-<br><hr />
-<b>Sample Input and Output</b><br />
-Input: 239 51 <br />
-Output: 4 1 2 5 2<br />
-Input: 27 10<br />
-Output: 2 1 2 2<br/>
+  <!-- The lab Header contains the logo and the name of the lab,
+  usually displayed on the top of the page-->
 
-<br><hr />
-</li>
-</div> 
+  <header id="experiment-header" class="default">
+  
+    <div id="experiment-header-logo" class="logo">
+      <!-- Enclose the logo image of your lab or write it in 
+      text-->
+      <img src="../images/logo.jpg" />
+    </div>
 
-<div id="theory"> 
-<h2>Theory</h2> 
-<h2>Problem 1</h2>
-<p>
-P is divisor of Q, if dividing Q by P does not leave any remainder. A number, N, is called a perfect number, if the sum of all such divisors of N(not including N) is equal to N. 6 is the smallest perfect number. It's factors are 1,2,3 and their sum is 1+2+3=6. So, to check whether a number, say N, is perfect or not, it is required to find all the divisors of that number. The easiest way to do this is to check every number form 2 to N-1 if it is dividing N completely or not, and take the sum of all the divisor. While this may work well for small numbers, it would be very time consuming for large numbers.
-</p>
-<p>
-A better solutin can be built by observing that many numbers can easily be ruled out as not divisors. For instance, all the numbers between N/2 and N cannot be divisors. Similarly, all numbers between N/2 and N/3 cannot be divisors of N, and so on. So, at each step we can check two numbers to be divisors of N and at the same time we can eliminate a fraction of the numbers less than N as not divisors and putting an upper bound on the next biggest possible divisor. Lets apply this tactic to find the divisors of 60.
-</p>
-<p>
-60 divided by 2 gives 30 as the quotient and 0 as the remainder. So, 2 and 30 are divisors and there are no other divisors greater than 30. SUM=32+1=33 <br>
-60 divided by 3 gives 20 as the quotient and 0 as the remainder. So, 3 and 20 are divisors and there are no other divisors greater than 20. SUM=33+23=46<br>
-60 divided by 4 gives 15 as the quotient and 0 as the remainder. So, 4 and 15 are divisors and there are no other divisors greater than 15. SUM=46+19=65<br>
-60 divided by 5 gives 12 as the quotient and 0 as the remainder. So, 5 and 12 are divisors and there are no other divisors greater than 12. SUM=65+17=82<br>
-60 divided by 6 gives 10 as the quotient and 0 as the remainder. So, 6 and 10 are divisors and there are no other divisors greater than 10. SUM=82+16=98<br>
-60 divided by 7 gives 8 as the quotient and 4 as the remainder. So, 7 is not a divisor and there are no other divisors greater than or equal to 8.<br>
-</p>
-<p>
-Now, we see that there is no need to see any more divisors. The divisors of 60 are 2,30,3,20,4,15,5,12,6 and 10. And their sum is 97. So, 60 is not a perfect number. Lets try this procedure on 28 which is the next prefect number after 6.
-</p>
-<p>
-28 divided by 2 gives 14 as the quotient and 0 as the remainder. So, 2 and 14 are divisors and there are no other divisors greater than 14. SUM=1+16=17<br>
-28 divided by 3 gives 9 as the quotient and 2 as the remainder. So, 3 is not a divisor and there are no other divisors greater than or equal to 9. SUM=17<br>
-28 divided by 4 gives 7 as the quotient and 0 as the remainder. So, 4 and 7 are divisors and there are no other divisors greater than 7. SUM=17+11=28<br>
-28 divided by 5 gives 5 as the quotient and 3 as the remainder. So, 5 is not a divisor and there are no other divisors greater than 5. SUM=28<br>
-</p>
-<p>
-We need not check any more numbers. The SUM is 28, and hence, 28 is a perfect number.
-</p>
-<br>
+    <div id="experiment-header-heading" class="heading">
+      <!-- Write the name of your lab and link it to the home 
+      page of your lab (h1 tag is preferred while writing your 
+      lab name)-->
+      <a href="../index.html">Problem Solving Lab</a>	
+    </div>
 
-<h2>Problem 2</h2>
-<p>
-Consider the fraction A/B. We use two variables A,B to represent a fraction. Lets see how can we solve the
-problem. A/B = q + 1/E. How can we find q,E given A,B such that E&gt1. From math basics any fraction can be
-expressed A/B = step(A/B) + frac(A/B). frac(A/B)&lt 1 so 1/frac(A/B) &gt 1. Thus we shall choose q as step(A/B)
-and E as 1/frac(A/B). Now we shall see programatically how can we represent and E as we need to do the same
-operation on E. Obviosuly  from the above equation E = B/(A-B*q)  which means E is also a fraction. Thus
-we express E in terms of some (x,y) where x = B and y = A-B*q and do the same operation as we have done on (A,B).
-It is recommended to use while loop and handle the termination case properly while coding.
-</p>					
-</div> 
+    <!-- Add any additional element you want to add to the lab 
+    header, For example : Help (Enclosing them with suitable 
+    div is recommended)-->
 
-<div id="Lab">
-        <h2>Lab</h2>
-        <h3>Manual</h3>
-        <ol>
-        <li> Write the code for the problem or upload a solution. </li>
-        <li> Press the i button get info about the problem which you have to solve.</li>
-        <li> If you are finding it difficult to solve the solution, then you can use the 4 levels of incresingly descriptive hints, but try to use minimum number of hints.</li>
-        <li> Compile the code by pressing the compile button. </li>
-        <li> If code is not compling then correct the error and/or warnings. </li>
-	<li> To execute the code and see output, press the execute button. </li>
-	</ol>
-        <a href="lab.html" target="_blank">Go to Lab (Click here)</a>
+  </header>
+
+
+  <!-- The lab article is the main content area where all the 
+  experiment content sits-->
+  <article id="experiment-article">
+  
+    <!-- The lab article has an header, optional navigational 
+    menu, number of sections, an optional sidebar and a closing 
+    footer-->
+     <div id="experiment-article-breadcrumb" class="breadcrumb">
+     </div>
+    
+      <header id="experiment-article-heading" class="heading">
+        <!-- You can add a welcome message or title of the 
+	experiment here -->
+	Beauty of Numbers
+        <!-- Add any additional element if required with proper 
+        enclosing-->
+      </header>
+
+      <!-- Navigation menu is useful to organize the view of 
+      multiple sections inside the article-->
+      <nav id="experiment-article-navigation" class="default">
+        <ul id="experiment-article-navigation-menu">
+          <!-- The menu can be dynamically generated to contain 
+          the headings of your sections or instead write the 
+          menu items of your choice individually enclosedu in 
+          <li> tag as shown below-->
+        </ul>
+      </nav>
+
+      <!-- All the sections of your lab or experiment can be 
+      enclosed together with a div element as shown below-->
+      <div id="experiment-article-sections">
+
+        <!-- First section of the article-->
+        <section id="experiment-article-section-1">
+          
+          <div id="experiment-article-section-1-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab -->
+	    <img src="../images/introduction.jpg" />
+	  </div>	
+          
+          <!-- The heading for the section can be enclosed in a 
+          div tag. -->
+          <div id="experiment-article-section-1-heading" 
+          class="heading">
+            Introduction
+          </div>
+
+          <!-- Write the section content inside a paragraph 
+          element, You can also include images with <img> tag -->
+          <div id="experiment-article-section-1-content" 
+		  class="content">	
+		  <p>
+		  Many students in some class or either might have been interested in Number theory as it is so much fun in solving those riddles.Here we present two problems to refresh your skills. Hope you will love them. And the difference is that you may not have learnt computer programming back then, but now you know some computer programming. So you can use the computer to program the task. 
+		  </p>
+		  <br>
+		  <ol>
+			  <h2>Problem 1:</h2>
+
+			 <p>
+			 A number is called perfect, if the sum of all its proper divisors is the number itself. Write a program to test, whether a given number is perfect or not. The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors and 1 + 2 + 3 = 6.
+			 </p>
+			 <br><hr />
+			 <b>Input Specification</b><br />
+			 <p>
+			 Input contains a single positive integer(&lt 10<sup>10</sup>). Use long long for the number.
+			 </p>
+			 <br><hr />
+			 <b>Output Specification</b><br />
+			 <p>
+			 Output "YES" or "NO" (quotes for clarity) corresponding to whether the number in input is perfect or not.
+			 </p>
+			 <br><hr />
+			 <b>Sample Input and Output</b><br />
+			 <br><hr />
+			 Input: 28<br>
+			 Output: YES<br>
+			 Input: 16<br>
+			 Output: NO<br>
+			 <br>
+
+			  <h2>Problem 2:</h2>
+			  <li><h2>Problem 2:</h2>
+			  <p>
+			  Interestingly, every positive rational number can be expressed in the form q + 1/E. where q is a non-negative integer and E is either the number 1 or an expression of the same form as above. We call such an expression a continued fraction. For eg., 239/51 is equivalent to 239/51 = 4 + 1/(1+(1/2+(1/(5+1/(2+(1/1)))))) Write a program which takes two integers (eg. 239 and 51) and output a set of integers (eg. 4 1 2 5 2 ) which are the sequence of q's until E becomes 1. For another example for 27 and 10 Output 2 1 2 2.
+			  </p>
+			  <br><hr />
+			  <b>Input Specification</b><br />
+			  <p>
+			  Input contains 2 positive integers separated by a space.
+			  </p>
+			  <br><hr />
+			  <b>Output Specification</b><br />
+			  <p>
+			  Output a set of  integers which are the sequence of q's until E becomes 1, the set of integers
+			  must be  separated by spaces.
+			  </p>
+			  <br><hr />
+			  <b>Sample Input and Output</b><br />
+			  Input: 239 51 <br />
+			  Output: 4 1 2 5 2<br />
+			  Input: 27 10<br />
+			  Output: 2 1 2 2<br/>
+
+			  <br><hr />
+
+        </div>
+
+
+      </section>
+
+      <!-- Second section of the article-->
+      <section id="experiment-article-section-2">
+        
+        <div id="experiment-article-section-2-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab. -->
+	  <img src="../images/theory.jpg" />
+	</div>
+				
+        <!-- The heading for the section can be enclosed in a 
+        div tag. -->
+        <div id="experiment-article-section-2-heading" 
+        class="heading">
+          Theory
+        </div>
+
+
+        <!-- Write the section content inside a paragraph 
+        element, we can also include images with <img> tag -->
+        <div id="experiment-article-section-2-content" 
+        class="content">
+	<h2>Problem 1</h2>
+	<p>
+	P is divisor of Q, if dividing Q by P does not leave any remainder. A number, N, is called a perfect number, if the sum of all such divisors of N(not including N) is equal to N. 6 is the smallest perfect number. It's factors are 1,2,3 and their sum is 1+2+3=6. So, to check whether a number, say N, is perfect or not, it is required to find all the divisors of that number. The easiest way to do this is to check every number form 2 to N-1 if it is dividing N completely or not, and take the sum of all the divisor. While this may work well for small numbers, it would be very time consuming for large numbers.
+	</p>
+	<p>
+	A better solutin can be built by observing that many numbers can easily be ruled out as not divisors. For instance, all the numbers between N/2 and N cannot be divisors. Similarly, all numbers between N/2 and N/3 cannot be divisors of N, and so on. So, at each step we can check two numbers to be divisors of N and at the same time we can eliminate a fraction of the numbers less than N as not divisors and putting an upper bound on the next biggest possible divisor. Lets apply this tactic to find the divisors of 60.
+	</p>
+	<p>
+	60 divided by 2 gives 30 as the quotient and 0 as the remainder. So, 2 and 30 are divisors and there are no other divisors greater than 30. SUM=32+1=33 <br>
+	60 divided by 3 gives 20 as the quotient and 0 as the remainder. So, 3 and 20 are divisors and there are no other divisors greater than 20. SUM=33+23=46<br>
+	60 divided by 4 gives 15 as the quotient and 0 as the remainder. So, 4 and 15 are divisors and there are no other divisors greater than 15. SUM=46+19=65<br>
+	60 divided by 5 gives 12 as the quotient and 0 as the remainder. So, 5 and 12 are divisors and there are no other divisors greater than 12. SUM=65+17=82<br>
+	60 divided by 6 gives 10 as the quotient and 0 as the remainder. So, 6 and 10 are divisors and there are no other divisors greater than 10. SUM=82+16=98<br>
+	60 divided by 7 gives 8 as the quotient and 4 as the remainder. So, 7 is not a divisor and there are no other divisors greater than or equal to 8.<br>
+	</p>
+	<p>
+	Now, we see that there is no need to see any more divisors. The divisors of 60 are 2,30,3,20,4,15,5,12,6 and 10. And their sum is 97. So, 60 is not a perfect number. Lets try this procedure on 28 which is the next prefect number after 6.
+	</p>
+	<p>
+	28 divided by 2 gives 14 as the quotient and 0 as the remainder. So, 2 and 14 are divisors and there are no other divisors greater than 14. SUM=1+16=17<br>
+	28 divided by 3 gives 9 as the quotient and 2 as the remainder. So, 3 is not a divisor and there are no other divisors greater than or equal to 9. SUM=17<br>
+	28 divided by 4 gives 7 as the quotient and 0 as the remainder. So, 4 and 7 are divisors and there are no other divisors greater than 7. SUM=17+11=28<br>
+	28 divided by 5 gives 5 as the quotient and 3 as the remainder. So, 5 is not a divisor and there are no other divisors greater than 5. SUM=28<br>
+	</p>
+	<p>
+	We need not check any more numbers. The SUM is 28, and hence, 28 is a perfect number.
+	</p>
+	<br>
+
+
+	<h2>Problem 2</h2>
+	<p>
+	Consider the fraction A/B. We use two variables A,B to represent a fraction. Lets see how can we solve the
+	problem. A/B = q + 1/E. How can we find q,E given A,B such that E&gt1. From math basics any fraction can be
+	expressed A/B = step(A/B) + frac(A/B). frac(A/B)&lt 1 so 1/frac(A/B) &gt 1. Thus we shall choose q as step(A/B)
+	and E as 1/frac(A/B). Now we shall see programatically how can we represent and E as we need to do the same
+	operation on E. Obviosuly  from the above equation E = B/(A-B*q)  which means E is also a fraction. Thus
+	we express E in terms of some (x,y) where x = B and y = A-B*q and do the same operation as we have done on (A,B).
+	It is recommended to use while loop and handle the termination case properly while coding.
+	</p>
+
 </div>
+</section>
+
+
+<section id="experiment-article-section-3">
+
+<div id="experiment-article-section-3-icon" 
+class="icon">
+  <!-- Enclose the icon image of your lab. -->
+  <img src="../images/objective.jpg" />
+</div>
+
+<div id="experiment-article-section-3-heading" 
+class="heading">
+  Objective
+</div>
+
+<div id="experiment-article-section-3-content" 
+	class="content">
+	<p>
+	To learn to solve problems related to Number Theory using Computer Programming.
+	</p>
+</div>
+
+</section>
+
+
+<section id="experiment-article-section-4">
+
+<div id="experiment-article-section-4-icon" 
+class="icon">
+  <!-- Enclose the icon image of your lab.-->
+  <img src="../images/simulation.jpg" />
+</div>
+
+<div id="experiment-article-section-4-heading" 
+class="heading">
+  Experiment
+</div>
+
+<div id="experiment-article-section-4-content" 
+class="content">
+	<p>
+        <a href="lab.html" target="_blank">Go to Lab (Click here)</a>
+  </p>
+</div>
+
+</section>
+
+<section id="experiment-article-section-5">
+<div id="experiment-article-section-5-icon" 
+class="icon">
+  <!-- Enclose the icon image of your lab.-->
+  <img src="../images/manual.jpg" />
+</div>
+
+<div id="experiment-article-section-5-heading" 
+	class="heading">
+	Manual
+</div>
+
+<div id="experiment-article-section-5-content" 
+	class="content">
+	<p> 
+	For each problem you have to write a program in C or C++. Each question is evaluted on test cases. An answer is correct only when all the test cases are cleared. 
+	</p> 
+</div>
+</section>
+
+        <section id="experiment-article-section-6">
+      
+          <div id="experiment-article-section-6-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab.-->
+	    <img src="../images/quizzes.jpg" />
+	  </div>
+
+          <div id="experiment-article-section-6-heading" 
+          class="heading">
+            Quizzes
+          </div>
+
+          <div id="experiment-article-section-6-content" 
+          class="content">
+            
+	  <p>
+	  Quiz questions            
+            </p>
+
+          </div>
+
+        </section>
+
+        <section id="experiment-article-section-7">
+	  
+          <div id="experiment-article-section-7-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab. -->
+	    <img src="../images/procedure.jpg" />
+	  </div>
+	
+          <div id="experiment-article-section-7-heading" 
+          class="heading">
+	    Procedure
+	  </div>
+	
+          <div id="experiment-article-section-7-content" 
+          class="content">
+	    <p>
+	      Procedure for the experiment is as follows.
+	<ol>
+		<li> Write the code for the problem or upload a solution. </li>
+		<li> Press the 'i' button get info about the problem which you have to solve.</li>
+		<li> If you are finding it difficult to solve the solution, then you can use the 4 levels of incresingly descriptive hints, but try to use minimum number of hints.</li>
+		<li> Compile the code by pressing the compile button. </li>
+		<li> If code is not compling then correct the error and/or warnings. </li>
+		<li> To execute the code and see output, press the execute button. </li>
+	</ol>
+	    </p>
+	  </div>
+	
+        </section>
+			
+		
+        <section id="experiment-article-section-8">
+   
+          <div id="experiment-article-section-8-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab.-->
+	    <img src="../images/readings.jpg" />
+	  </div>
+
+          <div id="experiment-article-section-8-heading" 
+          class="heading">
+            Further Readings
+          </div>
+
+          <div id="experiment-article-section-8-content" 
+          class="content">
+            <ul>	
+              <li>
+                <a href="http://en.wikipedia.org/wiki/
+                Simple_harmonic_motion">http://en.wikipedia.org/wiki/Simple_harmonic_motion</a>
+              </li>
+              <li>
+                <a href="http://www.physics.uoguelph.ca/
+                tutorials/shm/Q.shm.html">http://www.physics.uoguelph.ca/tutorials/shm/Q.shm.html</a>
+              </li> 
+              <li>
+                <a href="http://surendranath.tripod.com/Applets/
+                Oscillations/SHM/SHMApplet.html">http://surendranath.tripod.com/Applets/Oscillations/SHM/SHMApplet.html</a> 
+              </li>
+            </ul>
+          </div>
+
+        </section>
+
+      </div>
+
+
+    <!-- An article can have a sidebar that contain related 
+    links and additional material (however it is kept optional 
+    at this moment) -->
+    <aside id="lab-article-sidebar" class="default">
+      <!-- put the content that you want to appear in the 
+      sidebar -->	
+    </aside>
+
+
+    <!-- Article footer can display related content and 
+    additional links -->						
+    <footer id="lab-article-footer" class="default">
+      <!-- Put the content that you want to appear here -->
+    </footer>
+
+  </article>
+
+
+  <!-- Links to other labs, about us page can be kept the lab 
+  footer-->
+  <footer id="lab-footer" class="default">
+    <!-- Put the content here-->
+  </footer>
+
+</div>		
+
+</body>
+</html>
