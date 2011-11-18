@@ -5,9 +5,13 @@ from mod_python import util
 from mod_python.util import redirect
 from subprocess import *
 
-PATH = "/home/cse04/public_html/final-build/Exp1/"
-#PATH = "./"
-#PATH = "/var/www/cpVlab2/exp1/"
+fpath=os.path.abspath(__file__)
+sfpath=fpath.split('/')
+PATH=''
+for x in sfpath[0:-1]:
+        PATH=PATH+'/'+x
+PATH=PATH+'/'
+
 
 Language_select_html ={"c":"""<select name="language" id="codeId">
 
