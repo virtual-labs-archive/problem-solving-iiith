@@ -28,7 +28,7 @@ edit -->
       <!-- Write the name of your lab and link it to the home 
       page of your lab (h1 tag is preferred while writing your 
       lab name)-->
-      <a href="../index.html">Physics Lab</a>	
+      <a href="../index.html">Problem Solving Lab</a>	
     </div>
 
     <!-- Add any additional element you want to add to the lab 
@@ -51,7 +51,7 @@ edit -->
       <header id="experiment-article-heading" class="heading">
         <!-- You can add a welcome message or title of the 
         experiment here -->
-        Simple Pendulum
+       String Operations
         <!-- Add any additional element if required with proper 
         enclosing-->
       </header>
@@ -92,6 +92,65 @@ edit -->
           <div id="experiment-article-section-1-content" 
 		  class="content">	
 
+<p> 
+String is traditionally a sequence of characters, either as a literal constant or as some kind of variable. The latter may allow its elements to be mutated and/or the length changed, or it may be fixed (after creation). A string is generally understood as a data type and is often implemented as a byte (or word) array that stores a sequence of elements, typically characters, using some character encoding. A string may also denote more general array data types and/or other sequential data types and structures; terms such as byte string, or more general, string of datatype, or datatype-string, are sometimes used to denote strings in which the stored data does not(necessarily) represent text. 
+</p>
+<br>
+ 
+ <h2>Problem 1:</h2>
+<p> 
+A palindrome is a symmetric character sequence that looks the same when read backwards, i.e. from
+right to left. Interestingly, human being usually discards blank spaces and punctuation marks while
+recognizing a palindromes like: (a) “Madam, I’m Adam.” (b) “Eve.” etc. 
+</p>
+<p>
+Write a program that detects palindromes. Your program should accept a string from the key board and output YES/NO.
+</p>
+<br><hr />
+<p><b>Input Specification</b></p><br />
+<p>
+Input will contain a string S entered  from keyboard, with number of characters less than 1000.
+</p>
+<br><hr />
+<p><b>Output Specification</b></p><br />
+<p>
+Output must be either "YES" or "NO"(quotes for clarity) depending upon whether or not it is a palindrome.
+</p>
+<br><hr />
+<p><b>Sample Input and Output</b></p><br />
+<p>
+Input: Madam, I'm Adam<br />
+Output:YES<br />
+Input: Eve.<br />
+Output: NO<br/>
+</p>
+<br><hr />
+<br>
+ 
+
+ <h2>Problem 2:</h2>
+<p> 
+Given two strings, PRINT (YES or NO) whether the second string can be obtained from the first by deletion of none, one or more characters.
+</p>
+<br><hr />
+<p><b>Input Specification</b></p><br />
+<p>
+Input will contain two strings separated by a space and size of each string is at max 10<sup>7</sup>.
+</p>
+<br><hr />						
+<p><b>Output Specification</b></p><br />
+<p>
+Output must be  either "YES" or "NO" depending on whether 2<sup>nd </sup>string can be obtained from 1<sup>st </sup>string.
+</p>
+<br><hr />
+<p><b>Sample Input and Output</b></p><br />
+<p>
+Input: hyderabad her<br />
+Output: YES<br />
+Input: hyderabad dear<br />
+Output: NO<br/>
+</p>
+<br><hr />
 
 
 
@@ -129,7 +188,50 @@ edit -->
 
 
 
+<h2>Problem 1</h2>
+<p>
+A palindrome is a string which reads same wheter it is read from start to end of from end to the start. In literature, however, even the capitalization of words and punctuations are ignored. So, "Rats live on no evil stars." is also a palindrome. Detection of such palindromes can be done by creating a new string in which all the punctuations have been removed and all the upper case characters have been converted to lower case characters, and then doing a test for plaindome on the new string.
+</p>
+<p>
+Alternatively, one can create two indices and put them at the end and beginning of the string. The index at the beginning moves towards the end and vice versa. If a character at any of the indices is not an alphabet the corresponding indice is moved until an alphabet is encountered. If the alphabet is in Upper case, then it is converted into lower case. Now, the values at the indices are compared and if they are not same then the string is not a palindome. Otherwise, the check is repeated for new values of indices obtained by moving them by suffiecient amount so that an alphabet is encountered. If at any time the indices are coincident or the indices cross each other, then the string is a palindrome.
+</p>
+<br>
 
+<h2>Problem 2</h2>
+<p>
+Inorder to obtain string2 from string1 by deleting 0 or more characters it is fairly obvious that the characters in string2 must appear in the same order as in string1.
+<br>
+<h4> Mathematical formulation </h4>
+Suppose the length of string A is M and string B is N we need to find a N tuple (X[0],X[1],...,X[N-1])
+such that X[i] &lt X[i+1] for 0&lt=i&lt=N-2 and A[X[i]] = B[i] for 0&lt=i&lt=N-1. Why this formulation is correct?
+B[0] occurs at X[0]<br>
+B[1] occurs at X[1]<br>
+..<br>
+..<br>
+..<br>
+B[N-1] occurs at X[N-1]<br>
+</p>
+<p>
+Now, we remove all other characters from A except those which appear at positions indicated by array X. Then we get string B.Thus the problem formulation is correct. The order constraint between X[i]'s is element because we want the characters in B to appear in order in A.
+<br>
+<br>
+<h4> Solution</h4>
+So now once we have stated the problem mathematically we would like to know how can we find
+array X subjected to the constraints mentioned.Lets see how can we find X[0]. You must be apply
+the same logic on how to find other values of array X once you are familier with X[0].
+X[0] has only one constraint to be satisfied which is A[X[0]] = B[0] . There can be many values
+of X[0] which can satisfy the above constraint. So which value should X[0] take?
+<br>
+<br>
+</p>
+<h4> Proofs </h4>
+<p>
+Suppose S is a set of values which X[0] can take. We prove that X[0] should take the minimum value, amongst all the members of set S. If |S|=1 , then it is obviously valid. So, assume |S|&gt=2. We will deal with |S|=0 case later. Lets say X[0] = b and the minimum value of the set S is a i.e a &lt X[0]. Since we have choosen X[0] as b we need to search for B[1] [b+1 m] beacuse B[1]&gt B[0]. It can happen that B[1] is not present in [b+1 m] at all which would imply that string B cannot be a subsequence of string A. But suppose the character is present in [a+1 b] and X[0]=a then it is possible that string B might be a subsequence of string A. Thus, X[0] must take the minimum value of set S i.e the position where first B[0]  is same as chracter of A should be chosen as X[0]. 
+</p>
+<p>
+Now, if X[0] = a, we shall search for X[1] in [a+1,M] and similarly X[2] in [X[1]+1,M]
+and for X[i] in [X[i-1]+1,M].Thus if we can find the array X then we say YES else NO.
+</p>		
 
 
 
@@ -155,7 +257,7 @@ edit -->
         class="content">
 
 	<p>
-	To learn to solve problems related to Number Theory using Computer Programming.
+	To learn to solve problems related to Strings using Computer Programming.
 	</p>
 
         </div>

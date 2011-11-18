@@ -28,7 +28,7 @@ edit -->
       <!-- Write the name of your lab and link it to the home 
       page of your lab (h1 tag is preferred while writing your 
       lab name)-->
-      <a href="../index.html">Physics Lab</a>	
+      <a href="../index.html">Problem Solving Lab</a>	
     </div>
 
     <!-- Add any additional element you want to add to the lab 
@@ -51,7 +51,7 @@ edit -->
       <header id="experiment-article-heading" class="heading">
         <!-- You can add a welcome message or title of the 
         experiment here -->
-        Simple Pendulum
+       Searching and Sorting
         <!-- Add any additional element if required with proper 
         enclosing-->
       </header>
@@ -94,6 +94,64 @@ edit -->
 
 
 
+<p> 
+Searching and Sorting are very important areas in computer science. Efficient sorting algorithms are required for optimizing the use of other algorithms that require sorted lists to work correctly, for example to do binary search sorting is required.We present two problems here based on variant of binary search and sorting. Hope you will appreciate them.
+</p>
+<br>
+ 
+ <h2>Problem 1:</h2>
+<p> 
+You are given some set of numbers. By choosing three numbers we may be able to construct a triangle. In this problem we ask you to find out the number of invalid triangles formed from these set of numbers. The degenerate traiangles are considered to be valid traiangles.
+
+</p>
+<br><hr />
+<p><b>Input Specification</b></p><br />
+<p>
+Input contains N(&lt= 1000), followed by N numbers in the next line.The numbers
+are separated by spaces and each number is &gt 0 and &lt 10<sup>6</sup>.
+</p>
+<br><hr />
+<p><b>Output Specification</b></p><br />
+<p>
+Print the number of invalid traingles that can be formed.
+</p>
+<br><hr />
+<p><b>Sample Input and Output</b></p><br />
+<p>
+Input: 5 <br/>
+1 2 3 4 10<br />
+Output: 7 <br>
+</p>
+<br><hr />
+<br>
+ 
+
+ <h2>Problem 2:</h2>
+<p> 
+Given a String and a character set we need to find out the length of the
+smallest substring which contains all the characters of the set.
+
+</p>
+<br><hr />
+<p><b>Input Specification</b></p><br />
+<p>
+The input contains a string(length&lt=10<sup>5</sup>) made up of small letters from english language followed by number of characters N(&lt 26) and then N chracters in the next line follow separated by spaces.
+</p>
+<br><hr />						
+<p><b>Output Specification</b></p><br />
+<p>
+The output must contain the length of the smallest substring which contains
+all the characters from the character set. If no such substring exists report -1.
+</p>
+<br><hr />
+<p><b>Sample Input and Output</b></p><br />
+<p>
+Input: applelooksred 3 e a p<br />
+Output: 5
+</p>
+<br><hr />
+
+
 
 
 
@@ -129,6 +187,19 @@ edit -->
 
 
 
+<h2>Problem 1</h2>
+<p>
+Consider three numbers from the set say a,b,c. If either a+b&lt c or b+c&lt a or c+a&lt b  then (a,b,c) cannot form a triangle. Lets state the problem little differently for each pair (a,b) we want to find out how many numbers c are there such that a+b &lt c. We consider each pair (a,b) and search for how many numbers are there which are greater than a+b. This can be done easily using binary search. Sort the array and consider the interval (start,end). If arr[mid]&gt a+b then (mid-end+1) numbers are greater than a+b otherwise if arr[mid]&lt a+b then we don't add anything to the result and search in (start,mid-1).
+
+</p>
+
+<br>
+
+<h2>Problem 2</h2>
+<p>
+Consider the given string. We need to find the smallest substring which contains all the characters of the given set. Any substring which qualifies has to end with some  character.For each index in the input string lets find out how much we have to extend from that point to the left so that we get all the characters in the input set. Lets say we are scanning the string from the left and we know the latest occurrences of the characters of input set in the input string, say they are stored in an array by name pos[]. From the i<sup> th</sup> character we need to extend to the minimum value in the pos[] array so that we get all the characters. For each index i we do this and report the minimum length.
+
+</p>			
 
 
 
@@ -155,7 +226,7 @@ edit -->
         class="content">
 
 	<p>
-	To learn to solve problems related to Number Theory using Computer Programming.
+	To learn to solve problems related to Searching and Sorting using Computer Programming.
 	</p>
 
         </div>

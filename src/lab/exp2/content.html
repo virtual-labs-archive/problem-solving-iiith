@@ -73,7 +73,7 @@ edit -->
           element, You can also include images with <img> tag -->
           <div id="experiment-article-section-1-content" 
           class="content">	
-            
+
 <p> 
 Many students in some class or either might have been interested in Number theory as it is
 so much fun in solving those riddles.Here we present two problems to refresh your skills.
@@ -87,22 +87,24 @@ back then but you know some computer programming now  so you can use the compute
 A number is called perfect, if the sum of all its proper divisors is the number itself. Write a program to test, whether a given number is perfect or not. The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors and 1 + 2 + 3 = 6.
 </p>
 <br><hr />
-<b>Input Specification</b><br />
+<p><b>Input Specification</b></p><br />
 <p>
 Input contains a single positive integer(&lt 10<sup>10</sup>). Use long long for the number.
 </p>
 <br><hr />
-<b>Output Specification</b><br />
+<p><b>Output Specification</b></p><br />
 <p>
 Output "YES" or "NO" (quotes for clarity) corresponding to whether the number in input is perfect or not.
 </p>
 <br><hr />
-<b>Sample Input and Output</b><br />
+<p><b>Sample Input and Output</b></p><br />
 <br><hr />
+<p>
 Input: 28<br>
 Output: YES<br>
 Input: 16<br>
 Output: NO<br>
+</p>
 <br>
  
 
@@ -111,25 +113,28 @@ Output: NO<br>
 Interestingly, every positive rational number can be expressed in the form q + 1/E. where q is a non-negative integer and E is either the number 1 or an expression of the same form as above. We call such an expression a continued fraction. For eg., 239/51 is equivalent to 239/51 = 4 + 1/(1+(1/2+(1/(5+1/(2+(1/1)))))) Write a program which takes two integers (eg. 239 and 51) and output a set of integers (eg. 4 1 2 5 2 ) which are the sequence of q's until E becomes 1. For another example for 27 and 10 Output 2 1 2 2.
 </p>
 <br><hr />
-<b>Input Specification</b><br />
+<p><b>Input Specification</b></p><br />
 <p>
 Input contains 2 positive integers separated by a space.
 </p>
 <br><hr />						
-<b>Output Specification</b><br />
+<p><b>Output Specification</b></p><br />
 <p>
 Output a set of  integers which are the sequence of q's until E becomes 1, the set of integers
 must be  separated by spaces.
 </p>
 <br><hr />
-<b>Sample Input and Output</b><br />
+<p><b>Sample Input and Output</b></p><br />
+<p>
 Input: 239 51 <br />
 Output: 4 1 2 5 2<br />
 Input: 27 10<br />
 Output: 2 1 2 2<br/>
-
+</p>
 <br><hr />
 
+
+ 
         </div>
 
 
@@ -152,7 +157,6 @@ Output: 2 1 2 2<br/>
         </div>
        <div id="experiment-article-section-2-content" 
         class="content">
-
 
 
 <h2>Problem 1</h2>
@@ -194,6 +198,10 @@ operation on E. Obviosuly  from the above equation E = B/(A-B*q)  which means E 
 we express E in terms of some (x,y) where x = B and y = A-B*q and do the same operation as we have done on (A,B).
 It is recommended to use while loop and handle the termination case properly while coding.
 </p>					
+
+
+
+
 
 
         </div>

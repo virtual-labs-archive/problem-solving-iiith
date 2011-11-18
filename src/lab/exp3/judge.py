@@ -5,8 +5,13 @@ from mod_python import util
 from mod_python.util import redirect
 from subprocess import *
 
-PATH = "/home/cse04/public_html/final-build/Exp3/"
-#PATH = "/var/www/cpVlab2/exp1/"
+fpath=os.path.abspath(__file__)
+sfpath=fpath.split('/')
+PATH=''
+for x in sfpath[0:-1]:
+        PATH=PATH+'/'+x
+PATH=PATH+'/'
+
 
 Language_select_html ={"c":"""<select name="language" id="codeId">
 
@@ -228,7 +233,6 @@ def index(req):
 	F=open(PATH+"content3_1.html","r");
 	returnValue+=F.read();
 	F.close();
-	
 
 	random.seed(None);
 	i=0;len_string=9;randomstring="";
@@ -236,6 +240,7 @@ def index(req):
 		randomstring+=str(random.randint(0,9));
 		i+=1;
 	submissionName="submission" + randomstring+".html";
+
 	F = open(PATH+submissionName,"w");
 	F.write(returnValue);
 	F.close();

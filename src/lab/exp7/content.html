@@ -28,7 +28,7 @@ edit -->
       <!-- Write the name of your lab and link it to the home 
       page of your lab (h1 tag is preferred while writing your 
       lab name)-->
-      <a href="../index.html">Physics Lab</a>	
+      <a href="../index.html">Problem Solving Lab</a>	
     </div>
 
     <!-- Add any additional element you want to add to the lab 
@@ -51,7 +51,7 @@ edit -->
       <header id="experiment-article-heading" class="heading">
         <!-- You can add a welcome message or title of the 
         experiment here -->
-        Simple Pendulum
+        Advanced Arithmatic
         <!-- Add any additional element if required with proper 
         enclosing-->
       </header>
@@ -94,6 +94,60 @@ edit -->
 
 
 
+<p> 
+Let us consider the task of representing very large numbers in C. As we know we cannot store an intger of maximum value 2<sup>63</sup>-1 and minimum value -2<sup>63 </sup>sing a long long data type in C. But how do we represent numbers which are not in this range, say for example 10<sup>50</sup>.In one of the problems we ask you to do this and explain how it is done usually.
+</p>
+<br>
+ 
+ <h2>Problem 1:</h2>
+<p>
+The task is to accomplish addition of two large positive numbers
+</p>
+<br><hr />
+<p><b>Input Specification</b></p><br />
+<p>
+There will be two positive integers (&lt 10^50) separated by a space.
+</p>
+<br><hr />
+<p><b>Output Specification</b></p><br />
+<p>
+Output must contain a single number representing the sum of the two integers
+</p>
+<br><hr />
+<p><b>Sample Input and Output</b></p><br />
+<p>
+Input: 323289329329392893 3283928392839283928932329<br />
+Output:3283928716128613258325222<br />
+Input: 10 99<br />
+Output: 109<br/>
+</p>
+<br><hr />
+<br>
+ 
+
+ <h2>Problem 2:</h2>
+<p> 
+Find the square root of a positive integer using binary search.
+</p>
+<br><hr />
+<p><b>Input Specification</b></p><br />
+<p>
+Input will contain a single positive integer N input from keyboard, lesser than 10^9.
+</p>
+<br><hr />						
+<p><b>Output Specification</b></p><br />
+<p>
+Print the square root of the number upto 4 decimal places. A difference upto 0.001 from the the judges solution will be accepted as correct.
+</p>
+<br><hr />
+<p><b>Sample Input and Output</b></p><br />
+<p>
+Input: 5<br />
+Output: 2.2361<br />
+Input: 25<br />
+Output: 5.0000<br/>
+</p>
+<br><hr />
 
 
 
@@ -127,6 +181,21 @@ edit -->
         class="content">
 
 
+<h2>Problem 1</h2>
+<p>
+If numbers are to big to fit into standard data types, then we can use strings to store the number. In this case, addition of two number would require doing digit by digit addition along with required carry over getting transferred to the next higher order cell. Lets suppose that the longer of two of the input numbers is of length L. Then the size of the result would be at maximum L+1. Now, for doing addition, you need to place two separate indices at the end of the two numbers annd do an addition of the two digits there. Beware that the two digits are stored in character format, so subtract 10 from each of them before adding them. If this addition results in a number greater than 10, then write down the unit digit of the result in right most cell of the result string and note down the carry forward. If the result of the addition is less than 10 then then no need to worry about the carry forward. Now repeat this process by having moved all the three indices one place to the left, and keep repeating till the longer of the two numbers is traversed. If one of the input number runs out of digits then assume it to be supplying 0. Finally, output the result string on the screen.
+
+</p>
+
+<br>
+
+<h2>Problem 2</h2>
+<p>
+A number x is said to be a square root of N if x*x=N.Thus is it quite obvious that the square root a positive integer &gt 1 lies in between [1 N]. Suppose P is a number such that P*P &gt N then the result must be in the interval [1 P-1] oterwise if P*P &lt N then the result lies in [P+1 N]. We use this idea to find the square root of a positive integer. Suppose we know that the square root lies in between (start,end).If mid = (start+end)/2.0, depending upon the value of mid*mid-N we chose either (mid+1,end) or (start,mid-1) as our next search interval or conclude that mid is the square root of N.While coding do take care of the fact of precision since mid*mid may not be exactly equal N.
+<br>
+<h4>Time complexity</h4>
+If you analyze the number of operations it takes this function to run it is easy to see that it will take logN (logN to base 2) operations. At every step of the search we chose either (start,mid-1) or (mid+1,end) which means the interval size gets reduced by half. Initially the range is N, in the next step it will become N/2, then N/4, and so after x steps the search range will be N/(2^x) which will be 1 when x is logN. So, the number of iterations is log(N).
+</p>		
 
 
 
@@ -155,7 +224,7 @@ edit -->
         class="content">
 
 	<p>
-	To learn to solve problems related to Number Theory using Computer Programming.
+	To learn to solve problems related to Advanced Arithmatic using Computer Programming.
 	</p>
 
         </div>
