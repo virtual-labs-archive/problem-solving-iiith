@@ -20,4 +20,4 @@ def index(req,qNo,hintNo,sid):
                 F.close()
         except:
                 s = 'Failed to load' ;
-return s
+return s;
