@@ -201,6 +201,8 @@ Alternatively, one can create two indices and put them at the end and beginning 
 <p>
 Inorder to obtain string2 from string1 by deleting 0 or more characters it is fairly obvious that the characters in string2 must appear in the same order as in string1.
 <br>
+</p>
+<p>
 <h4> Mathematical formulation </h4>
 Suppose the length of string A is M and string B is N we need to find a N tuple (X[0],X[1],...,X[N-1])
 such that X[i] &lt X[i+1] for 0&lt=i&lt=N-2 and A[X[i]] = B[i] for 0&lt=i&lt=N-1. Why this formulation is correct?
@@ -214,7 +216,9 @@ B[N-1] occurs at X[N-1]<br>
 <p>
 Now, we remove all other characters from A except those which appear at positions indicated by array X. Then we get string B.Thus the problem formulation is correct. The order constraint between X[i]'s is element because we want the characters in B to appear in order in A.
 <br>
+</p>
 <br>
+<p>
 <h4> Solution</h4>
 So now once we have stated the problem mathematically we would like to know how can we find
 array X subjected to the constraints mentioned.Lets see how can we find X[0]. You must be apply
@@ -224,8 +228,9 @@ of X[0] which can satisfy the above constraint. So which value should X[0] take?
 <br>
 <br>
 </p>
-<h4> Proofs </h4>
 <p>
+<h4> Proofs </h4>
+
 Suppose S is a set of values which X[0] can take. We prove that X[0] should take the minimum value, amongst all the members of set S. If |S|=1 , then it is obviously valid. So, assume |S|&gt=2. We will deal with |S|=0 case later. Lets say X[0] = b and the minimum value of the set S is a i.e a &lt X[0]. Since we have choosen X[0] as b we need to search for B[1] [b+1 m] beacuse B[1]&gt B[0]. It can happen that B[1] is not present in [b+1 m] at all which would imply that string B cannot be a subsequence of string A. But suppose the character is present in [a+1 b] and X[0]=a then it is possible that string B might be a subsequence of string A. Thus, X[0] must take the minimum value of set S i.e the position where first B[0]  is same as chracter of A should be chosen as X[0]. 
 </p>
 <p>

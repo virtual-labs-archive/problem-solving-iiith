@@ -193,7 +193,9 @@ If numbers are to big to fit into standard data types, then we can use strings t
 <p>
 A number x is said to be a square root of N if x*x=N.Thus is it quite obvious that the square root a positive integer &gt 1 lies in between [1 N]. Suppose P is a number such that P*P &gt N then the result must be in the interval [1 P-1] oterwise if P*P &lt N then the result lies in [P+1 N]. We use this idea to find the square root of a positive integer. Suppose we know that the square root lies in between (start,end).If mid = (start+end)/2.0, depending upon the value of mid*mid-N we chose either (mid+1,end) or (start,mid-1) as our next search interval or conclude that mid is the square root of N.While coding do take care of the fact of precision since mid*mid may not be exactly equal N.
 <br>
-<h4>Time complexity</h4>
+</p>
+<h3>Time complexity</h3>
+<p>
 If you analyze the number of operations it takes this function to run it is easy to see that it will take logN (logN to base 2) operations. At every step of the search we chose either (start,mid-1) or (mid+1,end) which means the interval size gets reduced by half. Initially the range is N, in the next step it will become N/2, then N/4, and so after x steps the search range will be N/(2^x) which will be 1 when x is logN. So, the number of iterations is log(N).
 </p>		
 

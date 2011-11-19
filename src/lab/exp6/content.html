@@ -93,7 +93,6 @@ edit -->
 		  class="content">	
 
 
-Intro 
 <p>
 
 Welcome to recursion. One of the most easiest things to code but really hard to debug! Recursion is a very powerful tool to solve problems. All loops(while, for , do while) can be simulated using recursion. Also the main step of the dynamic programming is recursion which is useful in solving many algorithmically difficult problems. Lets solve some problems now.
@@ -196,15 +195,24 @@ Let us assume we have kept weight D on left pan. From amongst the N weights you 
 </p>
 <p>
 Otherwise we have three options
+</p>
 <br>
-<h5>Option1:</h5>
-Put the i<sup>th</sup> weight on right pan.In which case the difference between left and right pan becomes x - weight[i]. 
-<h5>Option2:</h5>
+<p>
+<b>Option1:</b>
+
+Put the i<sup>th</sup> weight on right pan.In which case the difference between left and right pan becomes x - weight[i].
+<br>
+<b>Option2:</b>
 Put the i<sup>th</sup> weight on left pan.In which case the difference between left and right pan becomes x + weight[i].
-<h5>Option3:</h5>
-Donot put the i<sup>th</sup> weight on either pan.In which case the difference between left and right pan remains x.
 <br>
-<h4> Recursive Function </h4>
+<b>Option3:</b>
+Donot put the i<sup>th</sup> weight on either pan.In which case the difference between left and right pan remains x.
+</p>
+<p>
+<br>
+This gives the following  <b> Recursive Function : </b>
+</p>
+<p>
 Let F(i,x) denotes whether it is possible to obtain a difference of x using the weights<br>
 w[i],w[i+1],...,w[n-1].<br>
 Obviously, F(i,0) is 1, Otherwise<br>
@@ -214,7 +222,8 @@ F(i+1,x) corresponds to Option3.<br>
 F(i+1,x-w[i]) corresponds to Option1.<br>
 F(i+1,x+w[i]) corresponds to Option2.<br>
 
-</p>			
+</p>
+
 
 
 
