@@ -204,13 +204,15 @@ This is a very famous problem. It's known as longest increasing subsequence prob
 <p>
 Every subsequence has to end with some element of the sequence. So we calculate the length of the longest incresing subsequence subject to the constraint that the subsequence ends with seq[i].Lets say that it is best[i]. The answer will be max(best[0],best[1],...,best[N-1]). 
 </p>
+
+<h3>Recursive formulation </h3>
 <p>
-
-<h4>Recursive formulation </h4>
-Now the task is to find a recursive formula for best[i]. Assume we know the values of best[0],best[1],..., best[i-1] and now out task is to find best[i]. Seq[i] can form a increasing subsequence with some Seq[j] if Seq[i] &gt Seq[j] and j &lt i. Thus the recusive formula is <br>
+Now the task is to find a recursive formula for best[i]. Assume we know the values of best[0],best[1],..., best[i-1] and now out task is to find best[i]. Seq[i] can form a increasing subsequence with some Seq[j] if Seq[i] &gt Seq[j] and j &lt i. Thus the recusive formula is :
+</p>
+<p>
 <b> best[i] = max(1,best[j]+1|j&lt i && Seq[i]>Seq[j]) </b>
+</p>
 
-</p>					
 
         </div>
       </section>
