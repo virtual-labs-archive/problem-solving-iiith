@@ -10,10 +10,8 @@ all:  help-dir
 help-dir:
 
 	(touch ${build-dir}/theme-${theme}; rsync -avC --exclude ${mathjax}.zip lab/* lib/* help themes/${theme}/* ${build-dir})
-
-
-
-
+	(chmod  777 ${build-dir}/exp*)
+	(chmod -R 777 ${build-dir}/exp*/*)
 
 # don't remove the js directory, since copying it again with mathjax takes too long.
 # http://superuser.com/questions/168130/unix-delete-files-and-folders-excluding-pattern
