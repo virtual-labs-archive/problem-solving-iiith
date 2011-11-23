@@ -66,9 +66,9 @@ def getHint(codeId,HintNo):
 
 def Compile(exename,language,codeName):
 	if (language=="cpp"):
-		cmd = "g++  -O2 -s -static -o  "+exename+"  "+codeName +" -lm";
+		cmd = "g++    -s -static -o  "+exename+"  "+codeName +" -lm";
 	elif (language=="c"):
-		cmd = "gcc  -O2 -s -static -o  "+exename+"  "+codeName + " -lm";
+		cmd = "gcc    -s -static -o  "+exename+"  "+codeName + " -lm";
 	p = Popen(cmd,shell=True,stdout=PIPE,stderr=STDOUT,close_fds=True);
 	p.wait();
 	status = p.stdout.read();
