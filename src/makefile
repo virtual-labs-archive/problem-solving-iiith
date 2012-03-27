@@ -8,7 +8,7 @@ theme=blue-icon
 all:  help-dir 
 
 help-dir:
-
+	(find ${build-dir} -mindepth 1 -maxdepth 1 ! -name js -print0 | xargs -0n1 rm -rf)
 	(touch ${build-dir}/theme-${theme}; rsync -avC --exclude ${mathjax}.zip lab/* lib/* help themes/${theme}/* ${build-dir})
 	(chmod  777 ${build-dir}/exp*)
 	(chmod -R 777 ${build-dir}/exp*/*)
