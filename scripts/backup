@@ -1,0 +1,8 @@
+#/bin/bash
+# Backup Script for Problem Solving Lab
+
+# Backup Script takes the backup of the database used by the lab.
+# Since there is no database being used for Problem Solving Lab, 
+# the script does nothing. 
+
+echo "There is no database used for the lab."

@@ -1,0 +1,5 @@
+php5
+apache2
+ia32-libs
+gcc
+g++
