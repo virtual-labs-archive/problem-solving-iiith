@@ -35,13 +35,18 @@ $labarticleheading =$html->getElementById("experiment-article-heading")->innerte
 $data['nav'] = $nav;
 //print_r($nav);
 
-
-
 $vlab_url = "http://virtual-labs.ac.in/"; 
 $css_js   = "../"; 
 $lab_url  = "../index.php";
 $exp_url  =  "./index.php";
 $base_url = $exp_url;
+
+
+//$vlab_url = "http://virtual-labs.ac.in/"; 
+//$css_js   = "http://deploy.virtual-labs.ac.in/labs/cse04/"; 
+//$lab_url  = "http://deploy.virtual-labs.ac.in/labs/cse04/index.php";
+//$exp_url  =  "http://deploy.virtual-labs.ac.in/labs/cse04/exp10/index.php";
+//$base_url = $exp_url;
 
 include('../exp_template.php');
 

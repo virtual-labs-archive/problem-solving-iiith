@@ -46,6 +46,13 @@ $css_js   = "./";
 $lab_url  = "./index.php";
 $exp_url  =  "./exp/index.php";
 $base_url = $lab_url;
+$base_url = "http://".$_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
+
+//$vlab_url = "http://virtual-labs.ac.in/"; 
+//$css_js   = "http://deploy.virtual-labs.ac.in/labs/cse04/"; 
+//$lab_url  = "http://deploy.virtual-labs.ac.in/labs/cse04/index.php";
+//$exp_url  =  "http://deploy.virtual-labs.ac.in/labs/cse04/exp/index.php";
+//$base_url = $lab_url;
 
 include('./exp_template.php');
 
