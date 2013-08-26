@@ -106,6 +106,7 @@ Given a list of n distinct numbers (where n &lt= 1000), find the length of the l
 <p>
 Definition : A monotone decreasing subsequence is a sequence of numbers (contiguously placed in the list) which are strictly decreasing from left to right. For example, if we have the series ”2 1 9 8 10 7 5 4 3 1 10”, then the subsequence ”10 7 5 4 3 1” is contiguously arranged and monotonically decreasing. Thus, the answer to be printed out for the length of ”10 7 5 4 3 1” which is 6. Note that the sequence ”9 8 7 5 4 3 1” is not a subsequence we are looking for as the numbers are not contiguous placed in the list.
 </p>
+
 <br><hr />
 <p><b>Input Specification</b></p><br />
 <p>
@@ -124,6 +125,7 @@ Output:6<br />
 Input: 1 2 3 4 5 6 7 8<br />
 Output: 1<br/>
 </p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
 <br><hr />
 <br>
 
@@ -154,6 +156,7 @@ Input: 6 <br />
 1 3 2 10 4 5<br/>
 Output: 4<br/>
 </p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
 <br><hr />
 
 
@@ -194,7 +197,7 @@ Output: 4<br/>
 <p>
 This is a fairly straight-forward problem. We have to determine the length of the longest subsequence in which all the elements are smaller than the previous ones. It is easy to see that each of these decresing subsequences will end either when the current number is bigger than the previous number, or when the current number is the final number in the sequence. Also, the end of one sequence marks the beginning of another sequence. So, this problem is easy to solve if we can note down the lengths of these sequences and find the largest number in them. All this can be done while the input is being read. You just need to keep track of the length of the current sequence and the length of the largest sequence which has been seen till now. As discussed earlier, if the currrent number is lesser than the previous number then the length of the current sequence is incremented by 1, and if the current number is greater than the previous number, then the current sequnce ends and we check whether its length is the greatest that has been seen till now, and we also start a new sequence with length equal to 1. When, then input sequence ends then also the current sequence is deemed as terminated, and we again check its length against the length of the largest sequence seen till now.
 </p>
-
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
 <br>
 
 <h2>Problem 2</h2>
@@ -212,6 +215,7 @@ Now the task is to find a recursive formula for best[i]. Assume we know the valu
 <p>
 <b> best[i] = max(1,best[j]+1|j&lt i && Seq[i]>Seq[j]) </b>
 </p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
 
 
         </div>
@@ -351,30 +355,30 @@ Now the task is to find a recursive formula for best[i]. Assume we know the valu
  
                 <li><b>Which of the following is not an infinite loop. </b></li> 
 
-		<input type="radio" name="Q5" value="1"><pre><code>int i = 1 ;             
+		<input type="radio" name="Q5" value="1"><code>int i = 1 ;             
 while ( 1 ) 
 { 
     i++ ; 
-}</code></pre><br>
+}</code><br>
 
 
 		<input type="radio" name="Q5" value="2">
-<pre><code>for( int i =1; i< 10; i--)
+<code>for( int i =1; i< 10; i--)
 printf("Hello World");
-		</code></pre><br>
+		</code><br>
 
 
-		<input type="radio" name="Q5" value="3"><pre><code>for(int i =1; i<100; i++)
+		<input type="radio" name="Q5" value="3"><code>for(int i =1; i<100; i++)
 printf("Hello World");
-		</code></pre>
+		</code><br>
 
 
-		<input type="radio" name="Q5" value="4"><pre><code>int i = 0; 
+		<input type="radio" name="Q5" value="4"><code>int i = 0; 
 do{
 i--
 printf("%d ",i);
 }while(i>0);
-		</code></pre><br>
+		</code><br>
 
 
  

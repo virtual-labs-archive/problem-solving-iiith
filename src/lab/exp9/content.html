@@ -133,6 +133,7 @@ edit -->
 			  <br><hr />
 			  <br>
 				</p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
 			  <h2>Problem 2:</h2>
 
 			  <p> 
@@ -164,6 +165,7 @@ edit -->
 			  Input: 5 1 2 3 4 5<br />
 			  Output: 4<br/>
 				</p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
 			  <br><hr />
 
 
@@ -199,6 +201,7 @@ edit -->
 	Recursion can be applied to a problem if the problem for the given input can be expressed as dependent upon the solution of the same problem for simpler inputs. One has to hardcode the solution for some simple cases, so that this recursion does not go on endlessly. Now, the given problem of expressing a weight(W) as a sum of other weights can be expressed as the problem of choosing one weight(w) such that it is not greater than W and then solving the same problem for the remaining weight W-w. For this particular problem, the solution can be expressed easily by choosing all the weight(w) as the first weights one by one, also taking care the the total weight(S) is not greater than reqired weight W. Those weights which make the total weight(S) greater than W are exluded from the list of avaliable weights for the next recursive. Now we only have to solve the same problem for a simpler case to get the complete solution, i.e., solving the same problem for the remaining weight, W-w, and available pool of weights now also does not have w. If accumulated weight is equal to w, then we increment the counter. If at any time, the pool of remaining weights is exhausted, then that attempt is aborted. So, our recursion function would be needing 2 variables, one containing the list of available weights and the other signifying remaining weight to be accrued.
 
 	</p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
 
 	<br>
 
@@ -220,7 +223,7 @@ edit -->
 	= F(index+1,i,S+weight[index])+F(index+1,i,S) otherwise <br>
 
 	</p>			
-
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
         </div>
       </section>
 
@@ -356,30 +359,30 @@ edit -->
  
                 <li><b>Which of the following is not an infinite loop. </b></li> 
 
-		<input type="radio" name="Q5" value="1"><pre><code>int i = 1 ;             
+		<input type="radio" name="Q5" value="1"><code>int i = 1 ;             
 while ( 1 ) 
 { 
     i++ ; 
-}</code></pre><br>
+}</code><br>
 
 
 		<input type="radio" name="Q5" value="2">
-<pre><code>for( int i =1; i< 10; i--)
+<code>for( int i =1; i< 10; i--)
 printf("Hello World");
-		</code></pre><br>
+		</code><br>
 
 
-		<input type="radio" name="Q5" value="3"><pre><code>for(int i =1; i<100; i++)
+		<input type="radio" name="Q5" value="3"><code>for(int i =1; i<100; i++)
 printf("Hello World");
-		</code></pre>
+		</code><br>
 
 
-		<input type="radio" name="Q5" value="4"><pre><code>int i = 0; 
+		<input type="radio" name="Q5" value="4"><code>int i = 0; 
 do{
 i--
 printf("%d ",i);
 }while(i>0);
-		</code></pre><br>
+		</code><br>
 
 
  
