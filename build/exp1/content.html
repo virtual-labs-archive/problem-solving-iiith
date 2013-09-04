@@ -1,0 +1,435 @@
+<!-- This file needs to be edited by the lab developer to suit
+the requirements of their lab in particular.-->
+
+<!-- Add class="default" to include any element as it is
+specified in default.html. 
+Do not include class="default" to the elements that you want to
+edit -->
+
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<div id="experiment"> <!-- The Experiment Document Container-->
+
+  <!-- The lab Header contains the logo and the name of the lab,
+  usually displayed on the top of the page-->
+
+  <header id="experiment-header" class="default">
+  
+    <div id="experiment-header-logo" class="logo">
+      <!-- Enclose the logo image of your lab or write it in 
+      text-->
+      <img src="../images/logo.jpg" />
+    </div>
+
+    <div id="experiment-header-heading" class="heading">
+      <!-- Write the name of your lab and link it to the home 
+      page of your lab (h1 tag is preferred while writing your 
+      lab name)-->
+      <a href="../index.php">Problem Solving Lab</a>	
+    </div>
+
+    <!-- Add any additional element you want to add to the lab 
+    header, For example : Help (Enclosing them with suitable 
+    div is recommended)-->
+
+  </header>
+
+
+  <!-- The lab article is the main content area where all the 
+  experiment content sits-->
+  <article id="experiment-article">
+  
+    <!-- The lab article has an header, optional navigational 
+    menu, number of sections, an optional sidebar and a closing 
+    footer-->
+     <div id="experiment-article-breadcrumb" class="breadcrumb">
+     </div>
+    
+      <header id="experiment-article-heading" class="heading">
+        <!-- You can add a welcome message or title of the 
+        experiment here -->
+        Numerical Representation
+        <!-- Add any additional element if required with proper 
+        enclosing-->
+      </header>
+
+      <!-- Navigation menu is useful to organize the view of 
+      multiple sections inside the article-->
+      <nav id="experiment-article-navigation" class="default">
+        <ul id="experiment-article-navigation-menu">
+          <!-- The menu can be dynamically generated to contain 
+          the headings of your sections or instead write the 
+          menu items of your choice individually enclosedu in 
+          <li> tag as shown below-->
+        </ul>
+      </nav>
+
+      <!-- All the sections of your lab or experiment can be 
+      enclosed together with a div element as shown below-->
+      <div id="experiment-article-sections">
+
+        <!-- First section of the article-->
+        <section id="experiment-article-section-1">
+          
+          <div id="experiment-article-section-1-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab -->
+	    <img src="../images/introduction.jpg" />
+	  </div>	
+          
+          <!-- The heading for the section can be enclosed in a 
+          div tag. -->
+          <div id="experiment-article-section-1-heading" 
+          class="heading">
+            Introduction
+          </div>
+
+          <!-- Write the section content inside a paragraph 
+          element, You can also include images with <img> tag -->
+          <div id="experiment-article-section-1-content" 
+		  class="content">	
+	
+	<p> 
+How are number represented in C? In this lab we help you understand how numbers are repsented in C and based on that two problems are given.The 1<sup>st</sup> is simple to solve while the second one is little tricky.
+</p>
+<br>
+ 
+ <h2>Problem 1:</h2>
+<p> 
+Given a positive integer (&lt= 1000000), find the minimum number of bits required to represent it as a binary number.
+</p>
+<br><hr />
+<p><b>Input Specification</b></p><br />
+<p>
+Input contains a single positive integer(&lt 10<sup>6</sup>).
+</p>
+<br><hr />
+<p><b>Output Specification</b></p><br />
+<p>
+Output the minimum number of bits required for the representing in binary.
+</p>
+<br><hr />
+<p><b>Sample Input and Output</b></p><br />
+<p>
+Input: 4<br />
+Output:3<br />
+Input: 16 <br />
+Output: 5<br/>
+</p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
+<br><hr />
+<br>
+ 
+
+ <h2>Problem 2:</h2>
+<p> 
+Given N(&lt=26) followed by N distinct characters, we can find all possible 2<sup>N</sup> words(sequence of characters) which preserve the ordering in the input (assuming that all words are valid words in the language). For example, if N is 3 and chatacters are A, B and C, the words in the alphabet order are A, AB, ABC, AC, B, BC and C. Your task now, is to find the index of the word in the dictionary. i.e., if input is AC, output is 4. You may avoid generating all the words and comparing the word with every word in the dictionary.
+
+</p>
+<br><hr />
+<p><b>Input Specification</b></p><br />
+<p>
+Input contains a number N representing the number of alphabets(&lt=26) followed by a space and N characters in the dictionary listed in lexicographic order and then a valid word present in dictionary.
+</p>
+<br><hr />						
+<p><b>Output Specification</b></p><br />
+<p>
+Output must be the index of the word in the dictionary.
+</p>
+<br><hr />
+<p><b>Sample Input and Output</b></p><br />
+<p>
+Input: 3 A B C AC <br />
+Output: 4<br />
+Input: 3 A B C BC<br />
+Output: 6<br/>
+</p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
+<br><hr />
+
+        </div>
+
+
+      </section>
+
+      <!-- Second section of the article-->
+      <section id="experiment-article-section-2">
+        
+        <div id="experiment-article-section-2-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab. -->
+	  <img src="../images/theory.jpg" />
+	</div>
+				
+        <!-- The heading for the section can be enclosed in a 
+        div tag. -->
+        <div id="experiment-article-section-2-heading" 
+        class="heading">
+          Theory
+        </div>
+
+
+        <!-- Write the section content inside a paragraph 
+        element, we can also include images with <img> tag -->
+        <div id="experiment-article-section-2-content" 
+        class="content">
+	
+	<h2>Problem 1</h2>
+<p>
+Let us try to find how many binary numbers can be generated when you are given a fixed number of bits,say n.<br>
+n=1, gives<br>
+0,1<br>
+n=2, gives<br>
+00,01,10,11
+n=3, gives<br>
+000,001,010,011,100,101,110,111<br>
+etc.<br>
+</p>
+<p>
+It can be seen easily by the multiplication principle that for n bits this number is 2<sup>n</sup>. One of these number corresponds to the 0 in decimal, so the biggest number possible is 2<sup>n</sup> - 1. Therefore, given a number, say N, it can fit in n bits if N is less than 2^n. Hence, the number of bits required to fit a number N is equal to ceil(log2(N)). Now finding ceil(log2(N)) can be done easily by repeatedly dividing the given number, N, by two until you get 0 as the quotient. For example, let N=96
+</p>
+<p>
+Then,<br>
+Step 1 :96/2 gives quotient as 48<br>
+Step 2 :48/2 gives quotient as 24<br>
+Step 3 :24/2 gives quotient as 12<br>
+Step 4 :12/2 gives quotient as 6<br>
+Step 5 :6/2 gives quotient as 3<br>
+Step 6 :3/2 gives quotient as 1<br>
+</p>       
+
+<br>
+
+<h2>Problem 2</h2>
+<p>
+Lets start with an example. Consider the sample input, the given characters are A,B,C and the input string is AC. Assume we are traversing the input string from left to right, say initially we are at 0<sup>th</sup> position. If instead of 'A' suppose B was present, then all the strings which would start with A would come first than B, right?
+Thus, the number of strings which come before BC would No_strings which start with A + No_strings which start with B before BC. But luckily we have initial letter as A. Now the 1<sup>st</sup> character is 'C' , thus we need to count all the strings which start with AB. If instead of 'C' there was a D, then we would have to count the number of strings starting with AB, AC. In this manner we proceed adding the requisite number of strings to our result.
+</p>					
+
+</div>
+</section>
+
+
+<section id="experiment-article-section-3">
+
+<div id="experiment-article-section-3-icon" 
+class="icon">
+  <!-- Enclose the icon image of your lab. -->
+  <img src="../images/objective.jpg" />
+</div>
+
+<div id="experiment-article-section-3-heading" 
+class="heading">
+  Objective
+</div>
+
+<div id="experiment-article-section-3-content" 
+	class="content">
+	<p>
+	To learn to solve problems related to Numerical Representation using Computer Programming.
+	</p>
+</div>
+
+</section>
+
+
+<section id="experiment-article-section-4">
+
+<div id="experiment-article-section-4-icon" 
+class="icon">
+  <!-- Enclose the icon image of your lab.-->
+  <img src="../images/simulation.jpg" />
+</div>
+
+<div id="experiment-article-section-4-heading" 
+class="heading">
+  Experiment
+</div>
+
+<div id="experiment-article-section-4-content" 
+class="content">
+	<p>
+        <a href="lab.html" target="_blank">Go to Lab (Click here)</a>
+  </p>
+</div>
+
+</section>
+
+<section id="experiment-article-section-5">
+<div id="experiment-article-section-5-icon" 
+class="icon">
+  <!-- Enclose the icon image of your lab.-->
+  <img src="../images/manual.jpg" />
+</div>
+
+<div id="experiment-article-section-5-heading" 
+	class="heading">
+	Manual
+</div>
+
+<div id="experiment-article-section-5-content" 
+	class="content">
+	<p> 
+	For each problem you have to write a program in C or C++. Each question is evaluted on test cases. An answer is correct only when all the test cases are cleared. 
+	</p> 
+</div>
+</section>
+
+
+
+        <section id="experiment-article-section-6">
+      
+          <div id="experiment-article-section-6-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab.-->
+	    <img src="../images/quizzes.jpg" />
+	  </div>
+
+          <div id="experiment-article-section-6-heading" 
+          class="heading">
+            Quizzes
+          </div>
+
+          <div id="experiment-article-section-6-content" 
+          class="content">
+            
+            <p>
+              
+            <form name="quiz" action="quizresults.php" method="post" target="_blank" onsubmit="return window.confirm(&quot;You are submitting information to an external page. \nAre you sure?&quot;);"> 
+        <ol>
+
+		<li><b>The execution of a loop typically starts with: </b></li> 
+                
+		<input type="radio" name="Q1" value="1">initialization statements<br>
+                <input type="radio" name="Q1" value="2">Loop body<br>
+                <input type="radio" name="Q1" value="3">test condition<br>
+                <input type="radio" name="Q1" value="4">update statements<br>
+                 
+		<br> 
+
+                <li><b>The break statement is used to exit from:</b> </li> 
+
+		<input type="radio" name="Q2" value="1">an if statement<br>
+                <input type="radio" name="Q2" value="2">a for loop<br>
+		<input type="radio" name="Q2" value="3">a program<br>
+                <input type="radio" name="Q2" value="4">the main( ) function<br>
+
+		<br> 
+
+                <li><b>A do-while loop is useful when we want that the statements within the loop must be executed</b></li> 
+
+		<input type="radio" name="Q3" value="1">Only once<br>
+                <input type="radio" name="Q3" value="2">At Least Once<br>
+		<input type="radio" name="Q3" value="3">More than once<br>
+                <input type="radio" name="Q3" value="4">None of the above<br>
+
+		<br> 
+
+                <li><b>In what sequence the initialization, testing and execution of body is done in a do-while loop </b></li> 
+
+		<input type="radio" name="Q4" value="1">Initialization, execution of body, testing<br>
+                <input type="radio" name="Q4" value="2">Execution of body, initialization, testing <br>
+		<input type="radio" name="Q4" value="3">Initialization, testing, execution of body <br>
+                <input type="radio" name="Q4" value="4">None of the above<br>
+
+		<br> 
+ 
+                <li><b>Which of the following is not an infinite loop. </b></li> 
+
+		<input type="radio" name="Q5" value="1"><code>int i = 1 ;          
+while ( 1 ) 
+{ 
+    i++ ; 
+}</code><br>
+
+
+		<input type="radio" name="Q5" value="2">
+<code>for( int i =1; i < 10 ; i--)   printf("Hello World");
+		</code><br>
+
+
+		<input type="radio" name="Q5" value="3"><code>for(int i =1; i<100; i++)
+printf("Hello World");
+		</code><br>
+
+
+		<input type="radio" name="Q5" value="4"><code>int i = 0; 
+do{
+i--
+printf("%d ",i);
+}while(i>0);
+		</code><br>
+
+
+ 
+ </ol>
+<br>
+<p> <input type="submit" value="Submit answers for evaluation" target="_blank"></p> 
+</form>
+            </p>
+
+          </div>
+
+        </section>
+
+		
+        <section id="experiment-article-section-8">
+   
+          <div id="experiment-article-section-8-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab.-->
+	    <img src="../images/readings.jpg" />
+	  </div>
+
+          <div id="experiment-article-section-8-heading" 
+          class="heading">
+            Further Readings
+          </div>
+
+          <div id="experiment-article-section-8-content" 
+          class="content">
+            <ul>	
+              <li>
+
+                <a href="http://en.wikipedia.org/wiki/Problem_solving">http://en.wikipedia.org/wiki/Problem_solving</a>
+              </li>
+
+            </ul>
+          </div>
+
+        </section>
+
+      </div>
+
+
+    <!-- An article can have a sidebar that contain related 
+    links and additional material (however it is kept optional 
+    at this moment) -->
+    <aside id="lab-article-sidebar" class="default">
+      <!-- put the content that you want to appear in the 
+      sidebar -->	
+    </aside>
+
+
+    <!-- Article footer can display related content and 
+    additional links -->						
+    <footer id="lab-article-footer" class="default">
+      <!-- Put the content that you want to appear here -->
+    </footer>
+
+  </article>
+
+
+  <!-- Links to other labs, about us page can be kept the lab 
+  footer-->
+  <footer id="lab-footer" class="default">
+    <!-- Put the content here-->
+  </footer>
+
+</div>		
+
+</body>
+</html>

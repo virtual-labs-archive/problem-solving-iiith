@@ -1,0 +1,490 @@
+<!-- This file needs to be edited by the lab developer to suit
+the requirements of their lab in particular.-->
+
+<!-- Add class="default" to include any element as it is
+specified in default.html. 
+Do not include class="default" to the elements that you want to
+edit -->
+
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<div id="experiment"> <!-- The Experiment Document Container-->
+
+  <!-- The lab Header contains the logo and the name of the lab,
+  usually displayed on the top of the page-->
+
+  <header id="experiment-header" class="default">
+  
+    <div id="experiment-header-logo" class="logo">
+      <!-- Enclose the logo image of your lab or write it in 
+      text-->
+      <img src="../images/logo.jpg" />
+    </div>
+
+    <div id="experiment-header-heading" class="heading">
+      <!-- Write the name of your lab and link it to the home 
+      page of your lab (h1 tag is preferred while writing your 
+      lab name)-->
+      <a href="../index.php">Problem Solving Lab</a>	
+    </div>
+
+    <!-- Add any additional element you want to add to the lab 
+    header, For example : Help (Enclosing them with suitable 
+    div is recommended)-->
+
+  </header>
+
+
+  <!-- The lab article is the main content area where all the 
+  experiment content sits-->
+  <article id="experiment-article">
+  
+    <!-- The lab article has an header, optional navigational 
+    menu, number of sections, an optional sidebar and a closing 
+    footer-->
+     <div id="experiment-article-breadcrumb" class="breadcrumb">
+     </div>
+    
+      <header id="experiment-article-heading" class="heading">
+        <!-- You can add a welcome message or title of the 
+        experiment here -->
+       String Operations
+        <!-- Add any additional element if required with proper 
+        enclosing-->
+      </header>
+
+      <!-- Navigation menu is useful to organize the view of 
+      multiple sections inside the article-->
+      <nav id="experiment-article-navigation" class="default">
+        <ul id="experiment-article-navigation-menu">
+          <!-- The menu can be dynamically generated to contain 
+          the headings of your sections or instead write the 
+          menu items of your choice individually enclosedu in 
+          <li> tag as shown below-->
+        </ul>
+      </nav>
+
+      <!-- All the sections of your lab or experiment can be 
+      enclosed together with a div element as shown below-->
+      <div id="experiment-article-sections">
+
+        <!-- First section of the article-->
+        <section id="experiment-article-section-1">
+          
+          <div id="experiment-article-section-1-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab -->
+	    <img src="../images/introduction.jpg" />
+	  </div>	
+          
+          <!-- The heading for the section can be enclosed in a 
+          div tag. -->
+          <div id="experiment-article-section-1-heading" 
+          class="heading">
+            Introduction
+          </div>
+
+          <!-- Write the section content inside a paragraph 
+          element, You can also include images with <img> tag -->
+          <div id="experiment-article-section-1-content" 
+		  class="content">	
+
+<p> 
+String is traditionally a sequence of characters, either as a literal constant or as some kind of variable. The latter may allow its elements to be mutated and/or the length changed, or it may be fixed (after creation). A string is generally understood as a data type and is often implemented as a byte (or word) array that stores a sequence of elements, typically characters, using some character encoding. A string may also denote more general array data types and/or other sequential data types and structures; terms such as byte string, or more general, string of datatype, or datatype-string, are sometimes used to denote strings in which the stored data does not(necessarily) represent text. 
+</p>
+<br>
+ 
+ <h2>Problem 1:</h2>
+<p> 
+A palindrome is a symmetric character sequence that looks the same when read backwards, i.e. from
+right to left. Interestingly, human being usually discards blank spaces and punctuation marks while
+recognizing a palindromes like: (a) “Madam, I’m Adam.” (b) “Eve.” etc. 
+</p>
+<p>
+Write a program that detects palindromes. Your program should accept a string from the key board and output YES/NO.
+</p>
+<br><hr />
+<p><b>Input Specification</b></p><br />
+<p>
+Input will contain a string S entered  from keyboard, with number of characters less than 1000.
+</p>
+<br><hr />
+<p><b>Output Specification</b></p><br />
+<p>
+Output must be either "YES" or "NO"(quotes for clarity) depending upon whether or not it is a palindrome.
+</p>
+<br><hr />
+<p><b>Sample Input and Output</b></p><br />
+<p>
+Input: Madam, I'm Adam<br />
+Output:YES<br />
+Input: Eve.<br />
+Output: NO<br/>
+</p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
+<br><hr />
+<br>
+ 
+
+ <h2>Problem 2:</h2>
+<p> 
+Given two strings, PRINT (YES or NO) whether the second string can be obtained from the first by deletion of none, one or more characters.
+</p>
+<br><hr />
+<p><b>Input Specification</b></p><br />
+<p>
+Input will contain two strings separated by a space and size of each string is at max 10<sup>7</sup>.
+</p>
+<br><hr />						
+<p><b>Output Specification</b></p><br />
+<p>
+Output must be  either "YES" or "NO" depending on whether 2<sup>nd </sup>string can be obtained from 1<sup>st </sup>string.
+</p>
+<br><hr />
+<p><b>Sample Input and Output</b></p><br />
+<p>
+Input: hyderabad her<br />
+Output: YES<br />
+Input: hyderabad dear<br />
+Output: NO<br/>
+</p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
+<br><hr />
+
+
+
+
+
+
+
+        </div>
+
+
+      </section>
+
+      <!-- Second section of the article-->
+      <section id="experiment-article-section-2">
+        
+        <div id="experiment-article-section-2-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab. -->
+	  <img src="../images/theory.jpg" />
+	</div>
+				
+        <!-- The heading for the section can be enclosed in a 
+        div tag. -->
+        <div id="experiment-article-section-2-heading" 
+        class="heading">
+          Theory
+        </div>
+
+
+        <!-- Write the section content inside a paragraph 
+        element, we can also include images with <img> tag -->
+        <div id="experiment-article-section-2-content" 
+        class="content">
+
+
+
+
+<h2>Problem 1</h2>
+<p>
+A palindrome is a string which reads same wheter it is read from start to end of from end to the start. In literature, however, even the capitalization of words and punctuations are ignored. So, "Rats live on no evil stars." is also a palindrome. Detection of such palindromes can be done by creating a new string in which all the punctuations have been removed and all the upper case characters have been converted to lower case characters, and then doing a test for plaindome on the new string.
+</p>
+<p>
+Alternatively, one can create two indices and put them at the end and beginning of the string. The index at the beginning moves towards the end and vice versa. If a character at any of the indices is not an alphabet the corresponding indice is moved until an alphabet is encountered. If the alphabet is in Upper case, then it is converted into lower case. Now, the values at the indices are compared and if they are not same then the string is not a palindome. Otherwise, the check is repeated for new values of indices obtained by moving them by suffiecient amount so that an alphabet is encountered. If at any time the indices are coincident or the indices cross each other, then the string is a palindrome.
+</p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
+<br>
+
+<h2>Problem 2</h2>
+<p>
+Inorder to obtain string2 from string1 by deleting 0 or more characters it is fairly obvious that the characters in string2 must appear in the same order as in string1.
+<br>
+</p>
+<p>
+<h4> Mathematical formulation </h4>
+<p>Suppose the length of string A is M and string B is N we need to find a N tuple (X[0],X[1],...,X[N-1])
+such that X[i] &lt X[i+1] for 0&lt=i&lt=N-2 and A[X[i]] = B[i] for 0&lt=i&lt=N-1. Why this formulation is correct?
+B[0] occurs at X[0]<br>
+B[1] occurs at X[1]<br>
+..<br>
+..<br>
+..<br>
+B[N-1] occurs at X[N-1]<br>
+</p>
+<p>
+Now, we remove all other characters from A except those which appear at positions indicated by array X. Then we get string B.Thus the problem formulation is correct. The order constraint between X[i]'s is element because we want the characters in B to appear in order in A.
+<br>
+</p>
+<br>
+<h4> Solution</h4>
+<p>So now once we have stated the problem mathematically we would like to know how can we find
+array X subjected to the constraints mentioned.Lets see how can we find X[0]. You must be apply
+the same logic on how to find other values of array X once you are familier with X[0].
+X[0] has only one constraint to be satisfied which is A[X[0]] = B[0] . There can be many values
+of X[0] which can satisfy the above constraint. So which value should X[0] take?
+<br>
+<br>
+</p>
+
+
+<h4> Proofs </h4>
+<p>
+Suppose S is a set of values which X[0] can take. We prove that X[0] should take the minimum value, amongst all the members of set S. If |S|=1 , then it is obviously valid. So, assume |S|&gt=2. We will deal with |S|=0 case later. Lets say X[0] = b and the minimum value of the set S is a i.e a &lt X[0]. Since we have choosen X[0] as b we need to search for B[1] [b+1 m] beacuse B[1]&gt B[0]. It can happen that B[1] is not present in [b+1 m] at all which would imply that string B cannot be a subsequence of string A. But suppose the character is present in [a+1 b] and X[0]=a then it is possible that string B might be a subsequence of string A. Thus, X[0] must take the minimum value of set S i.e the position where first B[0]  is same as chracter of A should be chosen as X[0]. 
+</p>
+<p>
+Now, if X[0] = a, we shall search for X[1] in [a+1,M] and similarly X[2] in [X[1]+1,M]
+and for X[i] in [X[i-1]+1,M].Thus if we can find the array X then we say YES else NO.
+</p>
+<p align="right"><a href="http://virtual-labs.ac.in/feedback/?lab=cse04">Feedback</a></p>
+
+
+
+
+        </div>
+      </section>
+
+
+      <section id="experiment-article-section-3">
+        
+        <div id="experiment-article-section-3-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab. -->
+	  <img src="../images/objective.jpg" />
+	</div>
+     
+        <div id="experiment-article-section-3-heading" 
+        class="heading">
+          Objective
+        </div>
+
+        <div id="experiment-article-section-3-content" 
+        class="content">
+
+	<p>
+	To learn to solve problems related to Strings using Computer Programming.
+	</p>
+
+        </div>
+
+      </section>
+
+
+      <section id="experiment-article-section-4">
+
+        <div id="experiment-article-section-4-icon" 
+        class="icon">
+	  <!-- Enclose the icon image of your lab.-->
+	  <img src="../images/simulation.jpg" />
+	</div>
+
+        <div id="experiment-article-section-4-heading" 
+        class="heading">
+          Experiment
+        </div>
+
+        <div id="experiment-article-section-4-content" 
+        class="content">
+          <p>
+	        
+ <a href="lab.html" target="_blank">Go to Lab (Click here)</a>
+
+          </p>
+        </div>
+
+      </section>
+
+
+        <section id="experiment-article-section-6">
+      
+          <div id="experiment-article-section-6-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab.-->
+	    <img src="../images/quizzes.jpg" />
+	  </div>
+
+          <div id="experiment-article-section-6-heading" 
+          class="heading">
+            Quizzes
+          </div>
+
+          <div id="experiment-article-section-6-content" 
+          class="content">
+            
+            <p>
+              
+            <form name="quiz" action="quizresults.php" method="post" target="_blank" onsubmit="return window.confirm(&quot;You are submitting information to an external page. \nAre you sure?&quot;);"> 
+        <ol>
+
+		<li><b>The execution of a loop typically starts with: </b></li> 
+                
+		<input type="radio" name="Q1" value="1">initialization statements<br>
+                <input type="radio" name="Q1" value="2">Loop body<br>
+                <input type="radio" name="Q1" value="3">test condition<br>
+                <input type="radio" name="Q1" value="4">update statements<br>
+                 
+		<br> 
+
+                <li><b>The break statement is used to exit from:</b> </li> 
+
+		<input type="radio" name="Q2" value="1">an if statement<br>
+                <input type="radio" name="Q2" value="2">a for loop<br>
+		<input type="radio" name="Q2" value="3">a program<br>
+                <input type="radio" name="Q2" value="4">the main( ) function<br>
+
+		<br> 
+
+                <li><b>A do-while loop is useful when we want that the statements within the loop must be executed</b></li> 
+
+		<input type="radio" name="Q3" value="1">Only once<br>
+                <input type="radio" name="Q3" value="2">At Least Once<br>
+		<input type="radio" name="Q3" value="3">More than once<br>
+                <input type="radio" name="Q3" value="4">None of the above<br>
+
+		<br> 
+
+                <li><b>In what sequence the initialization, testing and execution of body is done in a do-while loop </b></li> 
+
+		<input type="radio" name="Q4" value="1">Initialization, execution of body, testing<br>
+                <input type="radio" name="Q4" value="2">Execution of body, initialization, testing <br>
+		<input type="radio" name="Q4" value="3">Initialization, testing, execution of body <br>
+                <input type="radio" name="Q4" value="4">None of the above<br>
+
+		<br> 
+ 
+                <li><b>Which of the following is not an infinite loop. </b></li> 
+
+		<input type="radio" name="Q5" value="1"><code>int i = 1 ;             
+while ( 1 ) 
+{ 
+    i++ ; 
+}</code><br>
+
+
+		<input type="radio" name="Q5" value="2">
+<code>for( int i =1; i< 10; i--)
+printf("Hello World");
+		</code><br>
+
+
+		<input type="radio" name="Q5" value="3"><code>for(int i =1; i<100; i++)
+printf("Hello World");
+		</code><br>
+
+
+		<input type="radio" name="Q5" value="4"><code>int i = 0; 
+do{
+i--
+printf("%d ",i);
+}while(i>0);
+		</code><br>
+
+
+ 
+ </ol>
+
+<p> <input type="submit" value="Submit answers for evaluation" target="_blank"></p> 
+</form>
+            </p>
+
+          </div>
+
+        </section>
+
+        <section id="experiment-article-section-7">
+	  
+          <div id="experiment-article-section-7-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab. -->
+	    <img src="../images/procedure.jpg" />
+	  </div>
+	
+          <div id="experiment-article-section-7-heading" 
+          class="heading">
+	    Procedure
+	  </div>
+	
+          <div id="experiment-article-section-7-content" 
+		  class="content">
+		  <p>
+		  Procedure for the experiment is as follows.
+		  <ol>
+			  <li> Write the code for the problem or upload a solution. </li>
+			  <li> Press the i button get info about the problem which you have to solve.</li>
+			  <li> If you are finding it difficult to solve the solution, then you can use the 4 levels of incresingly descriptive hints, but try to use minimum number of hints.</li>
+			  <li> Compile the code by pressing the compile button. </li>
+			  <li> If code is not compling then correct the error and/or warnings. </li>
+			  <li> To execute the code and see output, press the execute button. </li>
+		  </ol>
+
+		  </p>
+	  </div>
+	
+        </section>
+			
+		
+        <section id="experiment-article-section-8">
+   
+          <div id="experiment-article-section-8-icon" 
+          class="icon">
+	    <!-- Enclose the icon image of your lab.-->
+	    <img src="../images/readings.jpg" />
+	  </div>
+
+          <div id="experiment-article-section-8-heading" 
+          class="heading">
+            Further Readings
+          </div>
+
+          <div id="experiment-article-section-8-content" 
+          class="content">
+            <ul>	
+              <li>
+                <a href="http://en.wikipedia.org/wiki/
+                Simple_harmonic_motion">http://en.wikipedia.org/wiki/Simple_harmonic_motion</a>
+              </li>
+              <li>
+
+                <a href="http://en.wikipedia.org/wiki/Problem_solving">http://en.wikipedia.org/wiki/Problem_solving</a>
+              </li> 
+
+            </ul>
+          </div>
+
+        </section>
+
+      </div>
+
+
+    <!-- An article can have a sidebar that contain related 
+    links and additional material (however it is kept optional 
+    at this moment) -->
+    <aside id="lab-article-sidebar" class="default">
+      <!-- put the content that you want to appear in the 
+      sidebar -->	
+    </aside>
+
+
+    <!-- Article footer can display related content and 
+    additional links -->						
+    <footer id="lab-article-footer" class="default">
+      <!-- Put the content that you want to appear here -->
+    </footer>
+
+  </article>
+
+
+  <!-- Links to other labs, about us page can be kept the lab 
+  footer-->
+  <footer id="lab-footer" class="default">
+    <!-- Put the content here-->
+  </footer>
+
+</div>		
+
+</body>
+</html>
