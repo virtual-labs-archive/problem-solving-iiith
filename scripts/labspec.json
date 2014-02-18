@@ -69,7 +69,7 @@
                     ], 
                     "clean": [], 
                     "init": [
-                        "cp -r build/ /var/www/",
+                        "cp -r ../build/* /var/www/",
                         "chmod 775 /var/www/build/ -R"
                     ], 
                     "pause": [], 
