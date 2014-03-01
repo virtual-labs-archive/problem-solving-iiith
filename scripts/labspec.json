@@ -4,8 +4,8 @@
             "platform": {
                 "arch": "i386", 
                 "build_steps": {
-                    "build": ["make -C ../src"],
-                    "configure": [],
+                    "build": [], 
+                    "configure": [], 
                     "post_build": [], 
                     "pre_build": [], 
                     "status": []
@@ -21,13 +21,13 @@
                 {
                     "contact": {
                         "alternate_email": "", 
-                        "email": "sujata.agashe@yahoo.com", 
+                        "email": "jawahar@iiit.ac.in", 
                         "mobile_number": "", 
                         "office_number": ""
                     }, 
                     "department": "", 
-                    "institute": "COE Pune", 
-                    "name": "Sujatha Agashe", 
+                    "institute": "IIIT Hyderabad", 
+                    "name": "Jawahar C.V", 
                     "organization": "", 
                     "role": "Lab Developer", 
                     "title": "", 
@@ -36,13 +36,58 @@
                 {
                     "contact": {
                         "alternate_email": "", 
-                        "email": "laxmikantpk@gmail.com", 
+                        "email": "phani@iiit.ac.in", 
                         "mobile_number": "", 
                         "office_number": ""
                     }, 
                     "department": "", 
-                    "institute": "COE Pune", 
-                    "name": "Laxmikant Kumbhare", 
+                    "institute": "IIIT Hyderabad", 
+                    "name": "Phani Phani", 
+                    "organization": "", 
+                    "role": "Lab RA", 
+                    "title": "", 
+                    "web": ""
+                }, 
+                {
+                    "contact": {
+                        "alternate_email": "", 
+                        "email": "kumarsrijan@students.iiit.ac.in", 
+                        "mobile_number": "", 
+                        "office_number": ""
+                    }, 
+                    "department": "", 
+                    "institute": "IIIT Hyderabad", 
+                    "name": "Kumar Srijan", 
+                    "organization": "", 
+                    "role": "Lab RA", 
+                    "title": "", 
+                    "web": ""
+                }, 
+                {
+                    "contact": {
+                        "alternate_email": "", 
+                        "email": "jayaguru.pandaug08@students.iiit.ac.in", 
+                        "mobile_number": "", 
+                        "office_number": ""
+                    }, 
+                    "department": "", 
+                    "institute": "IIIT Hyderabad", 
+                    "name": "Jay Panda", 
+                    "organization": "", 
+                    "role": "Lab RA", 
+                    "title": "", 
+                    "web": ""
+                }, 
+                {
+                    "contact": {
+                        "alternate_email": "", 
+                        "email": "shashank.sharmaug08@students.iiit.ac.in", 
+                        "mobile_number": "", 
+                        "office_number": ""
+                    }, 
+                    "department": "", 
+                    "institute": "IIIT Hyderabad", 
+                    "name": "Shashank Sharma", 
                     "organization": "", 
                     "role": "Lab RA", 
                     "title": "", 
@@ -50,40 +95,30 @@
                 }
             ], 
             "discipline": [
-                "Electrical Engineering"
+                "Computer Science & Engineering"
             ], 
-            "id": "eee09", 
+            "id": "cse04", 
             "integration_level": 5, 
-            "name": "Industrial Automation Laboratory", 
+            "name": "Problem Solving", 
             "server-side": true, 
             "status": "Released", 
-            "type": "Simulation"
+            "type": ""
         }, 
         "runtime_requirements": {
             "platform": {
                 "arch": "i386", 
                 "hosting": "dedicated", 
-                "installer": ["sudo apt-get install -y php5 apache2 ia32-libs gcc g++"], 
+                "installer": [], 
                 "lab_actions": {
-                    "backup": [
-                    ], 
+                    "backup": [], 
                     "clean": [], 
-                    "init": [
-                        "cp -r ../build/* /var/www/",
-                        "chmod 775 /var/www/build/ -R"
-                    ], 
+                    "init": [], 
                     "pause": [], 
                     "publish": [], 
-                    "restore": [
-                        "restore"
-                    ], 
+                    "restore": [], 
                     "resume": [], 
-                    "shutdown": [
-                        "service apache2 stop"
-                    ], 
-                    "start": [
-                        "service apache2 start"
-                    ], 
+                    "shutdown": [], 
+                    "start": [], 
                     "stats": [], 
                     "stop": []
                 }, 
