@@ -1,3 +1,22 @@
+Some changes need to be made to the web server configuration (in this case, Apache) in order to run the python scripts.
+
+1. Install mod python
+
+        apt-get install libapache2-mod-python
+
+2. Add Following lines to /etc/apache2/sites-available/default
+
+	<Directory /var/www/>
+          AddHandler mod_python .py
+          PythonHandler mod_python.publisher
+          PythonDebug On
+        </Directory>
+
+
+3. restart Apache server
+
+        /etc/init.d/apache2 restart
+
 Congrats !!
 
 * You have successfully downloaded and extracted the
