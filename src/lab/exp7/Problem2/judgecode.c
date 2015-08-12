@@ -1,19 +1,23 @@
 #include<stdio.h>
 #include<math.h>
+int N;
+double mysqrt(double start,double end){
 
+	
+	double mid = (start+end)/2;
+	if(fabs(mid*mid-N)<=1e-4)
+		return mid;
 
-double mysqrt(int N){
-	double ans = 1;
-	double error = 1e-4;
-	//implementing the Newton Raphson's method.
-	while(fabs(ans*ans-N)>error){
-		ans = (ans + N/ans)/2.0;
+	if(mid*mid>N){
+		return mysqrt(start,mid-1);
 	}
-	return ans;
+	else {
+		return mysqrt(mid+1,end);
+	}
+
 }
 main(){
-	int N;
 	scanf("%d",&N);
-	printf("%.4lf\n",mysqrt(N));//prints the squareroot of the number upto 6 digits
-	return 0;
+	printf("%.4lf\n",mysqrt(1,N));
+return 0;
 }

@@ -22,7 +22,7 @@ main(){
 	for(i=0;i&lt; N;i++)
 		pos[i]=-1;
 
-	int minLengt;h = strlen(str)+1;
+	int minLength = strlen(str)+1;
 
 	for(i=0;str[i];i++){
 		for(j=0;j&lt; N;j++){
@@ -34,16 +34,16 @@ main(){
 			if(minValue &gt;  pos[j])
 				minValue = pos[j];
 
-		if(minValue!=-1 && minLengt;h&gt; (i-minValue+1)){
-			minLengt;h = i-minValue+1;
+		if(minValue!=-1 && minLength&gt; (i-minValue+1)){
+			minLength = i-minValue+1;
 		}
 
 	}
-	if(minLengt;h==strlen(str)+1){
+	if(minLength==strlen(str)+1){
 		printf("-1\n");
 	}
 	else{
-		printf("%d\n",minLengt;h);
+		printf("%d\n",minLength);
 	}
 	return 0;
 }

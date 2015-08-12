@@ -1,4 +1,5 @@
-#include<stdio.h>
+	
+		#include<stdio.h>
 #include<string.h>
 
 main(){
@@ -13,27 +14,27 @@ main(){
 	}
 	int i,j;
 	char input_char[N];
-	for(i=0;i<N;i++){
+	for(i=0;i< N;i++){
 		scanf(" %c",&input_char[i]);
 	}
 	
 	int pos[N];
-	for(i=0;i<N;i++)
+	for(i=0;i< N;i++)
 		pos[i]=-1;
 
 	int minLength = strlen(str)+1;
 
 	for(i=0;str[i];i++){
-		for(j=0;j<N;j++){
+		for(j=0;j< N;j++){
 			if(input_char[j]==str[i])
 				pos[j]=i;
 		}
 		int minValue = 1000001;
-		for(j=0;j<N;j++)
-			if(minValue > pos[j])
+		for(j=0;j< N;j++)
+			if(minValue >  pos[j])
 				minValue = pos[j];
 
-		if(minValue!=-1 && minLength>(i-minValue+1)){
+		if(minValue!=-1 && minLength> (i-minValue+1)){
 			minLength = i-minValue+1;
 		}
 

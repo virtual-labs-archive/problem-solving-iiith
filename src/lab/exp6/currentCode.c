@@ -1,25 +1,22 @@
-	
-#include<stdio.h>
-int N;
-int no_ways(int W,int index){
-	
-	if(!W)
-		return 1;
-	if(index==N)
-		return 0;
+		#include<stdio.h>
 
-	int ans = 0,i;
-	for(i=0;i*(1<<index)<=W;i++)
-		ans+=no_ways(W-i*(1<<index),index+1);
-
-	return ans;
-	
+int isPossible(int N,int D,int *weight){
+	if(!N)
+		return !D;
+  	return isPossible(N-1,D+weight[N-1],weight)||isPossible(N-1,D-weight[N-1],weight)||isPossible(N-1,D,weight);
 }
-main(){
-	int W;
-	scanf("%d%d",&N,&W);
 
-	printf("%d\n",no_ways(W,0));
+main(){
+	int N;
+	scanf("%d",&N);
+	int weights[N],i,D;
+	for(i=0;i<N ;i++){
+		scanf("%d",weights+i);
+	}
+	scanf("%d",&D);
+	if(isPossible(N,D,weights))
+		puts("YES");
+	else
+		puts("NO");
 	return 0;
 }
-		
