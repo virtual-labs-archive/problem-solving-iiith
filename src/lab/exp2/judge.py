@@ -131,27 +131,27 @@ def index(req):
 			F.close();
 			ExpectedOutput = i[:-3]+".out" #Expected Output
 			F = open(ExpectedOutput,"r");
-			JudgeData_html+="<td>"+F.read()+"</td>";
+			EO = F.read();
+			JudgeData_html+="<td>"+EO+"</td>";
 			F.close();
 			
 			memoryLimit = 32 * 1024;#32 MB
 			timeLimit = 1 #1sec
 			Output = TEST_DIRECTORY+"/temp.out";
-			cmd = PATH+"sandbox.out -a2 -f -m %d -t %d -i %s -o %s %s" % (memoryLimit,timeLimit,Input,Output,exename)
+			cmd = PATH+"sandbox -a2 -f -m %d -t %d -i %s -o %s %s" % (memoryLimit,timeLimit,Input,Output,exename)
 
 
 			p = Popen(cmd,shell=True,stdout=PIPE,stderr=STDOUT,close_fds=True);
 			p.wait();
 			F = open(Output,"r");
-			JudgeData_html+="<td>"+F.read()+"</td>";
+			O = F.read();
+			JudgeData_html+="<td>"+O+"</td>";
 			F.close();
 		
 			status = p.stdout.read().strip().split('\n')[0]
 			if status.split(' ')[0] == "OK":
-				checker = PATH + "exact.out"
-				cmd = "./%s %s %s" % (checker,ExpectedOutput,Output)
-				p = Popen(cmd,close_fds=True,shell=True)
-				if p.wait()==0:
+			
+				if EO==O:
 					result = "Accepted!!";
 					JudgeData_html+="<td> Passed </td>"
 				else:

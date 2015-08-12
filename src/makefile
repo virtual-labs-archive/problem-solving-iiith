@@ -1,14 +1,3 @@
-all: lab
-
-*.out: *.c
-	gcc -c *.c -o *.out
-c: *.out
-	gcc *.out -o lab
-clean:
-	 -rm -f *.out
-	 -rm -f lab
-
-
 build-dir=../build
 lib-dir=lib
 build-js-dir=${build-dir}/js
