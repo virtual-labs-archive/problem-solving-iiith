@@ -1,0 +1,5 @@
+<Directory /var/www/>
+    AddHandler mod_python .py
+    PythonHandler mod_python.publisher
+    PythonDebug On
+</Directory>
