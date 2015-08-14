@@ -6,7 +6,7 @@
                 "build_steps": {
                     "build": ["make -C ../src"], 
                     "configure": [], 
-                    "post_build": ["sh configure.sh"], 
+                    "post_build": [], 
                     "pre_build": [], 
                     "status": []
                 }, 
