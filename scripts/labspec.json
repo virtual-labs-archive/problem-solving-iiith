@@ -110,14 +110,15 @@
                 "hosting": "dedicated", 
                 "installer": ["sudo apt-get update", 
 				"sudo apt-get install -y php5 apache2 gcc g++ libapache2-mod-python", 
-				"sh configure.sh"
+				"sh configure.sh", 
+				"service apache2 restart"
 	],
                 "lab_actions": {
                     "backup": [], 
                     "clean": [], 
                     "init": ["mv /var/www/index.html index.html.default",
-			"chmod -R 777 ../build/",
-                        "cp -r ../build/* /var/www/"
+                        "cp -r ../build/* /var/www/",
+			"chmod -R 777 /var/www/*"
                         ], 
                     "pause": [], 
                     "publish": [], 
