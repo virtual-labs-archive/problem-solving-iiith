@@ -6,7 +6,7 @@
                 "build_steps": {
                     "build": ["make -C ../src"], 
                     "configure": [], 
-                    "post_build": [], 
+                    "post_build": ["sh configure.sh"], 
                     "pre_build": [], 
                     "status": []
                 }, 
@@ -113,7 +113,7 @@
                     "backup": [], 
                     "clean": [], 
                     "init": ["mv /var/www/index.html index.html.default",
-                        "cp -r ../build/* /var/www/", "sh configure_apache.sh"
+                        "cp -r ../build/* /var/www/"
                         ], 
                     "pause": [], 
                     "publish": [], 
