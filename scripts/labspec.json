@@ -116,6 +116,7 @@
                     "backup": [], 
                     "clean": [], 
                     "init": ["mv /var/www/index.html index.html.default",
+			"chmod -R 777 ../build/",
                         "cp -r ../build/* /var/www/"
                         ], 
                     "pause": [], 
