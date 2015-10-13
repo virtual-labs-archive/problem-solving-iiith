@@ -14,6 +14,17 @@ body {
 
 p {
     font-size: 16px;
+    text-align: justify;
+}
+ul {
+text-align: justify;
+}
+li {
+text-align: justify;
+}
+
+h3.active {
+    color: #ff6600;
 }
 
 /*** Calendar **********************/
