@@ -6,10 +6,10 @@ Author URI: http://www.vlabs.ac.in
 Description: The theme to accompany the profile site for vlabs.ac.in
 Version: 1.0
 */
-
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700,500,600);
 body {
     
-    font-family:Calibri !important;
+    font-family:'Raleway' !important;
 }
 
 p {
@@ -341,7 +341,7 @@ margin-top:120px;
   border: 0 none;
   color: #666666;
   float: left;
-  font-family: Calibri;
+  font-family: 'Raleway';
   font-size: 15px;
   height: 36px;
   margin: 0;
@@ -373,7 +373,7 @@ margin-top:120px;
 .menu-a
 {
 	font-size: 18px !important;
-	font-family: Calibri !important;
+	font-family: 'Raleway' !important;
   color: #2C99CD !important;
   padding-left: 10px !important;
   padding-bottom: 5px !important;
@@ -702,7 +702,11 @@ margin-top:120px;
 	 border-right-color: #678f48;
 	 min-height: 115px;
 }
-
+.border-right-green-dotted a {
+    padding-left: 10px;
+    display: block;
+    margin-bottom: 10px;
+}
 a:focus
 {
 	color: #72AB44 !important;
