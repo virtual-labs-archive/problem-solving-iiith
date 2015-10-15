@@ -100,6 +100,7 @@
 							<!--edit -->
 <h1 class="text-h2-lightblue">Permutations</h1><div class="content" id="experiment-article-section-2-content">
 <h2>Problem 1</h2>
+<br>
 <p>
 	Recursion can be applied to a problem if the problem for the given input can be expressed as dependent upon the solution of the same problem for simpler inputs. One has to hardcode the solution for some simple cases, so that this recursion does not go on endlessly. Now, the given problem of expressing a weight(W) as a sum of other weights can be expressed as the problem of choosing one weight(w) such that it is not greater than W and then solving the same problem for the remaining weight W-w. For this particular problem, the solution can be expressed easily by choosing all the weight(w) as the first weights one by one, also taking care the the total weight(S) is not greater than reqired weight W. Those weights which make the total weight(S) greater than W are exluded from the list of avaliable weights for the next recursive. Now we only have to solve the same problem for a simpler case to get the complete solution, i.e., solving the same problem for the remaining weight, W-w, and available pool of weights now also does not have w. If accumulated weight is equal to w, then we increment the counter. If at any time, the pool of remaining weights is exhausted, then that attempt is aborted. So, our recursion function would be needing 2 variables, one containing the list of available weights and the other signifying remaining weight to be accrued.
 
@@ -107,6 +108,7 @@
 <p align="right"></p>
 <br>
 <h2>Problem 2</h2>
+<br>
 <p>
 	For each weight in the input we keep it on right pan and try using other weights to balance it. Let us say we have kept i<sup>th</sup> weight on the right pan, out task is now to keep weights on left side of the pan so that the sum of the weights on left side of the pan is equal to the weight on the right side,i.e weight[i]. For each weight W[k], we can keep it either on left pan or we donot to keep it at all. Make sure to disregard the weight when k is equal to i because that weight is already on right side.
 	</p>
@@ -121,7 +123,7 @@
 	= 1             If index=N and S=weight[i] <br>
 	= 0             If index=N and S!=weight[i]<br>
 	= F(index+1,i,S+weight[index])+F(index+1,i,S) otherwise <br>
-</br></br></br></br></br></p>
+</br></br></p>
 <p align="right"></p>
 </br></div>						</div>
 					</div>
