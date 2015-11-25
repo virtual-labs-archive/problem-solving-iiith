@@ -1,13 +1,13 @@
 * Author : Nihanth
 * Date Created : 19.11.2015
-* Environment
+* Setup/Environment
    - OS: Windows 7, Linux
    - Browsers: Firefox,Chrome
    - Bandwidth : 100Mbps
    - Hardware Configuration:8GBRAM , 
    - Processor:i5
 * Objective
-   - User friendliness of the Experiment
+   - To view the Experiment of the "Beauty of Numbers" experiment
 * Pre/Post Conditions
    - Open the url vlabs.ac.in and vlabs home page will be displayed.
    - Click on IIIT-Hyderabad and a list of labs will be displayed on
@@ -15,15 +15,11 @@
    - Select"Problem Solving"Lab, a home page will be displayed and
      click on list of experiments link, where a list of experiments
      will be displayed.
-   - Select "Numerical Representation" experiment.
+   - Select "Beauty of Numbers" experiment.
 * Test steps
-   - While testing observe for easiness to use the features of the
-     experiment
-   1. Information to use the experiment
-   2. Navigation
-   3. Look and Feel
-   4. Speed
+     1. Click on the Experiment link 
+     2. It should re-direct to the Experiment page
 * Expected Result
-   - Experiment should be user friendly
+     1. Experiment page should be opened
+     2. Content should be present with no distortions and Junk characters
 * Reviews/Comments
-

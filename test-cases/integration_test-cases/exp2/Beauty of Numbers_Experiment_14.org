@@ -1,0 +1,31 @@
+* Author : Nihanth
+* Date Created : 19.11.2015
+* Setup/Environment
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+* Objective
+  - To perform the Simulation of "Beauty of Numbers" experiment
+* Pre/Post Conditions
+  - Open the url vlabs.ac.in and vlabs home page will be displayed.
+  - Click on IIIT-Hyderabad and a list of labs will be displayed on
+    the screen.
+  - Select "Problem Solving"Lab, a home page will be displayed and
+    click on list of experiments link, where a list of experiments
+    will be displayed.
+  - Select "Beauty of Numbers" experiment.
+* Test steps
+  1. Repeat 1,2&3 steps of [[./Beauty of Numbers_Experiment_07.org]]
+  2. Insert the code in the box and select the problem number from the dropdown list present at the problem number field
+  3. Select the Language either c(or)c++ from the dropdown list present at the language field
+  4. Check the toogle bar, and click on the buttons displayed in the box
+  5. Now uncheck the toogle bar
+* Test Data
+   -Buttons:search,gotoline,undo,font,redo,syntax,highlight,about,save and load
+* Expected Result
+  1. Repeat 1,2&3 steps of [[./Beauty of Numbers_Experiment_07.org]]
+  2. The inserted code,selected problem number and selected language should be displayed on the screen
+  5. The selected buttons should work and when we uncheck the toogle bar the features in the box should get disappear
+* Reviews/Comments

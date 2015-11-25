@@ -1,0 +1,25 @@
+* Author : Nihanth
+* Date Created : 19.11.2015
+* Setup/Environment
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+* Objective
+  -To know if the radio buttons are not selected and Clicked on the cancel button
+* Pre/Post Conditions
+  - Open the url vlabs.ac.in and vlabs home page will be displayed.
+  - Click on IIIT-Hyderabad and a list of labs will be displayed on
+    the screen.
+  - Select "Problem Solving"Lab, a home page will be displayed and
+    click on list of experiments link, where a list of experiments
+    will be displayed.
+  - Select "More on Numbers" experiment.
+* Test steps
+  1. Repeat 1&2 steps of [[./More on Numbers_Quiz_19.org]]
+  2. Don't Select the options using the corresponding radio buttons and Click on the cancel button
+* Expected Result
+  1. Repeat 1&2 steps of [[./More on Numbers_Quiz_19.org]]
+  2. No error message should be dispalyed on the screen
+* Reviews/Comment

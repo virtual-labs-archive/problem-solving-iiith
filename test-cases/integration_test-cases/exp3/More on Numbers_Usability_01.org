@@ -1,5 +1,6 @@
 * Author : Nihanth
 * Date Created : 19.11.2015
+
 * Environment
    - OS: Windows 7, Linux
    - Browsers: Firefox,Chrome
@@ -15,7 +16,7 @@
    - Select"Problem Solving"Lab, a home page will be displayed and
      click on list of experiments link, where a list of experiments
      will be displayed.
-   - Select "Numerical Representation" experiment.
+   - Select "More on Numbers" experiment.
 * Test steps
    - While testing observe for easiness to use the features of the
      experiment
@@ -26,4 +27,5 @@
 * Expected Result
    - Experiment should be user friendly
 * Reviews/Comments
+
 
