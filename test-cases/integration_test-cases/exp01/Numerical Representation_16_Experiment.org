@@ -1,0 +1,29 @@
+* Author : Nihanth
+* Date Created : 19.11.2015
+* Setup/Environment
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+* Objective
+  - To perform the Simulation of "Numerical Representation" experiment
+* Pre/Post Conditions
+  - Open the url vlabs.ac.in and vlabs home page will be displayed.
+  - Click on IIIT-Hyderabad and a list of labs will be displayed on
+    the screen.
+  - Select "Problem Solving"Lab, a home page will be displayed and
+    click on list of experiments link, where a list of experiments
+    will be displayed.
+  - Select "Numerical Representation" experiment.
+* Test steps
+  1. Repeat 1,2&3 steps of [[./Numerical Representation_Experiment_07.org]] 
+  2. Insert the code in the box and select the problem number from the dropdown list present at the problem number field
+  3. Select the Language either c(or)c++ from the dropdown list present at the language field
+  4. Click on the compile button
+  5. Click on the run button
+* Expected Result
+  1. Repeat 1,2&3 steps of [[./Numerical Representation_Experiment_07.org]]
+  2. The inserted code,selected problem number and selected language should be displayed on the screen
+  3. The code should get compiled and when we click on the run button the output should be displayed on the screen
+* Reviews/Comments

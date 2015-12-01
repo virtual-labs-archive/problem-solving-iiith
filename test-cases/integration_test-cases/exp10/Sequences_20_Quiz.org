@@ -1,0 +1,25 @@
+* Author : Nihanth
+* Date Created : 19.11.2015
+* Setup/Environment
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+* Objective
+  - User should be able to view ,take the Quiz and then cancel the Quiz of "Sequences" experiment
+* Pre/Post Conditions
+  - Open the url vlabs.ac.in and vlabs home page will be displayed.
+  - Click on IIIT-Hyderabad and a list of labs will be displayed on
+    the screen.
+  - Select "Problem Solving"Lab, a home page will be displayed and
+    click on list of experiments link, where a list of experiments
+    will be displayed.
+  - Select "Sequences" experiment.
+* Test steps
+  1. Repeat 1&2 steps of [[./Sequences_Quiz_19.org]]
+  2. Select the correct answer using the corresponding radio buttons and Click on the cancel button
+* Expected Result
+  1. Repeat 1&2 steps of [[./Sequences_Quiz_19.org]]
+  2. All the selected radio buttons for the questions should get unselected
+* Reviews/Comments

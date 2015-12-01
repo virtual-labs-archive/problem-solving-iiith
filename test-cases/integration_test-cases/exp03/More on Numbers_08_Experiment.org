@@ -1,0 +1,24 @@
+* Author : Nihanth
+* Date Created : 19.11.2015
+* Setup/Environment
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+* Objective
+  - To perform the Simulation of "More on Numbers" experiment
+* Pre/Post Conditions
+  - Open the url vlabs.ac.in and vlabs home page will be displayed.
+  - Click on IIIT-Hyderabad and a list of labs will be displayed on
+    the screen.
+  - Select "Problem Solving"Lab, a home page will be displayed and
+    click on list of experiments link, where a list of experiments
+    will be displayed.
+  - Select "More on Numbers" experiment.
+* Test steps
+  1. Repeat 1,2&3 steps of [[./More on Numbers_Experiment_07.org]]
+  4. Don't choose a file to load and click on the compile button
+* Expected Result
+  1. Repeat 1,2&3 steps of [[./More on Numbers_Experiment_07.org]]
+* Reviews/Comments
