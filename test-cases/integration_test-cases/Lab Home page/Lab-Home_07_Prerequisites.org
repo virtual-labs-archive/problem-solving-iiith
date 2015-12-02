@@ -1,0 +1,21 @@
+* Author : Suman
+* Date Created: Wed Dec  2 10:46:37 2015
+* Environment 
+OS: Windows 7, Linux
+Browsers: Firefox,Chrome
+Bandwidth : 100Mbps
+Hardware Configuration:8GBRAM , 
+Processor:i5
+* Objective 
+To view the Prerequisite s/w of the Problem Solving Lab
+* Pre/Post conditions 
+Refer to the test step id 1
+* Test Steps 
+1.Click on the Prerequisite s/w link 
+2.It should re-direct to the Prerequisite s/wpage
+* Expected result 
+1.Prerequisite s/w page should be opened
+2.Content should be present with no distortions and Junk characters
+* Review comments 
+
+
