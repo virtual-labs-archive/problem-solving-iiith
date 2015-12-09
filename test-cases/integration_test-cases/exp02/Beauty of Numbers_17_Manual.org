@@ -1,25 +1,26 @@
-* Author : Nihanth
-* Date Created : 19.11.2015
-* Setup/Environment
+* Author: Nihanth
+* Date Created: 09 Dec 2015
+* Environment
   - OS: Windows 7, Linux
   - Browsers: Firefox,Chrome
   - Bandwidth : 100Mbps
   - Hardware Configuration:8GBRAM , 
   - Processor:i5
+
 * Objective
   - To view the Manual of the Beauty of Numbers experiment
-* Pre/Post Conditions
-  - Open the url vlabs.ac.in and vlabs home page will be displayed.
-  - Click on IIIT-Hyderabad and a list of labs will be displayed on
-    the screen.
-  - Select "Problem Solving"Lab, a home page will be displayed and
-    click on list of experiments link, where a list of experiments
-    will be displayed.
-  - Select "Beauty of Numbers" experiment.
-* Test steps
+
+* Pre/Post conditions
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/exp02/Beauty of Numbers_01_Usability.org][Beauty of Numbers_01_Usability.org]]
+
+* Test Steps
   1. Click on the Manual link 
   2. It should re-direct to the Manual page
-* Expected Result
+
+* Expected result
   1. Manual page should be opened
   2. Content should be present with no distortions and Junk characters
-* Reviews/Comments
+
+* Review comments
+
+

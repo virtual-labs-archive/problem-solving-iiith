@@ -1,27 +1,30 @@
-* Author : Nihanth
-* Date Created : 19.11.2015
-* Setup/Environment
+* Author: Nihanth
+* Date Created: 09 Dec 2015
+* Environment
   - OS: Windows 7, Linux
   - Browsers: Firefox,Chrome
   - Bandwidth : 100Mbps
   - Hardware Configuration:8GBRAM , 
   - Processor:i5
+  - Link:
+  - 1.http://en.wikipedia.org/wiki/Problem_solving
+
 * Objective
-  -To view the links in the Further Readings page of the "Factorials" experiment
-* Pre/Post Conditions
-  - Open the url vlabs.ac.in and vlabs home page will be displayed.
-  - Click on IIIT-Hyderabad and a list of labs will be displayed on
-    the screen.
-  - Select "Problem Solving"Lab, a home page will be displayed and
-    click on list of experiments link, where a list of experiments
-    will be displayed.
-  - Select "Factorials" experiment.
-* Test steps
-  1. Repeat 1&2 steps of [[./Factorials_Further Readings_27.org]]
-  2. Click on the links present in the screen
-* Test Links
-  1. http://en.wikipedia.org/wiki/Problem_solving
-* Expected Result
-  1. Repeat 1&2 steps of [[./Factorials_Further Readings_27.org]]
-  2. A new tab should get opened with the selected link
-* Reviews/Comment
+  - To view the links in Further Readings of the Factorials experiment
+
+* Pre/Post conditions
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/exp04/Factorials_01_Usability.org][Factorials_01_Usability.org]]
+
+* Test Steps
+  1. Click on the Further Readings link 
+  2. It should re-direct to the Further Readings page
+  3. Click on the links present in the screen
+
+* Expected result
+  1. Further Readings page should be opened
+  2. Content should be present with no distortions and Junk characters
+  3. A new tab should get opened with the selected link
+
+* Review comments
+
+

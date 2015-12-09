@@ -1,0 +1,30 @@
+* Author: Nihanth
+* Date Created: 09 Dec 2015
+* Environment
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+
+* Objective
+  - To view and take the quiz and cancel the Quiz and then submit the Quiz of “Numerical Representation” experiment
+
+* Pre/Post conditions
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/exp01/Numerical Representation_01_Usability.org][Numerical Representation_01_Usability.org]]
+
+* Test Steps
+  1. Click on the Quiz link 
+  2. It should re-direct to the Quiz page with questions and answers
+  3. Select the correct answer using the corresponding radio buttons and Click on the cancel button
+  4. Don't choose the options and Click on the submit button
+
+* Expected result
+  1. Quiz page should be opened
+  2. Content should be present with no distortions and Junk's characters
+  3. Answers selected radio buttons should get unselected 
+  4. Result should be displayed with the correct options or an error message should be displayed as to choose any one of the options
+
+* Review comments
+
+

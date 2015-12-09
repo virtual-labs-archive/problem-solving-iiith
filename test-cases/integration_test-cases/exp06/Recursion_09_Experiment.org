@@ -1,25 +1,30 @@
-* Author : Nihanth
-* Date Created : 19.11.2015
-* Setup/Environment
+* Author: Nihanth
+* Date Created: 09 Dec 2015
+* Environment
   - OS: Windows 7, Linux
   - Browsers: Firefox,Chrome
   - Bandwidth : 100Mbps
   - Hardware Configuration:8GBRAM , 
   - Processor:i5
+
 * Objective
-  - To perform the Simulation of "Recursion" experiment
-* Pre/Post Conditions
-  - Open the url vlabs.ac.in and vlabs home page will be displayed.
-  - Click on IIIT-Hyderabad and a list of labs will be displayed on
-    the screen.
-  - Select "Problem Solving"Lab, a home page will be displayed and
-    click on list of experiments link, where a list of experiments
-    will be displayed.
-  - Select "Recursion" experiment.
-* Test steps
-  1. Repeat 1,2&3 steps of [[./Recursion_Experiment_07.org]] 
-  2. Click on the browse button to choose a file and then click on load button
-* Expected Result
-  1. Repeat 1,2&3 steps of [[./Recursion_Experiment_07.org]]
-  2. When we click on the load button ,the selected file should be displayed on the screen 
-* Reviews/Comments
+  - To perform the Experiment of the Recursion experiment
+
+* Pre/Post conditions
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/exp06/Recursion_01_Usability.org][Recursion_01_Usability.org]]
+
+* Test Steps
+  1. Click on the Experiment link 
+  2. It should re-direct to the Experiment page  
+  3. Click on 'Go to Lab' link 
+  4. Click on the browse button to choose a file and then click on load button
+
+* Expected result
+  1. Experiment page should be opened
+  2. Content should be present with no distortions and Junk characters
+  3. It should redirect to a new tab with the simulation process displayed on the screen
+  4. When we click on the load button ,the selected file should be displayed on the screen
+
+* Review comments
+
+

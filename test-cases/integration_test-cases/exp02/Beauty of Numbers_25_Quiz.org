@@ -1,27 +1,30 @@
-* Author : Nihanth
-* Date Created : 19.11.2015
-* Setup/Environment
+* Author: Nihanth
+* Date Created: 09 Dec 2015
+* Environment
   - OS: Windows 7, Linux
   - Browsers: Firefox,Chrome
   - Bandwidth : 100Mbps
   - Hardware Configuration:8GBRAM , 
   - Processor:i5
+
 * Objective
-  -To view and take the quiz and cancel the Quiz and then submit the Quiz of “Beauty of Numbers” experiment 
-* Pre/Post Conditions
-  - Open the url vlabs.ac.in and vlabs home page will be displayed.
-  - Click on IIIT-Hyderabad and a list of labs will be displayed on
-    the screen.
-  - Select "Problem Solving"Lab, a home page will be displayed and
-    click on list of experiments link, where a list of experiments
-    will be displayed.
-  - Select "Beauty of Numbers" experiment.
-* Test steps
-  1. Repeat 1&2 steps of [[./Beauty of Numbers_Quiz_19.org]]
-  2. Select the correct answer using the corresponding radio buttons and Click on the cancel button
-  3. Don't choose the options and Click on the submit button
-* Expected Result
-  1. Repeat 1&2 steps of [[./Beauty of Numbers_Quiz_19.org]]
-  2. All the selected radio buttons for the questions should get unselected 
-  3. Result should be displayed with the correct options or an error message should be displayed as to choose any one of the options
-* Reviews/Comment
+  - To view and take the quiz and cancel the Quiz and then submit the Quiz of “Beauty of Numbers” experiment
+
+* Pre/Post conditions
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/exp02/Beauty of Numbers_01_Usability.org][Beauty of Numbers_01_Usability.org]]
+
+* Test Steps
+  1. Click on the Quiz link 
+  2. It should re-direct to the Quiz page with questions and answers
+  3. Select the correct answer using the corresponding radio buttons and Click on the cancel button
+  4. Don't choose the options and Click on the submit button
+
+* Expected result
+  1. Quiz page should be opened
+  2. Content should be present with no distortions and Junk's characters
+  3. Answers selected radio buttons should get unselected 
+  4. Result should be displayed with the correct options or an error message should be displayed as to choose any one of the options
+
+* Review comments
+
+
