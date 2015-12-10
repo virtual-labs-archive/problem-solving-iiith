@@ -1,10 +1,18 @@
-import xlrd
+#######################################################
+# File name: testreport.py
+# Author: Yogesh Agrawal
+# Submission: Dec 10, 2015
+# Email: yogeshiiith@gmail.com; yogesh@vlabs.ac.in
+#######################################################
+
+
+
 import os
 import sys
 import re
 import time
 
-filesexclude = set([".*testreport.org~", ".*statsreport.org", "README.md", ".*metafile.org", ".*stats.org", ".*testreport.org", ".*.xlsx"])
+filesexclude = set([".*testreport.org~", ".*statsreport.org", "README.md", ".*metafile.org", ".*stats.org", ".*testreport.org", ".*.xlsx", ".*.html"])
 filescombinedexclude = "(" + ")|(".join(filesexclude) + ")"
 
 filesinclude = set([".*org"])
@@ -35,6 +43,7 @@ def walk_over_path(path):
         files[:] = [f for f in files if not re.match(filescombinedexclude, f)]
         files[:] = [f for f in files if re.match(filescombinedinclude, f)]
         if files:
+            files = sorted(files)
             labName = root.split("/")[-2]
             gitLabUrl = "https://github.com/Virtual-Labs/" + labName
             testCasesLink = createMetaFile(root, files, gitLabUrl)
@@ -66,11 +75,11 @@ def createTestReport(root, labName, gitLabUrl, allTestCasesLink):
     testReportPath = root + "/" + labName + "_" + commit_id + "_testreport.org" 
     filePointer = open(testReportPath, 'w')
     filePointer.write("* Test Report\n")
-    filePointer.write("* Lab Name : %s\n" %(labName))
-    filePointer.write("* GitHub URL : %s\n" %(gitLabUrl))
-    filePointer.write("* Commit ID : %s\n\n" %(commit_id))
+    filePointer.write("** Lab Name : %s\n" %(labName))
+    filePointer.write("** GitHub URL : %s\n" %(gitLabUrl))
+    filePointer.write("** Commit ID : %s\n\n" %(commit_id))
     filePointer.write("#"*160+ "\n")
-    filePointer.write("S.no" + " "*14 + "Experiment Name" + " "*50  + "Test Case" + " "*42 + "Pass/Fail" + " "*8  + "Issue Link\n")
+    filePointer.write("S.no" + " "*14 + "Experiment Name" + " "*50  + "Test Case" + " "*42 + "Pass/Fail" + " "*8  + "Defect Link\n")
     filePointer.write("#"*160+ "\n")
     count = 1;
     for path in allTestCasesLink:

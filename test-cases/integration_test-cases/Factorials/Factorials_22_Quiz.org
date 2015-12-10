@@ -1,0 +1,28 @@
+* Author: Nihanth
+* Date Created: 10 Dec 2015
+* Environment
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+
+* Objective
+  - To view ,take the Quiz and then submit the Quiz of “Factorials” experiment
+
+* Pre/Post conditions
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/Factorials_01_Usability.org][Factorials_01_Usability.org]]
+
+* Test Steps
+  1. Click on the Quiz link 
+  2. It should re-direct to the Quiz page with questions and answers
+  3. In the Quiz select an option only for one question and then click on submit button
+
+* Expected result
+  1. Quiz page should be opened
+  2. Content should be present with no distortions and Junk's characters
+  3. Result should be displayed with the correct option if the selected option is wrong or an error message should be displayed to complete the test.
+
+* Review comments
+
+

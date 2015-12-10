@@ -1,0 +1,30 @@
+* Author: Nihanth
+* Date Created: 10 Dec 2015
+* Environment
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+
+* Objective
+  - To perform the Experiment of the Searching and Sorting experiment
+
+* Pre/Post conditions
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/Searching and Sorting_01_Usability.org][Searching and Sorting_01_Usability.org]]
+
+* Test Steps
+  1. Click on the Experiment link 
+  2. It should re-direct to the Experiment page  
+  3. Click on 'Go to Lab' link 
+  4. Don't insert the code in the box and click on the compile button
+
+* Expected result
+  1. Experiment page should be opened
+  2. Content should be present with no distortions and Junk characters
+  3. It should redirect to a new tab with the simulation process displayed on the screen
+  4. An error message should be displayed on the screen as to insert the code in the box
+
+* Review comments
+
+

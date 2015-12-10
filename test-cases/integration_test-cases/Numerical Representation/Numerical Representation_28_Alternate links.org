@@ -1,0 +1,28 @@
+* Author: Nihanth
+* Date Created: 10 Dec 2015
+* Environment
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+
+* Objective
+  - To go to other links in the experiments
+
+* Pre/Post conditions
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/Numerical Representation_01_Usability.org][Numerical Representation_01_Usability.org]]
+
+* Test Steps
+  1. Click on the Theory link 
+  2. It should re-direct to the Introduction page
+  3. Click on the Manual or any other link
+
+* Expected result
+  1. Theory page should be opened
+  2. Content should be present with no distortions and Junk characters
+  3. It should redirect to the manual or any other page of the experiment.
+
+* Review comments
+
+

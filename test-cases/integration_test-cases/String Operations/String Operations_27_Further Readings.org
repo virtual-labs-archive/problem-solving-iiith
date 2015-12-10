@@ -1,0 +1,31 @@
+* Author: Nihanth
+* Date Created: 10 Dec 2015
+* Environment
+  - OS: Windows 7, Linux
+  - Browsers: Firefox,Chrome
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GBRAM , 
+  - Processor:i5
+  - Link:
+  - 1.http://en.wikipedia.org/wiki/Simple_harmonic_motion
+  - 2.http://en.wikipedia.org/wiki/Problem_solving
+
+* Objective
+  - To view the links in Further Readings of the String Operations experiment
+
+* Pre/Post conditions
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/String Operations_01_Usability.org][String Operations_01_Usability.org]]
+
+* Test Steps
+  1. Click on the Further Readings link 
+  2. It should re-direct to the Further Readings page
+  3. Click on the links present in the screen
+
+* Expected result
+  1. Further Readings page should be opened
+  2. Content should be present with no distortions and Junk characters
+  3. A new tab should get opened with the selected link
+
+* Review comments
+
+
