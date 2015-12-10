@@ -11,7 +11,7 @@
   - User To view minimum requirement to run the experiment
 
 * Pre/Post conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/String Operations_01_Usability.org][String Operations_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String Operations/String Operations_01_Usability.org][String Operations_01_Usability.org]]
 
 * Test Steps
   1. Open the url vlabs.ac.in and vlabs home page will be displayed 

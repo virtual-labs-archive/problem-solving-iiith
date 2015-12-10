@@ -13,7 +13,7 @@
   - To view the links in Further Readings of the Advanced Arithmatic experiment
 
 * Pre/Post conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/Advanced Arithmatic_01_Usability.org][Advanced Arithmatic_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_01_Usability.org][Advanced Arithmatic_01_Usability.org]]
 
 * Test Steps
   1. Click on the Further Readings link 

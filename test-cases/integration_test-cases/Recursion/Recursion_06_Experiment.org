@@ -11,7 +11,7 @@
   - To view the Experiment of the Recursion experiment
 
 * Pre/Post conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/Recursion_01_Usability.org][Recursion_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_01_Usability.org][Recursion_01_Usability.org]]
 
 * Test Steps
   1. Click on the Experiment link 

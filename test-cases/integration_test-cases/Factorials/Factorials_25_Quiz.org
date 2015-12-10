@@ -11,7 +11,7 @@
   - To view and take the quiz and cancel the Quiz and then submit the Quiz of “Factorials” experiment
 
 * Pre/Post conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/Factorials_01_Usability.org][Factorials_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Factorials/Factorials_01_Usability.org][Factorials_01_Usability.org]]
 
 * Test Steps
   1. Click on the Quiz link 

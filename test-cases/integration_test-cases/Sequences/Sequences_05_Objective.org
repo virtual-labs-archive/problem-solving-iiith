@@ -11,7 +11,7 @@
   - To view the Objective of the Sequences experiment
 
 * Pre/Post conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/Sequences_01_Usability.org][Sequences_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Sequences/Sequences_01_Usability.org][Sequences_01_Usability.org]]
 
 * Test Steps
   1. Click on the Objective link 

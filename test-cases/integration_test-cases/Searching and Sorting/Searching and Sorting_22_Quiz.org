@@ -11,7 +11,7 @@
   - To view ,take the Quiz and then submit the Quiz of “Searching and Sorting” experiment
 
 * Pre/Post conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/Searching and Sorting_01_Usability.org][Searching and Sorting_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Searching and Sorting/Searching and Sorting_01_Usability.org][Searching and Sorting_01_Usability.org]]
 
 * Test Steps
   1. Click on the Quiz link 

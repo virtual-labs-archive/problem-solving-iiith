@@ -11,7 +11,7 @@
   - To view the Procedure of the More on Numbers experiment
 
 * Pre/Post conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/More on Numbers_01_Usability.org][More on Numbers_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/More on Numbers/More on Numbers_01_Usability.org][More on Numbers_01_Usability.org]]
 
 * Test Steps
   1. Click on the Procedure link 
