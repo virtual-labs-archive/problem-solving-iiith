@@ -14,13 +14,11 @@
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_01_Usability.org][Recursion_01_Usability.org]]
 
 * Test Steps
-  1. Click on the Introduction link 
-  2. It should re-direct to the Introduction page
-  3. Click on the feedback link
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_02_Introduction.org][Recursion_02_Introduction.org]]
+  2. Click on the feedback link
 
 * Expected result
-  1. Introduction page should be opened
-  2. Content should be present with no distortions and Junk characters
+  1.Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_02_Introduction.org][Recursion_02_Introduction.org]]
   3. Feedback page should be opened
   4. Content should be present with no distortions and Junk characters
 

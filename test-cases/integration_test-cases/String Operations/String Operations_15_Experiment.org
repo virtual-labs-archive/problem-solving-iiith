@@ -14,19 +14,17 @@
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String Operations/String Operations_01_Usability.org][String Operations_01_Usability.org]]
 
 * Test Steps
-  1. Click on the Experiment link 
-  2. It should re-direct to the Experiment page  
-  3. Click on 'Go to Lab' link 
-  4. Insert the code in the box and select the problem number from the dropdown list present at the problem number field
-  5. Select the Language either c(or)c++ from the dropdown list present at the language field
-  6. Select the Hint level from the dropdown list present at the hint field and and now change the hint level(eg:from hint1 to hint4)
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String Operations/String Operations_06_Experiment.org][String Operations_06_Experiment.org]]  
+  2. Click on 'Go to Lab' link 
+  3. Insert the code in the box and select the problem number from the dropdown list present at the problem number field
+  4. Select the Language either c(or)c++ from the dropdown list present at the language field
+  5. Select the Hint level from the dropdown list present at the hint field and and now change the hint level(eg:from hint1 to hint4)
 
 * Expected result
-  1. Experiment page should be opened
-  2. Content should be present with no distortions and Junk characters
-  3. It should redirect to a new tab with the simulation process displayed on the screen
-  4. The inserted code,selected problem number and selected language should be displayed on the screen
-  5. The hint level should get changed to the modified level and it should be displayed on the screen
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String Operations/String Operations_06_Experiment.org][String Operations_06_Experiment.org]] 
+  2. It should redirect to a new tab with the simulation process displayed on the screen
+  3. The inserted code,selected problem number and selected language should be displayed on the screen
+  4. The hint level should get changed to the modified level and it should be displayed on the screen
 
 * Review comments
 

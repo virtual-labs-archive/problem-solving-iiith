@@ -15,16 +15,14 @@
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Searching and Sorting/Searching and Sorting_01_Usability.org][Searching and Sorting_01_Usability.org]]
 
 * Test Steps
-  1. Click on the Experiment link 
-  2. It should re-direct to the Experiment page  
-  3. Click on 'Go to Lab' link 
-  4. Insert the Invalid code in the box and click on the run button
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Searching and Sorting/Searching and Sorting_06_Experiment.org][Searching and Sorting_06_Experiment.org]]
+  2. Click on 'Go to Lab' link 
+  3. Insert the Invalid code in the box and click on the run button
 
 * Expected result
-  1. Experiment page should be opened
-  2. Content should be present with no distortions and Junk characters
-  3. It should redirect to a new tab with the simulation process displayed on the screen
-  4. An error message should be displayed on the screen as to insert the valid code in the box
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Searching and Sorting/Searching and Sorting_06_Experiment.org][Searching and Sorting_06_Experiment.org]]
+  2. It should redirect to a new tab with the simulation process displayed on the screen
+  3. An error message should be displayed on the screen as to insert the valid code in the box
 
 * Review comments
 

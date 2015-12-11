@@ -14,13 +14,14 @@
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_01_Usability.org][Numerical Representation_01_Usability.org]]
 
 * Test Steps
-  1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_02_Introduction.org][Numerical Representation_02_Introduction.org]]
+  1. Refer 1&2 steps of [[Numerical Representation_02_Introduction.org]]
   2. Click on the feedback link
 
 * Expected result
-  1.Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_02_Introduction.org][Numerical Representation_02_Introduction.org]]
-  2. Feedback page should be opened
-  3. Content should be present with no distortions and Junk characters
+  1. Introduction page should be opened
+  2. Content should be present with no distortions and Junk characters
+  3. Feedback page should be opened
+  4. Content should be present with no distortions and Junk characters
 
 * Review comments
 

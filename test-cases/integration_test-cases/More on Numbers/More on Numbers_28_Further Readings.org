@@ -7,7 +7,7 @@
   - Hardware Configuration:8GBRAM , 
   - Processor:i5
   - Link:
-  - 1.http://en.wikipedia.org/wiki/Problem_solving
+  - http://en.wikipedia.org/wiki/Problem_solving
 
 * Objective
   - To view the links in Further Readings of the More on Numbers experiment
@@ -16,13 +16,11 @@
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/More on Numbers/More on Numbers_01_Usability.org][More on Numbers_01_Usability.org]]
 
 * Test Steps
-  1. Click on the Further Readings link 
-  2. It should re-direct to the Further Readings page
+  1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/More on Numbers/More on Numbers_27_Further Readings.org][More on Numbers_27_Further Readings.org]] 
   3. Click on the links present in the screen
 
 * Expected result
-  1. Further Readings page should be opened
-  2. Content should be present with no distortions and Junk characters
+  1.REfer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/More on Numbers/More on Numbers_27_Further Readings.org][More on Numbers_27_Further Readings.org]] 
   3. A new tab should get opened with the selected link
 
 * Review comments

@@ -1,0 +1,37 @@
+#+Title: Release Notes Sample
+#+Author: VLEAD QA Team
+#+Email: engg@vlabs.ac.in
+#+DATE: [2015-12-10 Thurs]
+#+SETUPFILE: ./org-templates/level-0.org
+#+LANGUAGE: en
+#+OPTIONS: ^:nil
+
+* Commit id of the Source
+  Commit id : c4abc464f1950baad81684c482f18d9aa8f702ff
+* Version Number of the Lab (*To Revisit*)
+  Version of the lab to be released : v0.0.1
+* Details of new features added 
+  - Introduction content updated.
+  - Introduction link redirecting to introduction page.
+  - Experiment link is redirecting to experiment page.
+  - Experiment simulation has no junk characters.
+* Defect link of resolved defects  
+  - [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/131][#131]]
+  - [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/139][#139]]
+* Tests conducted with results  
+** Tests conducted 
+   - Click on the Introduction link
+   - It should re-direct to the Introduction page
+   - Click on the Experiment simulation link.
+   - It should re-direct to the Experiment page
+** Test results 
+   - Introduction page is opening.
+   - Introduction page is displaying updated content. 
+   - Content is present with no distortions and Junk characters.
+   - Experiment simulation link is redirecting to correct page.
+* Environment Settings 
+   - OS : Windows 7, Linux
+   - Browsers : Firefox, Chrome
+   - Bandwidth : 100Mbps
+   - Hardware Configuration : 8GB RAM 
+   - Processor : i5

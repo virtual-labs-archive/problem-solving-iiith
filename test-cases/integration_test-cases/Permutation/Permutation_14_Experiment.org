@@ -15,20 +15,18 @@
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_01_Usability.org][Permutation_01_Usability.org]]
 
 * Test Steps
-  1. Click on the Experiment link 
-  2. It should re-direct to the Experiment page  
-  3. Click on 'Go to Lab' link 
-  4. Insert the code in the box and select the problem number from the dropdown list present at the problem number field
-  5. Select the Language either c(or)c++ from the dropdown list present at the language field
-  6. Check the toogle bar, and click on the buttons displayed in the box
-  7. Now uncheck the toogle bar
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_06_Experiment.org][Permutation_06_Experiment.org]]  
+  2. Click on 'Go to Lab' link 
+  3. Insert the code in the box and select the problem number from the dropdown list present at the problem number field
+  4. Select the Language either c(or)c++ from the dropdown list present at the language field
+  5. Check the toogle bar, and click on the buttons displayed in the box
+  6. Now uncheck the toogle bar
 
 * Expected result
-  1. Experiment page should be opened
-  2. Content should be present with no distortions and Junk characters
-  3. It should redirect to a new tab with the simulation process displayed on the screen
-  4. The inserted code,selected problem number and selected language should be displayed on the screen
-  5. The seleted buttons should work and when we uncheck the toogle bar the features in the box should get disappear
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_06_Experiment.org][Permutation_06_Experiment.org]]
+  2. It should redirect to a new tab with the simulation process displayed on the screen
+  3. The inserted code,selected problem number and selected language should be displayed on the screen
+  4. The seleted buttons should work and when we uncheck the toogle bar the features in the box should get disappear
 
 * Review comments
 

@@ -14,15 +14,13 @@
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String Operations/String Operations_01_Usability.org][String Operations_01_Usability.org]]
 
 * Test Steps
-  1. Click on the Introduction link 
-  2. It should re-direct to the Introduction page
-  3. Click on the feedback link
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String Operations/String Operations_02_Introduction.org][String Operations_02_Introduction.org]]
+  2. Click on the feedback link
 
 * Expected result
-  1. Introduction page should be opened
-  2. Content should be present with no distortions and Junk characters
-  3. Feedback page should be opened
-  4. Content should be present with no distortions and Junk characters
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String Operations/String Operations_02_Introduction.org][String Operations_02_Introduction.org]]
+  2. Feedback page should be opened
+  3. Content should be present with no distortions and Junk characters
 
 * Review comments
 
