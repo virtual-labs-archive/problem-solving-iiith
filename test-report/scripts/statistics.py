@@ -9,8 +9,6 @@ import os
 import sys
 import re
 import time
-import texttable
-
 
 filesinclude = set([".*testreport.org"])
 filescombined = "(" + ")|(".join(filesinclude) + ")"
@@ -20,6 +18,12 @@ filescombinedexcl = "(" + ")|(".join(filesexclude) + ")"
 
 dirsexclude = set([".git", "IIT Bombay", "Amrita"])
 dirscombined = "(" + ")|(".join(dirsexclude) + ")"
+
+snoColumnwidth = 5
+expnameColumnwidth = 30
+passColumnwidth = 10
+failColumnwidth = 11
+
 
 def main(argv):
     if len(argv) < 2:
@@ -41,7 +45,7 @@ def single_file(path):
         labName = basename.rstrip("_testreport.org")
         totalStatistics[labName] = statistics
         statsPath = basedir + "/" + "stats.org"
-        write_to_file(statsPath, totalStatistics)
+        #write_to_file(statsPath, totalStatistics)
     else:
         print "Program does not support the provided file format!"
     return
@@ -69,6 +73,7 @@ def getStatistics(path):
     commitIdLine = filePointer.readline()
     filePointer.readline(); filePointer.readline(); filePointer.readline(); filePointer.readline()
     for line in filePointer.readlines():
+        line = line.strip("|\n")
         if re.match('--', line):
             continue
         splitData = line.split('|')
@@ -100,6 +105,20 @@ def getStatistics(path):
     write_to_file_per_lab(exppath, labNameLine, gitLabUrlLine, commitIdLine, statistics)
     return statistics
 
+def generateLine(sno, expname, passcount, failcount):
+    snolength = len(sno); sno = sno + " "*(snoColumnwidth - snolength)
+    expnamelength = len(expname); expname = expname + " "*(expnameColumnwidth - expnamelength)
+    passcountlength = len(passcount); passcount = passcount + " "*(passColumnwidth - passcountlength)
+    failcountlength = len(failcount); failcount = failcount + " "*(failColumnwidth - failcountlength)
+
+    line = "| " + sno + "  |  " + expname + "  |  " + passcount + "  |  " + failcount + " |\n"
+    return line
+
+def lineBreak():
+    line  = "|" + "-"*73+ "|\n"
+    return (line)
+
+
 def write_to_file_per_lab(path, labNameLine, gitLabUrlLine, commitIdLine, data):
     filePointer = open(path, 'w')
     filePointer.write("* Statistics Report\n")
@@ -107,23 +126,27 @@ def write_to_file_per_lab(path, labNameLine, gitLabUrlLine, commitIdLine, data):
     filePointer.write(gitLabUrlLine)
     filePointer.write(commitIdLine)
     filePointer.write("\n")
-    tab = texttable.Texttable()
-    tab.header(["S.no", "Experiment Name", "Pass Count", "Fail Count"])
-    tab.set_cols_width([5,35,5,5])
+   
+    table = lineBreak()
+    table+= generateLine("*S.no", "Experiment Name", "Pass Count", "Fail Count*")
+    table+= lineBreak() 
     count = 1
     passcount = 0;    failcount = 0
     for exp in data:
-        line = str(count) + ". \t" + exp + "\t\t"  +str(data[exp]['pass']) + "\t\t" + str(data[exp]['fail']) + "\n"
-        tab.add_row([count, exp, data[exp]['pass'], data[exp]['fail']])
+        sno = str(count);  passcountstr = str(data[exp]['pass']); failcountstr = str(data[exp]['fail'])
+        line = generateLine(sno, exp, passcountstr, failcountstr)
+        table += line + lineBreak()
+        #line = str(count) + ". \t" + exp + "\t\t"  +str(data[exp]['pass']) + "\t\t" + str(data[exp]['fail']) + "\n"
+        #tab.add_row([count, exp, data[exp]['pass'], data[exp]['fail']])
         passcount+=data[exp]['pass']
         failcount+=data[exp]['fail']
         count+=1
 
     filePointer.write("Total number of passed test cases = %s\n\n" %(passcount))
     filePointer.write("Total number of failed test cases = %s\n\n" %(failcount))
-    filePointer.write("#+begin_example\n")
-    filePointer.write(tab.draw())
-    filePointer.write("\n#+end_example\n")
+    
+    filePointer.write(table)
+
     filePointer.close()
     return
 

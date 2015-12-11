@@ -21,9 +21,11 @@ filescombinedinclude = "(" + ")|(".join(filesinclude) + ")"
 dirsexclude = set([".git", "IIT Bombay", "Amrita", "NIT Karnataka"])
 dirscombined = "(" + ")|(".join(dirsexclude) + ")"
 
-expnameColumnwidth = 50
-testcasenameColumnwidth = 60
-snoColumnwidth = 10
+snoColumnwidth = 5
+expnameColumnwidth = 30
+testcasenameColumnwidth = 50
+passfailColumnwidth = 10
+defectColumnwidth = 15
 
 allTestCasesLink = []
 
@@ -70,6 +72,22 @@ def createMetaFile(root, testCases, gitLabUrl):
     filePointer.close()
     return testCasesLink
 
+def generateLine(sno, expname, testcasename, passfail, defectlink, linklength=0):
+    snolength = len(sno); sno = sno + " "*(snoColumnwidth - snolength)
+    expnamelength = len(expname); expname = expname + " "*(expnameColumnwidth - expnamelength)
+    if (linklength==0):
+        linklength = len(testcasename); 
+    testcasename = testcasename + " "*(testcasenameColumnwidth - linklength)
+    passfaillength = len(passfail); passfail = passfail + " "*(passfailColumnwidth - passfaillength)
+    defectlinklength = len(defectlink); defectlink = defectlink + " "*(defectColumnwidth - defectlinklength)
+
+    line = "| " + sno + "  |  " + expname + "  |  " + testcasename + "  |  " + passfail + "  |  " + defectlink + " |\n"
+    return line
+
+def lineBreak():
+    line  = "|" + "-"*132+ "|\n"
+    return (line)
+
 def createTestReport(root, labName, gitLabUrl, allTestCasesLink):
     commit_id = raw_input("Please enter commit id for lab: %s\n" %(labName))
     testReportPath = root + "/" + labName + "_" + commit_id + "_testreport.org" 
@@ -78,24 +96,29 @@ def createTestReport(root, labName, gitLabUrl, allTestCasesLink):
     filePointer.write("** Lab Name : %s\n" %(labName))
     filePointer.write("** GitHub URL : %s\n" %(gitLabUrl))
     filePointer.write("** Commit ID : %s\n\n" %(commit_id))
-    filePointer.write("#"*160+ "\n")
-    filePointer.write("S.no" + " "*14 + "Experiment Name" + " "*50  + "Test Case" + " "*42 + "Pass/Fail" + " "*8  + "Defect Link\n")
-    filePointer.write("#"*160+ "\n")
+    filePointer.write(lineBreak())
+
+    sno = "*Sno"; expname = "Experiment Name"; testcasename = "Test Case";
+    passfail = "Pass/Fail"; defectlink = "Defect Link*";
+
+    line = generateLine(sno, expname, testcasename, passfail, defectlink)
+
+    filePointer.write(line)
+    filePointer.write(lineBreak())
     count = 1;
     for path in allTestCasesLink:
         basename = os.path.basename(path)
+
         sno = str(count)+ ". "; 
         expname = basename.split("_")[0];
         testcasename = "[[" + path + "][" + basename + "]]";
-        passfail = " "; link = " ";
+        passfail = ""; defectlink = "";
 
-        expnamelength = len(expname); linklength = len(basename); snolength = len(sno)
-        expname = expname + " "*(expnameColumnwidth - expnamelength)
-        testcasename = testcasename + " "*(testcasenameColumnwidth - linklength)
-        sno = sno + " "*(snoColumnwidth - snolength)
-        line = sno + "  |  " + expname + "  |  " + testcasename + "  |  " + " "*13 + "  |  " + " "*3 + "\n"
+        linklength = len(basename); 
+
+        line = generateLine(sno, expname, testcasename, passfail, defectlink, linklength)
         filePointer.write(line)
-        filePointer.write("-"*160+ "\n")
+        filePointer.write(lineBreak())
         count+=1;
     filePointer.close()
     return
