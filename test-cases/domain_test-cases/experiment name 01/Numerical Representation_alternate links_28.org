@@ -8,7 +8,7 @@
   - Processor:i5
 * Objective
   - To go to other links in the experiments
-* Pre/Post Conditions
+* Pre Conditions
   - Open the url vlabs.ac.in and vlabs home page will be displayed.
   - Click on IIIT-Hyderabad and a list of labs will be displayed on
     the screen.
@@ -16,6 +16,8 @@
     click on list of experiments link, where a list of experiments
     will be displayed.
   - Select "Numerical Representation" experiment.
+* Post Conditions
+  - Nil
 * Test steps
   1. Click on the Theory link 
   2. It should re-direct to the Introduction page
