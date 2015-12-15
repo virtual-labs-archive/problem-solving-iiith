@@ -17,10 +17,8 @@ Format of the statistics report generated is as follows:
 Statistics report file for each lab is saved inside the lab folder.
 
 2. Prerequisite::
-a. Test report is already generated in org format for a lab.
+Test report is already generated in org format for a lab.
 
-b. Install dependencies:
-   $ pip install texttable
 
 3. Running the script::
 Script can be executed as follows:

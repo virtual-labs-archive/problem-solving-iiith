@@ -42,16 +42,11 @@ def single_file(path):
     if (re.match(".*_testreport.org", basename)):
         totalStatistics = {}
         statistics = getStatistics(path)
-        labName = basename.rstrip("_testreport.org")
-        totalStatistics[labName] = statistics
-        statsPath = basedir + "/" + "stats.org"
-        #write_to_file(statsPath, totalStatistics)
     else:
         print "Program does not support the provided file format!"
     return
 
 def walk_over_path(path):
-    totalStatistics = {}
     for root, dirs, files in os.walk(path):
         dirs[:] = [d for d in dirs if not re.match(dirscombined, d)]
         files[:] = [f for f in files if re.match(filescombined, f) and not re.match(filescombinedexcl, f)]
@@ -59,8 +54,6 @@ def walk_over_path(path):
             if (re.match(".*_testreport.org", f)):
                 filePath = root + "/" + f
                 statistics = getStatistics(filePath)
-                labName = f.rstrip("_testreport.org")
-                totalStatistics[labName] = statistics
     return
 
 def getStatistics(path):

@@ -18,7 +18,7 @@
 Added quiz section for Permutation Experiment.
 *** Test Cases
 1. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_18_Quiz.org][Permutation_Quiz_1.org]]
-2. [[tps://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_19_Quiz.org][Permutation_Quiz_2.org]]
+2. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_19_Quiz.org][Permutation_Quiz_2.org]]
 3. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_20_Quiz.org][Permutation_Quiz_3.org]]
 
 ** Feature 2
