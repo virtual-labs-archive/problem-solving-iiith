@@ -8,27 +8,30 @@
 
 * Commit id of the Source
   Commit id : c4abc464f1950baad81684c482f18d9aa8f702ff
-* Version Number of the Lab (*To Revisit*)
-  Version of the lab to be released : v0.0.1
-* Details of new features added 
-  - Introduction content updated.
-  - Introduction link redirecting to introduction page.
-  - Experiment link is redirecting to experiment page.
-  - Experiment simulation has no junk characters.
-* Defect link of resolved defects  
+
+* Version Number of the Lab
+  Version of the lab to be released : v1.1
+
+* New Features Added
+** Feature 1
+*** Description
+Added quiz section for Permutation Experiment.
+*** Test Cases
+1. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_18_Quiz.org][Permutation_Quiz_1.org]]
+2. [[tps://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_19_Quiz.org][Permutation_Quiz_2.org]]
+3. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_20_Quiz.org][Permutation_Quiz_3.org]]
+
+** Feature 2
+*** Description
+Added further readings section for Advanced Arithmetic Experiment.
+*** Test Cases
+1. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Factorials/Factorials_27_Further%20Readings.org][Factorials_Further Readings_1.org]]
+2. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Factorials/Factorials_28_Further%20Readings.org][Factorials_Further Readings_2.org]]
+
+* Resolved Defects
   - [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/131][#131]]
   - [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/139][#139]]
-* Tests conducted with results  
-** Tests conducted 
-   - Click on the Introduction link
-   - It should re-direct to the Introduction page
-   - Click on the Experiment simulation link.
-   - It should re-direct to the Experiment page
-** Test results 
-   - Introduction page is opening.
-   - Introduction page is displaying updated content. 
-   - Content is present with no distortions and Junk characters.
-   - Experiment simulation link is redirecting to correct page.
+
 * Environment Settings 
    - OS : Windows 7, Linux
    - Browsers : Firefox, Chrome
