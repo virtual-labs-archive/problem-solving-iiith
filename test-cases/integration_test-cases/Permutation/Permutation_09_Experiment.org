@@ -10,9 +10,11 @@
 * Objective
   - To perform the Experiment of the Permutation experiment
 
-* Pre/Post conditions
+* Pre conditions
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_01_Usability.org][Permutation_01_Usability.org]]
 
+* Post conditions
+   - Nil
 * Test Steps
   1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_06_Experiment.org][Permutation_06_Experiment.org]]  
   2. Click on 'Go to Lab' link 

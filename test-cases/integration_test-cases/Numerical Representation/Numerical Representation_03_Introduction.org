@@ -10,9 +10,11 @@
 * Objective
   - To give the feedback of the Numerical Representation experiment
 
-* Pre/Post conditions
+* Pre conditions
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_01_Usability.org][Numerical Representation_01_Usability.org]]
 
+* Post conditions
+   - Nil
 * Test Steps
   1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_02_Introduction.org][Numerical Representation_02_Introduction.org]]
   2. Click on the feedback link

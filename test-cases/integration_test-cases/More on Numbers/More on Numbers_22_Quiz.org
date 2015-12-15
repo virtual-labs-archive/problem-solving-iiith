@@ -10,9 +10,11 @@
 * Objective
   - To view ,take the Quiz and then submit the Quiz of “More on Numbers” experiment
 
-* Pre/Post conditions
+* Pre conditions
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/More on Numbers/More on Numbers_01_Usability.org][More on Numbers_01_Usability.org]]
 
+* Post conditions
+   - Nil
 * Test Steps
   1. Click on the Quiz link 
   2. It should re-direct to the Quiz page with questions and answers

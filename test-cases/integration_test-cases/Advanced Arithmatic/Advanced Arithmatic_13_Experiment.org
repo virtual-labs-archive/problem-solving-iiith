@@ -11,9 +11,11 @@
 * Objective
   - To perform the Experiment of the Advanced Arithmatic experiment
 
-* Pre/Post conditions
+* Pre conditions
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_01_Usability.org][Advanced Arithmatic_01_Usability.org]]
 
+* Post conditions
+   - Nil
 * Test Steps
   1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_07_Experiment.org][Advanced Arithmatic_07_Experiment.org]]
   2. Insert the Invalid code in the box and click on the run button

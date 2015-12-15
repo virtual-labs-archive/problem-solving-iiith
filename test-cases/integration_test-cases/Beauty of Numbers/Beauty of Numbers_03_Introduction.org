@@ -10,9 +10,11 @@
 * Objective
   - To give the feedback of the Beauty of Numbers experiment
 
-* Pre/Post conditions
+* Pre conditions
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty of Numbers/Beauty of Numbers_01_Usability.org][Beauty of Numbers_01_Usability.org]]
 
+* Post conditions
+   - Nil
 * Test Steps
   1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty of Numbers/Beauty of Numbers_02_Introduction.org][Beauty of Numbers_02_Introduction.org]]
   2. Click on the feedback link

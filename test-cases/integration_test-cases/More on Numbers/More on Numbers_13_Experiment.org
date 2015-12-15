@@ -11,9 +11,11 @@
 * Objective
   - To perform the Experiment of the More on Numbers experiment
 
-* Pre/Post conditions
+* Pre conditions
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/More on Numbers/More on Numbers_01_Usability.org][More on Numbers_01_Usability.org]]
 
+* Post conditions
+   - Nil
 * Test Steps
   1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/More on Numbers/More on Numbers_06_Experiment.org][More on Numbers_06_Experiment.org]]   
   2. Click on 'Go to Lab' link 

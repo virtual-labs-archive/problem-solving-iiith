@@ -10,12 +10,14 @@
 * Objective
   - Experiment should be easily usable
 
-* Pre/Post conditions
+* Pre conditions
   1. Open the url vlabs.ac.in and vlabs home page will be displayed 
   2. Click on IIIT-Hyderabad and a list of labs will be displayed on the screen 
   3. Select Problem Solving Lab, a home page will be displayed and click on List of experiments link,  where a list of experiments will be displayed on the screen
   4. Select  "Sequences" experiment.
 
+* Post conditions
+   - Nil
 * Test Steps
   - While testing observe for easiness to use the features of the experiment
   1. Information to use the experiment

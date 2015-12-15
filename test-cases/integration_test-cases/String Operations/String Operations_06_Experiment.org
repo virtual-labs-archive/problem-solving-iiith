@@ -10,9 +10,11 @@
 * Objective
   - To view the Experiment of the String Operations experiment
 
-* Pre/Post conditions
+* Pre conditions
   - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String Operations/String Operations_01_Usability.org][String Operations_01_Usability.org]]
 
+* Post conditions
+   - Nil
 * Test Steps
   1. Click on the Experiment link 
   2. It should re-direct to the Experiment page
