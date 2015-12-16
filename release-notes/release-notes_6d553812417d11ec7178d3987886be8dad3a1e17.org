@@ -1,0 +1,40 @@
+#+Title: Release Notes Sample
+#+Author: VLEAD QA Team
+#+Email: engg@vlabs.ac.in
+#+DATE: [2015-12-10 Thurs]
+#+SETUPFILE: ./org-templates/level-0.org
+#+LANGUAGE: en
+#+OPTIONS: ^:nil
+
+* Commit id of the Source
+  Commit id : c4abc464f1950baad81684c482f18d9aa8f702ff
+
+* Version Number of the Lab
+  Version of the lab to be released : v1.1
+
+* New Features Added
+** Feature 1
+*** Description
+Added quiz section for Permutation Experiment.
+*** Test Cases
+1. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_18_Quiz.org][Permutation_Quiz_1.org]]
+2. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_19_Quiz.org][Permutation_Quiz_2.org]]
+3. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_20_Quiz.org][Permutation_Quiz_3.org]]
+
+** Feature 2
+*** Description
+Added further readings section for Advanced Arithmetic Experiment.
+*** Test Cases
+1. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Factorials/Factorials_27_Further%20Readings.org][Factorials_Further Readings_1.org]]
+2. [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Factorials/Factorials_28_Further%20Readings.org][Factorials_Further Readings_2.org]]
+
+* Resolved Defects
+  - [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/131][#131]]
+  - [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/139][#139]]
+
+* Environment Settings 
+   - OS : Windows 7, Linux
+   - Browsers : Firefox, Chrome
+   - Bandwidth : 100Mbps
+   - Hardware Configuration : 8GB RAM 
+   - Processor : i5
