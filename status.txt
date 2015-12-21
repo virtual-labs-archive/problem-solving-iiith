@@ -1,0 +1,10 @@
+test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_metafile.org
+test-cases/integration_test-cases/Beauty of Numbers/Beauty of Numbers_metafile.org
+test-cases/integration_test-cases/Factorials/Factorials_metafile.org
+test-cases/integration_test-cases/More on Numbers/More on Numbers_metafile.org
+test-cases/integration_test-cases/Permutation/Permutation_metafile.org
+test-cases/integration_test-cases/Recursion/Recursion_metafile.org
+test-cases/integration_test-cases/Searching and Sorting/Searching and Sorting_metafile.org
+test-cases/integration_test-cases/Sequences/Sequences_metafile.org
+test-cases/integration_test-cases/String Operations/String Operations_metafile.org
+test-cases/integration_test-cases/system/system_metafile.org
