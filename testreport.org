@@ -1,1 +1,1 @@
-[[https://github.com/Virtual-Labs/test-report/tree/master/problem-solving-iiith][View Test Report for lab problem-solving-iiith]]
+[[https://github.com/Virtual-Labs/test-reports/tree/master/problem-solving-iiith][View Test Report for problem-solving-iiith Lab]]
