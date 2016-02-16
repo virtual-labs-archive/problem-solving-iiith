@@ -1,0 +1,28 @@
+* Author: Nihanth
+* Date Created: 10 Dec 2015
+* Environment
+  - OS: Windows 7,Ubuntu-16.04,CentOS-6
+  - Browsers: Firefox-42.0,Chrome-47.0,Chromium-45.0
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GB RAM , 
+  - Processor:i5
+
+* Objective
+  - To view the Manual of the Searching and Sorting experiment
+
+* Pre conditions
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Searching and Sorting/Searching and Sorting_01_Usability.org][Searching and Sorting_01_Usability.org]]
+
+* Post conditions
+   - Nil
+* Test Steps
+  1. Click on the Manual link 
+  2. Verify whether the content present in the page contains any distortions and junk characters
+
+* Expected result
+  1. Manual page should be opened
+  2. Content should be present with no distortions and Junk characters
+
+* Review comments
+
+
