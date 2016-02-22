@@ -16,12 +16,12 @@
 * Post conditions
    - Nil
 * Test Steps
-  1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_19_Quiz.org][Advanced Arithmatic_19_Quiz.org]]
+  1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_19_Quiz_p1.org][Advanced Arithmatic_19_Quiz_p1.org]]
   2. Select the correct answer using the corresponding radio buttons and Click on the submit button
   3. The options should be validated with the backend database
 
 * Expected result
-  1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_19_Quiz.org][Advanced Arithmatic_19_Quiz.org]]
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_19_Quiz_p1.org][Advanced Arithmatic_19_Quiz_p1.org]]
   2. Result should be displayed with the correct option if the selected option is wrong. 
   3. If the selected option is correct a message should be displayed that the selected answer is correct
 

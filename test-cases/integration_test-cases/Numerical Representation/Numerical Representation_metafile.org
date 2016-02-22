@@ -1,7 +1,6 @@
 S.no		Test case link
 1. 	[[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_01_Usability.org][Numerical Representation_01_Usability.org]]
 2. 	[[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_02_Introduction.org][Numerical Representation_02_Introduction.org]]
-3. 	[[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_03_Introduction.org][Numerical Representation_03_Introduction.org]]
 4. 	[[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_04_Theory.org][Numerical Representation_04_Theory.org]]
 5. 	[[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_05_Objective.org][Numerical Representation_05_Objective.org]]
 6. 	[[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_06_Experiment.org][Numerical Representation_06_Experiment.org]]

@@ -17,7 +17,7 @@
    - Nil
 * Test Steps
   1. Click on the Objective link 
-  2. It should re-direct to the Objective page
+  2. Verify whether the content present in the page is having any distortions and junk characters
 
 * Expected result
   1. Objective page should be opened

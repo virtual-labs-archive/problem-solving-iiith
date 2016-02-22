@@ -19,7 +19,7 @@
    - Nil
 * Test Steps
   1. Click on the Feedback link 
-  2. It should re-direct to the Feedback page
+  2. Verify whether the content present in the page contains any distortions and junk characters
   3. Click on the links present in the screen
 
 * Expected result

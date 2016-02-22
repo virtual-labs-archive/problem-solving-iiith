@@ -16,12 +16,12 @@
 * Post conditions
    - Nil
 * Test Steps
-  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_06_Experiment.org][Numerical Representation_06_Experiment.org]]  
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_06_Experiment_smk.org][Numerical Representation_06_Experiment_smk.org]] 
   2. Click on 'Go to Lab' link 
   3. Click on the browse button to choose a file and then click on load button
 
 * Expected result
-  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_06_Experiment.org][Numerical Representation_06_Experiment.org]]
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_06_Experiment_smk.org][Numerical Representation_06_Experiment_smk.org]]
   2. It should redirect to a new tab with the simulation process displayed on the screen
   3. When we click on the load button ,the selected file should be displayed on the screen
 

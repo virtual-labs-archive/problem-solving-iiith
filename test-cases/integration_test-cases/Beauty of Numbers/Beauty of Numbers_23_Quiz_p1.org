@@ -17,7 +17,7 @@
    - Nil
 * Test Steps
   1. Click on the Quiz link 
-  2. It should re-direct to the Quiz page with questions and answers
+  2. Verify whether the content present in the page is having any distortions and junk characters
   3. Don't Select the options using the corresponding radio buttons and Click on the cancel button
 
 * Expected result

@@ -17,7 +17,7 @@
    - Nil
 * Test Steps
   1. Click on the Quiz link 
-  2. It should re-direct to the Quiz page with questions and answers
+  2. verify whether the content present in the page is having any distortions and junk characters
   3. In the Quiz select an option only for one question and then click on submit button
 
 * Expected result

@@ -17,7 +17,7 @@
    - Nil
 * Test Steps
   1. Click on back to experiments link 
-  2. It should re-direct to the experiments list page
+  2. verify whether the content present in the page is having any distortions and junk characters
 
 * Expected result
   1. Lab home page should be opened

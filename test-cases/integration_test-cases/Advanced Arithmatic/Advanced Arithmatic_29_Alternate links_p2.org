@@ -17,7 +17,7 @@
   - Nil
 * Test Steps
   1. Click on the Theory link 
-  2. It should re-direct to the Introduction page
+  2.Verify whether the content present in the page contains any distortions and junk characters
   3. Click on the Manual or any other link
 
 * Expected result

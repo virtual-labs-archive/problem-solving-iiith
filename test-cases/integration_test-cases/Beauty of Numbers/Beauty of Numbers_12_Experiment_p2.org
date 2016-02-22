@@ -17,12 +17,12 @@
 * Post conditions
    - Nil
 * Test Steps
-  1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty of Numbers/Beauty of Numbers_07_Experiment.org][Beauty of Numbers_07_Experiment.org]]
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty of Numbers/Beauty of Numbers_06_Experiment_smk.org][Beauty of Numbers_06_Experiment_smk.org]]
   2. Click on 'Go to Lab' link 
   3. Insert the Invalid code in the box and click on the compile button
 
 * Expected result
-  1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty of Numbers/Beauty of Numbers_07_Experiment.org][Beauty of Numbers_07_Experiment.org]]
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty of Numbers/Beauty of Numbers_06_Experiment_smk.org][Beauty of Numbers_06_Experiment_smk.org]]
   2. It should redirect to a new tab with the simulation process displayed on the screen
   3. An error message should be displayed on the screen as to insert the valid code in the box
 

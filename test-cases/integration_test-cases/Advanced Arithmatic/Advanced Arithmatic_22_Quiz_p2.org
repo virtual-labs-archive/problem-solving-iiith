@@ -16,11 +16,11 @@
 * Post conditions
    - Nil
 * Test Steps
-  1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_19_Quiz.org][Advanced Arithmatic_19_Quiz.org]]
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_19_Quiz_p1.org][Advanced Arithmatic_19_Quiz_p1.org]]
   2. In the Quiz select an option only for one question and then click on submit button
 
 * Expected result
-  1. Refer to  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_19_Quiz.org][Advanced Arithmatic_19_Quiz.org]]
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_19_Quiz_p1.org][Advanced Arithmatic_19_Quiz_p1.org]]
   2. Result should be displayed with the correct option if the selected option is wrong or an error message should be displayed to complete the test.
 
 * Review comments
