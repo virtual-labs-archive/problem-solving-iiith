@@ -1,0 +1,325 @@
+#+title: Requirement/Workflow for Problem Solving Lab
+#+Author: Integration Team
+#+Date: [2016-02-17]
+
+This document contains the basic work flow and requirement for Problem
+Solving Lab. Testing should happen against all the requirements
+mentioned in this document by integration team. 
+
+* Lab wise requirements 
+
+Main page Should contain following tabs for Problem Solving Lab with
+the content related to the introduction.
+
+** Introduction
+
+Content should display on page related to the introduction of Problem
+Solving Lab.
+
+** List of experiments 
+
+List of experiment related to Problem Solving Lab should display on page.
+
+** Target Audience 
+
+Content should get display on page related to the prerequisite for
+user to know about before performing the simulations.
+
+** Courses Aligned
+
+Content Shoud get display on page related to the courses aligned to
+Problem Solving Lab.
+
+** Prerequisites
+
+This tab contains the information related to client side dependencies
+to install the prerequisite in order to run the lab on their machines.
+
+** Feeback
+
+A static form should get display on the page for users to give their feedback
+for Problem Solving Lab.
+
+
+* Experiment wise requirements
+
+** Numerical Representation Experiment 
+
+It should contain the Introduction, Theory, objective, experiment,
+Manual, feedback and Quiz on the left corner and all the tabs should contain the
+relevant information.
+
+- Quiz tab: when we click on the quiz link, quiz page should get
+  display on the screen with 10 quesitions along with Grade me and
+  Reset button.
+
+- Experiment: A new page with link for the simulation should open. 
+  
+- Simulation: Simulation should provide edit area for user to write
+  the program to compile and run. User should also be able to browse
+  the file from their system using browse button, also to Load the
+  file using Load button.  
+
+  User should be able to select programming
+  Language combobox with C and C++ options along with the problem
+  number combobox.  
+
+  Once user give all the inputes, he/she should be
+  able to compile and run his/her code using Compile and Run button.
+  
+  User should also get the Hints section with Hint levels combobox
+  including 4 levels.  when click on different hint, hint should get
+  display on Hint area accordingly.
+  
+** Beauty of Numbers Experiment
+
+It should contain the Introduction, Theory, objective, experiment,
+Manual, Feedback and Quiz on the left corner and all the tabs should contain the
+relevant information.
+
+- Quiz tab: when we click on the quiz link, quiz page should get
+  display on the screen with 10 quesitions along with Grade me and
+  Reset button.
+
+- Experiment: A new page with link for the simulation should open. 
+  
+- Simulation: Simulation should provide edit area for user to write
+  the program to compile and run. User should also be able to browse
+  the file from their system using browse button, also to Load the
+  file using Load button.  
+
+  User should be able to select programming
+  Language combobox with C and C++ options along with the problem
+  number combobox.  
+
+  Once user give all the inputes, he/she should be
+  able to compile and run his/her code using Compile and Run button.
+  
+  User should also get the Hints section with Hint levels combobox
+  including 4 levels.  when click on different hint, hint should get
+  display on Hint area accordingly.
+
+** More on Numbers Experiment
+
+It should contain the Introduction, Theory, objective, experiment,
+Manual, Feedback and Quiz on the left corner and all the tabs should contain the
+relevant information.
+
+- Quiz tab: when we click on the quiz link, quiz page should get
+  display on the screen with 10 quesitions along with Grade me and
+  Reset button.
+
+- Experiment: A new page with link for the simulation should open. 
+  
+- Simulation: Simulation should provide edit area for user to write
+  the program to compile and run. User should also be able to browse
+  the file from their system using browse button, also to Load the
+  file using Load button.  
+
+  User should be able to select programming
+  Language combobox with C and C++ options along with the problem
+  number combobox.  
+
+  Once user give all the inputes, he/she should be
+  able to compile and run his/her code using Compile and Run button.
+  
+  User should also get the Hints section with Hint levels combobox
+  including 4 levels.  when click on different hint, hint should get
+  display on Hint area accordingly.
+
+** Factorials Experiment
+
+It should contain the Introduction, Theory, objective, experiment,
+Manual, Feedback and Quiz on the left corner and all the tabs should contain the
+relevant information.
+
+- Quiz tab: when we click on the quiz link, quiz page should get
+  display on the screen with 10 quesitions along with Grade me and
+  Reset button.
+
+- Experiment: A new page with link for the simulation should open. 
+
+- Simulation: Simulation should provide edit area for user to write
+  the program to compile and run. User should also be able to browse
+  the file from their system using browse button, also to Load the
+  file using Load button.  
+
+  User should be able to select programming
+  Language combobox with C and C++ options along with the problem
+  number combobox.  
+
+  Once user give all the inputes, he/she should be
+  able to compile and run his/her code using Compile and Run button.
+  
+  User should also get the Hints section with Hint levels combobox
+  including 4 levels.  when click on different hint, hint should get
+  display on Hint area accordingly.  
+
+** String Operations Experiment
+
+It should contain the Introduction, Theory, objective, experiment,
+Manual, Feedback  and Quiz on the left corner and all the tabs should contain the
+relevant information.
+
+- Quiz tab: when we click on the quiz link, quiz page should get
+  display on the screen with 10 quesitions along with Grade me and
+  Reset button.
+
+- Experiment: A new page with link for the simulation should open. 
+
+- Simulation: Simulation should provide edit area for user to write
+  the program to compile and run. User should also be able to browse
+  the file from their system using browse button, also to Load the
+  file using Load button.  
+
+  User should be able to select programming
+  Language combobox with C and C++ options along with the problem
+  number combobox.  
+
+  Once user give all the inputes, he/she should be
+  able to compile and run his/her code using Compile and Run button.
+  
+  User should also get the Hints section with Hint levels combobox
+  including 4 levels.  when click on different hint, hint should get
+  display on Hint area accordingly.
+ 
+** Recursion Experiment
+
+It should contain the Introduction, Theory, objective, experiment,
+Manual, feedback and Quiz on the left corner and all the tabs should contain the
+relevant information.
+
+- Quiz tab: when we click on the quiz link, quiz page should get
+  display on the screen with 10 quesitions along with Grade me and
+  Reset button.
+
+- Experiment: A new page with link for the simulation should open. 
+  
+- Simulation: Simulation should provide edit area for user to write
+  the program to compile and run. User should also be able to browse
+  the file from their system using browse button, also to Load the
+  file using Load button.  
+
+  User should be able to select programming
+  Language combobox with C and C++ options along with the problem
+  number combobox.  
+
+  Once user give all the inputes, he/she should be
+  able to compile and run his/her code using Compile and Run button.
+  
+  User should also get the Hints section with Hint levels combobox
+  including 4 levels.  when click on different hint, hint should get
+  display on Hint area accordingly.
+
+** Advanced Arithmatic Experiment
+
+It should contain the Introduction, Theory, objective, experiment,
+Manual, feedback and Quiz on the left corner and all the tabs should contain the
+relevant information.
+
+- Quiz tab: when we click on the quiz link, quiz page should get
+  display on the screen with 10 quesitions along with Grade me and
+  Reset button.
+
+- Experiment: A new page with link for the simulation should open. 
+
+- Simulation: Simulation should provide edit area for user to write
+  the program to compile and run. User should also be able to browse
+  the file from their system using browse button, also to Load the
+  file using Load button.  
+
+  User should be able to select programming
+  Language combobox with C and C++ options along with the problem
+  number combobox.  
+
+  Once user give all the inputes, he/she should be
+  able to compile and run his/her code using Compile and Run button.
+  
+  User should also get the Hints section with Hint levels combobox
+  including 4 levels.  when click on different hint, hint should get
+  display on Hint area accordingly.
+
+** Searching and Sorting Experiment
+
+It should contain the Introduction, Theory, objective, experiment,
+Manual, Feedback and Quiz on the left corner and all the tabs should contain the
+relevant information.
+
+- Quiz tab: when we click on the quiz link, quiz page should get
+  display on the screen with 10 quesitions along with Grade me and
+  Reset button.
+
+- Experiment: A new page with link for the simulation should open. 
+  
+- Simulation: Simulation should provide edit area for user to write
+  the program to compile and run. User should also be able to browse
+  the file from their system using browse button, also to Load the
+  file using Load button.  
+
+  User should be able to select programming
+  Language combobox with C and C++ options along with the problem
+  number combobox.  
+
+  Once user give all the inputes, he/she should be
+  able to compile and run his/her code using Compile and Run button.
+  
+  User should also get the Hints section with Hint levels combobox
+  including 4 levels.  when click on different hint, hint should get
+  display on Hint area accordingly.
+
+** Permutation Experiment
+
+It should contain the Introduction, Theory, objective, experiment,
+Manual, Feedback and Quiz on the left corner and all the tabs should contain the
+relevant information.
+
+
+- Quiz tab: when we click on the quiz link, quiz page should get
+  display on the screen with 10 quesitions along with Grade me and
+  Reset button.
+
+- Experiment: A new page with link for the simulation should open. 
+  
+- Simulation: Simulation should provide edit area for user to write
+  the program to compile and run. User should also be able to browse
+  the file from their system using browse button, also to Load the
+  file using Load button.  
+
+  User should be able to select programming
+  Language combobox with C and C++ options along with the problem
+  number combobox.  
+
+  Once user give all the inputes, he/she should be
+  able to compile and run his/her code using Compile and Run button.
+  
+  User should also get the Hints section with Hint levels combobox
+  including 4 levels.  when click on different hint, hint should get
+  display on Hint area accordingly.
+
+** Sequences Experiment
+
+It should contain the Introduction, Theory, objective, experiment,
+Manual, Feedback and Quiz on the left corner and all the tabs should contain the
+relevant information.
+
+- Quiz tab: when we click on the quiz link, quiz page should get
+  display on the screen with 10 quesitions along with Grade me and
+  Reset button.
+
+- Experiment: A new page with link for the simulation should open. 
+  
+- Simulation: Simulation should provide edit area for user to write
+  the program to compile and run. User should also be able to browse
+  the file from their system using browse button, also to Load the
+  file using Load button.  
+
+  User should be able to select programming
+  Language combobox with C and C++ options along with the problem
+  number combobox.  
+
+  Once user give all the inputes, he/she should be
+  able to compile and run his/her code using Compile and Run button.
+  
+  User should also get the Hints section with Hint levels combobox
+  including 4 levels.  when click on different hint, hint should get
+  display on Hint area accordingly.
