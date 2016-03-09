@@ -206,14 +206,14 @@
 <div id="contentLeft">
 <span>
 <form id="file_upload_form" name="file_upload_form" method="post" enctype="multipart/form-data" action="upload.php">
-CHOOSE FILE TO LOAD: 
+<!-- CHOOSE FILE TO LOAD: 
 <input name="file" id="file" size="20" type="file" />&nbsp;
-<input type="submit" name="action" value="Upload" style="display:none;"/><span style="color:#cccccc; font-size:12px;">After choosing file, click load button below </span>
+<input type="submit" name="action" value="Upload" style="display:none;"/><span style="color:#cccccc; font-size:12px;">After choosing file, click load button below </span> -->
 <iframe id="upload_target" name="upload_target" src="" style="width:0;height:0;border:0px solid #fff;"></iframe>
 </form>
 </span>
 
-<p>Please insert your code here</p>
+<!-- <p>Please insert your code here</p> -->
 
 <center> <p style="color:red">Compile Error </p> </center><form action="judge.py" method="get" name="judge">
 <fieldset>
@@ -298,7 +298,11 @@ Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
  <input type="submit" value="Run" name="type"/>
 <input type="hidden" value="0" name="highHint" id="highHint_id"/>
 
-<br><br>c: In function 'main':<br/>c:25:15: error: 'h' undeclared (first use in this function)<br/>;<br/> ^<br/>c:25:15: note: each undeclared identifier is reported only once for each function it appears in<br/>c:37:30: error: expected ')' before ';' token<br/>{<br/> ^<br/>c:42:13: error: expected ')' before ';' token<br/>{<br/> ^<br/>c:46:25: error: expected ')' before ';' token<br/>;<br/> ^<br/>c: At top level:<br/>c:51:1: error: unknown type name 'Highest'<br/>l <br/> ^<br/>c:51:1: error: expected '=', ',', ';', 'asm' or '__attribute__' at end of input<br/><br/></div> <!--contentLeft -->
+<br><br>c: In function 'main':<br/>c:25:15: error: 'h' undeclared (first use in this function)<br/>;
+<br/> ^<br/>c:25:15: note: each undeclared identifier is reported only once for each function it appears in<br/>c:37:30: error: expected ')' before ';' token<br/>{
+<br/> ^<br/>c:42:13: error: expected ')' before ';' token<br/>{
+<br/> ^<br/>c:46:25: error: expected ')' before ';' token<br/>;
+<br/> ^<br/>c: At top level:<br/>c:51:1: error: unknown type name 'Highest'<br/>l <br/> ^<br/>c:51:1: error: expected '=', ',', ';', 'asm' or '__attribute__' at end of input<br/><br/></div> <!--contentLeft -->
 <div id="contentRight">
    <h4> HINTS </h4><br>
    <div id="hintBox">
