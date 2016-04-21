@@ -1,0 +1,35 @@
+* Author: Nihanth
+* Date Created: 10 Dec 2015
+* Environment
+  - OS: Windows 7,Ubuntu-16.04,CentOS-6
+  - Browsers: Firefox-42.0,Chrome-47.0,Chromium-45.0
+  - Bandwidth : 100Mbps
+  - Hardware Configuration:8GB RAM , 
+  - Processor:i5
+  - Buttons:search,goto line,undo,font,redo,syntax,highlight,about,save and load
+
+* Objective
+  - To perform the Experiment of the Recursion experiment
+
+* Pre conditions
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_01_Usability_smk.org][Recursion_01_Usability_smk.org]]
+
+* Post conditions
+   - Nil
+* Test Steps
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_06_Experiment_smk.org][Recursion_06_Experiment_smk.org]]
+  2. Click on 'Go to Lab' link 
+  3. Insert the code in the box and select the problem number from the dropdown list present at the problem number field
+  4. Select the Language either c(or)c++ from the dropdown list present at the language field
+  5. Check the toogle bar, and click on the buttons displayed in the box
+  6. Now uncheck the toogle bar
+
+* Expected result
+  1. Refer to [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_06_Experiment_smk.org][Recursion_06_Experiment_smk.org]]
+  2. It should redirect to a new tab with the simulation process displayed on the screen
+  3. The inserted code,selected problem number and selected language should be displayed on the screen
+  4. The seleted buttons should work and when we uncheck the toogle bar the features in the box should get disappear
+
+* Review comments
+
+
