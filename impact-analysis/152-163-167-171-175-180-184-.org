@@ -2,7 +2,7 @@
 
 - *Experiment name:* Sequences 
 
-  *Issue Id:* #184 
+  *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/184][#184]]
 
   *Test report:*
   https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Sequences/Sequences_09_Experiment_p2.org
@@ -15,7 +15,7 @@
 
 - *Experiment name:* Permutations 
 
-  *Issue Id:* #180
+  *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/180][#180]]
 
   *Test report:*
   https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_18_Quiz_smk.org
@@ -27,7 +27,7 @@
 
 - *Experiment name:* Searching and Sorting
 
-   *Issue Id:* #175
+   *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/175][#175]]
 
    *Test report:*
    https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Searching%20and%20Sorting/Searching%20and%20Sorting_18_Quiz_smk.org
@@ -40,7 +40,7 @@
 
  - *Experiment name:* Advanced Arithmatic
 
-   *Issue Id:* #171
+   *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/171][#171]]
 
    *Test report:*
    https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced%20Arithmatic/Advanced%20Arithmatic_18_Quiz_smk.org
@@ -52,7 +52,7 @@
 
   - *Experiment name:* Recursion
 
-    *Issue Id:* #167
+    *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/167][#167]]
 
     *Test report:*
     https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_18_Quiz_smk.org
@@ -64,7 +64,7 @@
 
   - *Experiment name:* String Operations
 
-     *Issue Id:* #163
+     *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/163][#163]]
 
      *Test report:*
      https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String%20Operations/String%20Operations_18_Quiz_smk.org
@@ -76,7 +76,7 @@
 
   - *Experiment name:* Beauty of Numbers
 
-    *Issue Id:* #152
+    *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/152][#152]]
 
     *Test report:*
     https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty%20of%20Numbers/Beauty%20of%20Numbers_18_Quiz_smk.org
