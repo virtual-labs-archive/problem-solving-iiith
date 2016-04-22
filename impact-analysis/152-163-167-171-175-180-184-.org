@@ -45,7 +45,6 @@
    *Test report:*
    https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced%20Arithmatic/Advanced%20Arithmatic_18_Quiz_smk.org
 
-
    *Fix*
 
    1) HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
@@ -82,8 +81,6 @@
     *Test report:*
     https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty%20of%20Numbers/Beauty%20of%20Numbers_18_Quiz_smk.org
 
+     *Fix*
 
-    *Fix*
-
-    1) HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
-
+     1) HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
