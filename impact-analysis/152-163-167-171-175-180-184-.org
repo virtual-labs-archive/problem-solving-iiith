@@ -1,0 +1,93 @@
+#+Title: Impact Analysis
+
+1) *Experiment name:* Sequences 
+
+*Issue Id:* #184 
+
+*Test report:*
+https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Sequences/Sequences_09_Experiment_p2.org
+
+*Fix*
+
+ - HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+
+
+
+2) *Experiment name:* Permutations 
+
+*Issue Id:* #180
+
+*Test report:*
+https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_18_Quiz_smk.org
+
+*Fix*
+
+ - HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+
+
+3) *Experiment name:* Searching and Sorting
+
+*Issue Id:* #175
+
+*Test report:*
+https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Searching%20and%20Sorting/Searching%20and%20Sorting_18_Quiz_smk.org
+
+*Fix*
+
+ - HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+
+
+
+4) *Experiment name:* Advanced Arithmatic
+
+*Issue Id:* #171
+
+*Test report:*
+https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced%20Arithmatic/Advanced%20Arithmatic_18_Quiz_smk.org
+
+
+*Fix*
+
+ - HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+
+
+
+5) *Experiment name:* Recursion
+
+*Issue Id:* #167
+
+*Test report:*
+https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_18_Quiz_smk.org
+
+
+*Fix*
+
+ - HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+
+
+6) *Experiment name:* String Operations
+
+*Issue Id:* #163
+
+*Test report:*
+https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String%20Operations/String%20Operations_18_Quiz_smk.org
+
+
+*Fix*
+
+ - HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+
+
+
+7) *Experiment name:* Beauty of Numbers
+
+*Issue Id:* #152
+
+*Test report:*
+https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty%20of%20Numbers/Beauty%20of%20Numbers_18_Quiz_smk.org
+
+
+*Fix*
+
+ - HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+
