@@ -22,7 +22,7 @@
 
   *Fix*
 
-   1) HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+   1) HTML- Update title in quizzes.html file from Nemerical Representation to Permutations Line no: 137, <h1> tag.
 
 
 - *Experiment name:* Searching and Sorting
@@ -34,7 +34,7 @@
 
    *Fix*
 
-   1) HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+   1) HTML- Update title in quizzes.html file from Nemerical Representation to Searching and Sorting Line no: 137, <h1> tag.
 
 
 
@@ -47,7 +47,7 @@
 
    *Fix*
 
-   1) HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+   1) HTML- Update title in quizzes.html file from Nemerical Representation to Advanced Arithmatic Line no: 137, <h1> tag.
 
 
   - *Experiment name:* Recursion
@@ -59,7 +59,7 @@
 
     *Fix*
 
-     1) HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+     1) HTML- Update title in quizzes.html file from Nemerical Representation to Recursion Line no: 137, <h1> tag.
 
 
   - *Experiment name:* String Operations
@@ -71,7 +71,7 @@
 
      *Fix*
 
-     1) HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+     1) HTML- Update title in quizzes.html file from Nemerical Representation to String Operations Line no: 137, <h1> tag.
 
 
   - *Experiment name:* Beauty of Numbers
@@ -83,4 +83,4 @@
 
      *Fix*
 
-     1) HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+     1) HTML- Update title in quizzes.html file from Nemerical Representation to Beauty of Numbers Line no: 137, <h1> tag.
