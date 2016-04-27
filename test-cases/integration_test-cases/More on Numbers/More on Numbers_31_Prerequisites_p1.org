@@ -11,7 +11,7 @@
   - User To view minimum requirement to run the experiment
 
 * Pre conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/More on Numbers/More on Numbers_01_Usability.org][More on Numbers_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/More on Numbers/More on Numbers_01_Usability_smk.org][More on Numbers_01_Usability_smk.org]]
 
 * Post conditions
    - Nil

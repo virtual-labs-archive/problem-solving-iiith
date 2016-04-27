@@ -11,7 +11,7 @@
   - To view ,take the Quiz and then submit the Quiz of “Numerical Representation” experiment
 
 * Pre conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_01_Usability.org][Numerical Representation_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Numerical Representation/Numerical Representation_01_Usability_smk.org][Numerical Representation_01_Usability_smk.org]]
 
 * Post conditions
    - Nil

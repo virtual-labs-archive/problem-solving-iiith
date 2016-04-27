@@ -11,7 +11,7 @@
   - To view the Further Readings of the Advanced Arithmatic experiment
 
 * Pre conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_01_Usability.org][Advanced Arithmatic_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced Arithmatic/Advanced Arithmatic_01_Usability_smk.org][Advanced Arithmatic_01_Usability_smk.org]]
 
 * Post conditions
    - Nil

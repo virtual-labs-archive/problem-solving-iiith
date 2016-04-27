@@ -1,0 +1,86 @@
+#+Title: Impact Analysis
+
+- *Experiment name:* Sequences 
+
+  *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/184][#184]]
+
+  *Test report:*
+  https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Sequences/Sequences_09_Experiment_p2.org
+
+  *Fix*
+
+  1) HTML- Update title in quizzes.html file from Nemerical Representation to Sequences Line no: 137, <h1> tag.
+
+
+
+- *Experiment name:* Permutations 
+
+  *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/180][#180]]
+
+  *Test report:*
+  https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_18_Quiz_smk.org
+
+  *Fix*
+
+   1) HTML- Update title in quizzes.html file from Nemerical Representation to Permutations Line no: 137, <h1> tag.
+
+
+- *Experiment name:* Searching and Sorting
+
+   *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/175][#175]]
+
+   *Test report:*
+   https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Searching%20and%20Sorting/Searching%20and%20Sorting_18_Quiz_smk.org
+
+   *Fix*
+
+   1) HTML- Update title in quizzes.html file from Nemerical Representation to Searching and Sorting Line no: 137, <h1> tag.
+
+
+
+ - *Experiment name:* Advanced Arithmatic
+
+   *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/171][#171]]
+
+   *Test report:*
+   https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Advanced%20Arithmatic/Advanced%20Arithmatic_18_Quiz_smk.org
+
+   *Fix*
+
+   1) HTML- Update title in quizzes.html file from Nemerical Representation to Advanced Arithmatic Line no: 137, <h1> tag.
+
+
+  - *Experiment name:* Recursion
+
+    *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/167][#167]]
+
+    *Test report:*
+    https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_18_Quiz_smk.org
+
+    *Fix*
+
+     1) HTML- Update title in quizzes.html file from Nemerical Representation to Recursion Line no: 137, <h1> tag.
+
+
+  - *Experiment name:* String Operations
+
+     *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/163][#163]]
+
+     *Test report:*
+     https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String%20Operations/String%20Operations_18_Quiz_smk.org
+
+     *Fix*
+
+     1) HTML- Update title in quizzes.html file from Nemerical Representation to String Operations Line no: 137, <h1> tag.
+
+
+  - *Experiment name:* Beauty of Numbers
+
+    *Issue Id:* [[https://github.com/Virtual-Labs/problem-solving-iiith/issues/152][#152]]
+
+    *Test report:*
+    https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty%20of%20Numbers/Beauty%20of%20Numbers_18_Quiz_smk.org
+
+     *Fix*
+
+     1) HTML- Update title in quizzes.html file from Nemerical Representation to Beauty of Numbers Line no: 137, <h1> tag.

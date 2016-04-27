@@ -11,7 +11,7 @@
   - To give the feedback of the Permutation  experiment
 
 * Pre conditions
-  - Refer to first test case  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_01_Usability.org][Permutation_01_Usability.org]]   
+  - Refer to first test case  [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Permutation/Permutation_01_Usability_smk.org][Permutation_01_Usability_smk.org]]   
 
 
 * Post conditions

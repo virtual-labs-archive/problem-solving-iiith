@@ -11,7 +11,7 @@
   - To view the Courses Aligned of the Problem Solving Lab
 
 * Pre conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/system_01_Usability.org][system_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/system/system_01_Usability_smk.org][system_01_Usability_smk.org]]
 
 * Post conditions
    - Nil
