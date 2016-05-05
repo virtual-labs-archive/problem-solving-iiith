@@ -28,8 +28,8 @@
   - Test all the links individually.
   
 
-** Common testing process for Introduction, Theory and Objective links
-   - Check whether all the given hyper links are  assigned properly or
+** Common test steps for Introduction, Theory and Objective links
+   - Check whether all the given hyperlinks are  assigned properly or
      not.
    - Check the page to ensure no junk characters are present.
    - Check whether the content is displayed in  all the experiment links.
