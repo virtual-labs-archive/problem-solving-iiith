@@ -17,23 +17,28 @@
    be sure that something is working correctly.
 
 ** Smoke Testing
-   It is a preliminary test that ensures the application do not have
-   any minor distortions and it refers to testing the basic
+   It is a preliminary test that ensures all the links in the application
+   are working without any distortions and it refers to the basic
    functionality of the application.
 
 * Test Steps 
 ** Take a sample experiment 
-  - Every experiment contains Introduction, Theory, Objective, Simulation,
-    Quiz and Feedback links.
-  - Test all the links individually.
+   - Every experiment contains Introduction, Theory, Objective, Simulation,
+     Quiz and Feedback links.
+   - Test all the links individually.
   
-
 ** Common test steps for Introduction, Theory and Objective links
    - Check whether all the given hyperlinks are  assigned properly or
      not.
    - Check the page to ensure no junk characters are present.
    - Check whether the content is displayed in  all the experiment links.
-    
+
+** Test Cases for Procedure 
+   - The page should contains steps to perform simulation. 
+   - Automatic Zoom in/zoom out options should be available when the cursor 
+     is placed on/out on the images.
+   - Check whether the attached video in the experiment is appropriate for the simulation or not.
+
 ** Test Cases for Simulation 
    - Assume that a simulation contains some buttons, for instance a
      button that browses files, a button that load the experiment, or
@@ -45,19 +50,54 @@
    
 ** Test cases for Quiz 
    - The number of questions should be minimum 5.
-   - For instance, if any user did not answer all the question in the
-     Quiz section, a pop-up message should be displayed.
-   - If any user selects wrong answer and submits the same a warning
+   - For instance, if a user did not answer all the question in the
+     Quiz section, a warning message should be displayed saying "Please 
+     answer all the Questions".
+   - If a user selects wrong answer and submits the same, a pop-up
      message should be displayed with correct answers.
 
 ** Test cases for Feedback
    - If a user submits an invalid email ID, a pop-up message should be
      displayed saying "Enter a valid mail ID".
    - When a user enters the details, the data should be stored in the
-     database.
+     database after once he/she clicks the submit button.
    - If a user submits a valid email ID, a pop-up message should be
      displayed saying "Data Submitted Successfully".
 
+* Steps to raise the "Issue" in the github : 
+** Step1 : 
+   - Defect Description : Single line sentences in the start of every 
+     issue explaining concisely the bug in question. If some bugs are 
+     similar give a conclusion which says that these bugs might be 
+     similar giving the bug id's
+   - Actual Result : The output of the given command which is expected by the user.
+   - Environment : The various Operating Systems, Browsers, Bandwidth, Hardware Configuration and Processor etc., .
+   - Test Step Link : The link that contains the defect/bug.
+   
+** Labels for the issue :
+   - Category : Belongs to Usability, UI and Functionality 
+   - Developed By : Organization name
+   - Severity : S1, S2, S3   
+   - Status : We need to select an appropriate label from the drop-down list eg: open/close/fixed etc., . 
+   - Version : 
+   
+** Severity Levels : 
+   - S1 : Preventing user interaction
+          Corruption of Database
+          Unfaithful to the semantics of interaction
+          Redirecting to the Error page
+   - S2 : Broken links
+          A field view is not consistent with its specifications.
+          Ex: In a form if there is a field which is editable but 
+          it is not allowing the user to edit
+   - S3 : Visual imperfections:
+          Spelling grammar
+          Alignment
+          inconsistent terminology
+          color
+          shape,
+          Font(css properties)
+  
 * Conclusion :
   - All the Test reports should be inside the git-hub Lab repository.
   - The team can raise an issue in the corresponding git-hub lab repository, 
