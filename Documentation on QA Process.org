@@ -15,6 +15,7 @@
    whether a lab being developed meets the specified
    requirements.It is like setting up the necessary procedures to
    be sure that something is working correctly.
+
 ** Smoke Testing
    It is a preliminary test that ensures the application do not have
    any minor distortions and it refers to testing the basic
@@ -22,27 +23,33 @@
 
 * Test Steps 
 ** Take a sample experiment 
-  Any experiment contains Introduction, Theory, Objective, Simulation,
-  Quiz and Feedback links.
-  Test all the links individually.
+  - Every experiment contains Introduction, Theory, Objective, Simulation,
+    Quiz and Feedback links.
+  - Test all the links individually.
+  
+
 ** Common testing process for Introduction, Theory and Objective links
    - Check whether all the given hyper links are  assigned properly or
      not.
    - Check the page to ensure no junk characters are present.
-  
+   - Check whether the content is displayed in  all the experiment links.
+    
 ** Test Cases for Simulation 
    - Assume that a simulation contains some buttons, for instance a
      button that browses files, a button that load the experiment, or
      a button which compiles the application should respond
      appropriately according to the given condition.
    - Test the simulators in all the possible way.
-   - If we stuck with a defect raise an issue.
+   - If we stuck with any of the above defect raise an issue in the 
+     corresponding git-hub lab repository.
+   
 ** Test cases for Quiz 
    - The number of questions should be minimum 5.
    - For instance, if any user did not answer all the question in the
      Quiz section, a pop-up message should be displayed.
    - If any user selects wrong answer and submits the same a warning
      message should be displayed with correct answers.
+
 ** Test cases for Feedback
    - If a user submits an invalid email ID, a pop-up message should be
      displayed saying "Enter a valid mail ID".
@@ -50,8 +57,10 @@
      database.
    - If a user submits a valid email ID, a pop-up message should be
      displayed saying "Data Submitted Successfully".
+
 * Conclusion :
   - All the Test reports should be inside the git-hub Lab repository.
-  - The team can raise an issue if they find any defects/bugs after 
-    performing the above test steps.  
+  - The team can raise an issue in the corresponding git-hub lab repository, 
+    if they find any defects/bugs after performing the above test 
+    steps.  
 
