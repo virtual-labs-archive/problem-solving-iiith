@@ -83,13 +83,13 @@
    
 ** Severity Levels : 
    - S1 : Preventing user interaction
-          Corruption of Database
-          Unfaithful to the semantics of interaction
-          Redirecting to the Error page
+          1. Corruption of Database
+          2. Unfaithful to the semantics of interaction
+          3. Redirecting to the Error page.
    - S2 : Broken links
-          A field view is not consistent with its specifications.
+          1. A field view is not consistent with its specifications.
           Ex: In a form if there is a field which is editable but 
-          it is not allowing the user to edit
+          2. it is not allowing the user to edit
    - S3 : Visual imperfections:
           Spelling grammar
           Alignment
