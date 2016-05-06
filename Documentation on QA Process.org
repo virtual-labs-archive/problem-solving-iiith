@@ -41,7 +41,6 @@
 
 ** Test Cases for Simulation 
    - Test the simulators in all the possible way.
-   - 
    - If we stuck with any defect raise an issue in the 
      corresponding lab git-hub repository.
    
@@ -57,8 +56,6 @@
      displayed saying "Enter a valid mail ID".
    - When a user enters the details, the data should be stored in the
      database after once he/she clicks the submit button.
-   - If a user submits a valid email ID, a pop-up message should be
-     displayed saying "Data Submitted Successfully".
 
 * Steps to raise the "Issue" in the github : 
 ** Step1 : 
@@ -74,8 +71,8 @@
    - Category : Belongs to Usability, UI and Functionality 
    - Developed By : Organization name
    - Severity : S1, S2, S3   
-   - Status : We need to select an appropriate label from the drop-down list eg: open/close/fixed etc., . 
-   - Version : 
+   - Status : It corresponds to the status of the defect whether it is open, fixed or resolved etc.  
+   - Version : This attribute would correspond to the latest version of the sources of the lab for which testing is conducted by the test engineers
    
 ** Severity Levels : 
    - S1 : Preventing user interaction
