@@ -40,16 +40,12 @@
    - Check whether the attached video in the experiment is appropriate for the simulation or not.
 
 ** Test Cases for Simulation 
-   - Assume that a simulation contains some buttons, for instance a
-     button that browses files, a button that load the experiment, or
-     a button which compiles the application should respond
-     appropriately according to the given condition.
    - Test the simulators in all the possible way.
-   - If we stuck with any of the above defect raise an issue in the 
-     corresponding git-hub lab repository.
+   - 
+   - If we stuck with any defect raise an issue in the 
+     corresponding lab git-hub repository.
    
 ** Test cases for Quiz 
-   - The number of questions should be minimum 5.
    - For instance, if a user did not answer all the question in the
      Quiz section, a warning message should be displayed saying "Please 
      answer all the Questions".
@@ -57,7 +53,7 @@
      message should be displayed with correct answers.
 
 ** Test cases for Feedback
-   - If a user submits an invalid email ID, a pop-up message should be
+   - If a user submits an invalid email ID, a warning message should be
      displayed saying "Enter a valid mail ID".
    - When a user enters the details, the data should be stored in the
      database after once he/she clicks the submit button.
@@ -72,7 +68,7 @@
      similar giving the bug id's
    - Actual Result : The output of the given command which is expected by the user.
    - Environment : The various Operating Systems, Browsers, Bandwidth, Hardware Configuration and Processor etc., .
-   - Test Step Link : The link that contains the defect/bug.
+   - Test Step Link : The test step link which should redirect to the test case link placed in the corresponding labs github repository .
    
 ** Labels for the issue :
    - Category : Belongs to Usability, UI and Functionality 
