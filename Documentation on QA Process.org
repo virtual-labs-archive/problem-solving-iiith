@@ -17,9 +17,8 @@
    be sure that something is working correctly.
 
 ** Smoke Testing
-   It is a preliminary test that ensures all the links in the application
-   are working without any distortions and it refers to the basic
-   functionality of the application.
+   It is a preliminary test that ensures that the main functionality 
+   links in the application are working without any distortions and junk characters.
 
 * Test Steps 
 ** Take a sample experiment 
@@ -30,7 +29,7 @@
 ** Common test steps for Introduction, Theory and Objective links
    - Check whether all the given hyperlinks are  assigned properly or
      not.
-   - Check the page to ensure no junk characters are present.
+   - Check the page to ensure no distortions and junk characters are present.
    - Check whether the content is displayed in  all the experiment links.
 
 ** Test Cases for Procedure 
@@ -65,7 +64,7 @@
      similar giving the bug id's
    - Actual Result : The output of the given command which is expected by the user.
    - Environment : The various Operating Systems, Browsers, Bandwidth, Hardware Configuration and Processor etc., .
-   - Test Step Link : The test step link which should redirect to the test case link placed in the corresponding labs github repository .
+   - Test Step Link : Redirects to the test case which helps in reproduce the bug in application.
    
 ** Labels for the issue :
    - Category : Belongs to Usability, UI and Functionality 
@@ -92,7 +91,8 @@
           Font(css properties)
   
 * Conclusion :
-  - All the Test reports should be inside the git-hub Lab repository.
+  - Test report can be a another section and can write what are the fields 
+    will be in the test report
   - The team can raise an issue in the corresponding git-hub lab repository, 
     if they find any defects/bugs after performing the above test 
     steps.  
