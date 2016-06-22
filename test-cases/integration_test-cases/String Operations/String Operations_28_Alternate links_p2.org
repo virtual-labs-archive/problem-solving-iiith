@@ -11,7 +11,7 @@
   - To go to other links in the experiments
 
 * Pre conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String Operations/String Operations_01_Usability.org][String Operations_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/String Operations/String Operations_01_Usability_smk.org][String Operations_01_Usability_smk.org]]
 
 * Post conditions
    - Nil

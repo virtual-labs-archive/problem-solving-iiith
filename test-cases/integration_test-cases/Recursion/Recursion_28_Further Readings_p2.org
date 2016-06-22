@@ -14,7 +14,7 @@
   - To view the links in Further Readings of the Recursion experiment
 
 * Pre conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_01_Usability.org][Recursion_01_Usability.org]]
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Recursion/Recursion_01_Usability_smk.org][Recursion_01_Usability_smk.org]]
 
 * Post conditions
    - Nil

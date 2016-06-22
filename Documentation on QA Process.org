@@ -1,0 +1,99 @@
+#+Title: Documentation on QA Process
+#+Author: Sravanthi.M & Sravanthi.B
+#+Date: 2016-05-05
+
+
+* Introduction 
+  Quality assurance (QA) is a process of recognizing the bugs and
+  rectifying them in a systematic way. This will ensures the end user
+  that the application is ready to use with no distortions.
+
+  - PURPOSE: This document outlines the QA process for  Virtual Labs.
+    
+** Quality Assurance : 
+   Quality assurance is a systematic process of checking to see
+   whether a lab being developed meets the specified
+   requirements.It is like setting up the necessary procedures to
+   be sure that something is working correctly.
+
+** Smoke Testing
+   It is a preliminary test that ensures that the main functionality 
+   links in the application are working without any distortions and junk characters.
+
+* Test Steps 
+** Take a sample experiment 
+   - Every experiment contains Introduction, Theory, Objective, Simulation,
+     Quiz and Feedback links.
+   - Test all the links individually.
+  
+** Common test steps for Introduction, Theory and Objective links
+   - Check whether all the given hyperlinks are  assigned properly or
+     not.
+   - Check the page to ensure no distortions and junk characters are present.
+   - Check whether the content is displayed in  all the experiment links.
+
+** Test Cases for Procedure 
+   - The page should contains steps to perform simulation. 
+   - Automatic Zoom in/zoom out options should be available when the cursor 
+     is placed on/out on the images.
+   - Check whether the attached video in the experiment is appropriate for the simulation or not.
+
+** Test Cases for Simulation 
+   - Test the simulators in all the possible way.
+   - If we stuck with any defect raise an issue in the 
+     corresponding lab git-hub repository.
+   
+** Test cases for Quiz 
+   - For instance, if a user did not answer all the question in the
+     Quiz section, a warning message should be displayed saying "Please 
+     answer all the Questions".
+   - If a user selects wrong answer and submits the same, a pop-up
+     message should be displayed with correct answers.
+
+** Test cases for Feedback
+   - If a user submits an invalid email ID, a warning message should be
+     displayed saying "Enter a valid mail ID".
+   - When a user enters the details, the data should be stored in the
+     database after once he/she clicks the submit button.
+
+* Steps to raise the "Issue" in the github : 
+** Step1 : 
+   - Defect Description : Single line sentences in the start of every 
+     issue explaining concisely the bug in question. If some bugs are 
+     similar give a conclusion which says that these bugs might be 
+     similar giving the bug id's
+   - Actual Result : The output of the given command which is expected by the user.
+   - Environment : The various Operating Systems, Browsers, Bandwidth, Hardware Configuration and Processor etc., .
+   - Test Step Link : Redirects to the test case which helps in reproduce the bug in application.
+   
+** Labels for the issue :
+   - Category : Belongs to Usability, UI and Functionality 
+   - Developed By : Organization name
+   - Severity : S1, S2, S3   
+   - Status : It corresponds to the status of the defect whether it is open, fixed or resolved etc.  
+   - Version : This attribute would correspond to the latest version of the sources of the lab for which testing is conducted by the test engineers
+   
+** Severity Levels : 
+   - S1 : Preventing user interaction
+          1. Corruption of Database
+          2. Unfaithful to the semantics of interaction
+          3. Redirecting to the Error page.
+   - S2 : Broken links
+          1. A field view is not consistent with its specifications.
+          Ex: In a form if there is a field which is editable but 
+          2. it is not allowing the user to edit
+   - S3 : Visual imperfections:
+          Spelling grammar
+          Alignment
+          inconsistent terminology
+          color
+          shape,
+          Font(css properties)
+  
+* Conclusion :
+  - Test report can be a another section and can write what are the fields 
+    will be in the test report
+  - The team can raise an issue in the corresponding git-hub lab repository, 
+    if they find any defects/bugs after performing the above test 
+    steps.  
+

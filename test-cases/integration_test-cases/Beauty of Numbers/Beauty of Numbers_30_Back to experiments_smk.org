@@ -11,8 +11,7 @@
   - To be able to go back to the list of experiments in the home page
 
 * Pre conditions
-  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty of Numbers/Beauty of Numbers_01_Usability.org][Beauty of Numbers_01_Usability.org]]
-
+  - Refer to first test case [[https://github.com/Virtual-Labs/problem-solving-iiith/blob/master/test-cases/integration_test-cases/Beauty of Numbers/Beauty of Numbers_01_Usability_smk.org][Beauty of Numbers_01_Usability_smk.org]]
 * Post conditions
    - Nil
 * Test Steps
