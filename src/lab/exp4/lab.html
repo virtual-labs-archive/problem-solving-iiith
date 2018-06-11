@@ -47,12 +47,10 @@
 				{
 					 window.open("upload/savedFile.txt",'Download');
 					
-
 				}	
 			}
 			xmlhttp.open("GET",url,true);
 			xmlhttp.send();     
-
 		}
 	
 		function getContent(){
@@ -68,14 +66,13 @@
 				if(xmlhttp.readyState==4 && xmlhttp.status==200)
 				{
 					editAreaLoader.setValue("editArea", xmlhttp.responseText);
-
 				}	
 			}
 			xmlhttp.open("GET",url,true);
 			xmlhttp.send();     
 	
 		}	
-		function my_load(id){
+function my_load(id){
 			document.getElementById('file_upload_form').target = 'upload_target'; //'upload_target' is the name of the iframe
 			var x = document.file_upload_form.file;
 			if(x.value==""){
@@ -85,9 +82,10 @@
 			}
 			document.file_upload_form.submit();
 			setTimeout("getContent()",1000);
-			
-			
-		}
+		
+
+
+
 		
 		function test_setSelectionRange(id){
 			editAreaLoader.setSelectionRange(id, 100, 150);
@@ -136,7 +134,6 @@
 		{
 			editAreaLoader.execCommand(id, 'set_editable', !editAreaLoader.execCommand(id, 'is_editable'));
 		}
-
 		/* --------HINTS ---------*/
 		var hintC1 = 0;
 		var hintC2 = 0;
@@ -178,8 +175,6 @@
 			}
 			xmlhttp.open("GET",url,true);
 			xmlhttp.send();     
-
-
 		}
 	
 		/* ----------------------- */
@@ -192,10 +187,8 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-42255654-1', 'virtual-labs.ac.in');
   ga('send', 'pageview');
-
 </script>
 <!-- Google Analytics script ends here -->
 </head>
@@ -222,7 +215,7 @@
 <span>
 <form id="file_upload_form" name="file_upload_form" method="post" enctype="multipart/form-data" action="upload.php">
 CHOOSE FILE TO LOAD: 
-<input name="file" id="file" size="20" type="file" />&nbsp;
+<input name="file" id="file" size="20" type="file" accept=".c,.cpp,.cc,.c++,.cxx,.C" />&nbsp;
 <input type="submit" name="action" value="Upload" style="display:none;"/>
 <br>
 <span style="font-size:12px;">After browsing the file, click on load button (Last button in the menu bar of edit area, looks like <img src="load.gif"/>) </span>
