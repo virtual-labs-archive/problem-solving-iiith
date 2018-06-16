@@ -21,6 +21,8 @@ correctchoices[8]='c'
 correctchoices[9]='a'
 correctchoices[10]='c'
 
+var win2=null
+
 /////Don't edit beyond here//////////////////////////
 
 function gradeit(){
@@ -51,7 +53,8 @@ window.location="results.htm"
 
 
 function showsolution(){
-var win2=window.open("","win2","width=200,height=350, scrollbars")
+// var win2=window.open("","win2","width=200,height=350, scrollbars")
+win2=window.open("","win2","width=200,height=350, scrollbars")
 win2.focus()
 win2.document.open()
 win2.document.write('<title>Solution</title>')
@@ -74,3 +77,15 @@ win2.document.write('</center></font>')
 win2.document.write("<h5>Note: The solutions in red are the ones to the questions you had incorrectly answered.</h5>")
 win2.document.close()
 }
+
+function takequizagain()
+{
+   history.go(-1);
+   document.myquiz.reset();
+   if(win2.window)
+   {
+     win2.setTimeOut("win2.document.close();",100);
+   }
+   
+}
+   
