@@ -1,4 +1,3 @@
-  
 <?php
 
 include('../simple_html_dom.php');
@@ -35,7 +34,7 @@ $labarticleheading =$html->getElementById("experiment-article-heading")->innerte
 $data['nav'] = $nav;
 //print_r($nav);
 
-$vlab_url = "http://virtual-labs.ac.in/"; 
+$vlab_url = "http://ps-iiith.vlabs.ac.in/goto";
 $css_js   = "../"; 
 $lab_url  = "../index.php";
 $exp_url  =  "./index.php";
