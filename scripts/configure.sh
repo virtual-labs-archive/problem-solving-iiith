@@ -4,5 +4,5 @@ sed -i '/<\/VirtualHost>/i \
       PythonHandler mod_python.publisher \
         PythonDebug On \
         </Directory>
-' /etc/apache2/sites-available/default
+' /etc/apache2/sites-enabled/000-default.conf
 

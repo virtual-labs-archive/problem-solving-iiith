@@ -136,7 +136,11 @@
 		{
 			editAreaLoader.execCommand(id, 'set_editable', !editAreaLoader.execCommand(id, 'is_editable'));
 		}
-
+		function ClearEditArea()
+		{
+			//location.reload();
+			document.getElementById("editarea").value="";	
+		}
 		/* --------HINTS ---------*/
 		var hintC1 = 0;
 		var hintC2 = 0;
@@ -237,20 +241,20 @@ CHOOSE FILE TO LOAD:
 		<textarea id="editArea" style="height: 400px; width: 100%;" name="code">
 		</textarea>
 	</fieldset>
-Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;ProblemNo
+Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ProblemNo
 
 <br>
 <select name="language" id="codeId">
 <option value="c"> C (gcc 4.3.2) </option>
 <option value="cpp"> C++ (g++ 4.3.2) </option>
 </select>
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;
-
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 <select name="codeId"  id="probId" >
 <option value="Problem1"> 1  </option>
 <option value="Problem2"> 2  </option>
 </select>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<input type="reset" value="Reset" onClick="ClearEditArea();"/>
 <a href="prob_desc.html?height=500&width=650" class="thickbox"><img src="images/info.jpg" height=20px width=20px></a>
 <input type="hidden" name="hintC" id="hintCount" value="0"/>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
@@ -267,7 +271,7 @@ Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
    </div>
    <!--button  type="button" id="genHint"  value="Hint" onclick="generateHint();">Generate Hint</button -->
    <select name="hintGenerate" onchange="generateHint(this)">
-	<option value='0'>Hint Level 0</option>
+	<option value='0'>Hint Levels</option>
 	<option value='1'>Hint Level 1</option>
 	<option value='2'>Hint Level 2</option>
 	<option value='3'>Hint Level 3</option>
