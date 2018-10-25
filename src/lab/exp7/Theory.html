@@ -116,7 +116,7 @@ A number x is said to be a square root of N if x*x=N.Thus is it quite obvious th
 <h3>Time complexity</h3>
 <br>
 <p>
-If you analyze the number of operations it takes this function to run it is easy to see that it will take logN (logN to base 2) operations. At every step of the search we chose either (start,mid-1) or (mid+1,end) which means the interval size gets reduced by half. Initially the range is N, in the next step it will become N/2, then N/4, and so after x steps the search range will be N/(2^x) which will be 1 when x is logN. So, the number of iterations is log(N).
+If you analyze the number of operations it takes this function to run it is easy to see that it will take logN (logN to base 2) operations. At every step of the search we chose either (start,mid-1) or (mid+1,end) which means the interval size gets reduced by half. Initially the range is N, in the next step it will become N/2, then N/4, and so after x steps the search range will be N/(2^x) which will be 1 when x is logN. So, the number of iterations is Nlog(N).
 </p>
 <p align="right"></p>
 </br></div>						</div>
