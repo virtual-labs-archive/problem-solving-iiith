@@ -5,12 +5,13 @@
 * Visit JavaScript Kit (http://www.javascriptkit.com/) for full source code
 ***********************************************/
 
-//Enter total number of questions:
-var totalquestions=10
+//Enter total number of questions
+//var totalquestions=10
+var totalquestions=5
 
 //Enter the solutions corresponding to each question:
 var correctchoices=new Array()
-correctchoices[1]='a' //question 1 solution
+/*correctchoices[1]='a' //question 1 solution
 correctchoices[2]='b' //question 2 solution, and so on.
 correctchoices[3]='b'
 correctchoices[4]='a'
@@ -19,7 +20,12 @@ correctchoices[6]='d'
 correctchoices[7]='b'
 correctchoices[8]='c'
 correctchoices[9]='a'
-correctchoices[10]='c'
+correctchoices[10]='c'*/
+correctchoices[1]='a' //question 1 solution
+correctchoices[2]='c' //question 2 solution, and so on.
+correctchoices[3]='a'
+correctchoices[4]='d'
+correctchoices[5]='b'
 
 /////Don't edit beyond here//////////////////////////
 
