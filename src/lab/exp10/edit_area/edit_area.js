@@ -15,6 +15,7 @@
 		t.plugins= {};
 	
 		t.line_number=0;
+		//double qoutes inserted
 		
 		parent.editAreaLoader.set_browser_infos(t); 	// navigator identification
 		// fix IE8 detection as we run in IE7 emulate mode through X-UA <meta> tag
@@ -63,7 +64,7 @@
 
 		t.is_tabbing= false;
 		
-		t.fullscreen= {'isFull': false};
+		t.fullscreen= {"isFull": false};
 		
 		t.isResizing=false;	// resize var
 		
@@ -71,9 +72,9 @@
 		t.id= area_id;
 		t.settings= editAreas[t.id]["settings"];
 		
-		if((""+t.settings['replace_tab_by_spaces']).match(/^[0-9]+$/))
+		if((""+t.settings["replace_tab_by_spaces"]).match(/^[0-9]+$/))
 		{
-			t.tab_nb_char= t.settings['replace_tab_by_spaces'];
+			t.tab_nb_char= t.settings["replace_tab_by_spaces"];
 			t.tabulation="";
 			for(var i=0; i<t.tab_nb_char; i++)
 				t.tabulation+=" ";
@@ -85,8 +86,8 @@
 		if(t.settings["syntax_selection_allow"] && t.settings["syntax_selection_allow"].length>0)
 			t.syntax_list= t.settings["syntax_selection_allow"].replace(/ /g,"").split(",");
 		
-		if(t.settings['syntax'])
-			t.allready_used_syntax[t.settings['syntax']]=true;
+		if(t.settings["syntax"])
+			t.allready_used_syntax[t.settings["syntax"]]=true;
 		
 		
 	};
@@ -104,10 +105,10 @@
 		t.test_font_size	= _$("test_font_size");
 		a = t.textarea;
 		
-		if(!s['is_editable'])
+		if(!s["is_editable"])
 			t.set_editable(false);
 		
-		t.set_show_line_colors( s['show_line_colors'] );
+		t.set_show_line_colors( s["show_line_colors"] );
 		
 		if(syntax_selec= _$("syntax_selection"))
 		{
@@ -116,10 +117,10 @@
 				var syntax= t.syntax_list[i];
 				var option= document.createElement("option");
 				option.value= syntax;
-				if(syntax==s['syntax'])
+				if(syntax==s["syntax"])
 					option.selected= "selected";
 				dispSyntax	= parent.editAreaLoader.syntax_display_name[ syntax ];
-				option.innerHTML= typeof( dispSyntax ) == 'undefined' ? syntax.substring( 0, 1 ).toUpperCase() + syntax.substring( 1 ) : dispSyntax;//t.get_translation("syntax_" + syntax, "word");
+				option.innerHTML= typeof( dispSyntax ) == "undefined" ? syntax.substring( 0, 1 ).toUpperCase() + syntax.substring( 1 ) : dispSyntax;//t.get_translation("syntax_" + syntax, "word");
 				syntax_selec.appendChild(option);
 			}
 		}
@@ -158,7 +159,7 @@
 		//this.update_size();
 		
 		if(_$("redo") != null)
-			t.switchClassSticky(_$("redo"), 'editAreaButtonDisabled', true);
+			t.switchClassSticky(_$("redo"), "editAreaButtonDisabled", true);
 		
 		// insert css rules for highlight mode		
 		if(typeof(parent.editAreaLoader.syntax[s["syntax"]])!="undefined"){
@@ -235,10 +236,10 @@
 		// si le textarea n'est pas grand, un click sous le textarea doit provoquer un focus sur le textarea
 		parent.editAreaLoader.add_event(t.result, "click", function(e){ if((e.target || e.srcElement)==editArea.result) { editArea.area_select(editArea.textarea.value.length, 0);}  });
 		
-		if(s['is_multi_files']!=false)
-			t.open_file({'id': t.curr_file, 'text': ''});
+		if(s["is_multi_files"]!=false)
+			t.open_file({'id': t.curr_file, "text": ''});
 	
-		t.set_word_wrap( s['word_wrap'] );
+		t.set_word_wrap( s["word_wrap"] );
 		
 		setTimeout("editArea.focus();editArea.manage_size();editArea.execCommand('EA_load');", 10);		
 		//start checkup routine
@@ -250,7 +251,7 @@
 			if(typeof(t.plugins[i].onload)=="function")
 				t.plugins[i].onload();
 		}
-		if(s['fullscreen']==true)
+		if(s["fullscreen"]==true)
 			t.toggle_full_screen(true);
 	
 		parent.editAreaLoader.add_event(window, "resize", editArea.update_size);
@@ -279,13 +280,13 @@
 	EditArea.prototype.update_size= function(){
 		var d=document,pd=parent.document,height,width,popup,maxLeft,maxTop;
 		
-		if( typeof editAreas != 'undefined' && editAreas[editArea.id] && editAreas[editArea.id]["displayed"]==true){
-			if(editArea.fullscreen['isFull']){	
+		if( typeof editAreas != "undefined" && editAreas[editArea.id] && editAreas[editArea.id]["displayed"]==true){
+			if(editArea.fullscreen["isFull"]){	
 				pd.getElementById("frame_"+editArea.id).style.width		= pd.getElementsByTagName("html")[0].clientWidth + "px";
 				pd.getElementById("frame_"+editArea.id).style.height	= pd.getElementsByTagName("html")[0].clientHeight + "px";
 			}
 			
-			if(editArea.tab_browsing_area.style.display=='block' && ( !editArea.isIE || editArea.isIE >= 8 ) )
+			if(editArea.tab_browsing_area.style.display=="block" && ( !editArea.isIE || editArea.isIE >= 8 ) )
 			{
 				editArea.tab_browsing_area.style.height	= "0px";
 				editArea.tab_browsing_area.style.height	= (editArea.result.offsetTop - editArea.tab_browsing_area.offsetTop -1)+"px";
@@ -326,7 +327,7 @@
 			
 			//1) Manage display width
 			//1.1) Calc the new width to use for display
-			if( !this.settings['word_wrap'] )
+			if( !this.settings["word_wrap"] )
 			{
 				var area_width= this.textarea.scrollWidth;
 				area_height= this.textarea.scrollHeight;
@@ -345,7 +346,7 @@
 				}
 			}
 			// manage wrap width
-			if( this.settings['word_wrap'] )
+			if( this.settings["word_wrap"] )
 			{
 				newW=this.textarea.offsetWidth;
 				if( this.isFirefox || this.isIE )
@@ -375,14 +376,14 @@
 			//3) if there is new lines, we add new line numbers in the line numeration area
 			if(this.last_selection["nb_line"] >= this.line_number)
 			{
-				var newLines= '', destDiv=_$("line_number"), start=this.line_number, end=this.last_selection["nb_line"]+100;
+				var newLines= "", destDiv=_$("line_number"), start=this.line_number, end=this.last_selection["nb_line"]+100;
 				for( i = start+1; i < end; i++ )
 				{
-					newLines+='<div id="line_'+ i +'">'+i+"</div>";
+					newLines+="<div id="line_'+ i +'">'+i+"</div>";
 					this.line_number++;
 				}
 				destDiv.innerHTML= destDiv.innerHTML + newLines;
-				if(this.settings['word_wrap']){
+				if(this.settings["word_wrap"]){
 					this.fixLinesHeight( this.textarea.value, start, -1 );
 				}
 			}
@@ -491,7 +492,7 @@
 			head = document.getElementsByTagName("head");
 			head[0].appendChild(link);
 		}catch(e){
-			document.write("<link href='"+ url +"' rel='stylesheet' type='text/css' />");
+			document.write("<link href='"+ url +"' rel="stylesheet" type="text/css" />");
 		}
 	};
 	
