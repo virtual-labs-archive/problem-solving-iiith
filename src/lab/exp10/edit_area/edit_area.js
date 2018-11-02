@@ -36,7 +36,7 @@
 		t.last_undo="";
 		t.files= {};
 		t.filesIdAssoc= {};
-		t.curr_file= '';
+		t.curr_file= "";
 		//t.loaded= false;
 		t.assocBracket={};
 		t.revertAssocBracket= {};		
@@ -241,7 +241,7 @@
 	
 		t.set_word_wrap( s["word_wrap"] );
 		
-		setTimeout("editArea.focus();editArea.manage_size();editArea.execCommand('EA_load');", 10);		
+		setTimeout("editArea.focus();editArea.manage_size();editArea.execCommand("EA_load");", 10);		
 		//start checkup routine
 		t.check_undo();
 		t.check_line_selection(true);
@@ -505,7 +505,7 @@
 			head = document.getElementsByTagName("head");
 			head[0].appendChild(script);
 		}catch(e){
-			document.write("<script type='text/javascript' src='" + url + "' charset=\"UTF-8\"><"+"/script>");
+			document.write("<script type="text/javascript" src='" + url + "' charset=\"UTF-8\"><"+"/script>");
 		}
 	};
 	
