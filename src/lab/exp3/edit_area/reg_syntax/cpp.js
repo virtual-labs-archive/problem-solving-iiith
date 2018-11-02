@@ -7,32 +7,26 @@ editAreaLoader.load_syntax["cpp"] = {
 	,'KEYWORDS' : {
 		'constants' : [
 			'NULL', 'false', 'std', 'stdin', 'stdout', 'stderr',
-			'true'
-		]
+			'true']
 		,'types' : [
 			'FILE', 'auto', 'char', 'class', 'const', 'double',
 			'extern', 'float', 'friend', 'inline', 'int',
 			'iterator', 'long', 'map', 'operator', 'queue',
 			'register', 'short', 'signed', 'size_t', 'stack',
 			'static', 'string', 'struct', 'time_t', 'typedef',
-			'union', 'unsigned', 'vector', 'void', 'volatile'
-		]
+			'union', 'unsigned', 'vector', 'void', 'volatile']
 		,'statements' : [
 			'catch', 'do', 'else', 'enum', 'for', 'goto', 'if',
-			'sizeof', 'switch', 'this', 'throw', 'try', 'while'
-		]
+			'sizeof', 'switch', 'this', 'throw', 'try', 'while']
  		,'keywords' : [
 			'break', 'case', 'continue', 'default', 'delete',
 			'namespace', 'new', 'private', 'protected', 'public',
-			'return', 'using'
-		]
+			'return', 'using']
 	}
 	,'OPERATORS' :[
-		'+', '-', '/', '*', '=', '<', '>', '%', '!', '?', ':', '&'
-	]
+		'+', '-', '/', '*', '=', '<', '>', '%', '!', '?', ':', '&']
 	,'DELIMITERS' :[
-		'(', ')', '[', ']', '{', '}'
-	]
+		'(', ')', '[', ']', '{', '}']
 	,'REGEXPS' : {
 		'precompiler' : {
 			'search' : '()(#[^\r\n]*)()'
