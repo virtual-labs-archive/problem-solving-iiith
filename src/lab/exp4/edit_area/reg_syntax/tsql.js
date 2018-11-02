@@ -5,8 +5,7 @@ editAreaLoader.load_syntax["tsql"] = {
 	,'QUOTEMARKS' : {1: "'" }
 	,'KEYWORD_CASE_SENSITIVE' : false
 	,'KEYWORDS' : {
-		'statements': [
-		    'ADD', 'EXCEPT', 'PERCENT', 'EXEC', 'PLAN', 'ALTER', 'EXECUTE', 'PRECISION',
+		'statements': ['ADD', 'EXCEPT', 'PERCENT', 'EXEC', 'PLAN', 'ALTER', 'EXECUTE', 'PRECISION',
 		    'PRIMARY', 'EXIT', 'PRINT', 'AS', 'FETCH', 'PROC', 'ASC',
 		    'FILE', 'PROCEDURE', 'AUTHORIZATION', 'FILLFACTOR', 'PUBLIC', 'BACKUP', 'FOR', 'RAISERROR',
 		    'BEGIN', 'FOREIGN', 'READ', 'FREETEXT', 'READTEXT', 'BREAK', 'FREETEXTTABLE',
@@ -25,10 +24,8 @@ editAreaLoader.load_syntax["tsql"] = {
 		    'DENY', 'OFF', 'UPDATE', 'DESC', 'OFFSETS', 'UPDATETEXT', 'DISK', 'ON', 'USE', 'DISTINCT', 'OPEN',
 		    'DISTRIBUTED', 'OPENDATASOURCE', 'VALUES', 'DOUBLE', 'OPENQUERY', 'VARYING', 'DROP', 
 		    'OPENROWSET', 'VIEW', 'DUMMY', 'OPENXML', 'WAITFOR', 'DUMP', 'OPTION', 'WHEN', 'ELSE', 'WHERE',
-		    'END', 'ORDER', 'WHILE', 'ERRLVL', 'WITH', 'ESCAPE', 'OVER', 'WRITETEXT'
-		],
-		'functions': [
-		    'COALESCE', 'SESSION_USER', 'CONVERT', 'SYSTEM_USER', 'CURRENT_TIMESTAMP', 'CURRENT_USER', 'NULLIF', 'USER',
+		    'END', 'ORDER', 'WHILE', 'ERRLVL', 'WITH', 'ESCAPE', 'OVER', 'WRITETEXT'],
+		'functions': ['COALESCE', 'SESSION_USER', 'CONVERT', 'SYSTEM_USER', 'CURRENT_TIMESTAMP', 'CURRENT_USER', 'NULLIF', 'USER',
 			'AVG', 'MIN', 'CHECKSUM', 'SUM', 'CHECKSUM_AGG', 'STDEV', 'COUNT', 'STDEVP', 'COUNT_BIG', 'VAR', 'GROUPING', 'VARP', 'MAX',
 			'@@DATEFIRST', '@@OPTIONS', '@@DBTS', '@@REMSERVER', '@@LANGID', '@@SERVERNAME', '@@LANGUAGE', '@@SERVICENAME', '@@LOCK_TIMEOUT',
 			'@@SPID', '@@MAX_CONNECTIONS', '@@TEXTSIZE', '@@MAX_PRECISION', '@@VERSION', '@@NESTLEVEL',
@@ -48,18 +45,11 @@ editAreaLoader.load_syntax["tsql"] = {
 			'IDENT_SEED', '@@IDENTITY', 'ISDATE', 'ISNULL', 'ISNUMERIC', 'NEWID', 'NULLIF', 'PARSENAME', '@@ROWCOUNT',
 			'SCOPE_IDENTITY', 'SERVERPROPERTY', 'SESSIONPROPERTY', 'SESSION_USER', 'STATS_DATE', 'SYSTEM_USER', '@@TRANCOUNT', 'USER_NAME',
 			'@@CONNECTIONS', '@@PACK_RECEIVED', '@@CPU_BUSY', '@@PACK_SENT', '@@TIMETICKS', '@@IDLE', '@@TOTAL_ERRORS', '@@IO_BUSY', '@@TOTAL_READ',
-			'@@PACKET_ERRORS', '@@TOTAL_WRITE', 'PATINDEX', 'TEXTVALID', 'TEXTPTR'
-		],
-		'reserved': [
-			'RIGHT', 'INNER', 'IS', 'JOIN', 'CROSS', 'LEFT', 'NULL', 'OUTER'
-		]
+			'@@PACKET_ERRORS', '@@TOTAL_WRITE', 'PATINDEX', 'TEXTVALID', 'TEXTPTR'],
+		'reserved': ['RIGHT', 'INNER', 'IS', 'JOIN', 'CROSS', 'LEFT', 'NULL', 'OUTER']
 	}
-	,'OPERATORS' :[
-		'+', '-', '*', '/', '%', '=', '&' ,'|', '^', '>', '<', '>=', '<=', '<>', '!=', '!<', '!>', 'ALL', 'AND', 'ANY', 'BETWEEN', 'EXISTS', 'IN', 'LIKE', 'NOT', 'OR', '~'
-	]
-	,'DELIMITERS' :[
-		'(', ')', '[', ']', '{', '}'
-	]
+	,'OPERATORS' :['+', '-', '*', '/', '%', '=', '&' ,'|', '^', '>', '<', '>=', '<=', '<>', '!=', '!<', '!>', 'ALL', 'AND', 'ANY', 'BETWEEN', 'EXISTS', 'IN', 'LIKE', 'NOT', 'OR', '~']
+	,'DELIMITERS' :['(', ')', '[', ']', '{', '}']
 	,'REGEXPS' : {
 		// highlight all variables (@...)
 		'variables' : {
