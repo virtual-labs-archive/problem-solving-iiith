@@ -45,8 +45,9 @@
 	{           
 		if(!option)
 			var option="single";
-		if(!depth)
+		if(!depth){
 			var depth=-1;
+		}
 		if(elem){
 			var children= elem.childNodes;
 			var result=null;

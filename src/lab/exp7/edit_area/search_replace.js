@@ -20,8 +20,9 @@
 	
 	EditArea.prototype.area_search= function(mode){
 		
-		if(!mode)
+		if(!mode){
 			mode="search";
+		}
 		_$("area_search_msg").innerHTML="";		
 		var search=_$("area_search").value;		
 		
@@ -44,8 +45,9 @@
 		}
 		// advance to the next occurence if no text selected
 		if(mode!="replace" ){
-			if(_$("area_search_reg_exp").checked)
+			if(_$("area_search_reg_exp").checked){
 				start++;
+			}
 			else
 				start+= search.length;
 		}

@@ -2,11 +2,12 @@
 		//res="( |=|\\n|\\r|\\[|\\(|µ|)(";
 		res="(\\b)(";
 		for(i=0; i<text_array.length; i++){
-			if(i>0)
+			if(i>0){
 				res+="|";
 			//res+="("+ tab_text[i] +")";
 			//res+=tab_text[i].replace(/(\.|\?|\*|\+|\\|\(|\)|\[|\]|\{|\})/g, "\\$1");
 			res+=this.get_escaped_regexp(text_array[i]);
+			}
 		}
 		//res+=")( |\\.|:|\\{|\\(|\\)|\\[|\\]|\'|\"|\\r|\\n|\\t|$)";
 		res+=")(\\b)";
@@ -34,7 +35,7 @@
 					if(this.load_syntax[lang]['KEYWORD_CASE_SENSITIVE']===false)
 						param+="i";
 					for(var i in this.load_syntax[lang]['KEYWORDS']){
-						if(typeof(this.load_syntax[lang]['KEYWORDS'][i])=="function") continue;
+						if(typeof(this.load_syntax[lang]['KEYWORDS'][i])=="function"){ continue;}
 						this.syntax[lang]["keywords_reg_exp"][i]= new RegExp(this.get_regexp( this.load_syntax[lang]['KEYWORDS'][i] ), param);
 						this.keywords_reg_exp_nb++;
 					}

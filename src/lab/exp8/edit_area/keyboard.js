@@ -22,9 +22,9 @@ function keyDown(e){
 	var use=false;
 	if (EA_keys[e.keyCode])
 		letter=EA_keys[e.keyCode];
-	else
+	else{
 		letter=String.fromCharCode(e.keyCode);
-	
+	}
 	var low_letter= letter.toLowerCase();
 			
 	if(letter=="Page up" && !AltPressed(e) && !editArea.isOpera){

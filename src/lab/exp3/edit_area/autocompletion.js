@@ -175,8 +175,9 @@ var EditArea_autocompletion= {
 				else
 				{
 					this.enabled= false;
-					if(icon != null)
+					if(icon != null){
 						editArea.switchClassSticky(icon, 'editAreaButtonNormal', false);
+					}
 				}
 				return true;
 		}
