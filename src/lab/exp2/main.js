@@ -7,6 +7,6 @@ function check(){
 	}
 	if (Q2==="1") {
 		c++;
-	};
+	}
 	window.alert("You got "+c+" correct!");
 }
