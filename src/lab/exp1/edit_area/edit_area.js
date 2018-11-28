@@ -18,8 +18,8 @@
 		
 		parent.editAreaLoader.set_browser_infos(t); 	// navigator identification
 		// fix IE8 detection as we run in IE7 emulate mode through X-UA <meta> tag
-		if( t.isIE >= 8 )
-			t.isIE	= 7;
+		if( t.isIE >= 8 ){
+			t.isIE	= 7;}
 		
 		t.last_selection={};		
 		t.last_text_to_highlight="";
@@ -59,7 +59,9 @@
 		t.default_font_size= 10;*/
 		t.tab_nb_char= 8;	//nb of white spaces corresponding to a tabulation
 		if(t.isOpera)
+		{
 			t.tab_nb_char= 6;
+		}
 
 		t.is_tabbing= false;
 		
@@ -83,11 +85,13 @@
 			
 		// retrieve the init parameter for syntax
 		if(t.settings["syntax_selection_allow"] && t.settings["syntax_selection_allow"].length>0)
+		{
 			t.syntax_list= t.settings["syntax_selection_allow"].replace(/ /g,"").split(",");
-		
+		}
 		if(t.settings['syntax'])
+	        {
 			t.allready_used_syntax[t.settings['syntax']]=true;
-		
+		}
 		
 	};
 	EditArea.prototype.init= function(){
@@ -105,8 +109,9 @@
 		a = t.textarea;
 		
 		if(!s['is_editable'])
+		{
 			t.set_editable(false);
-		
+		}
 		t.set_show_line_colors( s['show_line_colors'] );
 		
 		if(syntax_selec= _$("syntax_selection"))
@@ -117,7 +122,9 @@
 				var option= document.createElement("option");
 				option.value= syntax;
 				if(syntax==s['syntax'])
+				{
 					option.selected= "selected";
+				}
 				dispSyntax	= parent.editAreaLoader.syntax_display_name[ syntax ];
 				option.innerHTML= typeof( dispSyntax ) == 'undefined' ? syntax.substring( 0, 1 ).toUpperCase() + syntax.substring( 1 ) : dispSyntax;//t.get_translation("syntax_" + syntax, "word");
 				syntax_selec.appendChild(option);
@@ -158,8 +165,9 @@
 		//this.update_size();
 		
 		if(_$("redo") != null)
+		{
 			t.switchClassSticky(_$("redo"), 'editAreaButtonDisabled', true);
-		
+		}
 		// insert css rules for highlight mode		
 		if(typeof(parent.editAreaLoader.syntax[s["syntax"]])!="undefined"){
 			for(var i in parent.editAreaLoader.syntax){
@@ -171,20 +179,24 @@
 	
 		// init key events
 		if(t.isOpera)
-			_$("editor").onkeypress	= keyDown;
+		{
+		        _$("editor").onkeypress	= keyDown;
+		}
 		else
 			_$("editor").onkeydown	= keyDown;
 
 		for(var i=0; i<t.inlinePopup.length; i++){
 			if(t.isOpera)
-				_$(t.inlinePopup[i]["popup_id"]).onkeypress	= keyDown;
+			{	_$(t.inlinePopup[i]["popup_id"]).onkeypress = keyDown;
+			}
 			else
 				_$(t.inlinePopup[i]["popup_id"]).onkeydown	= keyDown;
 		}
 		
 		if(s["allow_resize"]=="both" || s["allow_resize"]=="x" || s["allow_resize"]=="y")
+		{
 			t.allow_resize(true);
-		
+		}
 		parent.editAreaLoader.toggle(t.id, "on");
 		//a.focus();
 		// line selection init
@@ -199,7 +211,9 @@
 		children= parent.getChildren(document.body, "", "selec", "none", "all", -1);
 		for(var i=0; i<children.length; i++){
 			if(t.isIE)
+			{
 				children[i].unselectable = true; // IE
+			}
 			else
 				children[i].onmousedown= function(){return false};
 		/*	children[i].style.MozUserSelect = "none"; // Moz
@@ -229,14 +243,18 @@
 			t.editor_area.style.position	= "absolute";
 			a.style.marginLeft		="-3px";
 			if( t.isSafari < 3.2 ) // Safari 3.0 (3.1?)
-				a.style.marginTop	="1px";
+			{
+				a.style.marginTop ="1px";
+			}
 		}
 		
 		// si le textarea n'est pas grand, un click sous le textarea doit provoquer un focus sur le textarea
 		parent.editAreaLoader.add_event(t.result, "click", function(e){ if((e.target || e.srcElement)==editArea.result) { editArea.area_select(editArea.textarea.value.length, 0);}  });
 		
-		if(s['is_multi_files']!=false)
+		if(s['is_multi_files']!=false)	
+		{
 			t.open_file({'id': t.curr_file, 'text': ''});
+		}
 	
 		t.set_word_wrap( s['word_wrap'] );
 		
@@ -248,11 +266,14 @@
 		
 		for(var i in t.plugins){
 			if(typeof(t.plugins[i].onload)=="function")
+			{
 				t.plugins[i].onload();
+			}
 		}
 		if(s['fullscreen']==true)
+		{
 			t.toggle_full_screen(true);
-	
+	        }
 		parent.editAreaLoader.add_event(window, "resize", editArea.update_size);
 		parent.editAreaLoader.add_event(parent.window, "resize", editArea.update_size);
 		parent.editAreaLoader.add_event(top.window, "resize", editArea.update_size);
@@ -305,9 +326,13 @@
 				maxLeft	= d.body.offsetWidth - popup.offsetWidth;
 				maxTop	= d.body.offsetHeight - popup.offsetHeight;
 				if( popup.offsetTop > maxTop )
-					popup.style.top		= maxTop+"px";
+				{
+					popup.style.top	= maxTop+"px";
+				}
 				if( popup.offsetLeft > maxLeft )
-					popup.style.left	= maxLeft+"px";
+				{
+					popup.style.left = maxLeft+"px";
+				}
 			}
 			
 			editArea.manage_size( true );
@@ -318,7 +343,9 @@
 	
 	EditArea.prototype.manage_size= function(onlyOneTime){
 		if(!editAreas[this.id])
+		{
 			return false;
+		}
 			
 		if(editAreas[this.id]["displayed"]==true && this.textareaFocused)
 		{
@@ -349,9 +376,13 @@
 			{
 				newW=this.textarea.offsetWidth;
 				if( this.isFirefox || this.isIE )
+				{
 					newW-=2;
+				}
 				if( this.isSafari )
+				{
 					newW-=6;
+				}
 				this.content_highlight.style.width=this.selection_field_text.style.width=this.selection_field.style.width=this.test_font_size.style.width=newW+"px";
 			}
 			
@@ -410,46 +441,68 @@
 		switch(cmd){
 			case "save":
 				if(this.settings["save_callback"].length>0)
+				{
 					eval("parent."+this.settings["save_callback"]+"('"+ this.id +"', editArea.textarea.value);");
+				}
 				break;
 			case "load":
-				if(this.settings["load_callback"].length>0)
+				if(this.settings["load_callback"].length)
+				{
 					eval("parent."+this.settings["load_callback"]+"('"+ this.id +"');");
+				}
 				break;
 			case "onchange":
 				if(this.settings["change_callback"].length>0)
+				{
 					eval("parent."+this.settings["change_callback"]+"('"+ this.id +"');");
+				}
 				break;		
 			case "EA_load":
 				if(this.settings["EA_load_callback"].length>0)
+				{
 					eval("parent."+this.settings["EA_load_callback"]+"('"+ this.id +"');");
+				}
 				break;
 			case "EA_unload":
 				if(this.settings["EA_unload_callback"].length>0)
+				{
 					eval("parent."+this.settings["EA_unload_callback"]+"('"+ this.id +"');");
+				}
 				break;
 			case "toggle_on":
 				if(this.settings["EA_toggle_on_callback"].length>0)
+				{
 					eval("parent."+this.settings["EA_toggle_on_callback"]+"('"+ this.id +"');");
+				}
 				break;
 			case "toggle_off":
 				if(this.settings["EA_toggle_off_callback"].length>0)
+				{
 					eval("parent."+this.settings["EA_toggle_off_callback"]+"('"+ this.id +"');");
+				}
 				break;
 			case "re_sync":
 				if(!this.do_highlight)
+				{
 					break;
+				}
 			case "file_switch_on":
 				if(this.settings["EA_file_switch_on_callback"].length>0)
+				{
 					eval("parent."+this.settings["EA_file_switch_on_callback"]+"(param);");
+				}
 				break;
 			case "file_switch_off":
 				if(this.settings["EA_file_switch_off_callback"].length>0)
+				{
 					eval("parent."+this.settings["EA_file_switch_off_callback"]+"(param);");
+				}
 				break;
 			case "file_close":
 				if(this.settings["EA_file_close_callback"].length>0)
+				{
 					return eval("parent."+this.settings["EA_file_close_callback"]+"(param);");
+				}
 				break;
 			
 			default:
@@ -465,7 +518,9 @@
 	
 	EditArea.prototype.get_translation= function(word, mode){
 		if(mode=="template")
+                {
 			return parent.editAreaLoader.translate(word, this.settings["language"], mode);
+		}
 		else
 			return parent.editAreaLoader.get_word_translation(word, this.settings["language"]);
 	};
@@ -476,7 +531,9 @@
 				this.plugins[plug_name]=plug_obj;
 				plug_obj.baseURL=parent.editAreaLoader.baseURL + "plugins/" + plug_name + "/";
 				if( typeof(plug_obj.init)=="function" )
+				{
 					plug_obj.init();
+				}
 			}
 		}
 	};
@@ -511,7 +568,9 @@
 	// add plugin translation to language translation array
 	EditArea.prototype.add_lang= function(language, values){
 		if(!parent.editAreaLoader.lang[language])
+		{
 			parent.editAreaLoader.lang[language]={};
+		}
 		for(var i in values)
 			parent.editAreaLoader.lang[language][i]= values[i];
 	};
