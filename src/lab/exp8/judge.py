@@ -103,7 +103,10 @@ def index(req):
 	
 	compileErrors = Compile(exename,langauge,codeName);
 	JudgeData_html="";
-	if(action=="Compile" and compileErrors!=""):
+        if(action=="Compile" and editarea=""):
+			#return compilation error
+			result = "No code"
+	elif(action=="Compile" and compileErrors!=""):
 			#return compilation error
 			result = "Compile Error"
 	elif(action=="Compile" and compileErrors==""):
