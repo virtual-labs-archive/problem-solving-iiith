@@ -22,9 +22,13 @@ var EditArea_autocompletion= {
 		//	alert("test init: "+ this._someInternalFunction(2, 3));
 		
 		if(editArea.settings["autocompletion"])
+		{
 			this.enabled= true;
+		}
 		else
+		{
 			this.enabled= false;
+		}
 		this.current_word		= false;
 		this.shown				= false;
 		this.selectIndex		= -1;
@@ -88,12 +92,17 @@ var EditArea_autocompletion= {
 	 */
 	,onkeydown: function(e){
 		if(!this.enabled)
+		{
 			return true;
-			
+		}	
 		if (EA_keys[e.keyCode])
+		{
 			letter=EA_keys[e.keyCode];
+		}
 		else
+		{
 			letter=String.fromCharCode(e.keyCode);	
+		}
 		// shown
 		if( this._isShown() )
 		{	
@@ -132,11 +141,6 @@ var EditArea_autocompletion= {
 			}
 		}
 		// hidden
-		else
-		{
-			
-		}
-		
 		// show current suggestion list and do autoSelect if possible (no matter it's shown or hidden)
 		if( letter=="Space" && CtrlPressed(e) )
 		{
@@ -176,7 +180,9 @@ var EditArea_autocompletion= {
 				{
 					this.enabled= false;
 					if(icon != null)
+					{
 						editArea.switchClassSticky(icon, 'editAreaButtonNormal', false);
+					}
 				}
 				return true;
 		}
@@ -210,9 +216,13 @@ var EditArea_autocompletion= {
 	// setter and getter
 	,_isInMiddleWord: function( new_value ){
 		if( typeof( new_value ) == "undefined" )
+		{
 			return this.isInMiddleWord;
+		}
 		else
+		{
 			this.isInMiddleWord	= new_value;
+		}
 	}
 	// select the next element in the suggested box
 	,_selectNext: function()
@@ -223,7 +233,9 @@ var EditArea_autocompletion= {
 		for( var i=0; i<as.length; i++ )
 		{
 			if( as[i].className )
+			{
 				as[i].className	= as[i].className.replace(/ focus/g, '');
+			}
 		}
 		
 		this.selectIndex++;	
@@ -239,7 +251,9 @@ var EditArea_autocompletion= {
 		for( var i=0; i<as.length; i++ )
 		{
 			if( as[i].className )
+			{
 				as[i].className	= as[ i ].className.replace(/ focus/g, '');
+			}
 		}
 		
 		this.selectIndex--;
@@ -262,19 +276,23 @@ var EditArea_autocompletion= {
 		for( i =0; i<limit ; i++ )
 		{
 			if( line_string.substring( limit - i - 1, limit ) == content.substring( 0, i + 1 ) )
+			{
 				nbMatch = i + 1;
+			}
 		}
 		// if characters match, we should include them in the selection that will be replaced
 		if( nbMatch > 0 )
+		{
 			parent.editAreaLoader.setSelectionRange(editArea.id, editArea.textarea.selectionStart - nbMatch , editArea.textarea.selectionEnd);
+		}
 		
 		parent.editAreaLoader.setSelectedText(editArea.id, content );
 		range= parent.editAreaLoader.getSelectionRange(editArea.id);
 		
 		if( cursor_forced_position != -1 )
-			new_pos	= range["end"] - ( content.length-cursor_forced_position );
-		else
-			new_pos	= range["end"];	
+		{	new_pos	= range["end"] - ( content.length-cursor_forced_position );}
+		else{
+			new_pos	= range["end"];	}
 		parent.editAreaLoader.setSelectionRange(editArea.id, new_pos, new_pos);
 		this._hide();
 	}
@@ -299,9 +317,13 @@ var EditArea_autocompletion= {
 						datas	= parent.editAreaLoader.load_syntax[lang]['AUTO_COMPLETION'][i];
 						tmp	= {};
 						if(datas["CASE_SENSITIVE"]!="undefined" && datas["CASE_SENSITIVE"]==false)
+						{
 							tmp["modifiers"]="i";
+						}
 						else
+						{	
 							tmp["modifiers"]="";
+						}
 						tmp["prefix_separator"]= datas["REGEXP"]["prefix_separator"];
 						tmp["match_prefix_separator"]= new RegExp( datas["REGEXP"]["prefix_separator"] +"$", tmp["modifiers"]);
 						tmp["match_word"]= new RegExp("(?:"+ datas["REGEXP"]["before_word"] +")("+ datas["REGEXP"]["possible_words_letters"] +")$", tmp["modifiers"]);
@@ -321,17 +343,17 @@ var EditArea_autocompletion= {
 								tmp["keywords"][prefix]['datas'][j]= {
 									is_typing: datas["KEYWORDS"][prefix][j][0],
 									// if replace with is empty, replace with the is_typing value
-									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('ง', datas["KEYWORDS"][prefix][j][0] ) : '',
+									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('ยง', datas["KEYWORDS"][prefix][j][0] ) : '',
 									comment: datas["KEYWORDS"][prefix][j][2] ? datas["KEYWORDS"][prefix][j][2] : '' 
 								};
 								
 								// the replace with shouldn't be empty
 								if( tmp["keywords"][prefix]['datas'][j]['replace_with'].length == 0 )
-									tmp["keywords"][prefix]['datas'][j]['replace_with'] = tmp["keywords"][prefix]['datas'][j]['is_typing'];
+								{tmp["keywords"][prefix]['datas'][j]['replace_with'] = tmp["keywords"][prefix]['datas'][j]['is_typing'];}
 								
 								// if the comment is empty, display the replace_with value
 								if( tmp["keywords"][prefix]['datas'][j]['comment'].length == 0 )
-									 tmp["keywords"][prefix]['datas'][j]['comment'] = tmp["keywords"][prefix]['datas'][j]['replace_with'].replace(/{@}/g, '' );
+								{tmp["keywords"][prefix]['datas'][j]['comment'] = tmp["keywords"][prefix]['datas'][j]['replace_with'].replace(/{@}/g, '' );}
 							}
 								
 						}
@@ -348,7 +370,7 @@ var EditArea_autocompletion= {
 		if( this.curr_syntax_str != editArea.settings['syntax'] )
 		{
 			if( !parent.editAreaLoader.syntax[editArea.settings['syntax']]['autocompletion'] )
-				this._parseSyntaxAutoCompletionDatas();
+			{this._parseSyntaxAutoCompletionDatas();}
 			this.curr_syntax= parent.editAreaLoader.syntax[editArea.settings['syntax']]['autocompletion'];
 			this.curr_syntax_str = editArea.settings['syntax'];
 			//console.log( this.curr_syntax );
@@ -401,17 +423,17 @@ var EditArea_autocompletion= {
 									if( !match_prefix_separator && this.curr_syntax[i]["keywords"][prefix]['prefix'].length == 0 )
 									{
 										if( ! before.match( this.curr_syntax[i]["keywords"][prefix]['prefix_reg'] ) )
-											hasMatch = true;
+										{	hasMatch = true;}
 									}
 									// we still need to check the prefix if there is one
 									else if( this.curr_syntax[i]["keywords"][prefix]['prefix'].length > 0 )
 									{
 										if( before.match( this.curr_syntax[i]["keywords"][prefix]['prefix_reg'] ) )
-											hasMatch = true;
+										{	hasMatch = true;}
 									}
 									
 									if( hasMatch )
-										results[results.length]= [ this.curr_syntax[i]["keywords"][prefix], this.curr_syntax[i]["keywords"][prefix]['datas'][j] ];
+									{results[results.length]= [ this.curr_syntax[i]["keywords"][prefix], this.curr_syntax[i]["keywords"][prefix]['datas'][j] ];}
 								}	
 							}
 						}
@@ -435,11 +457,11 @@ var EditArea_autocompletion= {
 								{
 									var before = last_chars; //.substr( 0, last_chars.length );
 									if( before.match( this.curr_syntax[i]["keywords"][prefix]['prefix_reg'] ) )
-										hasMatch = true;
+									{hasMatch = true;}
 								}	
 									
-								if( hasMatch )
-									results[results.length]= [ this.curr_syntax[i]["keywords"][prefix], this.curr_syntax[i]["keywords"][prefix]['datas'][j] ];	
+								if( hasMatch ){
+									results[results.length]= [ this.curr_syntax[i]["keywords"][prefix], this.curr_syntax[i]["keywords"][prefix]['datas'][j] ];	}
 							}
 						}
 					}
