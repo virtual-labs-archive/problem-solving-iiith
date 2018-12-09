@@ -46,7 +46,7 @@
 		for(var index in t.assocBracket){
 			t.revertAssocBracket[t.assocBracket[index]]=index;
 		}
-		t.is_editable= true;
+		t.isEditable= true;
 		
 		
 		/*t.textarea="";	
@@ -57,11 +57,11 @@
 		t.lineHeight= 16;
 		/*t.default_font_family= "monospace";
 		t.default_font_size= 10;*/
-		t.tab_nb_char= 8;	//nb of white spaces corresponding to a tabulation
+		t.tabNbChar= 8;	//nb of white spaces corresponding to a tabulation
 		if(t.isOpera)
 			t.tab_nb_char= 6;
 
-		t.is_tabbing= false;
+		t.isTabbing= false;
 		
 		t.fullscreen= {'isFull': false};
 		
@@ -73,7 +73,7 @@
 		
 		if((""+t.settings['replace_tab_by_spaces']).match(/^[0-9]+$/))
 		{
-			t.tab_nb_char= t.settings['replace_tab_by_spaces'];
+			t.tabNbChar= t.settings['replace_tab_by_spaces'];
 			t.tabulation="";
 			for(var i=0; i<t.tab_nb_char; i++)
 				t.tabulation+=" ";
@@ -164,7 +164,7 @@
 		if(typeof(parent.editAreaLoader.syntax[s["syntax"]])!="undefined"){
 			for(var i in parent.editAreaLoader.syntax){
 				if (typeof(parent.editAreaLoader.syntax[i]["styles"]) != "undefined"){
-					t.add_style(parent.editAreaLoader.syntax[i]["styles"]);
+					t.addStyle(parent.editAreaLoader.syntax[i]["styles"]);
 				}
 			}
 		}
@@ -182,18 +182,18 @@
 				_$(t.inlinePopup[i]["popup_id"]).onkeydown	= keyDown;
 		}
 		
-		if(s["allow_resize"]=="both" || s["allow_resize"]=="x" || s["allow_resize"]=="y")
-			t.allow_resize(true);
+		if(s["allowResize"]=="both" || s["allowResize"]=="x" || s["allowResize"]=="y")
+			t.allowResize(true);
 		
 		parent.editAreaLoader.toggle(t.id, "on");
 		//a.focus();
 		// line selection init
-		t.change_smooth_selection_mode(editArea.smooth_selection);
+		t.changeSmoothSelectionMode(editArea.smoothSelection);
 		// highlight
-		t.execCommand("change_highlight", s["start_highlight"]);
+		t.execCommand("changeHighlight", s["startHighlight"]);
 	
 		// get font size datas		
-		t.set_font(editArea.settings["font_family"], editArea.settings["font_size"]);
+		t.setFont(editArea.settings["font_family"], editArea.settings["font_size"]);
 		
 		// set unselectable text
 		children= parent.getChildren(document.body, "", "selec", "none", "all", -1);
@@ -226,7 +226,7 @@
 		}*/
 		
 		if( t.isSafari ){
-			t.editor_area.style.position	= "absolute";
+			t.editorArea.style.position	= "absolute";
 			a.style.marginLeft		="-3px";
 			if( t.isSafari < 3.2 ) // Safari 3.0 (3.1?)
 				a.style.marginTop	="1px";
@@ -236,9 +236,9 @@
 		parent.editAreaLoader.add_event(t.result, "click", function(e){ if((e.target || e.srcElement)==editArea.result) { editArea.area_select(editArea.textarea.value.length, 0);}  });
 		
 		if(s['is_multi_files']!=false)
-			t.open_file({'id': t.curr_file, 'text': ''});
+			t.openFile({'id': t.curr_file, 'text': ''});
 	
-		t.set_word_wrap( s['word_wrap'] );
+		t.setWordWrap( s['word_wrap'] );
 		
 		setTimeout("editArea.focus();editArea.manage_size();editArea.execCommand('EA_load');", 10);		
 		//start checkup routine
