@@ -66,7 +66,7 @@ var EditArea_autocompletion= {
 		{
 			var icon= document.getElementById("autocompletion");
 			if(icon)
-				editArea.switchClassSticky(icon, 'editAreaButtonSelected', true);
+				editArea.switchClassSticky(icon, "editAreaButtonSelected", true);
 		}
 		
 		this.container	= document.createElement('div');
@@ -168,7 +168,7 @@ var EditArea_autocompletion= {
 				{
 					if(icon != null){
 						editArea.restoreClass(icon);
-						editArea.switchClassSticky(icon, 'editAreaButtonSelected', true);
+						editArea.switchClassSticky(icon, "editAreaButtonSelected", true);
 					}
 					this.enabled= true;
 				}
@@ -176,7 +176,7 @@ var EditArea_autocompletion= {
 				{
 					this.enabled= false;
 					if(icon != null)
-						editArea.switchClassSticky(icon, 'editAreaButtonNormal', false);
+						editArea.switchClassSticky(icon, "editAreaButtonNormal", false);
 				}
 				return true;
 		}
@@ -321,7 +321,7 @@ var EditArea_autocompletion= {
 								tmp["keywords"][prefix]['datas'][j]= {
 									is_typing: datas["KEYWORDS"][prefix][j][0],
 									// if replace with is empty, replace with the is_typing value
-									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('ง', datas["KEYWORDS"][prefix][j][0] ) : '',
+									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('ยง', datas["KEYWORDS"][prefix][j][0] ) : '',
 									comment: datas["KEYWORDS"][prefix][j][2] ? datas["KEYWORDS"][prefix][j][2] : '' 
 								};
 								
