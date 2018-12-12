@@ -66,7 +66,7 @@ var EditArea_autocompletion= {
 		{
 			var icon= document.getElementById("autocompletion");
 			if(icon){
-				editArea.switchClassSticky(icon, 'editAreaButtonSelected', true);}
+				editArea.switchClassSticky(icon, "editAreaButtonSelected", true);}
 		}
 		
 		this.container	= document.createElement('div');
@@ -87,6 +87,7 @@ var EditArea_autocompletion= {
 	 * @type boolean	 
 	 */
 	,onkeydown: function(e){
+		var letter;
 		if(!this.enabled){
 			return true;}
 			
@@ -164,7 +165,7 @@ var EditArea_autocompletion= {
 				{
 					if(icon != null){
 						editArea.restoreClass(icon);
-						editArea.switchClassSticky(icon, 'editAreaButtonSelected', true);
+						editArea.switchClassSticky(icon, "editAreaButtonSelected", true);
 					}
 					this.enabled= true;
 				}
@@ -172,7 +173,7 @@ var EditArea_autocompletion= {
 				{
 					this.enabled= false;
 					if(icon != null){
-						editArea.switchClassSticky(icon, 'editAreaButtonNormal', false);}
+						editArea.switchClassSticky(icon, "editAreaButtonNormal", false);}
 				}
 				return true;
 		}
