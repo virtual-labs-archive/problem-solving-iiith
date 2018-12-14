@@ -87,12 +87,12 @@ var EditArea_autocompletion= {
 	 * @type boolean	 
 	 */
 	,onkeydown: function(e){
-		var letter;
+		var letter,EAKeys[];
 		if(!this.enabled){
 			return true;}
 			
-		if (EA_keys[e.keyCode]){
-			letter=EA_keys[e.keyCode];}
+		if (EAKeys[e.keyCode]){
+			letter=EAKeys[e.keyCode];}
 		else{
 			letter=String.fromCharCode(e.keyCode);	}
 		// shown
@@ -205,11 +205,11 @@ var EditArea_autocompletion= {
 		return this.shown;
 	}
 	// setter and getter
-	,_isInMiddleWord: function( new_value ){
-		if( typeof( new_value ) == "undefined" ){
+	,_isInMiddleWord: function( newValue ){
+		if( typeof( newValue ) == "undefined" ){
 			return this.isInMiddleWord;}
 		else{
-			this.isInMiddleWord	= new_value;}
+			this.isInMiddleWord	= newValue;}
 	}
 	// select the next element in the suggested box
 	,_selectNext: function()
@@ -246,16 +246,17 @@ var EditArea_autocompletion= {
 	}
 	,_select: function( content )
 	{
-		cursor_forced_position	= content.indexOf( '{@}' );
+		var cursorForcedPosition	= content.indexOf( '{@}' );
+		var newPos
 		content	= content.replace(/{@}/g, '' );
 		editArea.getIESelection();
 		
 		// retrive the number of matching characters
 		var start_index	= Math.max( 0, editArea.textarea.selectionEnd - content.length );
 		
-		line_string	= 	editArea.textarea.value.substring( start_index, editArea.textarea.selectionEnd + 1);
-		limit	= line_string.length -1;
-		nbMatch	= 0;
+		var line_string	= 	editArea.textarea.value.substring( start_index, editArea.textarea.selectionEnd + 1);
+		var limit	= line_string.length -1;
+		var nbMatch	= 0;
 		for( i =0; i<limit ; i++ )
 		{
 			if( line_string.substring( limit - i - 1, limit ) == content.substring( 0, i + 1 ) ){
@@ -266,13 +267,13 @@ var EditArea_autocompletion= {
 			parent.editAreaLoader.setSelectionRange(editArea.id, editArea.textarea.selectionStart - nbMatch , editArea.textarea.selectionEnd);
 		}
 		parent.editAreaLoader.setSelectedText(editArea.id, content );
-		range= parent.editAreaLoader.getSelectionRange(editArea.id);
+		var range= parent.editAreaLoader.getSelectionRange(editArea.id);
 		
-		if( cursor_forced_position != -1 ){
-			new_pos	= range["end"] - ( content.length-cursor_forced_position );}
+		if( cursorForcedPosition != -1 ){
+			newPos	= range["end"] - ( content.length-cursorForcedPosition );}
 		else{
-			new_pos	= range["end"];	}
-		parent.editAreaLoader.setSelectionRange(editArea.id, new_pos, new_pos);
+			newPos	= range["end"];	}
+		parent.editAreaLoader.setSelectionRange(editArea.id, newPos, newPos);
 		this._hide();
 	}
 	
@@ -293,8 +294,8 @@ var EditArea_autocompletion= {
 					// parse them
 					for(var i in parent.editAreaLoader.load_syntax[lang]['AUTO_COMPLETION'])
 					{
-						datas	= parent.editAreaLoader.load_syntax[lang]['AUTO_COMPLETION'][i];
-						tmp	= {};
+						var datas	= parent.editAreaLoader.load_syntax[lang]['AUTO_COMPLETION'][i];
+						var tmp	= {};
 						if(datas["CASE_SENSITIVE"]!="undefined" && datas["CASE_SENSITIVE"]==false){
 							tmp["modifiers"]="i";}
 						else{
@@ -351,73 +352,73 @@ var EditArea_autocompletion= {
 			//console.log( this.curr_syntax );
 		}
 		
-		if( editArea.is_editable )
+		if( editArea.isEditable )
 		{
-			time=new Date;
-			t1= time.getTime();
+			var time=new Date;
+			var t1= time.getTime();
 			editArea.getIESelection();
 			this.selectIndex	= -1;
-			start=editArea.textarea.selectionStart;
+			var start=editArea.textarea.selectionStart;
 			var str	= editArea.textarea.value;
-			var results= [];
+			var results= [],t2;
 			
-			
-			for(var i in this.curr_syntax)
+			var matchPrefixSeparator;
+			for(var i in this.currSyntax)
 			{
-				var last_chars	= str.substring(Math.max(0, start-this.curr_syntax[i]["max_text_length"]), start);
-				var matchNextletter	= str.substring(start, start+1).match( this.curr_syntax[i]["match_next_letter"]);
+				var last_chars	= str.substring(Math.max(0, start-this.currSyntax[i]["max_text_length"]), start);
+				var matchNextletter	= str.substring(start, start+1).match( this.currSyntax[i]["match_next_letter"]);
 				// if not writting in the middle of a word or if forcing display
 				if( matchNextletter || this.forceDisplay )
 				{
 					// check if the last chars match a separator
-					var match_prefix_separator = last_chars.match(this.curr_syntax[i]["match_prefix_separator"]);
+					 matchPrefixSeparator = last_chars.match(this.currSyntax[i]["matchPrefixSeparator"]);
 			
 					// check if it match a possible word
-					var match_word= last_chars.match(this.curr_syntax[i]["match_word"]);
+					var matchWord= last_chars.match(this.currSyntax[i]["matchWord"]);
 					
 					//console.log( match_word );
-					if( match_word )
+					if( matchWord )
 					{
-						var begin_word= match_word[1];
-						var match_curr_word= new RegExp("^"+ parent.editAreaLoader.get_escaped_regexp( begin_word ), this.curr_syntax[i]["modifiers"]);
+						var beginWord= matchWord[1];
+						var matchCurrWord= new RegExp("^"+ parent.editAreaLoader.getEscapedRegexp( begin_word ), this.curr_syntax[i]["modifiers"]);
 						//console.log( match_curr_word );
-						for(var prefix in this.curr_syntax[i]["keywords"])
+						for(var prefix in this.currSyntax[i]["keywords"])
 						{
 						//	parent.console.log( this.curr_syntax[i]["keywords"][prefix] );
-							for(var j=0; j<this.curr_syntax[i]["keywords"][prefix]['datas'].length; j++)
+							for(var j=0; j<this.currSyntax[i]["keywords"][prefix]['datas'].length; j++)
 							{
 						//		parent.console.log( this.curr_syntax[i]["keywords"][prefix]['datas'][j]['is_typing'] );
 								// the key word match or force display 
-								if( this.curr_syntax[i]["keywords"][prefix]['datas'][j]['is_typing'].match(match_curr_word) )
+								if( this.currSyntax[i]["keywords"][prefix]['datas'][j]['isTyping'].match(matchCurrWord) )
 								{
 							//		parent.console.log('match');
-									hasMatch = false;
-									var before = last_chars.substr( 0, last_chars.length - begin_word.length );
+									var hasMatch = false;
+									var before = last_chars.substr( 0, last_chars.length - beginWord.length );
 									
 									// no prefix to match => it's valid
-									if( !match_prefix_separator && this.curr_syntax[i]["keywords"][prefix]['prefix'].length == 0 )
+									if( !matchPrefixSeparator && this.currSyntax[i]["keywords"][prefix]['prefix'].length == 0 )
 									{
-										if( ! before.match( this.curr_syntax[i]["keywords"][prefix]['prefix_reg'] ) )
+										if( ! before.match( this.currSyntax[i]["keywords"][prefix]['prefix_reg'] ) )
 										{	hasMatch = true;
 										}
 									}
 									// we still need to check the prefix if there is one
-									else if( this.curr_syntax[i]["keywords"][prefix]['prefix'].length > 0 )
+									else if( this.currSyntax[i]["keywords"][prefix]['prefix'].length > 0 )
 									{
-										if( before.match( this.curr_syntax[i]["keywords"][prefix]['prefix_reg'] ) )
+										if( before.match( this.currSyntax[i]["keywords"][prefix]['prefix_reg'] ) )
 										{	hasMatch = true;
 										}
 									}
 									
 									if( hasMatch ){
-										results[results.length]= [ this.curr_syntax[i]["keywords"][prefix], this.curr_syntax[i]["keywords"][prefix]['datas'][j] ];}
+										results[results.length]= [ this.currSyntax[i]["keywords"][prefix], this.currSyntax[i]["keywords"][prefix]['datas'][j] ];}
 								}	
 							}
 						}
 					}
 					// it doesn't match any possible word but we want to display something
 					// we'll display to list of all available words
-					else if( this.forceDisplay || match_prefix_separator )
+					else if( this.forceDisplay || matchPrefixSeparator )
 					{
 						for(var prefix in this.curr_syntax[i]["keywords"])
 						{
@@ -425,20 +426,20 @@ var EditArea_autocompletion= {
 							{
 								hasMatch = false;
 								// no prefix to match => it's valid
-								if( !match_prefix_separator && this.curr_syntax[i]["keywords"][prefix]['prefix'].length == 0 )
+								if( !matchPrefixSeparator && this.currSyntax[i]["keywords"][prefix]['prefix'].length == 0 )
 								{
 									hasMatch	= true;
 								}
 								// we still need to check the prefix if there is one
-								else if( match_prefix_separator && this.curr_syntax[i]["keywords"][prefix]['prefix'].length > 0 )
+								else if( matchPrefixSeparator && this.curr_syntax[i]["keywords"][prefix]['prefix'].length > 0 )
 								{
 									var before = last_chars; //.substr( 0, last_chars.length );
-									if( before.match( this.curr_syntax[i]["keywords"][prefix]['prefix_reg'] ) )
+									if( before.match( this.currSyntax[i]["keywords"][prefix]['prefix_reg'] ) )
 										hasMatch = true;
 								}	
 									
 								if( hasMatch )
-									results[results.length]= [ this.curr_syntax[i]["keywords"][prefix], this.curr_syntax[i]["keywords"][prefix]['datas'][j] ];	
+									results[results.length]= [ this.currSyntax[i]["keywords"][prefix], this.currSyntax[i]["keywords"][prefix]['datas'][j] ];	
 							}
 						}
 					}
