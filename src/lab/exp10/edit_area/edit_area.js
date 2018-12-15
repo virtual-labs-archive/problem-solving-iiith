@@ -82,12 +82,12 @@
 		}
 			
 		// retrieve the init parameter for syntax
-		if(t.settings["syntax_selection_allow"] && t.settings["syntax_selection_allow"].length>0)
+		if(t.settings["syntax_selection_allow"] && t.settings["syntax_selection_allow"].length>0){
 			t.syntax_list= t.settings["syntax_selection_allow"].replace(/ /g,"").split(",");
-		
-		if(t.settings['syntax'])
+		}
+		if(t.settings['syntax']){
 			t.allready_used_syntax[t.settings['syntax']]=true;
-		
+		}
 		
 	};
 	EditArea.prototype.init= function(){
@@ -182,9 +182,9 @@
 				_$(t.inlinePopup[i]["popup_id"]).onkeydown	= keyDown;
 		}
 		
-		if(s["allow_resize"]=="both" || s["allow_resize"]=="x" || s["allow_resize"]=="y")
+		if(s["allow_resize"]=="both" || s["allow_resize"]=="x" || s["allow_resize"]=="y"){
 			t.allow_resize(true);
-		
+		}
 		parent.editAreaLoader.toggle(t.id, "on");
 		//a.focus();
 		// line selection init
