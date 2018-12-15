@@ -44,8 +44,9 @@
 		}
 		// advance to the next occurence if no text selected
 		if(mode!="replace" ){
-			if(_$("area_search_reg_exp").checked)
+			if(_$("area_search_reg_exp").checked){
 				start++;
+			}
 			else
 				start+= search.length;
 		}
