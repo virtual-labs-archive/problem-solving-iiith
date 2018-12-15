@@ -9,9 +9,9 @@
 		
 		var t1=t2=t2_1=t3=tLines=tend= new Date().getTime();
 		// l'editeur n'existe plus => on quitte
-		if(!editAreas[this.id])
+		if(!editAreas[this.id]){
 			return false;
-		
+		}
 		if(!this.smooth_selection && !this.do_highlight)
 		{
 			//do nothing
