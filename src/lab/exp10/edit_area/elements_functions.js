@@ -162,7 +162,7 @@
 		or
 			in javascript: document.getElementById("my_div").onmousedown= start_move_element
 	*/
-	function startMoveElement(e, id, frame){
+	function startMoveElement(e, id, frame, moveElement, endMoveElement){
 		var elemId=(e.target || e.srcElement).id;
 		if(id)
 			elemId=id;		
@@ -173,8 +173,8 @@
 			
 		var mCE= frame.document.getElementById(elemId);
 		mCE.frame=frame;
-		frame.document.onmousemove= move_element;
-		frame.document.onmouseup= end_move_element;
+		frame.document.onmousemove= moveElement;
+		frame.document.onmouseup= endMoveElement;
 		/*_mCE.onmousemove= move_element;
 		_mCE.onmouseup= end_move_element;*/
 		
@@ -183,8 +183,8 @@
 		var mouseX= getMouseX(e);
 		var mouseY= getMouseY(e);
 		//window.status=frame+ " elem: "+elem_id+" elem: "+ _mCE + " mouse_x: "+mouse_x;
-		mCE.start_pos_x = mouseX - (mCE.style.left.replace("px","") || calculeOffsetLeft(mCE));
-		mCE.start_pos_y = mouseY - (mCE.style.top.replace("px","") || calculeOffsetTop(mCE));
+		mCE.startPosX = mouseX - (mCE.style.left.replace("px","") || calculeOffsetLeft(mCE));
+		mCE.startPosY = mouseY - (mCE.style.top.replace("px","") || calculeOffsetTop(mCE));
 		return false;
 	};
 	
@@ -199,8 +199,8 @@
 
 		if( mCE.frame && mCE.frame.event )
 			e=mCE.frame.event;
-		newTop	= getMouseY(e) - mCE.start_pos_y;
-		newLeft	= getMouseX(e) - mCE.start_pos_x;
+		newTop	= getMouseY(e) - mCE.startPosY;
+		newLeft	= getMouseX(e) - mCE.startPosX;
 		
 		maxLeft	= mCE.frame.document.body.offsetWidth- mCE.offsetWidth;
 		maxTop	= mCE.frame.document.body.offsetHeight- mCE.offsetHeight;
@@ -282,9 +282,9 @@
 				//	var relative_top= range.offsetTop - calculeOffsetTop(t) + scrollTop;
 					relativeTop= range.offsetTop - calculeOffsetTop(t)+ scrollTop;
 				//	alert("rangeoffset: "+ range.offsetTop +"\ncalcoffsetTop: "+ calculeOffsetTop(t) +"\nrelativeTop: "+ relative_top);
-					lineStart	= Math.round((relativeTop / t.ea_line_height) +1);
+					lineStart	= Math.round((relativeTop / t.eaLineHeight) +1);
 					
-					lineNb		= Math.round(range.boundingHeight / t.ea_line_height);
+					lineNb		= Math.round(range.boundingHeight / t.eaLineHeight);
 					
 					rangeStart	= storedRange.text.length - range.text.length;
 					tab	= t.value.substr(0, rangeStart).split("\n");			
