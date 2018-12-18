@@ -41,7 +41,7 @@
 		option: "all" if must return an array of all children, otherwise return the first match element
 		depth: depth of search (-1 or no set => unlimited)
 	*/
-	function getChildren(elem, elem_type, elem_attribute, elem_attribute_match, option, depth)
+	function getChildren(elem, elemType, elemAttribute, elemAttributeMatch, option, depth)
 	{           
 		if(!option)
 			var option="single";
@@ -52,11 +52,11 @@
 			var result=null;
 			var results= [];
 			for (var x=0;x<children.length;x++) {
-				strTagName = new String(children[x].tagName);
-				children_class="?";
+				var strTagName = new String(children[x].tagName);
+				var childrenClass="?";
 				if(strTagName!= "undefined"){
-					child_attribute= getAttribute(children[x],elem_attribute);
-					if((strTagName.toLowerCase()==elem_type.toLowerCase() || elem_type=="") && (elem_attribute=="" || child_attribute==elem_attribute_match)){
+					var childAttribute= getAttribute(children[x],elemAttribute);
+					if((strTagName.toLowerCase()==elemType.toLowerCase() || elemType=="") && (elemAttribute=="" || childAttribute==elemAttributeMatch)){
 						if(option=="all"){
 							results.push(children[x]);
 						}else{
@@ -64,7 +64,7 @@
 						}
 					}
 					if(depth!=0){
-						result=getChildren(children[x], elem_type, elem_attribute, elem_attribute_match, option, depth-1);
+						result=getChildren(children[x], elemType, elemAttribute, elemAttributeMatch, option, depth-1);
 						if(option=="all"){
 							if(result.length>0){
 								results= results.concat(result);
@@ -111,11 +111,11 @@
 	
 	function calculeOffsetLeft(r){
 		return calculeOffset(r,"offsetLeft");
-	}
+	};
 	
 	function calculeOffsetTop(r){
 		return calculeOffset(r,"offsetTop");
-	}
+	};
 	
 	function calculeOffset(element,attr){
 		var offset=0;
@@ -130,7 +130,7 @@
 	 *	@param: elem: the reference to the element
 	 *	@param: prop: the name of the css property	 
 	 */
-	function get_css_property(elem, prop)
+	function getCssProperty(elem, prop)
 	{
 		if(document.defaultView)
 		{
@@ -145,13 +145,13 @@
 			return elem.currentStyle[prop];
 		}
 		else return null;
-	}
+	};
 	
 /****
  * Moving an element 
  ***/  
 	
-	var _mCE;	// currently moving element
+	var mCE;	// currently moving element
 	
 	/* allow to move an element in a window
 		e: the event
@@ -162,17 +162,17 @@
 		or
 			in javascript: document.getElementById("my_div").onmousedown= start_move_element
 	*/
-	function start_move_element(e, id, frame){
-		var elem_id=(e.target || e.srcElement).id;
+	function startMoveElement(e, id, frame){
+		var elemId=(e.target || e.srcElement).id;
 		if(id)
-			elem_id=id;		
+			elemId=id;		
 		if(!frame)
 			frame=window;
 		if(frame.event)
 			e=frame.event;
 			
-		_mCE= frame.document.getElementById(elem_id);
-		_mCE.frame=frame;
+		var mCE= frame.document.getElementById(elemId);
+		mCE.frame=frame;
 		frame.document.onmousemove= move_element;
 		frame.document.onmouseup= end_move_element;
 		/*_mCE.onmousemove= move_element;
@@ -180,35 +180,35 @@
 		
 		//alert(_mCE.frame.document.body.offsetHeight);
 		
-		mouse_x= getMouseX(e);
-		mouse_y= getMouseY(e);
+		var mouseX= getMouseX(e);
+		var mouseY= getMouseY(e);
 		//window.status=frame+ " elem: "+elem_id+" elem: "+ _mCE + " mouse_x: "+mouse_x;
-		_mCE.start_pos_x = mouse_x - (_mCE.style.left.replace("px","") || calculeOffsetLeft(_mCE));
-		_mCE.start_pos_y = mouse_y - (_mCE.style.top.replace("px","") || calculeOffsetTop(_mCE));
+		mCE.start_pos_x = mouseX - (mCE.style.left.replace("px","") || calculeOffsetLeft(mCE));
+		mCE.start_pos_y = mouseY - (mCE.style.top.replace("px","") || calculeOffsetTop(mCE));
 		return false;
 	};
 	
-	function end_move_element(e){
-		_mCE.frame.document.onmousemove= "";
-		_mCE.frame.document.onmouseup= "";		
-		_mCE=null;
+	function endMoveElement(e){
+		mCE.frame.document.onmousemove= "";
+		mCE.frame.document.onmouseup= "";		
+		mCE=null;
 	};
 	
-	function move_element(e){
-		var newTop,newLeft,maxLeft;
+	function moveElement(e){
+		var newTop,newLeft,maxLeft,maxTop;
 
-		if( _mCE.frame && _mCE.frame.event )
-			e=_mCE.frame.event;
-		newTop	= getMouseY(e) - _mCE.start_pos_y;
-		newLeft	= getMouseX(e) - _mCE.start_pos_x;
+		if( mCE.frame && mCE.frame.event )
+			e=mCE.frame.event;
+		newTop	= getMouseY(e) - mCE.start_pos_y;
+		newLeft	= getMouseX(e) - mCE.start_pos_x;
 		
-		maxLeft	= _mCE.frame.document.body.offsetWidth- _mCE.offsetWidth;
-		max_top	= _mCE.frame.document.body.offsetHeight- _mCE.offsetHeight;
-		newTop	= Math.min(Math.max(0, newTop), max_top);
+		maxLeft	= mCE.frame.document.body.offsetWidth- mCE.offsetWidth;
+		maxTop	= mCE.frame.document.body.offsetHeight- mCE.offsetHeight;
+		newTop	= Math.min(Math.max(0, newTop), maxTop);
 		newLeft	= Math.min(Math.max(0, newLeft), maxLeft);
 		
-		_mCE.style.top	= newTop+"px";
-		_mCE.style.left	= newLeft+"px";		
+		mCE.style.top	= newTop+"px";
+		mCE.style.left	= newLeft+"px";		
 		return false;
 	};
 	
@@ -241,34 +241,34 @@
 		//textarea.setSelectionRange(start, end);
 		
 		if(nav.isIE)
-			set_IE_selection(t);
+			setIESelection(t);
 	};
 
 	
 	// set IE position in Firefox mode (textarea.selectionStart and textarea.selectionEnd). should work as a repeated task
-	function get_IE_selection(t){
-		var d=document,div,range,stored_range,elem,scrollTop,relative_top,line_start,line_nb,range_start,range_end,tab;
+	function getIESelection(t){
+		var d=document,div,range,storedRange,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,rangeEnd,tab;
 		if(t && t.focused)
 		{	
-			if(!t.ea_line_height)
+			if(!t.eaLineHeight)
 			{	// calculate the lineHeight
 				div= d.createElement("div");
-				div.style.fontFamily= get_css_property(t, "font-family");
-				div.style.fontSize= get_css_property(t, "font-size");
+				div.style.fontFamily= getCssProperty(t, "font-family");
+				div.style.fontSize= getCssProperty(t, "font-size");
 				div.style.visibility= "hidden";			
 				div.innerHTML="0";
 				d.body.appendChild(div);
-				t.ea_line_height= div.offsetHeight;
+				t.eaLineHeight= div.offsetHeight;
 				d.body.removeChild(div);
 			}
 			//t.focus();
 			range = d.selection.createRange();
 			try
 			{
-				stored_range = range.duplicate();
-				stored_range.moveToElementText( t );
-				stored_range.setEndPoint( 'EndToEnd', range );
-				if(stored_range.parentElement() == t){
+				storedRange = range.duplicate();
+				storedRange.moveToElementText( t );
+				storedRange.setEndPoint( 'EndToEnd', range );
+				if(storedRange.parentElement() == t){
 					// the range don't take care of empty lines in the end of the selection
 					elem		= t;
 					scrollTop	= 0;
@@ -280,41 +280,41 @@
 				//	var scrollTop= t.scrollTop + document.body.scrollTop;
 					
 				//	var relative_top= range.offsetTop - calculeOffsetTop(t) + scrollTop;
-					relative_top= range.offsetTop - calculeOffsetTop(t)+ scrollTop;
+					relativeTop= range.offsetTop - calculeOffsetTop(t)+ scrollTop;
 				//	alert("rangeoffset: "+ range.offsetTop +"\ncalcoffsetTop: "+ calculeOffsetTop(t) +"\nrelativeTop: "+ relative_top);
-					line_start	= Math.round((relative_top / t.ea_line_height) +1);
+					lineStart	= Math.round((relativeTop / t.ea_line_height) +1);
 					
-					line_nb		= Math.round(range.boundingHeight / t.ea_line_height);
+					lineNb		= Math.round(range.boundingHeight / t.ea_line_height);
 					
-					range_start	= stored_range.text.length - range.text.length;
-					tab	= t.value.substr(0, range_start).split("\n");			
-					range_start	+= (line_start - tab.length)*2;		// add missing empty lines to the selection
-					t.selectionStart = range_start;
+					rangeStart	= storedRange.text.length - range.text.length;
+					tab	= t.value.substr(0, rangeStart).split("\n");			
+					rangeStart	+= (lineStart - tab.length)*2;		// add missing empty lines to the selection
+					t.selectionStart = rangeStart;
 					
-					range_end	= t.selectionStart + range.text.length;
-					tab	= t.value.substr(0, range_start + range.text.length).split("\n");			
-					range_end	+= (line_start + line_nb - 1 - tab.length)*2;
-					t.selectionEnd = range_end;
+					rangeEnd	= t.selectionStart + range.text.length;
+					tab	= t.value.substr(0, rangeStart + range.text.length).split("\n");			
+					rangeEnd	+= (lineStart + lineNb - 1 - tab.length)*2;
+					t.selectionEnd = rangeEnd;
 				}
 			}
 			catch(e){}
 		}
 		if( t && t.id )
 		{
-			setTimeout("get_IE_selection(document.getElementById('"+ t.id +"'));", 50);
+			setTimeout("getIESelection(document.getElementById('"+ t.id +"'));", 50);
 		}
 	};
 	
-	function IE_textarea_focus(){
+	function IETextareaFocus(){
 		event.srcElement.focused= true;
 	}
 	
-	function IE_textarea_blur(){
+	function IETextareaBlur(){
 		event.srcElement.focused= false;
 	}
 	
 	// select the text for IE (take into account the \r difference)
-	function set_IE_selection( t ){
+	function setIESelection( t ){
 		var nbLineStart,nbLineStart,nbLineEnd,range;
 		if(!window.closed){ 
 			nbLineStart=t.value.substr(0, t.selectionStart).split("\n").length - 1;
