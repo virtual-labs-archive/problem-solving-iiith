@@ -198,7 +198,9 @@
 		var newTop,newLeft,maxLeft,maxTop;
 
 		if( mCE.frame && mCE.frame.event )
+		{
 			e=mCE.frame.event;
+		}
 		newTop	= getMouseY(e) - mCE.startPosY;
 		newLeft	= getMouseX(e) - mCE.startPosX;
 		
@@ -224,6 +226,24 @@
 	};
 	
 	// allow to set the selection
+	function setIESelection( t )
+	{
+		var nbLineStart,nbLineStart,nbLineEnd,range;
+		if(!window.closed){ 
+			nbLineStart=t.value.substr(0, t.selectionStart).split("\n").length - 1;
+			nbLineEnd=t.value.substr(0, t.selectionEnd).split("\n").length - 1;
+			try
+			{
+				range = document.selection.createRange();
+				range.moveToElementText( t );
+				range.setEndPoint( 'EndToStart', range );
+				range.moveStart('character', t.selectionStart - nbLineStart);
+				range.moveEnd('character', t.selectionEnd - nbLineEnd - (t.selectionStart - nbLineStart)  );
+				range.select();
+			}
+			catch(e){}
+		}
+	};
 	function setSelectionRange(t, start, end){
 		t.focus();
 		
@@ -267,8 +287,8 @@
 			{
 				storedRange = range.duplicate();
 				storedRange.moveToElementText( t );
-				storedRange.setEndPoint( 'EndToEnd', range );
-				if(storedRange.parentElement() == t){
+				storedRange.setEndPoint( "EndToEnd", range );
+				if(storedRange.parentElement() === t){
 					// the range don't take care of empty lines in the end of the selection
 					elem		= t;
 					scrollTop	= 0;
@@ -299,7 +319,8 @@
 			}
 			catch(e){}
 		}
-		if( t && t.id )
+		//if( t && t.id )
+		else
 		{
 			setTimeout("getIESelection(document.getElementById('"+ t.id +"'));", 50);
 		}
@@ -314,23 +335,5 @@
 	}
 	
 	// select the text for IE (take into account the \r difference)
-	function setIESelection( t ){
-		var nbLineStart,nbLineStart,nbLineEnd,range;
-		if(!window.closed){ 
-			nbLineStart=t.value.substr(0, t.selectionStart).split("\n").length - 1;
-			nbLineEnd=t.value.substr(0, t.selectionEnd).split("\n").length - 1;
-			try
-			{
-				range = document.selection.createRange();
-				range.moveToElementText( t );
-				range.setEndPoint( 'EndToStart', range );
-				range.moveStart('character', t.selectionStart - nbLineStart);
-				range.moveEnd('character', t.selectionEnd - nbLineEnd - (t.selectionStart - nbLineStart)  );
-				range.select();
-			}
-			catch(e){}
-		}
-	};
-	
 	
 	editAreaLoader.waiting_loading["elements_functions.js"]= "loaded";
