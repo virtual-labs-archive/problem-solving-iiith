@@ -344,8 +344,7 @@
 			}
 			catch(e){}
 		}
-		//if( t && t.id )
-		else
+		if( t && t.id )
 		{
 			setTimeout("getIESelection(document.getElementById('"+ t.id +"'));", 50);
 		}
