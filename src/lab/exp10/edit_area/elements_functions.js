@@ -44,20 +44,22 @@
 	function getChildren(elem, elemType, elemAttribute, elemAttributeMatch, option, depth)
 	{           
 		if(!option)
-			 option="single";
+		{
+			option="single";
+		}
 		depth=-1;
 		if(elem)
 		{
-			var children= elem.childNodes;
+			var children[] = elem.childNodes;
 			var result=null;
 			var results= [];
 			for (var x=0;x<children.length;x++)
 			{
 				var strTagName = new String(children[x].tagName);
 				var childrenClass="?";
-				if(strTagName!= "undefined")
+				if(strTagName!== "undefined")
 				{
-					var childAttribute= getAttribute(children[x],elemAttribute);
+					var childAttribute = getAttribute(children[x],elemAttribute);
 					if((strTagName.toLowerCase() === elemType.toLowerCase() || elemType === "") && (elemAttribute === "" || childAttribute === elemAttributeMatch)){
 						if(option === "all")
 						{
@@ -68,7 +70,7 @@
 							return children[x];
 						}
 					}
-					if(depth!=0)
+					if(depth !== 0)
 					{
 						result=getChildren(children[x], elemType, elemAttribute, elemAttributeMatch, option, depth-1);
 						if(option === "all")
@@ -78,7 +80,7 @@
 								results= results.concat(result);
 							}
 						}
-						else if(result!=null)
+						else if(result !== null)
 						{                                                                          
 							return result;
 						}
@@ -86,7 +88,9 @@
 				}
 			}
 			if(option === "all")
+			{
 			   return results;
+			}
 		}
 		return null;
 	};       
@@ -94,8 +98,10 @@
 	function isChildOf(elem, parent){
 		if(elem){
 			if(elem === parent)
+			{
 				return true;
-			while(elem.parentNode != 'undefined'){
+			}
+			while(elem.parentNode !== "undefined"){
 				return isChildOf(elem.parentNode, parent);
 			}
 		}
@@ -104,7 +110,7 @@
 	
 	function getMouseX(e){
 
-		if(e!=null && typeof(e.pageX)!="undefined"){
+		if(e!=null && typeof(e.pageX) !== "undefined"){
 			return e.pageX;
 		}else{
 			return (e!=null?e.x:event.x)+ document.documentElement.scrollLeft;
@@ -118,15 +124,7 @@
 			return (e!=null?e.y:event.y)+ document.documentElement.scrollTop;
 		}
 	};
-	
-	function calculeOffsetLeft(r){
-		return calculeOffset(r,"offsetLeft");
-	};
-	
-	function calculeOffsetTop(r){
-		return calculeOffset(r,"offsetTop");
-	};
-	
+
 	function calculeOffset(element,attr){
 		var offset=0;
 		while(element){
@@ -135,6 +133,16 @@
 		}
 		return offset;
 	};
+
+	function calculeOffsetLeft(r){
+		return calculeOffset(r,"offsetLeft");
+	};
+	
+	function calculeOffsetTop(r){
+		return calculeOffset(r,"offsetTop");
+	};
+	
+	
 	
 	/** return the computed style
 	 *	@param: elem: the reference to the element
@@ -175,12 +183,17 @@
 	function startMoveElement(e, id, frame, moveElement, endMoveElement){
 		var elemId=(e.target || e.srcElement).id;
 		if(id)
+		{
 			elemId=id;		
+		}
 		if(!frame)
+		{
 			frame=window;
+		}
 		if(frame.event)
+		{
 			e=frame.event;
-			
+		}	
 		var mCE= frame.document.getElementById(elemId);
 		mCE.frame=frame;
 		frame.document.onmousemove= moveElement;
@@ -258,7 +271,7 @@
 		t.focus();
 		
 		start	= Math.max(0, Math.min(t.value.length, start));
-		end		= Math.max(start, Math.min(t.value.length, end));
+		end	= Math.max(start, Math.min(t.value.length, end));
 	
 		if( nav.isOpera && nav.isOpera < 9.6 ){	// Opera bug when moving selection start and selection end
 			t.selectionEnd = 1;	
@@ -271,7 +284,9 @@
 		//textarea.setSelectionRange(start, end);
 		
 		if(nav.isIE)
+		{
 			setIESelection(t);
+		}
 	};
 
 	
@@ -300,8 +315,8 @@
 				storedRange.setEndPoint( "EndToEnd", range );
 				if(storedRange.parentElement() === t){
 					// the range don't take care of empty lines in the end of the selection
-					elem		= t;
-					scrollTop	= 0;
+					elem = t;
+					scrollTop = 0;
 					while(elem.parentNode){
 						scrollTop+= elem.scrollTop;
 						elem	= elem.parentNode;
