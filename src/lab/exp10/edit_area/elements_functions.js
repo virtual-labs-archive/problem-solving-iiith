@@ -350,7 +350,7 @@
 					t.selectionEnd = rangeEnd;
 		}
 	};
-	function checkTextFocused(t,d=document,div,range,storedRange,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,rangeEnd,tab)
+	function checkTextFocused(t,d,div,range,storedRange,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,rangeEnd,tab)
 	{
 		if(t && t.focused)
 		{	
@@ -365,7 +365,7 @@
 	};
 	function getIESelection(t){
 		var d=document,div,range,storedRange,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,rangeEnd,tab;
-		checkTextFocused(t,d=document,div,range,storedRange,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,rangeEnd,tab);
+		checkTextFocused(t,d,div,range,storedRange,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,rangeEnd,tab);
 		if( t && t.id )
 		{
 			setTimeout("getIESelection(document.getElementById('"+ t.id +"'));", 50);
