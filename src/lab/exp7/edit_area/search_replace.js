@@ -1,170 +1,175 @@
-	EditArea.prototype.show_search = function(){
-		if(_$("area_search_replace").style.visibility=="visible"){
-			this.hidden_search();
+	EditArea.prototype.showSearch = function(){
+		if(_$("areaSearchReplace").style.visibility === "visible"){
+			this.hiddenSearch();
 		}else{
-			this.open_inline_popup("area_search_replace");
-			var text= this.area_get_selection();
+			this.openInlinePopup("areaSearchReplace");
+			var text= this.areaGetSelection();
 			var search= text.split("\n")[0];
-			_$("area_search").value= search;
-			_$("area_search").focus();
+			_$("areaSearch").value= search;
+			_$("areaSearch").focus();
 		}
 	};
 	
-	EditArea.prototype.hidden_search= function(){
+	EditArea.prototype.hiddenSearch= function(){
 		/*_$("area_search_replace").style.visibility="hidden";
 		this.textarea.focus();
 		var icon= _$("search");
 		setAttribute(icon, "class", getAttribute(icon, "class").replace(/ selected/g, "") );*/
-		this.close_inline_popup("area_search_replace");
+		this.closeInlinePopup("areaSearchReplace");
 	};
 	
-	EditArea.prototype.area_search= function(mode){
+	EditArea.prototype.areaSearch= function(mode){
 		
 		if(!mode)
+		{
 			mode="search";
-		_$("area_search_msg").innerHTML="";		
-		var search=_$("area_search").value;		
-		
+		}
+		_$("areaSearchMsg").innerHTML="";		
+		var search=_$("areaSearch").value;		
 		this.textarea.focus();		
 		this.textarea.textareaFocused=true;
-		
-		var infos= this.get_selection_infos();	
+		var infos= this.getSelectionInfos();	
 		var start= infos["selectionStart"];
 		var pos=-1;
-		var pos_begin=-1;
+		var posBegin=-1;
 		var length=search.length;
-		
-		if(_$("area_search_replace").style.visibility!="visible"){
-			this.show_search();
+		var begin;
+		if(_$("areaSearchReplace").style.visibility !== "visible"){
+			this.showSearch();
 			return;
 		}
-		if(search.length==0){
-			_$("area_search_msg").innerHTML=this.get_translation("search_field_empty");
+		if(search.length === 0){
+			_$("areaSearchMsg").innerHTML=this.getTranslation("searchFieldEmpty");
 			return;
 		}
 		// advance to the next occurence if no text selected
-		if(mode!="replace" ){
-			if(_$("area_search_reg_exp").checked)
+		if(mode !== "replace" ){
+			if(_$("areaSearchRegExp").checked)
+			{
 				start++;
-			else
+			}
+			else{
 				start+= search.length;
+			}
 		}
 		
 		//search
-		if(_$("area_search_reg_exp").checked){
+		if(_$("areaSearchRegExp").checked){
 			// regexp search
 			var opt="m";
-			if(!_$("area_search_match_case").checked)
+			if(!_$("areaSearchMatchCase").checked)
+			{
 				opt+="i";
+			}
 			var reg= new RegExp(search, opt);
-			pos= infos["full_text"].substr(start).search(reg);
-			pos_begin= infos["full_text"].search(reg);
-			if(pos!=-1){
+			pos= infos["fullText"].substr(start).search(reg);
+			posBegin= infos["fullText"].search(reg);
+			if(pos !== -1){
 				pos+=start;
-				length=infos["full_text"].substr(start).match(reg)[0].length;
-			}else if(pos_begin!=-1){
-				length=infos["full_text"].match(reg)[0].length;
+				length=infos["fullText"].substr(start).match(reg)[0].length;
+			}else if(posBegin !== -1){
+				length=infos["fullText"].match(reg)[0].length;
 			}
 		}else{
-			if(_$("area_search_match_case").checked){
-				pos= infos["full_text"].indexOf(search, start); 
-				pos_begin= infos["full_text"].indexOf(search); 
+			if(_$("areaSearchMatchCase").checked){
+				pos= infos["fullText"].indexOf(search, start); 
+				posBegin= infos["fullText"].indexOf(search); 
 			}else{
-				pos= infos["full_text"].toLowerCase().indexOf(search.toLowerCase(), start); 
-				pos_begin= infos["full_text"].toLowerCase().indexOf(search.toLowerCase()); 
+				pos= infos["fullText"].toLowerCase().indexOf(search.toLowerCase(), start); 
+				posBegin= infos["fullText"].toLowerCase().indexOf(search.toLowerCase()); 
 			}		
 		}
 		
 		// interpret result
-		if(pos==-1 && pos_begin==-1){
-			_$("area_search_msg").innerHTML="<strong>"+search+"</strong> "+this.get_translation("not_found");
+		if(pos === -1 && posBegin === -1){
+			_$("areaSearchMsg").innerHTML="<strong>"+search+"</strong> "+this.getTranslation("notFound");
 			return;
-		}else if(pos==-1 && pos_begin != -1){
-			begin= pos_begin;
-			_$("area_search_msg").innerHTML=this.get_translation("restart_search_at_begin");
-		}else
+		}else if(pos === -1 && posBegin !== -1){
+			begin= posBegin;
+			_$("areaSearchMsg").innerHTML=this.getTranslation("restartSearchAtBegin");
+		}else{
 			begin= pos;
-		
+		}
 		//_$("area_search_msg").innerHTML+="<strong>"+search+"</strong> found at "+begin+" strat at "+start+" pos "+pos+" curs"+ infos["indexOfCursor"]+".";
-		if(mode=="replace" && pos==infos["indexOfCursor"]){
-			var replace= _$("area_replace").value;
-			var new_text="";			
-			if(_$("area_search_reg_exp").checked){
+		if(mode === "replace" && pos === infos["indexOfCursor"]){
+			var replace= _$("areaReplace").value;
+			var newText="";			
+			if(_$("areaSearchRegExp").checked){
 				var opt="m";
-				if(!_$("area_search_match_case").checked)
-					opt+="i";
+				if(!_$("areaSearchMatchCase").checked){
+					opt+="i";}
 				var reg= new RegExp(search, opt);
-				new_text= infos["full_text"].substr(0, begin) + infos["full_text"].substr(start).replace(reg, replace);
+				newText= infos["fullText"].substr(0, begin) + infos["fullText"].substr(start).replace(reg, replace);
 			}else{
-				new_text= infos["full_text"].substr(0, begin) + replace + infos["full_text"].substr(begin + length);
+				newText= infos["fullText"].substr(0, begin) + replace + infos["fullText"].substr(begin + length);
 			}
-			this.textarea.value=new_text;
-			this.area_select(begin, length);
-			this.area_search();
+			this.textarea.value=newText;
+			this.areaSelect(begin, length);
+			this.areaSearch();
 		}else
-			this.area_select(begin, length);
+			this.areaSelect(begin, length);
 	};
 	
 	
 	
 	
-	EditArea.prototype.area_replace= function(){		
-		this.area_search("replace");
+	EditArea.prototype.areaReplace= function(){		
+		this.areaSearch("replace");
 	};
 	
-	EditArea.prototype.area_replace_all= function(){
+	EditArea.prototype.areaReplaceAll= function(){
 	/*	this.area_select(0, 0);
 		_$("area_search_msg").innerHTML="";
 		while(_$("area_search_msg").innerHTML==""){
 			this.area_replace();
 		}*/
 	
-		var base_text= this.textarea.value;
-		var search= _$("area_search").value;		
-		var replace= _$("area_replace").value;
-		if(search.length==0){
-			_$("area_search_msg").innerHTML=this.get_translation("search_field_empty");
-			return ;
+		var baseText= this.textarea.value;
+		var search= _$("areaSearch").value;		
+		var replace= _$("areaReplace").value;
+		if(search.length === 0){
+			_$("areaSearchMsg").innerHTML=this.getTranslation("searchFieldEmpty");
+			return;
 		}
 		
-		var new_text="";
-		var nb_change=0;
-		if(_$("area_search_reg_exp").checked){
+		var newText="";
+		var nbChange=0;
+		if(_$("areaSearchRegExp").checked){
 			// regExp
 			var opt="mg";
-			if(!_$("area_search_match_case").checked)
-				opt+="i";
+			if(!_$("areaSearchMatchCase").checked){
+				opt+="i";}
 			var reg= new RegExp(search, opt);
-			nb_change= infos["full_text"].match(reg).length;
-			new_text= infos["full_text"].replace(reg, replace);
+			nbChange= infos["fullText"].match(reg).length;
+			newText= infos["fullText"].replace(reg, replace);
 			
 		}else{
 			
-			if(_$("area_search_match_case").checked){
-				var tmp_tab=base_text.split(search);
-				nb_change= tmp_tab.length -1 ;
-				new_text= tmp_tab.join(replace);
+			if(_$("areaSearchMatchCase").checked){
+				var tmpTab=baseText.split(search);
+				nbChange= tmpTab.length -1 ;
+				newText= tmpTab.join(replace);
 			}else{
 				// case insensitive
-				var lower_value=base_text.toLowerCase();
-				var lower_search=search.toLowerCase();
+				var lowerValue=baseText.toLowerCase();
+				var lowerSearch=search.toLowerCase();
 				
 				var start=0;
-				var pos= lower_value.indexOf(lower_search);				
-				while(pos!=-1){
-					nb_change++;
-					new_text+= this.textarea.value.substring(start , pos)+replace;
+				var pos= lowerValue.indexOf(lowerSearch);				
+				while(pos !== -1){
+					nbChange++;
+					newText+= this.textarea.value.substring(start , pos)+replace;
 					start=pos+ search.length;
-					pos= lower_value.indexOf(lower_search, pos+1);
+					pos= lowerValue.indexOf(lowerSearch, pos+1);
 				}
-				new_text+= this.textarea.value.substring(start);				
+				newText+= this.textarea.value.substring(start);				
 			}
 		}			
-		if(new_text==base_text){
-			_$("area_search_msg").innerHTML="<strong>"+search+"</strong> "+this.get_translation("not_found");
+		if(newText === baseText){
+			_$("areaSearchMsg").innerHTML="<strong>"+search+"</strong> "+this.getTranslation("notFound");
 		}else{
-			this.textarea.value= new_text;
-			_$("area_search_msg").innerHTML="<strong>"+nb_change+"</strong> "+this.get_translation("occurrence_replaced");
+			this.textarea.value= newText;
+			_$("areaSearchMsg").innerHTML="<strong>"+nbChange+"</strong> "+this.getTranslation("occurrenceReplaced");
 			// firefox and opera doesn't manage with the focus if it's done directly
 			//editArea.textarea.focus();editArea.textarea.textareaFocused=true;
 			setTimeout("editArea.textarea.focus();editArea.textarea.textareaFocused=true;", 100);
