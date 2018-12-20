@@ -14,7 +14,7 @@
 		if( ! aValue ){
 			for( i = 0; i < elm.attributes.length; i ++ ) {
 				taName = elm.attributes[i] .name.toLowerCase();
-				if( taName == aName ) {
+				if( taName === aName ) {
 					aValue = elm.attributes[i] .value;
 					return aValue;
 				}
@@ -25,7 +25,7 @@
 	
 	// need to redefine this function due to IE problem
 	function setAttribute( elm, attr, val ) {
-		if(attr=="class"){
+		if(attr === "class"){
 			elm.setAttribute("className", val);
 			elm.setAttribute("class", val);
 		}else{
@@ -44,38 +44,48 @@
 	function getChildren(elem, elemType, elemAttribute, elemAttributeMatch, option, depth)
 	{           
 		if(!option)
-			var option="single";
-		if(!depth)
-			var depth=-1;
-		if(elem){
+			 option="single";
+		depth=-1;
+		if(elem)
+		{
 			var children= elem.childNodes;
 			var result=null;
 			var results= [];
-			for (var x=0;x<children.length;x++) {
+			for (var x=0;x<children.length;x++)
+			{
 				var strTagName = new String(children[x].tagName);
 				var childrenClass="?";
-				if(strTagName!= "undefined"){
+				if(strTagName!= "undefined")
+				{
 					var childAttribute= getAttribute(children[x],elemAttribute);
-					if((strTagName.toLowerCase()==elemType.toLowerCase() || elemType=="") && (elemAttribute=="" || childAttribute==elemAttributeMatch)){
-						if(option=="all"){
+					if((strTagName.toLowerCase() === elemType.toLowerCase() || elemType === "") && (elemAttribute === "" || childAttribute === elemAttributeMatch)){
+						if(option === "all")
+						{
 							results.push(children[x]);
-						}else{
+						}
+						else
+						{
 							return children[x];
 						}
 					}
-					if(depth!=0){
+					if(depth!=0)
+					{
 						result=getChildren(children[x], elemType, elemAttribute, elemAttributeMatch, option, depth-1);
-						if(option=="all"){
-							if(result.length>0){
+						if(option === "all")
+						{
+							if(result.length>0)
+							{
 								results= results.concat(result);
 							}
-						}else if(result!=null){                                                                          
+						}
+						else if(result!=null)
+						{                                                                          
 							return result;
 						}
 					}
 				}
 			}
-			if(option=="all")
+			if(option === "all")
 			   return results;
 		}
 		return null;
@@ -83,7 +93,7 @@
 	
 	function isChildOf(elem, parent){
 		if(elem){
-			if(elem==parent)
+			if(elem === parent)
 				return true;
 			while(elem.parentNode != 'undefined'){
 				return isChildOf(elem.parentNode, parent);
@@ -228,7 +238,7 @@
 	// allow to set the selection
 	function setIESelection( t )
 	{
-		var nbLineStart,nbLineStart,nbLineEnd,range;
+		var nbLineStart,nbLineEnd,range;
 		if(!window.closed){ 
 			nbLineStart=t.value.substr(0, t.selectionStart).split("\n").length - 1;
 			nbLineEnd=t.value.substr(0, t.selectionEnd).split("\n").length - 1;
@@ -236,9 +246,9 @@
 			{
 				range = document.selection.createRange();
 				range.moveToElementText( t );
-				range.setEndPoint( 'EndToStart', range );
-				range.moveStart('character', t.selectionStart - nbLineStart);
-				range.moveEnd('character', t.selectionEnd - nbLineEnd - (t.selectionStart - nbLineStart)  );
+				range.setEndPoint( "EndToStart", range );
+				range.moveStart("character", t.selectionStart - nbLineStart);
+				range.moveEnd("character", t.selectionEnd - nbLineEnd - (t.selectionStart - nbLineStart)  );
 				range.select();
 			}
 			catch(e){}
