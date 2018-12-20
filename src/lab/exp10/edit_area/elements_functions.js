@@ -180,16 +180,26 @@
 		or
 			in javascript: document.getElementById("my_div").onmousedown= start_move_element
 	*/
-	function startMoveElement(e, id, frame, moveElement, endMoveElement){
-		var elemId=(e.target || e.srcElement).id;
+	
+	function checkId(id)
+	{
 		if(id)
 		{
-			elemId=id;		
+			return id;
 		}
+	}
+	function checkFrame(frame)
+	{
 		if(!frame)
 		{
 			frame=window;
 		}
+		return frame;
+	}
+	function startMoveElement(e, id, frame, moveElement, endMoveElement){
+		var elemId=(e.target || e.srcElement).id;
+		elemId=checkId(id);		
+		frame=checkFrame(frame);
 		if(frame.event)
 		{
 			e=frame.event;
@@ -291,29 +301,27 @@
 
 	
 	// set IE position in Firefox mode (textarea.selectionStart and textarea.selectionEnd). should work as a repeated task
-	function getIESelection(t){
-		var d=document,div,range,storedRange,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,rangeEnd,tab;
-		if(t && t.focused)
-		{	
-			if(!t.eaLineHeight)
-			{	// calculate the lineHeight
-				div= d.createElement("div");
-				div.style.fontFamily= getCssProperty(t, "font-family");
-				div.style.fontSize= getCssProperty(t, "font-size");
-				div.style.visibility= "hidden";			
-				div.innerHTML="0";
-				d.body.appendChild(div);
-				t.eaLineHeight= div.offsetHeight;
-				d.body.removeChild(div);
-			}
-			//t.focus();
-			range = d.selection.createRange();
-			try
-			{
-				storedRange = range.duplicate();
-				storedRange.moveToElementText( t );
-				storedRange.setEndPoint( "EndToEnd", range );
-				if(storedRange.parentElement() === t){
+	function checkEachLineHeight(t,div,d)
+	{
+		if(!t.eaLineHeight)
+		{
+			div= d.createElement("div");
+			div.style.fontFamily= getCssProperty(t, "font-family");
+			div.style.fontSize= getCssProperty(t, "font-size");
+			div.style.visibility= "hidden";			
+			div.innerHTML="0";
+			d.body.appendChild(div);
+			t.eaLineHeight= div.offsetHeight;
+			d.body.removeChild(div);
+		}
+	};
+	function checkStoredRange(t,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,tab,rangeEnd,storedRange)
+	{
+		storedRange = range.duplicate();
+		storedRange.moveToElementText( t );
+		storedRange.setEndPoint( "EndToEnd", range );
+		if(storedRange.parentElement() === t)
+		{
 					// the range don't take care of empty lines in the end of the selection
 					elem = t;
 					scrollTop = 0;
@@ -340,10 +348,24 @@
 					tab	= t.value.substr(0, rangeStart + range.text.length).split("\n");			
 					rangeEnd	+= (lineStart + lineNb - 1 - tab.length)*2;
 					t.selectionEnd = rangeEnd;
-				}
+		}
+	};
+	function checkTextFocused(t,d=document,div,range,storedRange,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,rangeEnd,tab)
+	{
+		if(t && t.focused)
+		{	
+			checkEachLineHeight(t,div,d);
+			range = d.selection.createRange();
+			try
+			{
+				checkStoredRange(t,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,tab,rangeEnd,storedRange);
 			}
 			catch(e){}
 		}
+	};
+	function getIESelection(t){
+		var d=document,div,range,storedRange,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,rangeEnd,tab;
+		checkTextFocused(t,d=document,div,range,storedRange,elem,scrollTop,relativeTop,lineStart,lineNb,rangeStart,rangeEnd,tab);
 		if( t && t.id )
 		{
 			setTimeout("getIESelection(document.getElementById('"+ t.id +"'));", 50);
@@ -352,11 +374,11 @@
 	
 	function IETextareaFocus(){
 		event.srcElement.focused= true;
-	}
+	};
 	
 	function IETextareaBlur(){
 		event.srcElement.focused= false;
-	}
+	};
 	
 	// select the text for IE (take into account the \r difference)
 	
