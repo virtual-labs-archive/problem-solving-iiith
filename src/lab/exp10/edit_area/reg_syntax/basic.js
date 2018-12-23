@@ -8,8 +8,7 @@ editAreaLoader.load_syntax["basic"] = {
 		'statements' : [
 			'if','then','for','wend','while',
 			'else','elseif','select','case','end select',
-			'until','next','step','to','end if', 'call'
-		]
+			'until','next','step','to','end if', 'call']
 		,'keywords' : [
 			'sub', 'end sub', 'function', 'end function', 'exit',
 			'exit function', 'dim', 'redim', 'shared', 'const',
@@ -29,8 +28,7 @@ editAreaLoader.load_syntax["basic"] = {
 			'shell', 'single', 'sleep', 'sound', 'static', 'stop',
 			'strig', 'string', 'swap', 'system', 'time', 'timer',
 			'troff', 'tron', 'type', 'unlock', 'using', 'view',
-			'wait', 'width', 'window', 'write'
-	        ]
+			'wait', 'width', 'window', 'write']
 		,'functions' : [
 			'abs', 'asc', 'atn', 'cdbl', 'chr', 'cint', 'clng',
 			'cos', 'csng', 'csrlin', 'cvd', 'cvdmbf', 'cvi', 'cvl',
@@ -42,18 +40,14 @@ editAreaLoader.load_syntax["basic"] = {
 			'mksmbf', 'oct', 'peek', 'pen', 'play', 'pmap', 'point',
 			'pos', 'right', 'rnd', 'rtrim', 'seek', 'sgn', 'sin',
 			'space', 'spc', 'sqr', 'stick', 'str', 'tab', 'tan',
-			'ubound', 'ucase', 'val', 'varptr', 'varseg'
-		]
+			'ubound', 'ucase', 'val', 'varptr', 'varseg']
 		,'operators' : [
-			'and', 'eqv', 'imp', 'mod', 'not', 'or', 'xor'
-		]
+			'and', 'eqv', 'imp', 'mod', 'not', 'or', 'xor']
 	}
 	,'OPERATORS' :[
-		'+', '-', '/', '*', '=', '<', '>', '!', '&'
-	]
+		'+', '-', '/', '*', '=', '<', '>', '!', '&']
 	,'DELIMITERS' :[
-		'(', ')', '[', ']', '{', '}'
-	]
+		'(', ')', '[', ']', '{', '}']
 	,'STYLES' : {
 		'COMMENTS': 'color: #99CC00;'
 		,'QUOTESMARKS': 'color: #333399;'
@@ -65,6 +59,5 @@ editAreaLoader.load_syntax["basic"] = {
 			}
 		,'OPERATORS' : 'color: #FF0000;'
 		,'DELIMITERS' : 'color: #0000FF;'
-
 	}
 };
