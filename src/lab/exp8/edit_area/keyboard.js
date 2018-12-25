@@ -11,8 +11,8 @@ function keyDown(e){
 	for(var i in editArea.plugins){
 		if(typeof(editArea.plugins[i].onkeydown)=="function"){
 			if(editArea.plugins[i].onkeydown(e)===false){ // stop propaging
-				if(editArea.isIE)
-					e.keyCode=0;
+				if(editArea.isIE){
+					e.keyCode=0;}
 				return false;
 			}
 		}
@@ -21,10 +21,11 @@ function keyDown(e){
 	var target_id=(e.target || e.srcElement).id;
 	var use=false;
 	if (EA_keys[e.keyCode])
-		letter=EA_keys[e.keyCode];
-	else
+	{	letter=EA_keys[e.keyCode];
+	}
+	else{
 		letter=String.fromCharCode(e.keyCode);
-	
+	}
 	var low_letter= letter.toLowerCase();
 			
 	if(letter=="Page up" && !AltPressed(e) && !editArea.isOpera){
@@ -38,16 +39,16 @@ function keyDown(e){
 		return true;
 	}else if(letter=="Tabulation" && target_id=="textarea" && !CtrlPressed(e) && !AltPressed(e)){	
 		if(ShiftPressed(e))
-			editArea.execCommand("invert_tab_selection");
+		{editArea.execCommand("invert_tab_selection");}
 		else
-			editArea.execCommand("tab_selection");
-		
+		{	editArea.execCommand("tab_selection");
+		}
 		use=true;
 		if(editArea.isOpera || (editArea.isFirefox && editArea.isMac) )	// opera && firefox mac can't cancel tabulation events...
-			setTimeout("editArea.execCommand('focus');", 1);
+		{	setTimeout("editArea.execCommand('focus');", 1);}
 	}else if(letter=="Entrer" && target_id=="textarea"){
 		if(editArea.press_enter())
-			use=true;
+		{	use=true;}
 	}else if(letter=="Entrer" && target_id=="area_search"){
 		editArea.execCommand("area_search");
 		use=true;
@@ -104,7 +105,7 @@ function keyDown(e){
 	if(use){
 		// in case of a control that sould'nt be used by IE but that is used => THROW a javascript error that will stop key action
 		if(editArea.isIE)
-			e.keyCode=0;
+		{e.keyCode=0;}
 		return false;
 	}
 	//alert("Test: "+ letter + " ("+e.keyCode+") ALT: "+ AltPressed(e) + " CTRL "+ CtrlPressed(e) + " SHIFT "+ ShiftPressed(e));
@@ -120,9 +121,10 @@ function AltPressed(e) {
 		return (window.event.altKey);
 	} else {
 		if(e.modifiers)
-			return (e.altKey || (e.modifiers % 2));
-		else
+		{return (e.altKey || (e.modifiers % 2));
+		}else{
 			return e.altKey;
+		}
 	}
 };
 
