@@ -1,4 +1,32 @@
 var EAKeys = {8:"Retour arriere",9:"Tabulation",12:"Milieu (pave numerique)",13:"Entrer",16:"Shift",17:"Ctrl",18:"Alt",19:"Pause",20:"Verr Maj",27:"Esc",32:"Space",33:"Page up",34:"Page down",35:"End",36:"Begin",37:"Left",38:"Up",39:"Right",40:"Down",44:"Impr ecran",45:"Inser",46:"Suppr",91:"Menu Demarrer Windows / touche pomme Mac",92:"Menu Demarrer Windows",93:"Menu contextuel Windows",112:"F1",113:"F2",114:"F3",115:"F4",116:"F5",117:"F6",118:"F7",119:"F8",120:"F9",121:"F10",122:"F11",123:"F12",144:"Verr Num",145:"Arret defil"};
+function ctrlPressed(e) {
+	if (window.event) {
+		return (window.event.ctrlKey);
+	} else {
+		return (e.ctrlKey || (e.modifiers===2) || (e.modifiers===3) || (e.modifiers>5));
+	}
+};
+
+// return true if Shift key is pressed
+function shiftPressed(e) {
+	if (window.event) {
+		return (window.event.shiftKey);
+	} else {
+		return (e.shiftKey || (e.modifiers>3));
+	}
+};
+
+function altPressed(e) {
+	if (window.event) {
+		return (window.event.altKey);
+	} else {
+		if(e.modifiers)
+		{return (e.altKey || (e.modifiers % 2));
+		}else{
+			return e.altKey;
+		}
+	}
+};
 
 function keyDown(e){
 	if(!e){	// if IE
@@ -26,17 +54,17 @@ function keyDown(e){
 	}
 	var lowLetter= letter.toLowerCase();
 			
-	if(letter==="Page up" && !AltPressed(e) && !editArea.isOpera){
-		editArea.execCommand("scroll_page", {"dir": "up", "shift": ShiftPressed(e)});
+	if(letter==="Page up" && !altPressed(e) && !editArea.isOpera){
+		editArea.execCommand("scroll_page", {"dir": "up", "shift": shiftPressed(e)});
 		use=true;
-	}else if(letter==="Page down" && !AltPressed(e) && !editArea.isOpera){
-		editArea.execCommand("scroll_page", {"dir": "down", "shift": ShiftPressed(e)});
+	}else if(letter==="Page down" && !altPressed(e) && !editArea.isOpera){
+		editArea.execCommand("scroll_page", {"dir": "down", "shift": shiftPressed(e)});
 		use=true;
 	}else if(editArea.is_editable===false){
 		// do nothing but also do nothing else (allow to navigate with page up and page down)
 		return true;
-	}else if(letter==="Tabulation" && targetId==="textarea" && !CtrlPressed(e) && !AltPressed(e)){	
-		if(ShiftPressed(e))
+	}else if(letter==="Tabulation" && targetId==="textarea" && !ctrlPressed(e) && !altPressed(e)){	
+		if(shiftPressed(e))
 		{
 			EditArea.execCommand("invert_tab_selection");}
 		else
@@ -54,7 +82,7 @@ function keyDown(e){
 	}else  if(letter==="Esc"){
 		editArea.execCommand("close_all_inline_popup", e);
 		use=true;
-	}else if(CtrlPressed(e) && !AltPressed(e) && !ShiftPressed(e)){
+	}else if(ctrlPressed(e) && !altPressed(e) && !shiftPressed(e)){
 		switch(lowLetter){
 			case "f":				
 				editArea.execCommand("area_search");
@@ -115,32 +143,6 @@ function keyDown(e){
 
 
 // return true if Alt key is pressed
-function AltPressed(e) {
-	if (window.event) {
-		return (window.event.altKey);
-	} else {
-		if(e.modifiers)
-		{return (e.altKey || (e.modifiers % 2));
-		}else{
-			return e.altKey;
-		}
-	}
-};
 
 // return true if Ctrl key is pressed
-function CtrlPressed(e) {
-	if (window.event) {
-		return (window.event.ctrlKey);
-	} else {
-		return (e.ctrlKey || (e.modifiers==2) || (e.modifiers==3) || (e.modifiers>5));
-	}
-};
 
-// return true if Shift key is pressed
-function ShiftPressed(e) {
-	if (window.event) {
-		return (window.event.shiftKey);
-	} else {
-		return (e.shiftKey || (e.modifiers>3));
-	}
-};
