@@ -1,12 +1,12 @@
 	EditArea.prototype.showSearch = function(){
-		if(_$("areaSearchReplace").style.visibility === "visible"){
+		if(("areaSearchReplace").style.visibility === "visible"){
 			this.hiddenSearch();
 		}else{
 			this.openInlinePopup("areaSearchReplace");
 			var text= this.areaGetSelection();
 			var search= text.split("\n")[0];
-			_$("areaSearch").value= search;
-			_$("areaSearch").focus();
+			("areaSearch").value= search;
+			("areaSearch").focus();
 		}
 	};
 	
@@ -24,8 +24,8 @@
 		{
 			mode="search";
 		}
-		_$("areaSearchMsg").innerHTML="";		
-		var search=_$("areaSearch").value;		
+		("areaSearchMsg").innerHTML="";		
+		var search=("areaSearch").value;		
 		this.textarea.focus();		
 		this.textarea.textareaFocused=true;
 		var infos= this.getSelectionInfos();	
@@ -34,17 +34,17 @@
 		var posBegin=-1;
 		var length=search.length;
 		var begin;
-		if(_$("areaSearchReplace").style.visibility !== "visible"){
+		if(("areaSearchReplace").style.visibility !== "visible"){
 			this.showSearch();
 			return;
 		}
 		if(search.length === 0){
-			_$("areaSearchMsg").innerHTML=this.getTranslation("searchFieldEmpty");
+			("areaSearchMsg").innerHTML=this.getTranslation("searchFieldEmpty");
 			return;
 		}
 		// advance to the next occurence if no text selected
 		if(mode !== "replace" ){
-			if(_$("areaSearchRegExp").checked)
+			if(("areaSearchRegExp").checked)
 			{
 				start++;
 			}
@@ -54,10 +54,10 @@
 		}
 		
 		//search
-		if(_$("areaSearchRegExp").checked){
+		if(("areaSearchRegExp").checked){
 			// regexp search
 			var opt="m";
-			if(!_$("areaSearchMatchCase").checked)
+			if(!("areaSearchMatchCase").checked)
 			{
 				opt+="i";
 			}
@@ -71,7 +71,7 @@
 				length=infos["fullText"].match(reg)[0].length;
 			}
 		}else{
-			if(_$("areaSearchMatchCase").checked){
+			if(("areaSearchMatchCase").checked){
 				pos= infos["fullText"].indexOf(search, start); 
 				posBegin= infos["fullText"].indexOf(search); 
 			}else{
@@ -82,21 +82,21 @@
 		
 		// interpret result
 		if(pos === -1 && posBegin === -1){
-			_$("areaSearchMsg").innerHTML="<strong>"+search+"</strong> "+this.getTranslation("notFound");
+			("areaSearchMsg").innerHTML="<strong>"+search+"</strong> "+this.getTranslation("notFound");
 			return;
 		}else if(pos === -1 && posBegin !== -1){
 			begin= posBegin;
-			_$("areaSearchMsg").innerHTML=this.getTranslation("restartSearchAtBegin");
+			("areaSearchMsg").innerHTML=this.getTranslation("restartSearchAtBegin");
 		}else{
 			begin= pos;
 		}
 		//_$("area_search_msg").innerHTML+="<strong>"+search+"</strong> found at "+begin+" strat at "+start+" pos "+pos+" curs"+ infos["indexOfCursor"]+".";
 		if(mode === "replace" && pos === infos["indexOfCursor"]){
-			var replace= _$("areaReplace").value;
+			var replace= ("areaReplace").value;
 			var newText="";			
 			if(_$("areaSearchRegExp").checked){
 				var opt="m";
-				if(!_$("areaSearchMatchCase").checked){
+				if(!("areaSearchMatchCase").checked){
 					opt+="i";}
 				var reg= new RegExp(search, opt);
 				newText= infos["fullText"].substr(0, begin) + infos["fullText"].substr(start).replace(reg, replace);
@@ -125,19 +125,19 @@
 		}*/
 	
 		var baseText= this.textarea.value;
-		var search= _$("areaSearch").value;		
-		var replace= _$("areaReplace").value;
+		var search= ("areaSearch").value;		
+		var replace= ("areaReplace").value;
 		if(search.length === 0){
-			_$("areaSearchMsg").innerHTML=this.getTranslation("searchFieldEmpty");
+			("areaSearchMsg").innerHTML=this.getTranslation("searchFieldEmpty");
 			return;
 		}
 		
 		var newText="";
 		var nbChange=0;
-		if(_$("areaSearchRegExp").checked){
+		if(("areaSearchRegExp").checked){
 			// regExp
 			var opt="mg";
-			if(!_$("areaSearchMatchCase").checked){
+			if(!("areaSearchMatchCase").checked){
 				opt+="i";}
 			var reg= new RegExp(search, opt);
 			nbChange= infos["fullText"].match(reg).length;
@@ -145,7 +145,7 @@
 			
 		}else{
 			
-			if(_$("areaSearchMatchCase").checked){
+			if(("areaSearchMatchCase").checked){
 				var tmpTab=baseText.split(search);
 				nbChange= tmpTab.length -1 ;
 				newText= tmpTab.join(replace);
@@ -166,10 +166,10 @@
 			}
 		}			
 		if(newText === baseText){
-			_$("areaSearchMsg").innerHTML="<strong>"+search+"</strong> "+this.getTranslation("notFound");
+			("areaSearchMsg").innerHTML="<strong>"+search+"</strong> "+this.getTranslation("notFound");
 		}else{
 			this.textarea.value= newText;
-			_$("areaSearchMsg").innerHTML="<strong>"+nbChange+"</strong> "+this.getTranslation("occurrenceReplaced");
+			("areaSearchMsg").innerHTML="<strong>"+nbChange+"</strong> "+this.getTranslation("occurrenceReplaced");
 			// firefox and opera doesn't manage with the focus if it's done directly
 			//editArea.textarea.focus();editArea.textarea.textareaFocused=true;
 			setTimeout("editArea.textarea.focus();editArea.textarea.textareaFocused=true;", 100);
