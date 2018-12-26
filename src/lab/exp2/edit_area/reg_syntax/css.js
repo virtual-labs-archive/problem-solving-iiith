@@ -49,7 +49,7 @@ editAreaLoader.load_syntax["css"] = {
 			'maroon', 'medium', 'message-box', 'middle', 'mix', 'monospace',
 			'n-resize', 'narrower', 'navy', 'ne-resize', 'no-close-quote', 'no-open-quote', 'no-repeat', 'none', 'normal', 'nowrap', 'nw-resize',
 			'oblique', 'olive', 'once', 'open-quote', 'outset', 'outside', 'overline',
-			'pointer', 'portrait', 'purple', 'px',
+			"pointer", "portrait", "purple", "px",
 			'red', 'relative', 'repeat-x', 'repeat-y', 'repeat', 'rgb', 'ridge', 'right-side', 'rightwards',
 			's-resize', 'sans-serif', 'scroll', 'se-resize', 'semi-condensed', 'semi-expanded', 'separate', 'serif', 'show', 'silent', 'silver', 'slow', 'slower', 'small-caps', 'small-caption', 'smaller', 'soft', 'solid', 'spell-out', 'square',
 			'static', 'status-bar', 'super', 'sw-resize',
