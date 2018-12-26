@@ -71,9 +71,9 @@
 		t.id= area_id;
 		t.settings= editAreas[t.id]["settings"];
 		
-		if((""+t.settings['replace_tab_by_spaces']).match(/^[0-9]+$/))
+		if((""+t.settings["replace_tab_by_spaces"]).match(/^[0-9]+$/))
 		{
-			t.tabNbChar= t.settings['replace_tab_by_spaces'];
+			t.tabNbChar= t.settings["replace_tab_by_spaces"];
 			t.tabulation="";
 			for(var i=0; i<t.tab_nb_char; i++)
 				t.tabulation+=" ";
@@ -92,16 +92,17 @@
 	};
 	EditArea.prototype.init= function(){
 		var t=this, a, s=t.settings;
-		t.textarea			= _$("textarea");
-		t.container			= _$("container");
-		t.result			= _$("result");
-		t.content_highlight	= _$("content_highlight");
-		t.selection_field	= _$("selection_field");
-		t.selection_field_text= _$("selection_field_text");
-		t.processing_screen	= _$("processing");
-		t.editor_area		= _$("editor");
-		t.tab_browsing_area	= _$("tab_browsing_area");
-		t.test_font_size	= _$("test_font_size");
+		var syntax_selec;
+		t.textarea			= ("textarea");
+		t.container			= ("container");
+		t.result			= ("result");
+		t.content_highlight	= ("contentHighlight");
+		t.selection_field	= ("selectionField");
+		t.selection_field_text= ("selectionFieldText");
+		t.processing_screen	= ("processing");
+		t.editor_area		= ("editor");
+		t.tab_browsing_area	= ("tabBrowsingArea");
+		t.test_font_size	= ("testFontSize");
 		a = t.textarea;
 		
 		if(!s['is_editable'])
@@ -118,28 +119,28 @@
 				option.value= syntax;
 				if(syntax==s['syntax'])
 					option.selected= "selected";
-				dispSyntax	= parent.editAreaLoader.syntax_display_name[ syntax ];
+				var dispSyntax	= parent.editAreaLoader.syntax_display_name[ syntax ];
 				option.innerHTML= typeof( dispSyntax ) == 'undefined' ? syntax.substring( 0, 1 ).toUpperCase() + syntax.substring( 1 ) : dispSyntax;//t.get_translation("syntax_" + syntax, "word");
 				syntax_selec.appendChild(option);
 			}
 		}
 		
 		// add plugins buttons in the toolbar
-		spans= parent.getChildren(_$("toolbar_1"), "span", "", "", "all", -1);
+		var spans= parent.getChildren(_$("toolbar_1"), "span", "", "", "all", -1);
 		
 		for(var i=0; i<spans.length; i++){
 		
-			id=spans[i].id.replace(/tmp_tool_(.*)/, "$1");
+			var id=spans[i].id.replace(/tmp_tool_(.*)/, "$1");
 			if(id!= spans[i].id){
 				for(var j in t.plugins){
 					if(typeof(t.plugins[j].get_control_html)=="function" ){
-						html=t.plugins[j].get_control_html(id);
+						var html=t.plugins[j].get_control_html(id);
 						if(html!=false){
 							html= t.get_translation(html, "template");
-							var new_span= document.createElement("span");
-							new_span.innerHTML= html;				
+							var newSpan= document.createElement("span");
+							newSpan.innerHTML= html;				
 							var father= spans[i].parentNode;
-							spans[i].parentNode.replaceChild(new_span, spans[i]);	
+							spans[i].parentNode.replaceChild(newSpan, spans[i]);	
 							break; // exit the for loop					
 						}
 					}
@@ -157,7 +158,7 @@
 		// init size		
 		//this.update_size();
 		
-		if(_$("redo") != null)
+		if(_$("redo") !== null)
 			t.switchClassSticky(_$("redo"), 'editAreaButtonDisabled', true);
 		
 		// insert css rules for highlight mode		
@@ -182,7 +183,7 @@
 				_$(t.inlinePopup[i]["popup_id"]).onkeydown	= keyDown;
 		}
 		
-		if(s["allowResize"]=="both" || s["allowResize"]=="x" || s["allowResize"]=="y")
+		if(s["allowResize"]==="both" || s["allowResize"]=="x" || s["allowResize"]==="y")
 			t.allowResize(true);
 		
 		parent.editAreaLoader.toggle(t.id, "on");
@@ -196,7 +197,7 @@
 		t.setFont(editArea.settings["font_family"], editArea.settings["font_size"]);
 		
 		// set unselectable text
-		children= parent.getChildren(document.body, "", "selec", "none", "all", -1);
+		var children= parent.getChildren(document.body, "", "selec", "none", "all", -1);
 		for(var i=0; i<children.length; i++){
 			if(t.isIE)
 				children[i].unselectable = true; // IE
@@ -250,7 +251,7 @@
 			if(typeof(t.plugins[i].onload)=="function")
 				t.plugins[i].onload();
 		}
-		if(s['fullscreen']==true)
+		if(s["fullscreen"]===true)
 			t.toggle_full_screen(true);
 	
 		parent.editAreaLoader.add_event(window, "resize", editArea.update_size);
@@ -279,13 +280,13 @@
 	EditArea.prototype.update_size= function(){
 		var d=document,pd=parent.document,height,width,popup,maxLeft,maxTop;
 		
-		if( typeof editAreas != 'undefined' && editAreas[editArea.id] && editAreas[editArea.id]["displayed"]==true){
-			if(editArea.fullscreen['isFull']){	
+		if( typeof editAreas !== "undefined" && editAreas[editArea.id] && editAreas[editArea.id]["displayed"]===true){
+			if(editArea.fullscreen["isFull"]){	
 				pd.getElementById("frame_"+editArea.id).style.width		= pd.getElementsByTagName("html")[0].clientWidth + "px";
 				pd.getElementById("frame_"+editArea.id).style.height	= pd.getElementsByTagName("html")[0].clientHeight + "px";
 			}
 			
-			if(editArea.tab_browsing_area.style.display=='block' && ( !editArea.isIE || editArea.isIE >= 8 ) )
+			if(editArea.tab_browsing_area.style.display==="block" && ( !editArea.isIE || editArea.isIE >= 8 ) )
 			{
 				editArea.tab_browsing_area.style.height	= "0px";
 				editArea.tab_browsing_area.style.height	= (editArea.result.offsetTop - editArea.tab_browsing_area.offsetTop -1)+"px";
@@ -322,14 +323,14 @@
 			
 		if(editAreas[this.id]["displayed"]==true && this.textareaFocused)
 		{
-			var area_height,resized= false;
+			var areaHeight,resized= false;
 			
 			//1) Manage display width
 			//1.1) Calc the new width to use for display
-			if( !this.settings['word_wrap'] )
+			if( !this.settings["word_wrap"] )
 			{
 				var area_width= this.textarea.scrollWidth;
-				area_height= this.textarea.scrollHeight;
+				areaHeight= this.textarea.scrollHeight;
 				// bug on old opera versions
 				if(this.isOpera && this.isOpera < 9.6 ){
 					area_width=10000; 								
@@ -345,9 +346,9 @@
 				}
 			}
 			// manage wrap width
-			if( this.settings['word_wrap'] )
+			if( this.settings["word_wrap"] )
 			{
-				newW=this.textarea.offsetWidth;
+				var newW=this.textarea.offsetWidth;
 				if( this.isFirefox || this.isIE )
 					newW-=2;
 				if( this.isSafari )
@@ -358,17 +359,17 @@
 			//2) Manage display height
 			//2.1) Calc the new height to use for display
 			if( this.isOpera || this.isFirefox || this.isSafari ) { 
-				area_height= this.getLinePosTop( this.last_selection["nb_line"] + 1 );
+				areaHeight= this.getLinePosTop( this.last_selection["nb_line"] + 1 );
 			} else {
-				area_height = this.textarea.scrollHeight;
+				areaHeight = this.textarea.scrollHeight;
 			}	
 			//2.2) the width is not the same, we must resize elements 
-			if(this.textarea.previous_scrollHeight!=area_height)	
+			if(this.textarea.previous_scrollHeight!=areaHeight)	
 			{	
-				this.container.style.height= (area_height+2)+"px";
-				this.textarea.style.height= area_height+"px";
-				this.content_highlight.style.height= area_height+"px";	
-				this.textarea.previous_scrollHeight= area_height;
+				this.container.style.height= (areaHeight+2)+"px";
+				this.textarea.style.height= areaHeight+"px";
+				this.content_highlight.style.height= areaHeight+"px";	
+				this.textarea.previous_scrollHeight= areaHeight;
 				resized=true;
 			}
 		
@@ -464,31 +465,31 @@
 	};
 	
 	EditArea.prototype.get_translation= function(word, mode){
-		if(mode=="template")
+		if(mode==="template"){
 			return parent.editAreaLoader.translate(word, this.settings["language"], mode);
-		else
-			return parent.editAreaLoader.get_word_translation(word, this.settings["language"]);
+		}else{
+			return parent.editAreaLoader.get_word_translation(word, this.settings["language"]);}
 	};
 	
-	EditArea.prototype.add_plugin= function(plug_name, plug_obj){
+	EditArea.prototype.add_plugin= function(plugName, plugObj){
 		for(var i=0; i<this.settings["plugins"].length; i++){
-			if(this.settings["plugins"][i]==plug_name){
-				this.plugins[plug_name]=plug_obj;
-				plug_obj.baseURL=parent.editAreaLoader.baseURL + "plugins/" + plug_name + "/";
-				if( typeof(plug_obj.init)=="function" )
-					plug_obj.init();
+			if(this.settings["plugins"][i]==plugName){
+				this.plugins[plugName]=plugObj;
+				plugObj.baseURL=parent.editAreaLoader.baseURL + "plugins/" + plugName + "/";
+				if( typeof(plugObj.init)=="function" )
+					plugObj.init();
 			}
 		}
 	};
 	
 	EditArea.prototype.load_css= function(url){
 		try{
-			link = document.createElement("link");
+			var link = document.createElement("link");
 			link.type = "text/css";
 			link.rel= "stylesheet";
 			link.media="all";
 			link.href = url;
-			head = document.getElementsByTagName("head");
+			var head = document.getElementsByTagName("head");
 			head[0].appendChild(link);
 		}catch(e){
 			document.write("<link href='"+ url +"' rel='stylesheet' type='text/css' />");
@@ -497,11 +498,11 @@
 	
 	EditArea.prototype.load_script= function(url){
 		try{
-			script = document.createElement("script");
+			var script = document.createElement("script");
 			script.type = "text/javascript";
 			script.src  = url;
 			script.charset= "UTF-8";
-			head = document.getElementsByTagName("head");
+			var head = document.getElementsByTagName("head");
 			head[0].appendChild(script);
 		}catch(e){
 			document.write("<script type='text/javascript' src='" + url + "' charset=\"UTF-8\"><"+"/script>");
@@ -511,9 +512,9 @@
 	// add plugin translation to language translation array
 	EditArea.prototype.add_lang= function(language, values){
 		if(!parent.editAreaLoader.lang[language])
-			parent.editAreaLoader.lang[language]={};
-		for(var i in values)
-			parent.editAreaLoader.lang[language][i]= values[i];
+		{parent.editAreaLoader.lang[language]={};}
+		for(var i in values){
+			parent.editAreaLoader.lang[language][i]= values[i];}
 	};
 	
 	// short cut for document.getElementById()
