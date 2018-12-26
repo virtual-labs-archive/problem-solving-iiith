@@ -33,7 +33,7 @@
 		var pos=-1;
 		var posBegin=-1;
 		var length=search.length;
-		var begin,reg,opt;
+		var begin,reg;
 		if(("areaSearchReplace").style.visibility !== "visible"){
 			this.showSearch();
 			return;
@@ -86,7 +86,8 @@
 			return;
 		}else if(pos === -1 && posBegin !== -1){
 			begin= posBegin;
-			("areaSearchMsg").innerHTML=this.getTranslation("restartSearchAtBegin");
+			var hello=this.getTranslation("restartSearchAtBegin");;
+			("areaSearchMsg").innerHTML=hello;
 		}else{
 			begin= pos;
 		}
@@ -95,7 +96,7 @@
 			var replace= ("areaReplace").value;
 			var newText="";			
 			if(("areaSearchRegExp").checked){
-				 opt="m";
+				var opt="m";
 				if(!("areaSearchMatchCase").checked){
 					opt+="i";}
 				reg= new RegExp(search, opt);
@@ -116,7 +117,7 @@
 	EditArea.prototype.areaReplace= function(){		
 		this.areaSearch("replace");
 	};
-	function checkAreaSearch(nbChange,baseText)
+	function checkAreaSearch(nbChange,baseText,newText,search,replace)
 	{
 			if(("areaSearchMatchCase").checked){
 				var tmpTab=baseText.split(search);
@@ -139,25 +140,29 @@
 			}
 		return newText;
 	}
-	function checkNewText(newText,baseText,nbChange)
+	function checkNewText(newText,baseText,nbChange,search)
 	{
 		if(newText === baseText){
-			("areaSearchMsg").innerHTML="<strong>"+search+"</strong> "+this.getTranslation("notFound");
+			var hello="<strong>"+search+"</strong> "+this.getTranslation("notFound");
+			("areaSearchMsg").innerHTML=hello;
 		}else{
 			this.textarea.value= newText;
-			("areaSearchMsg").innerHTML="<strong>"+nbChange+"</strong> "+this.getTranslation("occurrenceReplaced");
+			var hello="<strong>"+nbChange+"</strong> "+this.getTranslation("occurrenceReplaced");
+			("areaSearchMsg").innerHTML=hello;
 			// firefox and opera doesn't manage with the focus if it's done directly
 			//editArea.textarea.focus();editArea.textarea.textareaFocused=true;
 			setTimeout("editArea.textarea.focus();editArea.textarea.textareaFocused=true;", 100);
 		}
 	}
-	function checkAll(baseText,newText,nbChange)
+	function checkAll(baseText,search,replace)
 	{
 		var newText="";
 		var nbChange=0;
+		var opt="";
+		var infos= this.getSelectionInfos();	
 		if(("areaSearchRegExp").checked){
 			// regExp
-			var opt="mg";
+			 opt="mg";
 			if(!("areaSearchMatchCase").checked){
 				opt+="i";}
 			var reg= new RegExp(search, opt);
@@ -165,10 +170,10 @@
 			newText= infos["fullText"].replace(reg, replace);
 			
 		}else{
-			newText=checkAreaSearch(nbChange,baseText);
+			newText=checkAreaSearch(nbChange,baseText,newText,search,replace);
 			
 		}			
-		checkNewText(newText,baseText,nbChange);
+		checkNewText(newText,baseText,nbChange,search);
 	}
 	EditArea.prototype.areaReplaceAll= function(){
 	/*	this.area_select(0, 0);
@@ -176,13 +181,14 @@
 		while(_$("area_search_msg").innerHTML==""){
 			this.area_replace();
 		}*/
-	
+		
 		var baseText= this.textarea.value;
 		var search= ("areaSearch").value;		
 		var replace= ("areaReplace").value;
 		if(search.length === 0){
-			("areaSearchMsg").innerHTML=this.getTranslation("searchFieldEmpty");
+			var str=this.getTranslation("searchFieldEmpty");
+			("areaSearchMsg").innerHTML=str;
 			return;
 		}
-		checkAll(baseText,newText,nbChange);
+		checkAll(baseText,search,replace);
 	};
