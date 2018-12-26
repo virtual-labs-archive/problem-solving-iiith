@@ -194,8 +194,12 @@ var EditArea_autocompletion= {
 		this.forceDisplay	= false;
 		this.autoSelectIfOneResult = false;
 	}
-	,_hide: function(){
+	,_hideSub2: function()
+	{
 		this.container.style.display="none";
+	}
+	,_hide: function(){
+		_hideSub2();
 		_hideSub();
 	}
 	// display the suggested box
