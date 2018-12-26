@@ -7,9 +7,9 @@ function keyDown(e){
 	
 	// send the event to the plugins
 	for(var i in editArea.plugins){
-		if(typeof(editArea.plugins[i].onkeydown)=="function"){
+		if(typeof(editArea.plugins[i].onkeydown)==="function"){
 			if(editArea.plugins[i].onkeydown(e)===false){ // stop propaging
-				if(editArea.isIE){
+				if(editArea.isIE()){
 					e.keyCode=0;}
 				return false;
 			}
@@ -26,16 +26,16 @@ function keyDown(e){
 	}
 	var lowLetter= letter.toLowerCase();
 			
-	if(letter=="Page up" && !AltPressed(e) && !editArea.isOpera){
+	if(letter==="Page up" && !AltPressed(e) && !editArea.isOpera){
 		editArea.execCommand("scroll_page", {"dir": "up", "shift": ShiftPressed(e)});
 		use=true;
-	}else if(letter=="Page down" && !AltPressed(e) && !editArea.isOpera){
+	}else if(letter==="Page down" && !AltPressed(e) && !editArea.isOpera){
 		editArea.execCommand("scroll_page", {"dir": "down", "shift": ShiftPressed(e)});
 		use=true;
-	}else if(editArea.is_editable==false){
+	}else if(editArea.is_editable===false){
 		// do nothing but also do nothing else (allow to navigate with page up and page down)
 		return true;
-	}else if(letter=="Tabulation" && target_id=="textarea" && !CtrlPressed(e) && !AltPressed(e)){	
+	}else if(letter==="Tabulation" && targetId==="textarea" && !CtrlPressed(e) && !AltPressed(e)){	
 		if(ShiftPressed(e))
 		{
 			EditArea.execCommand("invert_tab_selection");}
@@ -45,13 +45,13 @@ function keyDown(e){
 		use=true;
 		if(editArea.isOpera || (editArea.isFirefox && editArea.isMac) )	// opera && firefox mac can't cancel tabulation events...
 		{	setTimeout("editArea.execCommand('focus');", 1);}
-	}else if(letter=="Entrer" && targetId=="textarea"){
+	}else if(letter==="Entrer" && targetId==="textarea"){
 		if(editArea.press_enter())
 		{	use=true;}
-	}else if(letter=="Entrer" && targetId=="area_search"){
+	}else if(letter==="Entrer" && targetId==="area_search"){
 		editArea.execCommand("area_search");
 		use=true;
-	}else  if(letter=="Esc"){
+	}else  if(letter==="Esc"){
 		editArea.execCommand("close_all_inline_popup", e);
 		use=true;
 	}else if(CtrlPressed(e) && !AltPressed(e) && !ShiftPressed(e)){
