@@ -148,7 +148,7 @@ var EditArea_autocompletion= {
 		}
 		
 		// wait a short period for check that the cursor isn't moving
-		setTimeout("editArea.plugins['autocompletion']._checkDelayAndCursorBeforeDisplay();", editArea.check_line_selection_timer +5 );
+		setTimeout("editArea.plugins['autocompletion']._checkDelayAndCursorBeforeDisplay();", EditArea.check_line_selection_timer +5 );
 		this.checkDelayTimer = false;
 		return true;
 	}	
@@ -187,20 +187,28 @@ var EditArea_autocompletion= {
 		this.checkDelayTimer = setTimeout("if(editArea.textarea.selectionStart == "+ editArea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - editArea.check_line_selection_timer - 5 );
 	}
 	// hide the suggested box
-	,_hide: function(){
-		this.container.style.display="none";
+	,_hideSub: function()
+	{
 		this.selectIndex	= -1;
 		this.shown	= false;
 		this.forceDisplay	= false;
 		this.autoSelectIfOneResult = false;
 	}
+	,_hide: function(){
+		this.container.style.display="none";
+		_hideSub();
+	}
 	// display the suggested box
+	,_showSub: function()
+	{
+		this.container.style.display="block";
+			this.selectIndex	= -1;
+			this.shown	= true;
+	}
 	,_show: function(){
 		if( !this._isShown() )
 		{
-			this.container.style.display="block";
-			this.selectIndex	= -1;
-			this.shown	= true;
+			_showSub();
 		}
 	}
 	// is the suggested box displayed?
