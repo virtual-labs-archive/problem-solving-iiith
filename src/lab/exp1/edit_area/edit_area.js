@@ -92,7 +92,7 @@
 	};
 	EditArea.prototype.init= function(){
 		var t=this, a, s=t.settings;
-		var syntax_selec;
+		var syntaxSelec;
 		t.textarea			= ("textarea");
 		t.container			= ("container");
 		t.result			= ("result");
@@ -100,9 +100,9 @@
 		t.selection_field	= ("selectionField");
 		t.selection_field_text= ("selectionFieldText");
 		t.processing_screen	= ("processing");
-		t.editor_area		= ("editor");
-		t.tab_browsing_area	= ("tabBrowsingArea");
-		t.test_font_size	= ("testFontSize");
+		t.editorArea		= ("editor");
+		t.tabBrowsingArea	= ("tabBrowsingArea");
+		t.testFontSize	= ("testFontSize");
 		a = t.textarea;
 		
 		if(!s['is_editable'])
@@ -110,7 +110,7 @@
 		
 		t.set_show_line_colors( s['show_line_colors'] );
 		
-		if(syntax_selec= _$("syntax_selection"))
+		if(syntaxSelec= _$("syntax_selection"))
 		{
 			// set up syntax selection lsit in the toolbar
 			for(var i=0; i<t.syntax_list.length; i++) {
@@ -121,7 +121,7 @@
 					option.selected= "selected";
 				var dispSyntax	= parent.editAreaLoader.syntax_display_name[ syntax ];
 				option.innerHTML= typeof( dispSyntax ) == 'undefined' ? syntax.substring( 0, 1 ).toUpperCase() + syntax.substring( 1 ) : dispSyntax;//t.get_translation("syntax_" + syntax, "word");
-				syntax_selec.appendChild(option);
+				syntaxSelec.appendChild(option);
 			}
 		}
 		
