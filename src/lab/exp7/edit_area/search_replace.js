@@ -33,7 +33,7 @@
 		var pos=-1;
 		var posBegin=-1;
 		var length=search.length;
-		var begin;
+		var begin,reg,opt;
 		if(("areaSearchReplace").style.visibility !== "visible"){
 			this.showSearch();
 			return;
@@ -61,7 +61,7 @@
 			{
 				opt+="i";
 			}
-			var reg= new RegExp(search, opt);
+			reg= new RegExp(search, opt);
 			pos= infos["fullText"].substr(start).search(reg);
 			posBegin= infos["fullText"].search(reg);
 			if(pos !== -1){
@@ -94,11 +94,11 @@
 		if(mode === "replace" && pos === infos["indexOfCursor"]){
 			var replace= ("areaReplace").value;
 			var newText="";			
-			if(_$("areaSearchRegExp").checked){
-				var opt="m";
+			if(("areaSearchRegExp").checked){
+				 opt="m";
 				if(!("areaSearchMatchCase").checked){
 					opt+="i";}
-				var reg= new RegExp(search, opt);
+				reg= new RegExp(search, opt);
 				newText= infos["fullText"].substr(0, begin) + infos["fullText"].substr(start).replace(reg, replace);
 			}else{
 				newText= infos["fullText"].substr(0, begin) + replace + infos["fullText"].substr(begin + length);
@@ -116,35 +116,8 @@
 	EditArea.prototype.areaReplace= function(){		
 		this.areaSearch("replace");
 	};
-	
-	EditArea.prototype.areaReplaceAll= function(){
-	/*	this.area_select(0, 0);
-		_$("area_search_msg").innerHTML="";
-		while(_$("area_search_msg").innerHTML==""){
-			this.area_replace();
-		}*/
-	
-		var baseText= this.textarea.value;
-		var search= ("areaSearch").value;		
-		var replace= ("areaReplace").value;
-		if(search.length === 0){
-			("areaSearchMsg").innerHTML=this.getTranslation("searchFieldEmpty");
-			return;
-		}
-		
-		var newText="";
-		var nbChange=0;
-		if(("areaSearchRegExp").checked){
-			// regExp
-			var opt="mg";
-			if(!("areaSearchMatchCase").checked){
-				opt+="i";}
-			var reg= new RegExp(search, opt);
-			nbChange= infos["fullText"].match(reg).length;
-			newText= infos["fullText"].replace(reg, replace);
-			
-		}else{
-			
+	function checkAreaSearch(nbChange,baseText)
+	{
 			if(("areaSearchMatchCase").checked){
 				var tmpTab=baseText.split(search);
 				nbChange= tmpTab.length -1 ;
@@ -164,7 +137,10 @@
 				}
 				newText+= this.textarea.value.substring(start);				
 			}
-		}			
+		return newText;
+	}
+	function checkNewText(newText,baseText,nbChange)
+	{
 		if(newText === baseText){
 			("areaSearchMsg").innerHTML="<strong>"+search+"</strong> "+this.getTranslation("notFound");
 		}else{
@@ -174,6 +150,39 @@
 			//editArea.textarea.focus();editArea.textarea.textareaFocused=true;
 			setTimeout("editArea.textarea.focus();editArea.textarea.textareaFocused=true;", 100);
 		}
-		
-		
+	}
+	function checkAll(baseText,newText,nbChange)
+	{
+		var newText="";
+		var nbChange=0;
+		if(("areaSearchRegExp").checked){
+			// regExp
+			var opt="mg";
+			if(!("areaSearchMatchCase").checked){
+				opt+="i";}
+			var reg= new RegExp(search, opt);
+			nbChange= infos["fullText"].match(reg).length;
+			newText= infos["fullText"].replace(reg, replace);
+			
+		}else{
+			newText=checkAreaSearch(nbChange,baseText);
+			
+		}			
+		checkNewText(newText,baseText,nbChange);
+	}
+	EditArea.prototype.areaReplaceAll= function(){
+	/*	this.area_select(0, 0);
+		_$("area_search_msg").innerHTML="";
+		while(_$("area_search_msg").innerHTML==""){
+			this.area_replace();
+		}*/
+	
+		var baseText= this.textarea.value;
+		var search= ("areaSearch").value;		
+		var replace= ("areaReplace").value;
+		if(search.length === 0){
+			("areaSearchMsg").innerHTML=this.getTranslation("searchFieldEmpty");
+			return;
+		}
+		checkAll(baseText,newText,nbChange);
 	};
