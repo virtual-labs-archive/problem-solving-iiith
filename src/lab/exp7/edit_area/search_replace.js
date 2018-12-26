@@ -82,11 +82,12 @@
 		
 		// interpret result
 		if(pos === -1 && posBegin === -1){
-			("areaSearchMsg").innerHTML="<strong>"+search+"</strong> "+this.getTranslation("notFound");
+			var hello="<strong>"+search+"</strong> "+this.getTranslation("notFound");
+			("areaSearchMsg").innerHTML=hello;
 			return;
 		}else if(pos === -1 && posBegin !== -1){
 			begin= posBegin;
-			var hello=this.getTranslation("restartSearchAtBegin");;
+			var hello=this.getTranslation("restartSearchAtBegin");
 			("areaSearchMsg").innerHTML=hello;
 		}else{
 			begin= pos;
@@ -142,12 +143,13 @@
 	}
 	function checkNewText(newText,baseText,nbChange,search)
 	{
+		var hello;
 		if(newText === baseText){
-			var hello="<strong>"+search+"</strong> "+this.getTranslation("notFound");
+			 hello="<strong>"+search+"</strong> "+this.getTranslation("notFound");
 			("areaSearchMsg").innerHTML=hello;
 		}else{
 			this.textarea.value= newText;
-			var hello="<strong>"+nbChange+"</strong> "+this.getTranslation("occurrenceReplaced");
+			 hello="<strong>"+nbChange+"</strong> "+this.getTranslation("occurrenceReplaced");
 			("areaSearchMsg").innerHTML=hello;
 			// firefox and opera doesn't manage with the focus if it's done directly
 			//editArea.textarea.focus();editArea.textarea.textareaFocused=true;
@@ -162,7 +164,7 @@
 		var infos= this.getSelectionInfos();	
 		if(("areaSearchRegExp").checked){
 			// regExp
-			 opt="mg";
+			opt="mg";
 			if(!("areaSearchMatchCase").checked){
 				opt+="i";}
 			var reg= new RegExp(search, opt);
