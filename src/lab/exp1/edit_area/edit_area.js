@@ -96,31 +96,32 @@
 		t.textarea			= ("textarea");
 		t.container			= ("container");
 		t.result			= ("result");
-		t.content_highlight	= ("contentHighlight");
-		t.selection_field	= ("selectionField");
-		t.selection_field_text= ("selectionFieldText");
-		t.processing_screen	= ("processing");
+		t.contentHighlight	= ("contentHighlight");
+		t.selectionField	= ("selectionField");
+		t.selectionFieldText= ("selectionFieldText");
+		t.processingScreen	= ("processing");
 		t.editorArea		= ("editor");
 		t.tabBrowsingArea	= ("tabBrowsingArea");
 		t.testFontSize	= ("testFontSize");
 		a = t.textarea;
 		
-		if(!s['is_editable'])
+		if(!s["isEditable"])
 			t.set_editable(false);
 		
-		t.set_show_line_colors( s['show_line_colors'] );
+		t.set_show_line_colors( s["show_line_colors"] );
 		
-		if(syntaxSelec= _$("syntax_selection"))
+		if(syntaxSelec=== $("syntax_selection"))
 		{
+			var i;
 			// set up syntax selection lsit in the toolbar
-			for(var i=0; i<t.syntax_list.length; i++) {
-				var syntax= t.syntax_list[i];
+			for(i=0; i<t.syntax_list.length; i++) {
+				var syntax= t.syntax_list.getElementById(i);
 				var option= document.createElement("option");
 				option.value= syntax;
-				if(syntax==s['syntax'])
+				if(syntax===s["syntax"])
 					option.selected= "selected";
 				var dispSyntax	= parent.editAreaLoader.syntax_display_name[ syntax ];
-				option.innerHTML= typeof( dispSyntax ) == 'undefined' ? syntax.substring( 0, 1 ).toUpperCase() + syntax.substring( 1 ) : dispSyntax;//t.get_translation("syntax_" + syntax, "word");
+				option.innerHTML= typeof( dispSyntax ) == "undefined" ? syntax.substring( 0, 1 ).toUpperCase() + syntax.substring( 1 ) : dispSyntax;//t.get_translation("syntax_" + syntax, "word");
 				syntaxSelec.appendChild(option);
 			}
 		}
