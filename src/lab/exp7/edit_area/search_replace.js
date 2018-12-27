@@ -17,43 +17,8 @@
 		setAttribute(icon, "class", getAttribute(icon, "class").replace(/ selected/g, "") );*/
 		this.closeInlinePopup("areaSearchReplace");
 	};
-	
-	EditArea.prototype.areaSearch= function(mode){
-		
-		if(!mode)
-		{
-			mode="search";
-		}
-		("areaSearchMsg").innerHTML="";		
-		var search=("areaSearch").value;		
-		this.textarea.focus();		
-		this.textarea.textareaFocused=true;
-		var infos= this.getSelectionInfos();	
-		var start= infos["selectionStart"];
-		var pos=-1;
-		var posBegin=-1;
-		var length=search.length;
-		var begin,reg;
-		if(("areaSearchReplace").style.visibility !== "visible"){
-			this.showSearch();
-			return;
-		}
-		if(search.length === 0){
-			("areaSearchMsg").innerHTML=this.getTranslation("searchFieldEmpty");
-			return;
-		}
-		// advance to the next occurence if no text selected
-		if(mode !== "replace" ){
-			if(("areaSearchRegExp").checked)
-			{
-				start++;
-			}
-			else{
-				start+= search.length;
-			}
-		}
-		
-		//search
+	function checkSearch(reg,pos,posBegin,length,infos,start)
+	{
 		if(("areaSearchRegExp").checked){
 			// regexp search
 			var opt="m";
@@ -70,7 +35,9 @@
 			}else if(posBegin !== -1){
 				length=infos["fullText"].match(reg)[0].length;
 			}
-		}else{
+		}
+		else
+		{
 			if(("areaSearchMatchCase").checked){
 				pos= infos["fullText"].indexOf(search, start); 
 				posBegin= infos["fullText"].indexOf(search); 
@@ -79,25 +46,29 @@
 				posBegin= infos["fullText"].toLowerCase().indexOf(search.toLowerCase()); 
 			}		
 		}
-		
-		// interpret result
+	}
+	function checkSearch2(pos,posBegin,hello,begin)
+	{
 		if(pos === -1 && posBegin === -1){
-			var hello="<strong>"+search+"</strong> "+this.getTranslation("notFound");
+			hello="<strong>"+search+"</strong> "+this.getTranslation("notFound");
 			("areaSearchMsg").innerHTML=hello;
 			return;
 		}else if(pos === -1 && posBegin !== -1){
 			begin= posBegin;
-			var hello=this.getTranslation("restartSearchAtBegin");
+			hello=this.getTranslation("restartSearchAtBegin");
 			("areaSearchMsg").innerHTML=hello;
 		}else{
 			begin= pos;
 		}
-		//_$("area_search_msg").innerHTML+="<strong>"+search+"</strong> found at "+begin+" strat at "+start+" pos "+pos+" curs"+ infos["indexOfCursor"]+".";
+	}
+	function checkSearch3(mode,pos,infos,reg,begin,length,start)
+	{
 		if(mode === "replace" && pos === infos["indexOfCursor"]){
 			var replace= ("areaReplace").value;
-			var newText="";			
+			var newText="";	
+			var opt="";
 			if(("areaSearchRegExp").checked){
-				var opt="m";
+				 opt="m";
 				if(!("areaSearchMatchCase").checked){
 					opt+="i";}
 				reg= new RegExp(search, opt);
@@ -108,10 +79,57 @@
 			this.textarea.value=newText;
 			this.areaSelect(begin, length);
 			this.areaSearch();
-		}else
-			this.areaSelect(begin, length);
+		}else{
+			this.areaSelect(begin, length);}
+	}
+	function check(hello,start)
+	{
+		if(("areaSearchReplace").style.visibility !== "visible"){
+			this.showSearch();
+			return;
+		}
+		if(search.length === 0){
+			hello=this.getTranslation("searchFieldEmpty");
+			("areaSearchMsg").innerHTML=hello;
+			return;
+		}
+		// advance to the next occurence if no text selected
+		if(mode !== "replace" ){
+			if(("areaSearchRegExp").checked)
+			{
+				start++;
+			}
+			else{
+				start+= search.length;
+			}
+		}
+		
+	}
+	EditArea.prototype.areaSearch= function(mode){
+		
+		if(!mode)
+		{
+			mode="search";
+		}
+		("areaSearchMsg").innerHTML="";		
+		var search=("areaSearch").value;		
+		this.textarea.focus();		
+		this.textarea.textareaFocused=true;
+		var infos= this.getSelectionInfos();	
+		var start= infos["selectionStart"];
+		var pos=-1;
+		var posBegin=-1;
+		var length=search.length;
+		var begin,reg,hello;
+		
+		check(hello,start);
+		//search
+		checkSearch(reg,pos,posBegin,length,infos,start);
+		// interpret result
+		checkSearch2(pos,posBegin,hello,begin);
+		//_$("area_search_msg").innerHTML+="<strong>"+search+"</strong> found at "+begin+" strat at "+start+" pos "+pos+" curs"+ infos["indexOfCursor"]+".";
+		checkSearch3(mode,pos,infos,reg,begin,length,start);
 	};
-	
 	
 	
 	
@@ -145,7 +163,7 @@
 	{
 		var hello;
 		if(newText === baseText){
-			 hello="<strong>"+search+"</strong> "+this.getTranslation("notFound");
+			hello="<strong>"+search+"</strong> "+this.getTranslation("notFound");
 			("areaSearchMsg").innerHTML=hello;
 		}else{
 			this.textarea.value= newText;
