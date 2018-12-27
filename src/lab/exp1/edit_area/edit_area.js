@@ -92,7 +92,7 @@
 	};
 	EditArea.prototype.init= function(){
 		var t=this, a, s=t.settings;
-		var syntaxSelec;
+		var syntaxSelec,i,syntax;
 		t.textarea			= ("textarea");
 		t.container			= ("container");
 		t.result			= ("result");
@@ -105,21 +105,20 @@
 		t.testFontSize	= ("testFontSize");
 		a = t.textarea;
 		
-		if(!s["isEditable"])
-			t.set_editable(false);
+		if(!s["isEditable"]){
+			t.set_editable(false);}
 		
 		t.set_show_line_colors( s["show_line_colors"] );
 		
 		if(syntaxSelec=== $("syntax_selection"))
 		{
-			var i;
 			// set up syntax selection lsit in the toolbar
 			for(i=0; i<t.syntax_list.length; i++) {
-				var syntax= t.syntax_list.getElementById(i);
+				syntax= t.syntax_list.getElementById(i);
 				var option= document.createElement("option");
 				option.value= syntax;
-				if(syntax===s["syntax"])
-					option.selected= "selected";
+				if(syntax===s["syntax"]){
+					option.selected= "selected";}
 				var dispSyntax	= parent.editAreaLoader.syntax_display_name[ syntax ];
 				option.innerHTML= typeof( dispSyntax ) == "undefined" ? syntax.substring( 0, 1 ).toUpperCase() + syntax.substring( 1 ) : dispSyntax;//t.get_translation("syntax_" + syntax, "word");
 				syntaxSelec.appendChild(option);
@@ -127,20 +126,20 @@
 		}
 		
 		// add plugins buttons in the toolbar
-		var spans= parent.getChildren(_$("toolbar_1"), "span", "", "", "all", -1);
+		var spans= parent.getChildren(("toolbar_1"), "span", "", "", "all", -1);
 		
-		for(var i=0; i<spans.length; i++){
+		for(i=0; i<spans.length; i++){
 		
 			var id=spans[i].id.replace(/tmp_tool_(.*)/, "$1");
-			if(id!= spans[i].id){
+			if(id!== spans.getElementById(i).id){
 				for(var j in t.plugins){
-					if(typeof(t.plugins[j].get_control_html)=="function" ){
-						var html=t.plugins[j].get_control_html(id);
-						if(html!=false){
+					if(typeof(t.plugins.getElementById(j).get_control_html)=="function" ){
+						var html=t.plugins.getElementById(j).get_control_html(id);
+						if(html!==false){
 							html= t.get_translation(html, "template");
 							var newSpan= document.createElement("span");
 							newSpan.innerHTML= html;				
-							var father= spans[i].parentNode;
+							var father= spans.getElementById(i).parentNode;
 							spans[i].parentNode.replaceChild(newSpan, spans[i]);	
 							break; // exit the for loop					
 						}
@@ -200,11 +199,11 @@
 		// set unselectable text
 		var children= parent.getChildren(document.body, "", "selec", "none", "all", -1);
 		for(var i=0; i<children.length; i++){
-			if(t.isIE)
+			if(t.isIE){
 				children[i].unselectable = true; // IE
-			else
+			}else{
 				children[i].onmousedown= function(){return false};
-		/*	children[i].style.MozUserSelect = "none"; // Moz
+		/*	}children[i].style.MozUserSelect = "none"; // Moz
 			children[i].style.KhtmlUserSelect = "none";  // Konqueror/Safari*/
 		}
 		
@@ -237,9 +236,9 @@
 		// si le textarea n'est pas grand, un click sous le textarea doit provoquer un focus sur le textarea
 		parent.editAreaLoader.add_event(t.result, "click", function(e){ if((e.target || e.srcElement)==editArea.result) { editArea.area_select(editArea.textarea.value.length, 0);}  });
 		
-		if(s['is_multi_files']!=false)
-			t.openFile({'id': t.curr_file, 'text': ''});
-	
+		if(s['is_multi_files']!==false)
+		{t.openFile({'id': t.curr_file, 'text': ''});
+		}
 		t.setWordWrap( s['word_wrap'] );
 		
 		setTimeout("editArea.focus();editArea.manage_size();editArea.execCommand('EA_load');", 10);		
@@ -250,10 +249,10 @@
 		
 		for(var i in t.plugins){
 			if(typeof(t.plugins[i].onload)=="function")
-				t.plugins[i].onload();
+			{t.plugins[i].onload();}
 		}
 		if(s["fullscreen"]===true)
-			t.toggle_full_screen(true);
+		{t.toggle_full_screen(true);}
 	
 		parent.editAreaLoader.add_event(window, "resize", editArea.update_size);
 		parent.editAreaLoader.add_event(parent.window, "resize", editArea.update_size);
@@ -351,9 +350,9 @@
 			{
 				var newW=this.textarea.offsetWidth;
 				if( this.isFirefox || this.isIE )
-					newW-=2;
+				{newW-=2;}
 				if( this.isSafari )
-					newW-=6;
+				{newW-=6;}
 				this.content_highlight.style.width=this.selection_field_text.style.width=this.selection_field.style.width=this.test_font_size.style.width=newW+"px";
 			}
 			
@@ -398,7 +397,7 @@
 		}
 		
 		if(!onlyOneTime)
-			setTimeout("editArea.manage_size();", 100);
+		{setTimeout("editArea.manage_size();", 100);}
 	};
 	
 	EditArea.prototype.execCommand= function(cmd, param){
@@ -406,61 +405,61 @@
 		for(var i in this.plugins){
 			if(typeof(this.plugins[i].execCommand)=="function"){
 				if(!this.plugins[i].execCommand(cmd, param))
-					return;
+				{return;}
 			}
 		}
 		switch(cmd){
 			case "save":
 				if(this.settings["save_callback"].length>0)
-					eval("parent."+this.settings["save_callback"]+"('"+ this.id +"', editArea.textarea.value);");
+				{	eval("parent."+this.settings["save_callback"]+"('"+ this.id +"', editArea.textarea.value);");}
 				break;
 			case "load":
 				if(this.settings["load_callback"].length>0)
-					eval("parent."+this.settings["load_callback"]+"('"+ this.id +"');");
+				{eval("parent."+this.settings["load_callback"]+"('"+ this.id +"');");}
 				break;
 			case "onchange":
 				if(this.settings["change_callback"].length>0)
-					eval("parent."+this.settings["change_callback"]+"('"+ this.id +"');");
+				{	eval("parent."+this.settings["change_callback"]+"('"+ this.id +"');");}
 				break;		
 			case "EA_load":
 				if(this.settings["EA_load_callback"].length>0)
-					eval("parent."+this.settings["EA_load_callback"]+"('"+ this.id +"');");
+				{eval("parent."+this.settings["EA_load_callback"]+"('"+ this.id +"');");}
 				break;
 			case "EA_unload":
 				if(this.settings["EA_unload_callback"].length>0)
-					eval("parent."+this.settings["EA_unload_callback"]+"('"+ this.id +"');");
+				{	eval("parent."+this.settings["EA_unload_callback"]+"('"+ this.id +"');");}
 				break;
 			case "toggle_on":
 				if(this.settings["EA_toggle_on_callback"].length>0)
-					eval("parent."+this.settings["EA_toggle_on_callback"]+"('"+ this.id +"');");
+				{eval("parent."+this.settings["EA_toggle_on_callback"]+"('"+ this.id +"');");}
 				break;
 			case "toggle_off":
 				if(this.settings["EA_toggle_off_callback"].length>0)
-					eval("parent."+this.settings["EA_toggle_off_callback"]+"('"+ this.id +"');");
+				{eval("parent."+this.settings["EA_toggle_off_callback"]+"('"+ this.id +"');");}
 				break;
 			case "re_sync":
 				if(!this.do_highlight)
-					break;
+				{break;}
 			case "file_switch_on":
 				if(this.settings["EA_file_switch_on_callback"].length>0)
-					eval("parent."+this.settings["EA_file_switch_on_callback"]+"(param);");
+				{	eval("parent."+this.settings["EA_file_switch_on_callback"]+"(param);");}
 				break;
 			case "file_switch_off":
 				if(this.settings["EA_file_switch_off_callback"].length>0)
-					eval("parent."+this.settings["EA_file_switch_off_callback"]+"(param);");
+				{eval("parent."+this.settings["EA_file_switch_off_callback"]+"(param);");}
 				break;
 			case "file_close":
 				if(this.settings["EA_file_close_callback"].length>0)
-					return eval("parent."+this.settings["EA_file_close_callback"]+"(param);");
+				{	return eval("parent."+this.settings["EA_file_close_callback"]+"(param);");}
 				break;
 			
 			default:
 				if(typeof(eval("editArea."+cmd))=="function")
 				{
-					if(this.settings["debug"])
-						eval("editArea."+ cmd +"(param);");
-					else
-						try{eval("editArea."+ cmd +"(param);");}catch(e){};
+					if(this.settings["debug"]){
+						eval("editArea."+ cmd +"(param);");}
+					else{
+						try{eval("editArea."+ cmd +"(param);");}catch(e){};}
 				}
 		}
 	};
@@ -478,7 +477,7 @@
 				this.plugins[plugName]=plugObj;
 				plugObj.baseURL=parent.editAreaLoader.baseURL + "plugins/" + plugName + "/";
 				if( typeof(plugObj.init)=="function" )
-					plugObj.init();
+				{plugObj.init();}
 			}
 		}
 	};
