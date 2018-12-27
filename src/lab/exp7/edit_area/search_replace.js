@@ -17,60 +17,78 @@
 		setAttribute(icon, "class", getAttribute(icon, "class").replace(/ selected/g, "") );*/
 		this.closeInlinePopup("areaSearchReplace");
 	};
-	function checkSearch(reg,pos,posBegin,length,infos,start)
+	function checkPos(pos,start,length,infos,reg,posBegin)
 	{
-		if(("areaSearchRegExp").checked){
-			// regexp search
-			var opt="m";
-			if(!("areaSearchMatchCase").checked)
-			{
-				opt+="i";
-			}
-			reg= new RegExp(search, opt);
-			pos= infos["fullText"].substr(start).search(reg);
-			posBegin= infos["fullText"].search(reg);
-			if(pos !== -1){
+		if(pos !== -1){
 				pos+=start;
 				length=infos["fullText"].substr(start).match(reg)[0].length;
 			}else if(posBegin !== -1){
 				length=infos["fullText"].match(reg)[0].length;
 			}
-		}
-		else
-		{
-			if(("areaSearchMatchCase").checked){
+	}
+	function checkPos2(pos,posBegin,infos,start,search)
+	{
+		if(("areaSearchMatchCase").checked){
 				pos= infos["fullText"].indexOf(search, start); 
 				posBegin= infos["fullText"].indexOf(search); 
 			}else{
 				pos= infos["fullText"].toLowerCase().indexOf(search.toLowerCase(), start); 
 				posBegin= infos["fullText"].toLowerCase().indexOf(search.toLowerCase()); 
 			}		
+	}
+	function checkAreaearchMatchCase(opt)
+	{
+		if(!("areaSearchMatchCase").checked)
+			{
+				opt+="i";
+			}
+		return opt;
+	}
+	function checkSearch(reg,pos,posBegin,length,infos,start,search,begin)
+	{
+		if(("areaSearchRegExp").checked){
+			// regexp search
+			var opt="m";
+			opt=checkAreaearchMatchCase(opt);
+			reg= new RegExp(search, opt);
+			pos= infos["fullText"].substr(start).search(reg);
+			posBegin= infos["fullText"].search(reg);
+			checkPos(pos,start,length,infos,reg,posBegin);
+		}
+		else
+		{
+			checkPos2(pos,posBegin,infos,start,search);
 		}
 	}
-	function checkSearch2(pos,posBegin,hello,begin)
+	function checkSearch2Sub(pos,posBegin,hello,begin)
+	{
+		else if(pos === -1 && posBegin !== -1){
+			begin= posBegin;
+			hello=this.getTranslation("restartSearchAtBegin");
+			("areaSearchMsg").innerHTML=hello;
+		}
+	}
+	function checkSearch2(pos,posBegin,hello,begin,search)
 	{
 		if(pos === -1 && posBegin === -1){
 			hello="<strong>"+search+"</strong> "+this.getTranslation("notFound");
 			("areaSearchMsg").innerHTML=hello;
 			return;
-		}else if(pos === -1 && posBegin !== -1){
-			begin= posBegin;
-			hello=this.getTranslation("restartSearchAtBegin");
-			("areaSearchMsg").innerHTML=hello;
 		}else{
-			begin= pos;
+			return begin= pos;
 		}
+		checkSearch2Sub(pos,posBegin,hello,begin);
 	}
-	function checkSearch3(mode,pos,infos,reg,begin,length,start)
+	function checkSearch3Sub(reg,infos,begin,start,length,search)
 	{
-		if(mode === "replace" && pos === infos["indexOfCursor"]){
-			var replace= ("areaReplace").value;
-			var newText="";	
-			var opt="";
-			if(("areaSearchRegExp").checked){
-				 opt="m";
-				if(!("areaSearchMatchCase").checked){
-					opt+="i";}
+		var replace= ("areaReplace").value;
+		var newText="";	
+		var opt="";
+		if(("areaSearchRegExp").checked)
+		{
+			opt="m";
+			if(!("areaSearchMatchCase").checked){
+				opt+="i";}
 				reg= new RegExp(search, opt);
 				newText= infos["fullText"].substr(0, begin) + infos["fullText"].substr(start).replace(reg, replace);
 			}else{
@@ -79,10 +97,15 @@
 			this.textarea.value=newText;
 			this.areaSelect(begin, length);
 			this.areaSearch();
+	}
+	function checkSearch3(mode,pos,infos,reg,begin,length,start,search)
+	{
+		if(mode === "replace" && pos === infos["indexOfCursor"]){
+			checkSearch3Sub(reg,infos,begin,start,length,search);
 		}else{
 			this.areaSelect(begin, length);}
 	}
-	function check(hello,start)
+	function check(hello,start,mode,search)
 	{
 		if(("areaSearchReplace").style.visibility !== "visible"){
 			this.showSearch();
@@ -97,10 +120,10 @@
 		if(mode !== "replace" ){
 			if(("areaSearchRegExp").checked)
 			{
-				start++;
+				return start++;
 			}
 			else{
-				start+= search.length;
+				return start+= search.length;
 			}
 		}
 		
@@ -122,11 +145,11 @@
 		var length=search.length;
 		var begin,reg,hello;
 		
-		check(hello,start);
+		start=check(hello,start,mode,search);
 		//search
-		checkSearch(reg,pos,posBegin,length,infos,start);
+		checkSearch(reg,pos,posBegin,length,infos,start,search);
 		// interpret result
-		checkSearch2(pos,posBegin,hello,begin);
+		begin=checkSearch2(pos,posBegin,hello,begin,search);
 		//_$("area_search_msg").innerHTML+="<strong>"+search+"</strong> found at "+begin+" strat at "+start+" pos "+pos+" curs"+ infos["indexOfCursor"]+".";
 		checkSearch3(mode,pos,infos,reg,begin,length,start);
 	};
