@@ -51,14 +51,14 @@ editAreaLoader.load_syntax["css"] = {
 			'oblique', 'olive', 'once', 'open-quote', 'outset', 'outside', 'overline',
 			"pointer", "portrait", "purple", "px",
 			"red", "relative", "repeat-x", "repeat-y", "repeat", "rgb", "ridge", "right-side", "rightwards",
-			's-resize', 'sans-serif', 'scroll', 'se-resize', 'semi-condensed', 'semi-expanded', 'separate', 'serif', 'show', 'silent', 'silver', 'slow', 'slower', 'small-caps', 'small-caption', 'smaller', 'soft', 'solid', 'spell-out', 'square',
-			'static', 'status-bar', 'super', 'sw-resize',
-			'table-caption', 'table-cell', 'table-column', 'table-column-group', 'table-footer-group', 'table-header-group', 'table-row', 'table-row-group', 'teal', 'text', 'text-bottom', 'text-top', 'thick', 'thin', 'transparent',
-			'ultra-condensed', 'ultra-expanded', 'underline', 'upper-alpha', 'upper-latin', 'upper-roman', 'uppercase', 'url',
-			'visible',
-			'w-resize', 'wait', 'white', 'wider',
-			'x-fast', 'x-high', 'x-large', 'x-loud', 'x-low', 'x-small', 'x-soft', 'xx-large', 'xx-small',
-			'yellow', 'yes'
+			"s-resize", "sans-serif", "scroll", "se-resize", "semi-condensed", "semi-expanded", "separate", "serif", "show", "silent", "silver", "slow", "slower", "small-caps", "small-caption", "smaller", "soft", "solid", "spell-out", "square",
+			"static", "status-bar", "super", "sw-resize",
+			"table-caption", "table-cell", "table-column", "table-column-group", "table-footer-group", "table-header-group", "table-row", "table-row-group", "teal", "text", "text-bottom", "text-top", "thick", "thin", "transparent",
+			"ultra-condensed", "ultra-expanded", "underline", "upper-alpha", "upper-latin", "upper-roman", "uppercase", "url",
+			"visible",
+			"w-resize", "wait", "white", "wider",
+			"x-fast", "x-high", "x-large", "x-loud", "x-low", "x-small", "x-soft", "xx-large", "xx-small",
+			"yellow", "yes"
 		]
 		,'specials' : [
 			'important'
