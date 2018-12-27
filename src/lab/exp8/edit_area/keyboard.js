@@ -35,10 +35,10 @@ function keyDown(e){
 	}
 	
 	// send the event to the plugins
-	for(var i in EditArea.plugins){
-		if(typeof(EditArea.plugins.getElementById(i).onkeydown)==="function"){
-			if(EditArea.plugins.getElementById(i).onkeydown(e)===false){ // stop propaging
-				if(EditArea.isIE){
+	for(var i in editarea.plugins){
+		if(typeof(editarea.plugins.getElementById(i).onkeydown)==="function"){
+			if(editarea.plugins.getElementById(i).onkeydown(e)===false){ // stop propaging
+				if(editarea.isIE){
 					e.keyCode=0;}
 				return false;
 			}
@@ -55,50 +55,50 @@ function keyDown(e){
 	}
 	var lowLetter= letter.toLowerCase();
 			
-	if(letter==="Page up" && !altPressed(e) && !EditArea.isOpera){
-		EditArea.execCommand("scroll_page", {"dir": "up", "shift": shiftPressed(e)});
+	if(letter==="Page up" && !altPressed(e) && !editarea.isOpera){
+		editarea.execCommand("scroll_page", {"dir": "up", "shift": shiftPressed(e)});
 		use=true;
-	}else if(letter==="Page down" && !altPressed(e) && !EditArea.isOpera){
-		EditArea.execCommand("scroll_page", {"dir": "down", "shift": shiftPressed(e)});
+	}else if(letter==="Page down" && !altPressed(e) && !editarea.isOpera){
+		editarea.execCommand("scroll_page", {"dir": "down", "shift": shiftPressed(e)});
 		use=true;
-	}else if(EditArea.is_editable===false){
+	}else if(editarea.is_editable===false){
 		// do nothing but also do nothing else (allow to navigate with page up and page down)
 		return true;
 	}else if(letter==="Tabulation" && targetId==="textarea" && !ctrlPressed(e) && !altPressed(e)){	
 		if(shiftPressed(e))
 		{
-			EditArea.execCommand("invert_tab_selection");}
+			editarea.execCommand("invert_tab_selection");}
 		else
-		{	EditArea.execCommand("tab_selection");
+		{	editarea.execCommand("tab_selection");
 		}
 		use=true;
-		if(EditArea.isOpera || (EditArea.isFirefox && EditArea.isMac) )	// opera && firefox mac can't cancel tabulation events...
+		if(editarea.isOpera || (editarea.isFirefox && editarea.isMac) )	// opera && firefox mac can't cancel tabulation events...
 		{	setTimeout("editArea.execCommand('focus');", 1);}
 	}else if(letter==="Entrer" && targetId==="textarea"){
-		if(EditArea.press_enter())
+		if(editarea.press_enter())
 		{	use=true;}
 	}else if(letter==="Entrer" && targetId==="area_search"){
-		EditArea.execCommand("area_search");
+		editarea.execCommand("area_search");
 		use=true;
 	}else  if(letter==="Esc"){
-		EditArea.execCommand("close_all_inline_popup", e);
+		editarea.execCommand("close_all_inline_popup", e);
 		use=true;
 	}else if(ctrlPressed(e) && !altPressed(e) && !shiftPressed(e)){
 		switch(lowLetter){
 			case "f":				
-				EditArea.execCommand("area_search");
+				editarea.execCommand("area_search");
 				use=true;
 				break;
 			case "r":
-				EditArea.execCommand("area_replace");
+				editarea.execCommand("area_replace");
 				use=true;
 				break;
 			case "q":
-				EditArea.execCommand("close_all_inline_popup", e);
+				editarea.execCommand("close_all_inline_popup", e);
 				use=true;
 				break;
 			case "h":
-				EditArea.execCommand("change_highlight");			
+				editarea.execCommand("change_highlight");			
 				use=true;
 				break;
 			case "g":
@@ -106,16 +106,16 @@ function keyDown(e){
 				use=true;
 				break;
 			case "e":
-				EditArea.execCommand("show_help");
+				editarea.execCommand("show_help");
 				use=true;
 				break;
 			case "z":
 				use=true;
-				EditArea.execCommand("undo");
+				editarea.execCommand("undo");
 				break;
 			case "y":
 				use=true;
-				EditArea.execCommand("redo");
+				editarea.execCommand("redo");
 				break;
 			default:
 				break;			
@@ -123,7 +123,7 @@ function keyDown(e){
 	}		
 	
 	// check to disable the redo possibility if the textarea content change
-	if(EditArea.next.length > 0){
+	if(editarea.next.length > 0){
 		setTimeout("editArea.check_redo();", 10);
 	}
 	
@@ -132,7 +132,7 @@ function keyDown(e){
 	
 	if(use){
 		// in case of a control that sould'nt be used by IE but that is used => THROW a javascript error that will stop key action
-		if(EditArea.isIE)
+		if(editarea.isIE)
 		{e.keyCode=0;}
 		return false;
 	}
