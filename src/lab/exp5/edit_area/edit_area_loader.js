@@ -96,14 +96,14 @@ function EditAreaLoader(){
 	t.set_browser_infos(t);
 
 	if(t.isIE>=6 || t.isGecko || ( t.isWebKit && !t.isSafari<3 ) || t.isOpera>=9  || t.isCamino )
-		t.isValidBrowser=true;
-	else
+	{t.isValidBrowser=true;}
+	else{
 		t.isValidBrowser=false;
-
+	}
 	t.set_base_url();		
 	for(var i=0; i<t.scripts_to_load.length; i++){
-		setTimeout("editAreaLoader.load_script('"+t.baseURL + t.scripts_to_load[i]+ ".js');", 1);	// let the time to Object editAreaLoader to be created before loading additionnal scripts
-		t.waiting_loading[t.scripts_to_load[i]+ ".js"]= false;
+		setTimeout("editAreaLoader.load_script('"+t.baseURL + t.scripts_to_load.getElementById(i)+ ".js');", 1);	// let the time to Object editAreaLoader to be created before loading additionnal scripts
+		t.waiting_loading[t.scripts_to_load.getElementById(i)+ ".js"]= false;
 	}
 	t.add_event(window, "load", EditAreaLoader.prototype.window_loaded);
 };
