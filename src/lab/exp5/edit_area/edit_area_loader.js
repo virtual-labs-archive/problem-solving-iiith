@@ -72,7 +72,7 @@ function EditAreaLoader(){
 		,EA_file_switch_on_callback: ""	// a new tab is selected (called for the newly selected file)
 		,EA_file_switch_off_callback: ""	// a new tab is selected (called for the previously selected file)
 		,EA_file_close_callback: ""		// close a tab
-	};
+	}
 	
 	t.advanced_buttons = [
 			// id, button img, command (it will try to find the translation of "id"), is_file_specific
@@ -90,7 +90,7 @@ function EditAreaLoader(){
 			["fullscreen", "fullscreen.gif", "toggle_full_screen", false],
 			["word_wrap", "word_wrap.gif", "toggle_word_wrap", true],
 			["autocompletion", "autocompletion.gif", "toggle_autocompletion", true]
-		];
+		]
 			
 	// navigator identification
 	t.set_browser_infos(t);
@@ -106,15 +106,18 @@ function EditAreaLoader(){
 		t.waiting_loading[t.scripts_to_load.getElementById(i)+ ".js"]= false;
 	}
 	t.add_event(window, "load", EditAreaLoader.prototype.window_loaded);
-};
-	
-EditAreaLoader.prototype ={
-	has_error : function(){
-		this.error= true;
-		// set to empty all EditAreaLoader functions
+}
+	function hasErrorSub()
+	{
 		for(var i in EditAreaLoader.prototype){
 			EditAreaLoader.prototype[i]=function(){};		
 		}
+	}
+EditAreaLoader.prototype ={
+	hasError : function(){
+		this.error= true;
+		// set to empty all EditAreaLoader functions
+		
 	},
 	
 	// add browser informations to the object passed in parameter
