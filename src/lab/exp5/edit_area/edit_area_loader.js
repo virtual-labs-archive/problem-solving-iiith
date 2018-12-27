@@ -86,10 +86,10 @@ function EditAreaLoader(){
 			["highlight", "highlight.gif","hange_highlight", true],
 			["help", "help.gif", "show_help", false],
 			["save", "save.gif", "save", false],
-			['load', 'load.gif', 'load', false],
-			['fullscreen', 'fullscreen.gif', 'toggle_full_screen', false],
-			['word_wrap', 'word_wrap.gif', 'toggle_word_wrap', true],
-			['autocompletion', 'autocompletion.gif', 'toggle_autocompletion', true]
+			["load", "load.gif", "load", false],
+			["fullscreen", "fullscreen.gif", "toggle_full_screen", false],
+			["word_wrap", "word_wrap.gif", "toggle_word_wrap", true],
+			["autocompletion", "autocompletion.gif", "toggle_autocompletion", true]
 		];
 			
 	// navigator identification
