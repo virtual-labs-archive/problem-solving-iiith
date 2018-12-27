@@ -3,7 +3,16 @@
  *
  ****/  
 	
-	
+	function getaValue(elm,taName,aName,aValue)
+	{
+		for( i = 0; i < elm.attributes.length; i ++ ) {
+				taName = elm.attributes[i] .name.toLowerCase();
+				if( taName === aName ) {
+					aValue = elm.attributes[i] .value;
+					return aValue;
+				}
+			}
+	}
 	// need to redefine this functiondue to IE problem
 	function getAttribute( elm, aName ) {
 		var aValue,taName,i;
@@ -12,13 +21,7 @@
 		}catch(exept){}
 		
 		if( ! aValue ){
-			for( i = 0; i < elm.attributes.length; i ++ ) {
-				taName = elm.attributes[i] .name.toLowerCase();
-				if( taName === aName ) {
-					aValue = elm.attributes[i] .value;
-					return aValue;
-				}
-			}
+			aValue=getaValue(elm,taName,aName,aValue);
 		}
 		return aValue;
 	};
