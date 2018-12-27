@@ -1,9 +1,16 @@
 var EAKeys = {8:"Retour arriere",9:"Tabulation",12:"Milieu (pave numerique)",13:"Entrer",16:"Shift",17:"Ctrl",18:"Alt",19:"Pause",20:"Verr Maj",27:"Esc",32:"Space",33:"Page up",34:"Page down",35:"End",36:"Begin",37:"Left",38:"Up",39:"Right",40:"Down",44:"Impr ecran",45:"Inser",46:"Suppr",91:"Menu Demarrer Windows / touche pomme Mac",92:"Menu Demarrer Windows",93:"Menu contextuel Windows",112:"F1",113:"F2",114:"F3",115:"F4",116:"F5",117:"F6",118:"F7",119:"F8",120:"F9",121:"F10",122:"F11",123:"F12",144:"Verr Num",145:"Arret defil"};
 	
-function ctrlPressed(e) {
+function checkWindow(e)
+{
 	if (window.event) {
 		return (window.event.ctrlKey);
-	} else {
+	} 
+}
+function ctrlPressed(e) {
+	if(window){
+		checkWindow(e);
+	}
+	else
 		return (e.ctrlKey || (e.modifiers===2) || (e.modifiers===3) || (e.modifiers>5));
 	}
 }
