@@ -182,9 +182,13 @@ var EditArea_autocompletion= {
 		}
 		return true;
 	}
-	,_checkDelayAndCursorBeforeDisplay: function()
+	,_checkDandC: function()
 	{
 		this.checkDelayTimer = setTimeout("if(editArea.textarea.selectionStart == "+ editArea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - editArea.check_line_selection_timer - 5 );
+	}
+	,_checkDelayAndCursorBeforeDisplay: function()
+	{
+		_checkDandC();
 	}
 	// hide the suggested box
 	,_hideSub: function()
@@ -198,9 +202,13 @@ var EditArea_autocompletion= {
 	{
 		this.container.style.display="none";
 	}
-	,_hide: function(){
+	,_hideSub3: function()
+	{
 		_hideSub2();
 		_hideSub();
+	}
+	,_hide: function(){
+		_hideSub3();
 	}
 	// display the suggested box
 	,_showSub: function()
@@ -209,22 +217,34 @@ var EditArea_autocompletion= {
 			this.selectIndex	= -1;
 			this.shown	= true;
 	}
-	,_show: function(){
+	,_showSub2: function()
+	{
 		if( !this._isShown() )
 		{
 			_showSub();
 		}
 	}
+	,_show: function(){
+		_showSub2();
+	}
 	// is the suggested box displayed?
-	,_isShown: function(){
+	,_isShowSub: function()
+	{
 		return this.shown;
 	}
+	,_isShown: function(){
+		_isShowSub();
+	}
 	// setter and getter
-	,_isInMiddleWord: function( new_value ){
-		if( typeof( new_value ) == "undefined" )
-			return this.isInMiddleWord;
-		else
-			this.isInMiddleWord	= new_value;
+	,_checkNewValue: function(newValue)
+	{
+		if( typeof( newValue ) == "undefined" ){
+			return this.isInMiddleWord;}
+		else{
+			this.isInMiddleWord	= newValue;}
+	}
+	,_isInMiddleWord: function( newValue ){
+		_checkNewValue(newValue);
 	}
 	// select the next element in the suggested box
 	,_selectNext: function()
