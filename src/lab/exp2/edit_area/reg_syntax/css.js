@@ -50,7 +50,7 @@ editAreaLoader.load_syntax["css"] = {
 			'n-resize', 'narrower', 'navy', 'ne-resize', 'no-close-quote', 'no-open-quote', 'no-repeat', 'none', 'normal', 'nowrap', 'nw-resize',
 			'oblique', 'olive', 'once', 'open-quote', 'outset', 'outside', 'overline',
 			"pointer", "portrait", "purple", "px",
-			'red', 'relative', 'repeat-x', 'repeat-y', 'repeat', 'rgb', 'ridge', 'right-side', 'rightwards',
+			"red", "relative", "repeat-x", "repeat-y", "repeat", "rgb", "ridge", "right-side", "rightwards",
 			's-resize', 'sans-serif', 'scroll', 'se-resize', 'semi-condensed', 'semi-expanded', 'separate', 'serif', 'show', 'silent', 'silver', 'slow', 'slower', 'small-caps', 'small-caption', 'smaller', 'soft', 'solid', 'spell-out', 'square',
 			'static', 'status-bar', 'super', 'sw-resize',
 			'table-caption', 'table-cell', 'table-column', 'table-column-group', 'table-footer-group', 'table-header-group', 'table-row', 'table-row-group', 'teal', 'text', 'text-bottom', 'text-top', 'thick', 'thin', 'transparent',
