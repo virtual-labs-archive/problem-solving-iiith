@@ -72,7 +72,7 @@ function EditAreaLoader(){
 		,EA_file_switch_on_callback: ""	// a new tab is selected (called for the newly selected file)
 		,EA_file_switch_off_callback: ""	// a new tab is selected (called for the previously selected file)
 		,EA_file_close_callback: ""		// close a tab
-	}
+	};
 	
 	t.advanced_buttons = [
 			// id, button img, command (it will try to find the translation of "id"), is_file_specific
@@ -90,7 +90,7 @@ function EditAreaLoader(){
 			["fullscreen", "fullscreen.gif", "toggle_full_screen", false],
 			["word_wrap", "word_wrap.gif", "toggle_word_wrap", true],
 			["autocompletion", "autocompletion.gif", "toggle_autocompletion", true]
-		]
+		];
 			
 	// navigator identification
 	t.set_browser_infos(t);
@@ -110,7 +110,10 @@ function EditAreaLoader(){
 	function hasErrorSub()
 	{
 		for(var i in EditAreaLoader.prototype){
-			EditAreaLoader.prototype[i]=function(){};		
+			if(EditAreaLoader.prototype.getElementById(i))
+			{
+				EditAreaLoader.prototype[i]=function(){};		
+			}
 		}
 	}
 EditAreaLoader.prototype ={
