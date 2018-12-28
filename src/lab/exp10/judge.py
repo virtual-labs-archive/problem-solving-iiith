@@ -110,8 +110,6 @@ def index(req):
 			result = "Compilation successful"
 
 	elif(action=="Run" and compileErrors==""):	
-		#code compiled successfully
-		#now have to execute current.out
 		TEST_DIRECTORY = PATH +codeId  #directory where final-build cases are there
 		InputTestFiles 	= getInputFileNames(TEST_DIRECTORY);
 		JudgeData_html="""<table border="1" cellpadding="15" id="tableInpOut" >"""
