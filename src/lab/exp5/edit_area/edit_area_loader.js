@@ -112,18 +112,48 @@ function EditAreaLoader(){
 		for(var i in EditAreaLoader.prototype){
 			if(EditAreaLoader.prototype.getElementById(i))
 			{
-				EditAreaLoader.prototype[i]=function(){};		
+				EditAreaLoader.prototype.getElementById(i)=function(){};		
 			}
 		}
 	}
 EditAreaLoader.prototype ={
-	hasError : function(){
+	function hasError(){
 		this.error= true;
 		// set to empty all EditAreaLoader functions
 		
 	},
 	
 	// add browser informations to the object passed in parameter
+	function setBrowser(o,ua)
+	{
+		if(o.isFirefox =(ua.indexOf('Firefox') != -1))
+			o.isFirefox = ua.replace(/^.*?Firefox.*?([0-9\.]+).*$/i, "$1");
+		// Firefox clones 	
+		if( ua.indexOf('Iceweasel') != -1 )
+			o.isFirefox	= ua.replace(/^.*?Iceweasel.*?([0-9\.]+).*$/i, "$1");
+		if( ua.indexOf('GranParadiso') != -1 )
+			o.isFirefox	= ua.replace(/^.*?GranParadiso.*?([0-9\.]+).*$/i, "$1");
+	}
+	function checkBrowser2(o,ua)
+	{
+		if( ua.indexOf('BonEcho') != -1 )
+			o.isFirefox	= ua.replace(/^.*?BonEcho.*?([0-9\.]+).*$/i, "$1");
+		if( ua.indexOf('SeaMonkey') != -1)
+			o.isFirefox = (ua.replace(/^.*?SeaMonkey.*?([0-9\.]+).*$/i, "$1") ) + 1;
+			
+		if(o.isCamino =(ua.indexOf('Camino') != -1))
+			o.isCamino = ua.replace(/^.*?Camino.*?([0-9\.]+).*$/i, "$1");
+	}
+	function checkBrowser3(o,ua)
+	{
+		if(o.isSafari =(ua.indexOf('Safari') != -1))
+			o.isSafari= ua.replace(/^.*?Version\/([0-9]+\.[0-9]+).*$/i, "$1");
+	
+		if(o.isChrome =(ua.indexOf('Chrome') != -1)) {
+			o.isChrome = ua.replace(/^.*?Chrome.*?([0-9\.]+).*$/i, "$1");
+			o.isSafari	= false;
+		}
+	}
 	set_browser_infos : function(o){
 		var ua= navigator.userAgent;
 		
@@ -146,29 +176,9 @@ EditAreaLoader.prototype ={
 			o.isIE=false;			
 		}
 
-		if(o.isFirefox =(ua.indexOf('Firefox') != -1))
-			o.isFirefox = ua.replace(/^.*?Firefox.*?([0-9\.]+).*$/i, "$1");
-		// Firefox clones 	
-		if( ua.indexOf('Iceweasel') != -1 )
-			o.isFirefox	= ua.replace(/^.*?Iceweasel.*?([0-9\.]+).*$/i, "$1");
-		if( ua.indexOf('GranParadiso') != -1 )
-			o.isFirefox	= ua.replace(/^.*?GranParadiso.*?([0-9\.]+).*$/i, "$1");
-		if( ua.indexOf('BonEcho') != -1 )
-			o.isFirefox	= ua.replace(/^.*?BonEcho.*?([0-9\.]+).*$/i, "$1");
-		if( ua.indexOf('SeaMonkey') != -1)
-			o.isFirefox = (ua.replace(/^.*?SeaMonkey.*?([0-9\.]+).*$/i, "$1") ) + 1;
-			
-		if(o.isCamino =(ua.indexOf('Camino') != -1))
-			o.isCamino = ua.replace(/^.*?Camino.*?([0-9\.]+).*$/i, "$1");
-			
-		if(o.isSafari =(ua.indexOf('Safari') != -1))
-			o.isSafari= ua.replace(/^.*?Version\/([0-9]+\.[0-9]+).*$/i, "$1");
-	
-		if(o.isChrome =(ua.indexOf('Chrome') != -1)) {
-			o.isChrome = ua.replace(/^.*?Chrome.*?([0-9\.]+).*$/i, "$1");
-			o.isSafari	= false;
-		}
-		
+		checkBrowser(o,ua);
+		checkBrowser2(o,ua);
+		checkBrowser3(o,ua);
 	},
 	
 	window_loaded : function(){
