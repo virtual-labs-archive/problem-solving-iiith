@@ -182,58 +182,30 @@ var EditArea_autocompletion= {
 		}
 		return true;
 	}
-	,_checkDandC: function()
-	{
-		this.checkDelayTimer = setTimeout("if(editArea.textarea.selectionStart == "+ editArea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - editArea.check_line_selection_timer - 5 );
-	}
-	,_checkDelayAndCursorBeforeDisplay: function()
-	{
-		_checkDandC();
+	function checkDelayAndCursorBeforeDisplay(){
+		this.checkDelayTimer = setTimeout("if(editArea.textarea.selectionStart == "+ editarea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - editarea.check_line_selection_timer - 5 );
 	}
 	// hide the suggested box
-	,_hideSub: function()
-	{
+	function hide(){
 		this.selectIndex	= -1;
 		this.shown	= false;
 		this.forceDisplay	= false;
 		this.autoSelectIfOneResult = false;
-	}
-	,_hideSub2: function()
-	{
 		this.container.style.display="none";
 	}
-	,_hideSub3: function()
-	{
-		_hideSub2();
-		_hideSub();
-	}
-	,_hide: function(){
-		_hideSub3();
-	}
 	// display the suggested box
-	,_showSub: function()
-	{
-		this.container.style.display="block";
-			this.selectIndex	= -1;
-			this.shown	= true;
-	}
-	,_showSub2: function()
-	{
+	function show(){
+		
 		if( !this._isShown() )
 		{
-			_showSub();
+			this.container.style.display="block";
+			this.selectIndex	= -1;
+			this.shown	= true;
 		}
 	}
-	,_show: function(){
-		_showSub2();
-	}
 	// is the suggested box displayed?
-	,_isShowSub: function()
-	{
+	function isShown(){
 		return this.shown;
-	}
-	,_isShown: function(){
-		_isShowSub();
 	}
 	// setter and getter
 	,_checkNewValue: function(newValue)
