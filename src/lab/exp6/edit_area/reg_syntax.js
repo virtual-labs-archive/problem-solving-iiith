@@ -1,6 +1,7 @@
 	EditAreaLoader.prototype.get_regexp= function(text_array){
 		//res="( |=|\\n|\\r|\\[|\\(|µ|)(";
-		res="(\\b)(";
+		var res="(\\b)(";
+		var i=0;
 		for(i=0; i<text_array.length; i++){
 			if(i>0){
 				res+="|";}
@@ -10,7 +11,7 @@
 		}
 		//res+=")( |\\.|:|\\{|\\(|\\)|\\[|\\]|\'|\"|\\r|\\n|\\t|$)";
 		res+=")(\\b)";
-		reg= new RegExp(res);
+		var reg= new RegExp(res);
 		
 		return res;
 	};
@@ -30,11 +31,12 @@
 				this.keywords_reg_exp_nb=0;
 			
 				if(this.load_syntax[lang]['KEYWORDS']){
-					param="g";
-					if(this.load_syntax[lang]['KEYWORD_CASE_SENSITIVE']===false)
-						param+="i";
-					for(var i in this.load_syntax[lang]['KEYWORDS']){
-						if(typeof(this.load_syntax[lang]['KEYWORDS'][i])=="function"){
+					var param="g";
+					if(this.load_syntax[lang]['KEYWORD_CASE_SENSITIVE']===false){
+						param+="i";}
+					for(var i in this.load_syntax[lang]['KEYWORDS'])
+					{
+						if(typeof(this.load_syntax[lang]["KEYWORDS"].getElementById(i))=="function"){
 							continue;
 						}
 						this.syntax[lang]["keywords_reg_exp"][i]= new RegExp(this.get_regexp( this.load_syntax[lang]['KEYWORDS'][i] ), param);
