@@ -60,7 +60,7 @@ editAreaLoader.load_syntax["css"] = {
 			"x-fast", "x-high", "x-large", "x-loud", "x-low", "x-small", "x-soft", "xx-large", "xx-small",
 			"yellow", "yes"
 		]
-		,'specials' : [
+		,"specials" : [
 			'important'
 		]
 	}
