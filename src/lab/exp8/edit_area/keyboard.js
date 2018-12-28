@@ -95,7 +95,6 @@ function keyDown(e){
 			case "f":				
 				editarea.execCommand("area_search");
 				use=true;
-				break;
 			case "r":
 				editarea.execCommand("area_replace");
 				use=true;
@@ -140,7 +139,7 @@ function keyDown(e){
 	if(use){
 		// in case of a control that sould'nt be used by IE but that is used => THROW a javascript error that will stop key action
 		if(editarea.isIE)
-		{e.keyCode=0;}
+			e.keyCode=0
 		return false;
 	}
 	//alert("Test: "+ letter + " ("+e.keyCode+") ALT: "+ AltPressed(e) + " CTRL "+ CtrlPressed(e) + " SHIFT "+ ShiftPressed(e));
