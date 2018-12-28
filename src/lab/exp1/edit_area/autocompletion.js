@@ -182,11 +182,11 @@ var EditArea_autocompletion= {
 		}
 		return true;
 	}
-	function checkDelayAndCursorBeforeDisplay(){
+	,_checkDelayAndCursorBeforeDisplay(){
 		this.checkDelayTimer = setTimeout("if(editArea.textarea.selectionStart == "+ editarea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - editarea.check_line_selection_timer - 5 );
 	}
 	// hide the suggested box
-	function hide(){
+	,_hide(){
 		this.selectIndex	= -1;
 		this.shown	= false;
 		this.forceDisplay	= false;
@@ -194,7 +194,7 @@ var EditArea_autocompletion= {
 		this.container.style.display="none";
 	}
 	// display the suggested box
-	function show(){
+	,_show(){
 		
 		if( !this._isShown() )
 		{
@@ -204,7 +204,7 @@ var EditArea_autocompletion= {
 		}
 	}
 	// is the suggested box displayed?
-	function isShown(){
+	,_isShown(){
 		return this.shown;
 	}
 	// setter and getter
