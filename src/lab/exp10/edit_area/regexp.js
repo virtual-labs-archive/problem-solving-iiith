@@ -51,10 +51,10 @@
 		}else{
 			// the closing tag must be set only if the comment or quotes is closed 
 			reg= new RegExp(parent.editAreaLoader.get_escaped_regexp(close_tag)+"$", "m");
-			if( arg.search(reg)!=-1 )
-				return "µ__"+ new_class +"__µ"+ arg +"µ_END_µ";
-			else
-				return "µ__"+ new_class +"__µ"+ arg;
+			if( arg.search(reg)!=-1 ){
+				return "µ__"+ new_class +"__µ"+ arg +"µ_END_µ";}
+			else{
+				return "µ__"+ new_class +"__µ"+ arg;}
 		}
 	};
 	
