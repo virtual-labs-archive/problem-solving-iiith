@@ -61,25 +61,25 @@ editAreaLoader.load_syntax["css"] = {
 			"yellow", "yes"
 		]
 		,"specials" : [
-			'important'
+			"important"
 		]
 	}
-	,'OPERATORS' :[
-		':', ';', '!', '.', '#'
+	,"OPERATORS" :[
+		":", ";", "!", ".", "#"
 	]
-	,'DELIMITERS' :[
-		'{', '}'
+	,"DELIMITERS" :[
+		"{", "}"
 	]
-	,'STYLES' : {
-		'COMMENTS': 'color: #AAAAAA;'
-		,'QUOTESMARKS': 'color: #6381F8;'
-		,'KEYWORDS' : {
-			'attributes' : 'color: #48BDDF;'
-			,'values' : 'color: #2B60FF;'
-			,'specials' : 'color: #FF0000;'
+	,"STYLES" : {
+		"COMMENTS": "color: #AAAAAA;"
+		,"QUOTESMARKS": "color: #6381F8;"
+		,"KEYWORDS" : {
+			"attributes" : "color: #48BDDF;"
+			,"values" : "color: #2B60FF;"
+			,"specials" : "color: #FF0000;"
 			}
-		,'OPERATORS' : 'color: #FF00FF;'
-		,'DELIMITERS' : 'color: #60CA00;'
+		,"OPERATORS" : "color: #FF00FF;"
+		,"DELIMITERS" : "color: #60CA00;"
 				
 	}
 };
