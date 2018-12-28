@@ -1,4 +1,93 @@
-	
+	function checkEditArea(t)
+	{
+		if(t.settings["syntax_selection_allow"] && t.settings["syntax_selection_allow"].length>0){
+			t.syntaxList= t.settings["syntax_selection_allow"].replace(/ /g,"").split(",");
+		}
+		if(t.settings["syntax"]){
+			t.allreadyUsedSyntax[t.settings["syntax"]]=true;
+		}
+	}
+	function EditArea(){
+		var t=this,areaId;
+		t.error= false;	// to know if load is interrrupt
+
+		t.inlinePopup= [{popupId: "area_search_replace", iconId: "search"},
+									{popupId: "edit_area_help", iconId: "help"}];
+		t.plugins= {};
+
+		t.lineNumber=0;
+
+		parent.editAreaLoader.set_browser_infos(t); 	// navigator identification
+		// fix IE8 detection as we run in IE7 emulate mode through X-UA <meta> tag
+		if( t.isIE >= 8 ){
+			t.isIE	= 7;
+		}
+		t.lastSelection={};		
+		t.lastTextToHighlight="";
+		t.lastHightlightedText= "";
+		t.syntaxList= [];
+		t.allreadyUsedSyntax= {};
+		t.checkLineSelectionTimer= 50;	// the timer delay for modification and/or selection change detection
+
+		t.textareaFocused= false;
+		t.highlightSelectionLine= null;
+		t.previous= [];
+		t.next= [];
+		t.lastUndo="";
+		t.files= {};
+		t.filesIdAssoc= {};
+		t.currFile="";
+		//t.loaded= false;
+		t.assocBracket={};
+		t.revertAssocBracket= {};		
+		// bracket selection init 
+		t.assocBracket["("]=")";
+		t.assocBracket["{"]="}";
+		t.assocBracket["["]="]";		
+		for(var index in t.assocBracket){
+			if(t.revertAssocBracket[t.assocBracket[index]]){
+			t.revertAssocBracket[t.assocBracket[index]]=index;}
+		}
+		t.isEditable= true;
+
+
+		/*t.textarea="";	
+		
+		t.state="declare";
+		t.code = []; // store highlight syntax for languagues*/
+		// font datas
+		t.lineHeight= 16;
+		/*t.default_font_family= "monospace";
+		t.default_font_size= 10;*/
+		t.tabNbChar= 8;	//nb of white spaces corresponding to a tabulation
+		if(t.isOpera){
+			t.tabNbChar= 6;
+		}
+		t.isTabbing= false;
+
+		t.fullscreen= {"isFull": false};
+
+		t.isResizing=false;	// resize var
+
+		// init with settings and ID (area_id is a global var defined by editAreaLoader on iframe creation
+		t.id= areaId;
+		t.settings= editAreas[t.id]["settings"];
+
+		if((""+t.settings["replace_tab_by_spaces"]).match(/^[0-9]+$/))
+		{
+			t.tabNbChar= t.settings["replace_tab_by_spaces"];
+			t.tabulation="";
+			for(var i=0; i<t.tab_nb_char; i++)
+				t.tabulation+=" ";
+		}else{
+			t.tabulation="\t";
+		}
+		checkEditArea(t);
+		// retrieve the init parameter for syntax
+		
+
+	};	
+
 	EditAreaLoader.prototype.start_resize_area= function(){
 		var d=document,a,div,width,height,father;
 		
