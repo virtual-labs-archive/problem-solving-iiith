@@ -11,7 +11,6 @@
 		}
 		//res+=")( |\\.|:|\\{|\\(|\\)|\\[|\\]|\'|\"|\\r|\\n|\\t|$)";
 		res+=")(\\b)";
-		var reg= new RegExp(res);
 		
 		return res;
 	};
@@ -23,6 +22,7 @@
 	
 	EditAreaLoader.prototype.init_syntax_regexp= function(){
 		var lang_style= {};	
+		var i;
 		for(var lang in this.load_syntax){
 			if(!this.syntax[lang])	// init the regexp if not already initialized
 			{
@@ -32,9 +32,9 @@
 			
 				if(this.load_syntax[lang]['KEYWORDS']){
 					var param="g";
-					if(this.load_syntax[lang]['KEYWORD_CASE_SENSITIVE']===false){
+					if(this.load_syntax[lang]["KEYWORD_CASE_SENSITIVE"]===false){
 						param+="i";}
-					for(var i in this.load_syntax[lang]['KEYWORDS'])
+					for( i in this.load_syntax[lang]["KEYWORDS"])
 					{
 						if(typeof(this.load_syntax[lang]["KEYWORDS"].getElementById(i))=="function"){
 							continue;
@@ -47,10 +47,10 @@
 				if(this.load_syntax[lang]['OPERATORS']){
 					var str="";
 					var nb=0;
-					for(var i in this.load_syntax[lang]['OPERATORS']){
-						if(typeof(this.load_syntax[lang]['OPERATORS'][i])=="function") continue;
-						if(nb>0)
-							str+="|";				
+					for(i in this.load_syntax[lang]["OPERATORS"]){
+						if(typeof(this.load_syntax[lang]["OPERATORS"][i])=="function") continue;
+						if(nb>0){
+							str+="|";}				
 						str+=this.get_escaped_regexp(this.load_syntax[lang]['OPERATORS'][i]);
 						nb++;
 					}
@@ -58,14 +58,14 @@
 						this.syntax[lang]["operators_reg_exp"]= new RegExp("("+str+")","g");
 				}
 				
-				if(this.load_syntax[lang]['DELIMITERS']){
+				if(this.load_syntax[lang]["DELIMITERS"]){
 					var str="";
 					var nb=0;
-					for(var i in this.load_syntax[lang]['DELIMITERS']){
-						if(typeof(this.load_syntax[lang]['DELIMITERS'][i])=="function") continue;
+					for(i in this.load_syntax[lang]["DELIMITERS"]){
+						if(typeof(this.load_syntax[lang]["DELIMITERS"][i])=="function") continue;
 						if(nb>0)
 							str+="|";
-						str+=this.get_escaped_regexp(this.load_syntax[lang]['DELIMITERS'][i]);
+						str+=this.get_escaped_regexp(this.load_syntax[lang]["DELIMITERS"][i]);
 						nb++;
 					}
 					if(str.length>0)
@@ -81,7 +81,7 @@
 				this.syntax[lang]["quotes"]={};
 				var quote_tab= [];
 				if(this.load_syntax[lang]['QUOTEMARKS']){
-					for(var i in this.load_syntax[lang]['QUOTEMARKS']){	
+					for(i in this.load_syntax[lang]['QUOTEMARKS']){	
 						if(typeof(this.load_syntax[lang]['QUOTEMARKS'][i])=="function") continue;			
 						var x=this.get_escaped_regexp(this.load_syntax[lang]['QUOTEMARKS'][i]);
 						this.syntax[lang]["quotes"][x]=x;
@@ -95,7 +95,7 @@
 						
 				this.syntax[lang]["comments"]={};
 				if(this.load_syntax[lang]['COMMENT_SINGLE']){
-					for(var i in this.load_syntax[lang]['COMMENT_SINGLE']){	
+					for(i in this.load_syntax[lang]['COMMENT_SINGLE']){	
 						if(typeof(this.load_syntax[lang]['COMMENT_SINGLE'][i])=="function") continue;						
 						var x=this.get_escaped_regexp(this.load_syntax[lang]['COMMENT_SINGLE'][i]);
 						quote_tab[quote_tab.length]="("+x+"(.|\\r|\\t)*(\\n|$))";
@@ -105,7 +105,7 @@
 				}		
 				// (/\*(.|[\r\n])*?\*/)
 				if(this.load_syntax[lang]['COMMENT_MULTI']){
-					for(var i in this.load_syntax[lang]['COMMENT_MULTI']){
+					for(i in this.load_syntax[lang]['COMMENT_MULTI']){
 						if(typeof(this.load_syntax[lang]['COMMENT_MULTI'][i])=="function") continue;							
 						var start=this.get_escaped_regexp(i);
 						var end=this.get_escaped_regexp(this.load_syntax[lang]['COMMENT_MULTI'][i]);
@@ -123,7 +123,7 @@
 				
 				if(this.load_syntax[lang]['SCRIPT_DELIMITERS']){
 					this.syntax[lang]["script_delimiters"]= {};
-					for(var i in this.load_syntax[lang]['SCRIPT_DELIMITERS']){
+					for(i in this.load_syntax[lang]['SCRIPT_DELIMITERS']){
 						if(typeof(this.load_syntax[lang]['SCRIPT_DELIMITERS'][i])=="function") continue;							
 						this.syntax[lang]["script_delimiters"][i]= this.load_syntax[lang]['SCRIPT_DELIMITERS'];
 					}			
@@ -131,7 +131,7 @@
 				
 				this.syntax[lang]["custom_regexp"]= {};
 				if(this.load_syntax[lang]['REGEXPS']){
-					for(var i in this.load_syntax[lang]['REGEXPS']){
+					for(i in this.load_syntax[lang]['REGEXPS']){
 						if(typeof(this.load_syntax[lang]['REGEXPS'][i])=="function") continue;
 						var val= this.load_syntax[lang]['REGEXPS'][i];
 						if(!this.syntax[lang]["custom_regexp"][val['execute']])
@@ -143,7 +143,7 @@
 				
 				if(this.load_syntax[lang]['STYLES']){							
 					lang_style[lang]= {};
-					for(var i in this.load_syntax[lang]['STYLES']){
+					for(i in this.load_syntax[lang]['STYLES']){
 						if(typeof(this.load_syntax[lang]['STYLES'][i])=="function") continue;
 						if(typeof(this.load_syntax[lang]['STYLES'][i]) != "string"){
 							for(var j in this.load_syntax[lang]['STYLES'][i]){							
@@ -156,7 +156,7 @@
 				}
 				// build style string
 				var style="";		
-				for(var i in lang_style[lang]){
+				for(i in lang_style[lang]){
 					if(lang_style[lang][i].length>0){
 						style+= "."+ lang +" ."+ i.toLowerCase() +" span{"+lang_style[lang][i]+"}\n";
 						style+= "."+ lang +" ."+ i.toLowerCase() +"{"+lang_style[lang][i]+"}\n";				
