@@ -35,7 +35,8 @@
 					if(this.load_syntax[lang]['KEYWORD_CASE_SENSITIVE']===false)
 						param+="i";
 					for(var i in this.load_syntax[lang]['KEYWORDS']){
-						if(typeof(this.load_syntax[lang]['KEYWORDS'][i])=="function") {continue};
+						var i;
+						if(typeof(this.load_syntax[lang]['KEYWORDS'][i])=="function") {continue}
 						this.syntax[lang]["keywords_reg_exp"][i]= new RegExp(this.get_regexp( this.load_syntax[lang]['KEYWORDS'][i] ), param);
 						this.keywords_reg_exp_nb++;
 					}
