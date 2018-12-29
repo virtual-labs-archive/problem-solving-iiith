@@ -183,12 +183,12 @@ var EditArea_autocompletion= {
 		}
 		return true;
 	}
-	,_checkDelayAndCursorBeforeDisplay: function()
-	{
+	,_checkDelayAndCursorBeforeDisplay()
+	{        var editArea;
 		this.checkDelayTimer = setTimeout("if(editArea.textarea.selectionStart == "+ editArea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - editArea.check_line_selection_timer - 5 );
 	}
 	// hide the suggested box
-	,_hide: function(){
+	,_hide(){
 		this.container.style.display="none";
 		this.selectIndex	= -1;
 		this.shown	= false;
@@ -196,7 +196,7 @@ var EditArea_autocompletion= {
 		this.autoSelectIfOneResult = false;
 	}
 	// display the suggested box
-	,_show: function(){
+	,_show(){
 		if( !this._isShown() )
 		{
 			this.container.style.display="block";
