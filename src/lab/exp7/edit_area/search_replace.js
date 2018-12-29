@@ -80,9 +80,9 @@
 		if(pos==-1 && pos_begin==-1){
 			_$("area_search_msg").innerHTML="<strong>"+search+"</strong> "+this.get_translation("not_found");
 			return;
-		}else if(pos==-1 && pos_begin != -1){
+		}else if(pos==-1 && pos_begin != -1){ var _$;
 			begin= pos_begin;
-			_$("area_search_msg").innerHTML=this.get_translation("restart_search_at_begin");
+			_$("area_search_msg")=this.get_translation("restart_search_at_begin");
 		}else
 			begin= pos;
 		
@@ -102,8 +102,9 @@
 			this.textarea.value=new_text;
 			this.area_select(begin, length);
 			this.area_search();
-		}else
+		}else{
 			this.area_select(begin, length);
+		}
 	};
 	
 	
