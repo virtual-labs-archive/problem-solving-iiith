@@ -1,5 +1,5 @@
 editAreaLoader.load_syntax["pas"] = {
-	'DISPLAY_NAME' : "Pascal"
+	"DISPLAY_NAME" : "Pascal"
 	,'COMMENT_SINGLE' : {}
 	,'COMMENT_MULTI' : {'{' : '}', '(*':'*)'}
 	,'QUOTEMARKS' : {1: '"', 2: "'"}
@@ -50,8 +50,8 @@ editAreaLoader.load_syntax["pas"] = {
 			'SeekEoln', 'Seg', 'SetMemoryManager', 'SetJmp',
 			'SetLength', 'SetString', 'SetTextBuf', 'Sin', 'SizeOf',
 			'Sptr', 'Sqr', 'Sqrt', 'SSeg', 'Str', 'StringOfChar',
-			'Succ', 'Swap', 'Trunc', 'Truncate', 'Upcase', 'Val',
-			'Write', 'WriteLn'
+			"Succ", "Swap", "Trunc", "Truncate", "Upcase", "Val",
+			"Write", "WriteLn"
 		]
 		,'types' : [
 			'Integer', 'Shortint', 'SmallInt', 'Longint',
