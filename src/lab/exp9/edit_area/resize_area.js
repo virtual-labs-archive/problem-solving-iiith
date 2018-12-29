@@ -54,9 +54,9 @@
 
 		t.fullscreen= {"isFull": false};
 
-		t.isResizing=false
+		t.isResizing=false;
 		t.id= areaId;
-		t.settings= EditAreas[t.id]["settings"];
+		t.settings= EditArea[t.id]["settings"];
 	}
 	function EditArea(){
 		var t=this,areaId;
