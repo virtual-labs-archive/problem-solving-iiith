@@ -26,13 +26,13 @@
 	
 	// determine if the selected text if a comment or a quoted text
 	EditArea.prototype.comment_or_quote= function(){
-		var new_class="", close_tag="", sy, arg, i;
+		var newClass="", close_tag="", sy, arg, i;
 		sy 		= parent.editAreaLoader.syntax[editArea.current_code_lang];
 		arg		= EditArea.prototype.comment_or_quote.arguments[0];
 		
 		for( i in sy["quotes"] ){
 			if(arg.indexOf(i)==0){
-				new_class="quotesmarks";
+				newClass="quotesmarks";
 				close_tag=sy["quotes"][i];
 			}
 		}
@@ -40,21 +40,21 @@
 		{
 			for(var i in sy["comments"]){
 				if( arg.indexOf(i)==0 ){
-					new_class="comments";
+					newClass="comments";
 					close_tag=sy["comments"][i];
 				}
 			}
 		}
 		// for single line comment the \n must not be included in the span tags
 		if(close_tag=="\n"){
-			return "µ__"+ new_class +"__µ"+ arg.replace(/(\r?\n)?$/m, "µ_END_µ$1");
+			return "µ__"+ newClass +"__µ"+ arg.replace(/(\r?\n)?$/m, "µ_END_µ$1");
 		}else{
 			// the closing tag must be set only if the comment or quotes is closed 
-			reg= new RegExp(parent.editAreaLoader.get_escaped_regexp(close_tag)+"$", "m");
-			if( arg.search(reg)!=-1 ){
-				return "µ__"+ new_class +"__µ"+ arg +"µ_END_µ";}
+			var reg= new RegExp(parent.editAreaLoader.get_escaped_regexp(close_tag)+"$", "m");
+			if( arg.search(reg)!==-1 ){
+				return "µ__"+ newClass +"__µ"+ arg +"µ_END_µ";}
 			else{
-				return "µ__"+ new_class +"__µ"+ arg;}
+				return "µ__"+ newClass +"__µ"+ arg;}
 		}
 	};
 	
@@ -95,7 +95,8 @@
 	};
 	
 	EditArea.prototype.apply_syntax= function(text, lang){
-		var sy;
+		var sy={}{};
+		var i;
 		this.current_code_lang=lang;
 	
 		if(!parent.editAreaLoader.syntax[lang])
@@ -103,7 +104,7 @@
 			
 		sy = parent.editAreaLoader.syntax[lang];
 		if(sy["custom_regexp"]['before']){
-			for( var i in sy["custom_regexp"]['before']){
+			for( i in sy["custom_regexp"]['before']){
 				var convert="$1µ__"+ sy["custom_regexp"]['before'][i]['class'] +"__µ$2µ_END_µ$3";
 				text= text.replace(sy["custom_regexp"]['before'][i]['regexp'], convert);
 			}
@@ -115,7 +116,7 @@
 		}
 		
 		if(sy["keywords_reg_exp"]){
-			for(var i in sy["keywords_reg_exp"]){	
+			for(i in sy["keywords_reg_exp"]){	
 				text= text.replace(sy["keywords_reg_exp"][i], 'µ__'+i+'__µ$2µ_END_µ');
 			}			
 		}
@@ -129,7 +130,7 @@
 		}
 		
 		if(sy["custom_regexp"]['after']){
-			for( var i in sy["custom_regexp"]['after']){
+			for(i in sy["custom_regexp"]['after']){
 				var convert="$1µ__"+ sy["custom_regexp"]['after'][i]['class'] +"__µ$2µ_END_µ$3";
 				text= text.replace(sy["custom_regexp"]['after'][i]['regexp'], convert);			
 			}
