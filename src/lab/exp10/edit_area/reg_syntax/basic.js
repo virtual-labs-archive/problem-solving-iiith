@@ -54,7 +54,7 @@ editAreaLoader.load_syntax["basic"] = {
 	,'DELIMITERS' :[
 		'(', ')', '[', ']', '{', '}'
 	]
-	,'STYLES' : {
+	,"STYLES" : {
 		'COMMENTS': 'color: #99CC00;'
 		,'QUOTESMARKS': 'color: #333399;'
 		,'KEYWORDS' : {
