@@ -148,7 +148,7 @@ var EditArea_autocompletion= {
 		}
 		
 		// wait a short period for check that the cursor isn't moving
-		setTimeout("editArea.plugins['autocompletion']._checkDelayAndCursorBeforeDisplay();", EditArea.check_line_selection_timer +5 );
+		setTimeout("editArea.plugins['autocompletion']._checkDelayAndCursorBeforeDisplay();", editarea.check_line_selection_timer +5 );
 		this.checkDelayTimer = false;
 		return true;
 	}	
@@ -183,7 +183,7 @@ var EditArea_autocompletion= {
 		return true;
 	}
 	,_checkDelayAndCursorBeforeDisplay(){
-		this.checkDelayTimer = setTimeout("if(editArea.textarea.selectionStart == "+ editarea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - editarea.check_line_selection_timer - 5 );
+		this.checkDelayTimer = setTimeout("if(editArea.textarea.selectionStart == "+ EditArea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - EditArea.check_line_selection_timer - 5 );
 	}
 	// hide the suggested box
 	,_hide(){
