@@ -7,6 +7,57 @@
 			t.allreadyUsedSyntax[t.settings["syntax"]]=true;
 		}
 	}
+	function checkEditArea2(t)
+	{
+		if((""+t.settings["replace_tab_by_spaces"]).match(/^[0-9]+$/))
+		{
+			t.tabNbChar= t.settings["replace_tab_by_spaces"];
+			t.tabulation="";
+			for(var i=0; i<t.tab_nb_char; i++)
+			{	t.tabulation+=" ";}
+		}else{
+			t.tabulation="\t";
+		}
+		return t.tabulation;
+	}
+	function checkEditArea4(t)
+	{
+		t.textareaFocused= false;
+		t.highlightSelectionLine= null;
+		t.previous= [];
+		t.next= [];
+		t.lastUndo="";
+		t.files= {};
+		t.filesIdAssoc= {};
+		t.currFile="";
+		//t.loaded= false;
+		t.assocBracket={};
+		t.revertAssocBracket= {};		
+		// bracket selection init 
+		t.assocBracket["("]=")";
+		t.assocBracket["{"]="}";
+		t.assocBracket["["]="]";		
+		for(var index in t.assocBracket){
+			if(t.revertAssocBracket[t.assocBracket.getElementById(index)]){
+			t.revertAssocBracket[t.assocBracket.getElementById(index)]=index;}
+		}
+	}
+	function checkEditArea3(t,areaId)
+	{
+	
+		t.lineHeight= 16;
+		t.tabNbChar= 8;
+		if(t.isOpera){
+			t.tabNbChar= 6;
+		}
+		t.isTabbing= false;
+
+		t.fullscreen= {"isFull": false};
+
+		t.isResizing=false
+		t.id= areaId;
+		t.settings= EditAreas[t.id]["settings"];
+	}
 	function EditArea(){
 		var t=this,areaId;
 		t.error= false;	// to know if load is interrrupt
@@ -27,66 +78,16 @@
 		t.lastHightlightedText= "";
 		t.syntaxList= [];
 		t.allreadyUsedSyntax= {};
-		t.checkLineSelectionTimer= 50;	// the timer delay for modification and/or selection change detection
-
-		t.textareaFocused= false;
-		t.highlightSelectionLine= null;
-		t.previous= [];
-		t.next= [];
-		t.lastUndo="";
-		t.files= {};
-		t.filesIdAssoc= {};
-		t.currFile="";
-		//t.loaded= false;
-		t.assocBracket={};
-		t.revertAssocBracket= {};		
-		// bracket selection init 
-		t.assocBracket["("]=")";
-		t.assocBracket["{"]="}";
-		t.assocBracket["["]="]";		
-		for(var index in t.assocBracket){
-			if(t.revertAssocBracket[t.assocBracket[index]]){
-			t.revertAssocBracket[t.assocBracket[index]]=index;}
-		}
+		t.checkLineSelectionTimer= 50;
+		checkEditArea4(t);
 		t.isEditable= true;
-
-
-		/*t.textarea="";	
-		
-		t.state="declare";
-		t.code = []; // store highlight syntax for languagues*/
-		// font datas
-		t.lineHeight= 16;
-		/*t.default_font_family= "monospace";
-		t.default_font_size= 10;*/
-		t.tabNbChar= 8;	//nb of white spaces corresponding to a tabulation
-		if(t.isOpera){
-			t.tabNbChar= 6;
-		}
-		t.isTabbing= false;
-
-		t.fullscreen= {"isFull": false};
-
-		t.isResizing=false;	// resize var
-
-		// init with settings and ID (area_id is a global var defined by editAreaLoader on iframe creation
-		t.id= areaId;
-		t.settings= editAreas[t.id]["settings"];
-
-		if((""+t.settings["replace_tab_by_spaces"]).match(/^[0-9]+$/))
-		{
-			t.tabNbChar= t.settings["replace_tab_by_spaces"];
-			t.tabulation="";
-			for(var i=0; i<t.tab_nb_char; i++)
-				t.tabulation+=" ";
-		}else{
-			t.tabulation="\t";
-		}
+		checkEditArea3(t,areaId);
+		t.tabilation=checkEditArea2(t);
 		checkEditArea(t);
 		// retrieve the init parameter for syntax
 		
 
-	};	
+	}	
 
 	EditAreaLoader.prototype.start_resize_area= function(){
 		var d=document,a,div,width,height,father;
