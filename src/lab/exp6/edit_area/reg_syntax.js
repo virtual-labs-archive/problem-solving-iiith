@@ -2,7 +2,7 @@
 		//res="( |=|\\n|\\r|\\[|\\(|µ|)(";
 		res="(\\b)(";
 		for(i=0; i<text_array.length; i++){
-			if(i>0){
+			if(var i>0){
 				res+="|";
 			//res+="("+ tab_text[i] +")";
 			//res+=tab_text[i].replace(/(\.|\?|\*|\+|\\|\(|\)|\[|\]|\{|\})/g, "\\$1");
@@ -44,11 +44,12 @@
 				
 				if(this.load_syntax[lang]['OPERATORS']){
 					var str="";
-					var nb=0;
-					for(var i in this.load_syntax[lang]['OPERATORS']){
+					var nb=0; 
+					for( i in this.load_syntax[lang]['OPERATORS']){
 						if(typeof(this.load_syntax[lang]['OPERATORS'][i])=="function") continue;
-						if(nb>0)
-							str+="|";				
+						if(nb>0){
+							str+="|";
+						}				
 						str+=this.get_escaped_regexp(this.load_syntax[lang]['OPERATORS'][i]);
 						nb++;
 					}
