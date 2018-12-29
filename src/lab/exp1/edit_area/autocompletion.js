@@ -183,7 +183,7 @@ var EditArea_autocompletion= {
 		return true;
 	}
 	,_checkDelayAndCursorBeforeDisplay(){
-		this.checkDelayTimer = setTimeout("if(editArea.textarea.selectionStart == "+ EditArea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - EditArea.check_line_selection_timer - 5 );
+		this.checkDelayTimer = setTimeout("if(EditArea.textarea.selectionStart == "+ editArea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - editArea.check_line_selection_timer - 5 );
 	}
 	// hide the suggested box
 	,_hide(){
