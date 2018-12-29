@@ -91,7 +91,7 @@
 		
 	};
 	EditArea.prototype.init= function(){
-		var t=this, a, s=t.settings;
+		var t=this, _$, a, s=t.settings;
 		t.textarea			= _$("textarea");
 		t.container			= _$("container");
 		t.result			= _$("result");
@@ -100,8 +100,8 @@
 		t.selection_field_text= _$("selection_field_text");
 		t.processing_screen	= _$("processing");
 		t.editor_area		= _$("editor");
-		t.tab_browsing_area	= _$("tab_browsing_area");
-		t.test_font_size	= _$("test_font_size");
+		t.tabBrowsingArea	= _$("tabBrowsingArea");
+		t.testFontSize	= _$("testFontSize");
 		a = t.textarea;
 		
 		if(!s['is_editable'])
