@@ -58,7 +58,7 @@ editAreaLoader.load_syntax["js"] = {
 		,'DELIMITERS' : 'color: #0038E1;'
 				
 	}
-	,'AUTO_COMPLETION' :  {
+	,"AUTO_COMPLETION" :  {
 		"default": {	// the name of this definition group. It's posisble to have different rules inside the same definition file
 			"REGEXP": { "before_word": "[^a-zA-Z0-9_]|^"	// \\s|\\.|
 						,"possible_words_letters": "[a-zA-Z0-9_]+"
