@@ -346,13 +346,15 @@ function mapLoad(charRangeList){
 	var select= document.getElementById("select_range");
 	for(var i in charRangeList)
 	{
-		if(i.toLowerCase()===selectedLang)
-		{
-			selected=select.options.length;
+		if(charRangeList){
+			if(i.toLowerCase()===selectedLang)
+			{
+				selected=select.options.length;
+			}
 		}
-		select.options[select.options.length]=new Option(i, charRangeList[i]);
+		select.options.getElementById(select.options.length)=new Option(i, charRangeList[i]);
 	}
-	select.options[selected].selected=true;
+	select.options.getElementById(selected).selected=true;
 /*	start=0;
 	end=127;
 	content="";
@@ -365,8 +367,8 @@ function mapLoad(charRangeList){
 
 
 function previewChar(i){
-	document.getElementById("preview_char").innerHTML= String.fromCharCode(i);
-	document.getElementById("preview_code").innerHTML= "&amp;#"+ i +";";
+	document.getElementById("preview_char").textContent= String.fromCharCode(i);
+	document.getElementById("preview_code").textContent= "&amp;#"+ i +";";
 }
 
 function insertChar(i){
