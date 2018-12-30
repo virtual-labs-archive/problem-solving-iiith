@@ -168,7 +168,7 @@ var char_range_list={
 "Variation Selectors Supplement":"E0100,E01EF"
 };
 */
-var char_range_list={
+var charRangeList={
 "Aegean Numbers":"10100,1013F",
 "Alphabetic Presentation Forms":"FB00,FB4F",
 "Ancient Greek Musical Notation":"1D200,1D24F",
@@ -326,8 +326,8 @@ function renderCharMapHTML() {
 	for (var i=start; i<end; i++) {
 		html+="<a class='char' onmouseover='previewChar(\""+ i + "\");' onclick='insertChar(\""+ i + "\");' title='"+ insert +"'>"+ String.fromCharCode(i) +"</a>";
 	}
-	document.getElementById("char_list").innerHTML= html;
-	document.getElementById("preview_char").innerHTML="";
+	document.getElementById("char_list").textContent= html;
+	document.getElementById("preview_char").textContent="";
 }
 
 function mapLoad(charRangeList){
@@ -336,16 +336,20 @@ function mapLoad(charRangeList){
 	insert= editArea.get_translation(insert, "word");
 	//alert(document.title);
 	document.title= editArea.get_translation(document.title, "template");
-	document.body.innerHTML= editArea.get_translation(document.body.innerHTML, "template");
+	var hello=editArea.get_translation(document.body.innerHTML, "template");
+	document.body.textContent=hello;
 	//document.title= editArea.get_translation(document.getElementBytitle, "template");
 	
 	var selectedLang=opener.EditArea_charmap.default_language.toLowerCase();
 	var selected=0;
 	
-	var select= document.getElementById("select_range")
-	for(var i in charRangeList){
-		if(i.toLowerCase()===selectedLang){
-			selected=select.options.length;}
+	var select= document.getElementById("select_range");
+	for(var i in charRangeList)
+	{
+		if(i.toLowerCase()===selectedLang)
+		{
+			selected=select.options.length;
+		}
 		select.options[select.options.length]=new Option(i, charRangeList[i]);
 	}
 	select.options[selected].selected=true;
@@ -367,7 +371,7 @@ function previewChar(i){
 
 function insertChar(i){
 	opener.parent.editAreaLoader.setSelectedText(editArea.id, String.fromCharCode(i));
-	range= opener.parent.editAreaLoader.getSelectionRange(editArea.id);
+	var range= opener.parent.editAreaLoader.getSelectionRange(editArea.id);
 	opener.parent.editAreaLoader.setSelectionRange(editArea.id, range["end"], range["end"]);
 	window.focus();
 }
