@@ -8,7 +8,7 @@ var EditArea_test= {
 	 *
 	 * @return nothing	 
 	 */	 	 	
-	init: function(){	
+	init(){	
 		//	alert("test init: "+ this._someInternalFunction(2, 3));
 		editArea.load_css(this.baseURL+"css/test.css");
 		editArea.load_script(this.baseURL+"test2.js");
@@ -23,7 +23,7 @@ var EditArea_test= {
 	 * @return HTML code for a specific control or false.
 	 * @type string	or boolean
 	 */	
-	,get_control_html: function(ctrl_name){
+	,get_control_html(ctrl_name){
 		switch(ctrl_name){
 			case "test_but":
 				// Control id, button img, command
@@ -47,7 +47,7 @@ var EditArea_test= {
 	 *	 
 	 * @return nothing
 	 */	 	 	
-	,onload: function(){ 
+	,onload(){ 
 		alert("test load");
 	}
 	
@@ -58,7 +58,7 @@ var EditArea_test= {
 	 * @return true - pass to next handler in chain, false - stop chain execution
 	 * @type boolean	 
 	 */
-	,onkeydown: function(e){
+	,onkeydown(e){
 		var str= String.fromCharCode(e.keyCode);
 		// desactivate the "f" character
 		if(str.toLowerCase()=="f"){
@@ -75,7 +75,7 @@ var EditArea_test= {
 	 * @return true - pass to next handler in chain, false - stop chain execution
 	 * @type boolean	
 	 */
-	,execCommand: function(cmd, param){
+	,execCommand(cmd, param){
 		// Handle commands
 		switch(cmd){
 			case "test_select_change":
