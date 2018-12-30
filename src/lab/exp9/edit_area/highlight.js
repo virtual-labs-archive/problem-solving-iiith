@@ -1,12 +1,12 @@
 	// change_to: "on" or "off"
-	EditArea.prototype.change_highlight= function(change_to){
-		if(this.settings["syntax"].length==0 && change_to==false){
-			this.switchClassSticky(_$("highlight"), 'editAreaButtonDisabled', true);
-			this.switchClassSticky(_$("reset_highlight"), 'editAreaButtonDisabled', true);
+	EditArea.prototype.change_highlight= function(changeTo){
+		if(this.settings["syntax"].length===0 && changeTo===false){
+			this.switchClassSticky(_$("highlight"), "editAreaButtonDisabled", true);
+			this.switchClassSticky(_$("reset_highlight"), "editAreaButtonDisabled", true);
 			return false;
 		}
 		
-		if(this.do_highlight==change_to){
+		if(this.do_highlight==changeTo){
 			return false;}
 	
 			
@@ -14,13 +14,13 @@
 		var posStart= this.textarea.selectionStart;
 		var posEnd= this.textarea.selectionEnd;
 		
-		if(this.do_highlight===true || change_to==false)
-		{this.disable_highlight();}
+		if(this.doHighlight===true || changeTo===false)
+		{this.disableHighlight();}
 		else{
 			this.enable_highlight();}
 		this.textarea.focus();
-		this.textarea.selectionStart = pos_start;
-		this.textarea.selectionEnd = pos_end;
+		this.textarea.selectionStart = posStart;
+		this.textarea.selectionEnd = posEnd;
 		this.setIESelection();
 				
 	};
