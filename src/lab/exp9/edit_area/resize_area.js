@@ -114,12 +114,12 @@
 	editAreaLoader.prototype.resizeArea= function(e){		
 		var allow,newHeight,newWidth;
 		allow	= editAreas[editAreaLoader.resize["id"]]["settings"]["allow_resize"];
-		if(allow==="both" || allow=="y")
+		if(allow==="both" || allow==="y")
 		{
 			newHeight	= Math.max(20, getMouseY(e)- editAreaLoader.resize["start_top"]);
 			document.getElementById("edit_area_resize").style.height= newHeight+"px";
 		}
-		if(allow==="both" || allow=="x")
+		if(allow==="both" || allow==="x")
 		{
 			newWidth= Math.max(20, getMouseX(e)- editAreaLoader.resize["start_left"]);
 			document.getElementById("edit_area_resize").style.width= newWidth+"px";
