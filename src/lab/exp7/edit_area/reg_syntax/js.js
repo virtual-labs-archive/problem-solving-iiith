@@ -9,9 +9,9 @@ editAreaLoader.load_syntax["js"] = {
 			"as", "break", "case", "catch", "continue", "decodeURI", "delete", "do",
 			"else", "encodeURI", "eval", "finally", "for", "if", "in", "is", "item",
 			"instanceof", "return", "switch", "this", "throw", "try", "typeof", "void",
-			"while", "write", 'with"
+			"while", "write", "with"
 		]
- 		,'keywords' : [
+		,'keywords' : [
 			'class', 'const', 'default', 'debugger', 'export', 'extends', 'false',
 			'function', 'import', 'namespace', 'new', 'null', 'package', 'private',
 			'protected', 'public', 'super', 'true', 'use', 'var', 'window', 'document',		
