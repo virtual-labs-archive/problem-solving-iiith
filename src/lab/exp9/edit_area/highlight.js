@@ -6,18 +6,18 @@
 			return false;
 		}
 		
-		if(this.do_highlight==change_to)
-			return false;
+		if(this.do_highlight==change_to){
+			return false;}
 	
 			
 		this.getIESelection();
-		var pos_start= this.textarea.selectionStart;
-		var pos_end= this.textarea.selectionEnd;
+		var posStart= this.textarea.selectionStart;
+		var posEnd= this.textarea.selectionEnd;
 		
 		if(this.do_highlight===true || change_to==false)
-			this.disable_highlight();
-		else
-			this.enable_highlight();
+		{this.disable_highlight();}
+		else{
+			this.enable_highlight();}
 		this.textarea.focus();
 		this.textarea.selectionStart = pos_start;
 		this.textarea.selectionEnd = pos_end;
@@ -26,21 +26,21 @@
 	};
 	
 	EditArea.prototype.disable_highlight= function(displayOnly){
-		var t= this, a=t.textarea, new_Obj, old_class, new_class;
+		var t= this, a=t.textarea, newObj, oldClass, newClass;
 			
 		t.selection_field.innerHTML="";
 		t.selection_field_text.innerHTML="";
 		t.content_highlight.style.visibility="hidden";
 		// replacing the node is far more faster than deleting it's content in firefox
-		new_Obj= t.content_highlight.cloneNode(false);
-		new_Obj.innerHTML= "";			
-		t.content_highlight.parentNode.insertBefore(new_Obj, t.content_highlight);
+		newObj= t.content_highlight.cloneNode(false);
+		newObj.innerHTML= "";			
+		t.content_highlight.parentNode.insertBefore(newObj, t.content_highlight);
 		t.content_highlight.parentNode.removeChild(t.content_highlight);	
-		t.content_highlight= new_Obj;
-		old_class= parent.getAttribute( a,"class" );
-		if(old_class){
-			new_class= old_class.replace( "hidden","" );
-			parent.setAttribute( a, "class", new_class );
+		t.content_highlight= newObj;
+		oldClass= parent.getAttribute( a,"class" );
+		if(oldClass){
+			newClass= oldClass.replace( "hidden","" );
+			parent.setAttribute( a, "class", newClass );
 		}
 	
 		a.style.backgroundColor="transparent";	// needed in order to see the bracket finders
@@ -63,23 +63,23 @@
 	};
 
 	EditArea.prototype.enable_highlight= function(){
-		var t=this, a=t.textarea, new_class;
+		var t=this, a=t.textarea, newClass;
 		t.show_waiting_screen();
 			
 		t.content_highlight.style.visibility="visible";
-		new_class	=parent.getAttribute(a,"class")+" hidden";
-		parent.setAttribute( a, "class", new_class );
+		newClass	=parent.getAttribute(a,"class")+" hidden";
+		parent.setAttribute( a, "class", newClass );
 		
 		// IE can't manage mouse click outside text range without this
-		if( t.isIE )
+		if( t.isIE ){
 			a.style.backgroundColor="#FFFFFF";	
-
+		}
 		t.switchClassSticky(_$("highlight"), 'editAreaButtonSelected', false);
 		t.switchClassSticky(_$("reset_highlight"), 'editAreaButtonNormal', false);
 		
 		t.smooth_selection_before_highlight=t.smooth_selection;
 		if(!t.smooth_selection)
-			t.change_smooth_selection_mode(true);
+		{	t.change_smooth_selection_mode(true);}
 		t.switchClassSticky(_$("change_smooth_selection"), 'editAreaButtonDisabled', true);
 		
 		
@@ -95,13 +95,13 @@
 	 */
 	EditArea.prototype.maj_highlight= function(infos){
 		// for speed mesure
-		var debug_opti="",tps_start= new Date().getTime(), tps_middle_opti=new Date().getTime();
-		var t=this, hightlighted_text, updated_highlight;	
-		var textToHighlight=infos["full_text"], doSyntaxOpti = false, doHtmlOpti = false, stay_begin="", stay_end="", trace_new , trace_last;
-		
+		var debugOpti="",tpsStart= new Date().getTime(), tpsMiddleOpti=new Date().getTime();
+		var t=this, hightlightedText, updatedHighlight;	
+		var textToHighlight=infos["full_text"], doSyntaxOpti = false, doHtmlOpti = false, stayBegin="", stayEnd="", traceNew , traceLast;
+		var changes
 		if(t.last_text_to_highlight==infos["full_text"] && t.resync_highlight!==true)
-			return;
-					
+		{	return;
+		}			
 		//  OPTIMISATION: will search to update only changed lines
 		if(t.reload_highlight===true){
 			t.reload_highlight=false;
@@ -112,13 +112,13 @@
 			changes = t.checkTextEvolution(t.last_text_to_highlight,textToHighlight);
 			
 			// check if it can only reparse the changed text
-			trace_new		= t.get_syntax_trace(changes.newTextLine).replace(/\r/g, '');
-			trace_last		= t.get_syntax_trace(changes.lastTextLine).replace(/\r/g, '');
-			doSyntaxOpti	= ( trace_new == trace_last );
+			traceNew		= t.get_syntax_trace(changes.newTextLine).replace(/\r/g, '');
+			traceLast		= t.get_syntax_trace(changes.lastTextLine).replace(/\r/g, '');
+			doSyntaxOpti	= ( traceNew == traceLast );
 			
 			// check if the difference comes only from a new line created 
 			// => we have to remember that the editor can automaticaly add tabulation or space after the new line) 
-			if( !doSyntaxOpti && trace_new == "\n"+trace_last && /^[ \t\s]*\n[ \t\s]*$/.test( changes.newText.replace(/\r/g, '') ) && changes.lastText =="" )
+			if( !doSyntaxOpti && traceNew == "\n"+traceLast && /^[ \t\s]*\n[ \t\s]*$/.test( changes.newText.replace(/\r/g, '') ) && changes.lastText =="" )
 			{
 				doSyntaxOpti	= true;
 			}
@@ -126,43 +126,43 @@
 			// we do the syntax optimisation
 			if( doSyntaxOpti ){
 						
-				tps_middle_opti=new Date().getTime();	
+				tpsMiddleOpti=new Date().getTime();	
 			
-				stay_begin= t.last_hightlighted_text.split("\n").slice(0, changes.lineStart).join("\n");
+				stayBegin= t.last_hightlighted_text.split("\n").slice(0, changes.lineStart).join("\n");
 				if(changes.lineStart>0)
-					stay_begin+= "\n";
-				stay_end= t.last_hightlighted_text.split("\n").slice(changes.lineLastEnd+1).join("\n");
-				if(stay_end.length>0)
-					stay_end= "\n"+stay_end;
+				{	stayBegin+= "\n";}
+				stayEnd= t.last_hightlighted_text.split("\n").slice(changes.lineLastEnd+1).join("\n");
+				if(stayEnd.length>0)
+				{	stayEnd= "\n"+stayEnd;}
 					
 				// Final check to see that we're not in the middle of span tags
-				if( stay_begin.split('<span').length != stay_begin.split('</span').length 
-					|| stay_end.split('<span').length != stay_end.split('</span').length )
+				if( stayBegin.split('<span').length != stayBegin.split('</span').length 
+					|| stayEnd.split('<span').length != stayEnd.split('</span').length )
 				{
 					doSyntaxOpti	= false;
-					stay_end		= '';
-					stay_begin		= '';
+					stayEnd		= '';
+					stayBegin		= '';
 				}
 				else
 				{
-					if(stay_begin.length==0 && changes.posLastEnd==-1)
-						changes.newTextLine+="\n";
+					if(stayBegin.length==0 && changes.posLastEnd==-1)
+					{changes.newTextLine+="\n";}
 					textToHighlight=changes.newTextLine;
 				}
 			}
 			if(t.settings["debug"]){
 				var ch =changes;
-				debug_opti= ( doSyntaxOpti?"Optimisation": "No optimisation" )
+				debugOpti= ( doSyntaxOpti?"Optimisation": "No optimisation" )
 					+" start: "+ch.posStart +"("+ch.lineStart+")"
 					+" end_new: "+ ch.posNewEnd+"("+ch.lineNewEnd+")"
 					+" end_last: "+ ch.posLastEnd+"("+ch.lineLastEnd+")"
-					+"\nchanged_text: "+ch.newText+" => trace: "+trace_new
-					+"\nchanged_last_text: "+ch.lastText+" => trace: "+trace_last
+					+"\nchanged_text: "+ch.newText+" => trace: "+traceNew
+					+"\nchanged_last_text: "+ch.lastText+" => trace: "+traceLast
 					//debug_opti+= "\nchanged: "+ infos["full_text"].substring(ch.posStart, ch.posNewEnd);
 					+ "\nchanged_line: "+ch.newTextLine
 					+ "\nlast_changed_line: "+ch.lastTextLine
-					+"\nstay_begin: "+ stay_begin.slice(-100)
-					+"\nstay_end: "+ stay_end.substr( 0, 100 );
+					+"\nstay_begin: "+ stayBegin.slice(-100)
+					+"\nstay_end: "+ stayEnd.substr( 0, 100 );
 					//debug_opti="start: "+stay_begin_len+ "("+nb_line_start_unchanged+") end: "+ (stay_end_len)+ "("+(splited.length-nb_line_end_unchanged)+") ";
 					//debug_opti+="changed: "+ textToHighlight.substring(stay_begin_len, textToHighlight.length-stay_end_len)+" \n";
 					
@@ -174,11 +174,11 @@
 			// END OPTIMISATION
 		}
 
-		tps_end_opti	= new Date().getTime();	
+		var tpsEndOpti	= new Date().getTime();	
 				
 		// apply highlight
-		updated_highlight	= t.colorize_text(textToHighlight);
-		tpsAfterReg			= new Date().getTime();
+		var updatedHighlight	= t.colorize_text(textToHighlight);
+		var tpsAfterReg			= new Date().getTime();
 		
 		/***
 		 * see if we can optimize for updating only the required part of the HTML code
@@ -194,25 +194,25 @@
 			try
 			{
 				var replacedBloc, i, nbStart = '', nbEnd = '', newHtml, lengthOld, lengthNew;
-				replacedBloc		= t.last_hightlighted_text.substring( stay_begin.length, t.last_hightlighted_text.length - stay_end.length );
+				replacedBloc		= t.last_hightlighted_text.substring( stayBegin.length, t.last_hightlighted_text.length - stayEnd.length );
 				
 				lengthOld	= replacedBloc.length;
-				lengthNew	= updated_highlight.length;
+				lengthNew	= updatedHighlight.length;
 				
 				// find the identical caracters at the beginning
-				for( i=0; i < lengthOld && i < lengthNew && replacedBloc.charAt(i) == updated_highlight.charAt(i) ; i++ )
+				for( i=0; i < lengthOld && i < lengthNew && replacedBloc.charAt(i) == updatedHighlight.charAt(i) ; i++ )
 				{
 				}
 				nbStart = i;
 				// find the identical caracters at the end
-				for( i=0; i + nbStart < lengthOld && i + nbStart < lengthNew && replacedBloc.charAt(lengthOld-i-1) == updated_highlight.charAt(lengthNew-i-1) ; i++ )
+				for( i=0; i + nbStart < lengthOld && i + nbStart < lengthNew && replacedBloc.charAt(lengthOld-i-1) == updatedHighlight.charAt(lengthNew-i-1) ; i++ )
 				{
 				}
 				nbEnd	= i;
 				//console.log( nbStart, nbEnd, replacedBloc, updated_highlight );
 				// get the changes
-				lastHtml	= replacedBloc.substring( nbStart, lengthOld - nbEnd );
-				newHtml		= updated_highlight.substring( nbStart, lengthNew - nbEnd );
+				var lastHtml	= replacedBloc.substring( nbStart, lengthOld - nbEnd );
+				newHtml		= updatedHighlight.substring( nbStart, lengthNew - nbEnd );
 				
 				// We can do the optimisation only if we havn't touch to span elements
 				if( newHtml.indexOf('<span') == -1 && newHtml.indexOf('</span') == -1 
@@ -220,7 +220,7 @@
 				{
 					var beginStr, nbOpendedSpan, nbClosedSpan, nbUnchangedChars, span, textNode;
 					doHtmlOpti		= true;
-					beginStr		= t.last_hightlighted_text.substr( 0, stay_begin.length + nbStart );
+					beginStr		= t.last_hightlighted_text.substr( 0, stayBegin.length + nbStart );
 					// fix special chars
 					newHtml			= newHtml.replace( /&lt;/g, '<').replace( /&gt;/g, '>').replace( /&amp;/g, '&');
 		
@@ -233,9 +233,9 @@
 					// get the textNode to update
 					
 					// if we're inside a span, we'll take the one that is opened (can be a parent of the current span)
-					parentSpan		= span;
-					maxStartOffset	= maxEndOffset = 0;
-					
+					var parentSpan		= span;
+					var maxStartOffset	=0, maxEndOffset = 0;
+					var nbClosed,tmpMaxStartOffset,tmpMaxEndOffset,lastIndex ,nbSubSpanBefore,lastEndPos;
 					// it will be in the child of the root node 
 					if( nbOpendedSpan == nbClosedSpan )
 					{
@@ -277,7 +277,7 @@
 					}
 					else
 					{
-						lastEndPos 				= Math.max( 0, beginStr.lastIndexOf( '>', maxStartOffset ) );
+						lastEndPos = Math.max( 0, beginStr.lastIndexOf( '>', maxStartOffset ) );
 		
 						// count the number of sub spans
 						nbSubSpanBefore			= beginStr.substr( lastEndPos ).split('<span').length-1;
@@ -292,7 +292,7 @@
 					else
 					{
 						// take the last direct child (no sub-child)
-						lastSubSpan	= parentSpan.getElementsByTagName('span')[ nbSubSpanBefore - 1 ];
+						var lastSubSpan	= parentSpan.getElementsByTagName('span')[ nbSubSpanBefore - 1 ];
 						while( lastSubSpan.parentNode != parentSpan )
 						{
 							lastSubSpan	= lastSubSpan.parentNode;
@@ -362,46 +362,46 @@
 		
 	//			console.log(  (TPS6-TPS5), (TPS5-TPS4), (TPS4-TPS3), (TPS3-TPS2), (TPS2-TPS1), _CPT );
 		// get the new highlight content
-		tpsAfterOpti2		= new Date().getTime();
-		hightlighted_text	= stay_begin + updated_highlight + stay_end;
+		var tpsAfterOpti2		= new Date().getTime();
+		hightlightedText	= stayBegin + updatedHighlight + stayEnd;
 		if( !doHtmlOpti )
 		{
 			// update the content of the highlight div by first updating a clone node (as there is no display in the same time for t node it's quite faster (5*))
-			var new_Obj= t.content_highlight.cloneNode(false);
+			var new_Obj= t.contentHighlight.cloneNode(false);
 			if( ( t.isIE && t.isIE < 8 ) || ( t.isOpera && t.isOpera < 9.6 ) )
-				new_Obj.innerHTML= "<pre><span class='"+ t.settings["syntax"] +"'>" + hightlighted_text + "</span></pre>";	
+				newObj.innerHTML= "<pre><span class='"+ t.settings["syntax"] +"'>" + hightlightedText + "</span></pre>";	
 			else
-				new_Obj.innerHTML= "<span class='"+ t.settings["syntax"] +"'>"+ hightlighted_text +"</span>";
+				newObj.innerHTML= "<span class='"+ t.settings["syntax"] +"'>"+ hightlightedText +"</span>";
 	
-			t.content_highlight.parentNode.replaceChild(new_Obj, t.content_highlight);
+			t.contentHighlight.parentNode.replaceChild(newObj, t.content_highlight);
 		
-			t.content_highlight= new_Obj;
+			t.contentHighlight= newObj;
 		}
 		
 		t.last_text_to_highlight= infos["full_text"];
-		t.last_hightlighted_text= hightlighted_text;
+		t.last_hightlighted_text= hightlightedText;
 		
-		tps3=new Date().getTime();
+		var tps3=new Date().getTime();
 	
 		if(t.settings["debug"]){
 			//lineNumber=tab_text.length;
 			//t.debug.value+=" \nNB char: "+_$("src").value.length+" Nb line: "+ lineNumber;
 		
-			t.debug.value= "Tps optimisation "+(tps_end_opti-tps_start)
-				+" | tps reg exp: "+ (tpsAfterReg-tps_end_opti)
+			t.debug.value= "Tps optimisation "+(tpsEndOpti-tpsStart)
+				+" | tps reg exp: "+ (tpsAfterReg-tpsEndOpti)
 				+" | tps opti HTML : "+ (tpsAfterOpti2-tpsAfterReg) + ' '+ ( doHtmlOpti ? 'yes' : 'no' )
 				+" | tps update highlight content: "+ (tps3-tpsAfterOpti2)
-				+" | tpsTotal: "+ (tps3-tps_start)
-				+ "("+tps3+")\n"+ debug_opti;
+				+" | tpsTotal: "+ (tps3-tpsStart)
+				+ "("+tps3+")\n"+ debugOpti;
 		//	t.debug.value+= "highlight\n"+hightlighted_text;*/
 		}
 		
 	};
 	
-	EditArea.prototype.resync_highlight= function(reload_now){
+	EditArea.prototype.resync_highlight= function(reloadNow){
 		this.reload_highlight=true;
 		this.last_text_to_highlight="";
 		this.focus();		
-		if(reload_now)
+		if(reloadNow)
 			this.check_line_selection(false); 
 	};	
