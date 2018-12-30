@@ -75,7 +75,7 @@ editAreaLoader.load_syntax["js"] = {
 						 * 		If empty the keyword will be displayed
 						 * 2 : (optionnal) the text that appear in the suggestion box (if empty, the string to insert will be displayed)
 						 */
-						 ['Array', '§()', '']
+					,['Array', '§()', '']
 			    		,['alert', '§({@})', 'alert(String message)']
 			    		,['document']
 			    		,['window']
