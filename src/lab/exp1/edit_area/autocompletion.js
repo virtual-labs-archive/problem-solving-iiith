@@ -208,18 +208,18 @@ var EditAreaAutocompletion= {
 		return this.shown;
 	}
 	// setter and getter
-	,_checkNewValue: function(newValue)
+	,_checkNewValue(newValue)
 	{
 		if( typeof( newValue ) == "undefined" ){
 			return this.isInMiddleWord;}
 		else{
 			this.isInMiddleWord	= newValue;}
 	}
-	,_isInMiddleWord: function( newValue ){
+	,_isInMiddleWord( newValue ){
 		_checkNewValue(newValue);
 	}
 	// select the next element in the suggested box
-	,_selectNext: function()
+	,_selectNext()
 	{
 		var as	= this.container.getElementsByTagName('A');
 		
@@ -235,7 +235,7 @@ var EditAreaAutocompletion= {
 		as[ this.selectIndex ].className	+= " focus";
 	}
 	// select the previous element in the suggested box
-	,_selectBefore: function()
+	,_selectBefore()
 	{
 		var as	= this.container.getElementsByTagName("A");
 		
@@ -288,7 +288,7 @@ var EditAreaAutocompletion= {
 	/**
 	 * Parse the AUTO_COMPLETION part of syntax definition files
 	 */
-	,_parseSyntaxAutoCompletionDatas: function(){
+	,_parseSyntaxAutoCompletionDatas(){
 		//foreach syntax loaded
 		var tmp;
 		for(var lang in parent.editAreaLoader.load_syntax)
@@ -451,13 +451,13 @@ var EditAreaAutocompletion= {
 				this._show();
 			}
 	}
-	,_checkLetter: function(){
+	,_checkLetter(){
 		// check that syntax hasn't changed
 		if( this.curr_syntax_str != editArea.settings['syntax'] )
 		{
-			if( !parent.editAreaLoader.syntax[editArea.settings['syntax']]['autocompletion'] )
+			if( !parent.editAreaLoader.syntax[editArea.settings["syntax"]]["autocompletion"] )
 				this._parseSyntaxAutoCompletionDatas();
-			this.currSyntax= parent.editAreaLoader.syntax[editArea.settings['syntax']]['autocompletion'];
+			this.currSyntax= parent.editAreaLoader.syntax[editArea.settings["syntax"]]["autocompletion"];
 			this.currSyntaxStr = editArea.settings['syntax'];
 			//console.log( this.curr_syntax );
 		}
