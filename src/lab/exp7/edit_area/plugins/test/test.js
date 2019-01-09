@@ -23,7 +23,7 @@ var EditAreaTest= {
 	 * @return HTML code for a specific control or false.
 	 * @type string	or boolean
 	 */	
-	,get_control_html(ctrlName){
+	,getControlHtml(ctrlName){
 		switch(ctrlName){
 			case "test_but":
 				// Control id, button img, command
@@ -107,4 +107,4 @@ var EditAreaTest= {
 };
 
 // Adds the plugin class to the list of available EditArea plugins
-EditArea.add_plugin("test", EditArea_test);
+EditArea.add_plugin("test", EditAreaTest);
