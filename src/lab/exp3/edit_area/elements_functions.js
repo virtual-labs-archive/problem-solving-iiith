@@ -83,8 +83,8 @@
 	
 	function isChildOf(elem, parent){
 		if(elem){
-			if(elem==parent)
-				return true;
+			if(elem==parent){
+				return true;}
 			while(elem.parentNode != 'undefined'){
 				return isChildOf(elem.parentNode, parent);
 			}
@@ -144,7 +144,7 @@
 			});
 			return elem.currentStyle[prop];
 		}
-		else return null;
+		else {return null;}
 	}
 	
 /****
