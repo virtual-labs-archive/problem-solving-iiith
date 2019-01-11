@@ -110,7 +110,7 @@
 	};
 	
 	function calculeOffsetLeft(r){
-		return calculeOffset(r,"offsetLeft")
+		return calculeOffset(r,"offsetLeft");
 	};
 	
 	function calculeOffsetTop(r){
@@ -121,7 +121,7 @@
 		var offset=0;
 		while(element){
 			offset+=element[attr];
-			element=element.offsetParent
+			element=element.offsetParent;
 		}
 		return offset;
 	};
