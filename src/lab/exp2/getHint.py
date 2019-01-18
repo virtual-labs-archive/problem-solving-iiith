@@ -13,10 +13,8 @@ def index(req,qNo,hintNo,sid):
         elif(qNo=="2"):
                 dir = PATH + "Hints2/"
         try:
-                F = open(dir+"Hint_"+hintNo+".html","r");
-
-                s =  F.read()
-                
+		F = open(dir+"Hint_"+hintNo+".html","r");
+                s=F.read()
                 F.close()
         except:
                 s = 'Failed to load' ;

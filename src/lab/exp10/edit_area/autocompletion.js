@@ -11,21 +11,21 @@
  * - Button name: "autocompletion"
  */  
 
-var EditArea_autocompletion= {
+var EditAreaAutocompletion= {
 	
 	/**
 	 * Get called once this file is loaded (editArea still not initialized)
 	 *
 	 * @return nothing	 
 	 */	 	 	
-	init: function(){	
+	init(){	
 		//	alert("test init: "+ this._someInternalFunction(2, 3));
 		
 		if(editArea.settings["autocompletion"])
-			this.enabled= true;
-		else
-			this.enabled= false;
-		this.current_word		= false;
+		{	this.enabled= true;}
+		else{
+			this.enabled= false;}
+		this.currentWord		= false;
 		this.shown				= false;
 		this.selectIndex		= -1;
 		this.forceDisplay		= false;
@@ -33,7 +33,7 @@ var EditArea_autocompletion= {
 		this.autoSelectIfOneResult	= false;
 		this.delayBeforeDisplay	= 100;
 		this.checkDelayTimer	= false;
-		this.curr_syntax_str	= '';
+		this.currSyntaxStr	= "";
 		
 		this.file_syntax_datas	= {};
 	}
@@ -61,21 +61,21 @@ var EditArea_autocompletion= {
 	 *	 
 	 * @return nothing
 	 */	 	 	
-	,onload: function(){ 
+	,onload{ 
 		if(this.enabled)
 		{
 			var icon= document.getElementById("autocompletion");
-			if(icon)
-				editArea.switchClassSticky(icon, 'editAreaButtonSelected', true);
+			if(icon){
+				editArea.switchClassSticky(icon, "editAreaButtonSelected", true);}
 		}
 		
-		this.container	= document.createElement('div');
+		this.container	= document.createElement("div");
 		this.container.id	= "auto_completion_area";
 		editArea.container.insertBefore( this.container, editArea.container.firstChild );
 		
 		// add event detection for hiding suggestion box
-		parent.editAreaLoader.add_event( document, "click", function(){ editArea.plugins['autocompletion']._hide();} );
-		parent.editAreaLoader.add_event( editArea.textarea, "blur", function(){ editArea.plugins['autocompletion']._hide();} );
+		parent.editAreaLoader.add_event( document, "click", function(){ editArea.plugins["autocompletion"]._hide();} );
+		parent.editAreaLoader.add_event( editArea.textarea, "blur", function(){ editArea.plugins["autocompletion"]._hide();} );
 		
 	}
 	
@@ -86,32 +86,25 @@ var EditArea_autocompletion= {
 	 * @return true - pass to next handler in chain, false - stop chain execution
 	 * @type boolean	 
 	 */
-	,onkeydown: function(e){
-		if(!this.enabled)
-			return true;
-			
-		if (EA_keys[e.keyCode])
-			letter=EA_keys[e.keyCode];
-		else
-			letter=String.fromCharCode(e.keyCode);	
-		// shown
+	subOnkeydown(e,letter)
+	{
 		if( this._isShown() )
 		{	
 			// if escape, hide the box
-			if(letter=="Esc")
+			if(letter==="Esc")
 			{
 				this._hide();
 				return false;
 			}
 			// Enter
-			else if( letter=="Entrer")
+			else if( letter==="Entrer")
 			{
-				var as	= this.container.getElementsByTagName('A');
+				var as	= this.container.getElementsByTagName("A");
 				// select a suggested entry
 				if( this.selectIndex >= 0 && this.selectIndex < as.length )
 				{
 					as[ this.selectIndex ].onmousedown();
-					return false
+					return false;
 				}
 				// simply add an enter in the code
 				else
@@ -120,7 +113,7 @@ var EditArea_autocompletion= {
 					return true;
 				}
 			}
-			else if( letter=="Tab" || letter=="Down")
+			else if( letter==="Tab" || letter==="Down")
 			{
 				this._selectNext();
 				return false;
@@ -131,14 +124,9 @@ var EditArea_autocompletion= {
 				return false;
 			}
 		}
-		// hidden
-		else
-		{
-			
-		}
-		
-		// show current suggestion list and do autoSelect if possible (no matter it's shown or hidden)
-		if( letter=="Space" && CtrlPressed(e) )
+	}
+	function sub2onkeydown(letter,e){
+		if( letter==="Space" && ctrlPressed(e) )
 		{
 			//parent.console.log('SHOW SUGGEST');
 			this.forceDisplay 			= true;
@@ -146,9 +134,24 @@ var EditArea_autocompletion= {
 			this._checkLetter();
 			return false;
 		}
-		
+	}
+	,onkeydown(e){
+		var letter;
+		if(!this.enabled)
+		{return true;}
+			
+		if (EAKeys[e.keyCode])
+		{
+			letter=EAKeys[e.keyCode];}
+		else
+		{	letter=String.fromCharCode(e.keyCode);	}
+		// shown
+		subOnkeydown(e,letter);
+		// hidden
+		// show current suggestion list and do autoSelect if possible (no matter it's shown or hidden)
+		sub2onkeydown(letter,e);
 		// wait a short period for check that the cursor isn't moving
-		setTimeout("editArea.plugins['autocompletion']._checkDelayAndCursorBeforeDisplay();", editArea.check_line_selection_timer +5 );
+		setTimeout("editArea.plugins["autocompletion"]._checkDelayAndCursorBeforeDisplay();", editArea.check_line_selection_timer +5 );
 		this.checkDelayTimer = false;
 		return true;
 	}	
@@ -160,34 +163,41 @@ var EditArea_autocompletion= {
 	 * @return true - pass to next handler in chain, false - stop chain execution
 	 * @type boolean	
 	 */
-	,execCommand: function(cmd, param){
+	function checkIcon(icon){
+		if(icon !== null){
+			editArea.restoreClass(icon);
+			editArea.switchClassSticky(icon, "editAreaButtonSelected", true);
+		}
+	}	
+	function check2Icon(icon)
+	{
+		if(icon !== null){
+			editArea.switchClassSticky(icon, "editAreaButtonNormal", false);}
+	}
+	,execCommand(cmd, param){
 		switch( cmd ){
-			case 'toggle_autocompletion':
+			case "toggle_autocompletion":
 				var icon= document.getElementById("autocompletion");
 				if(!this.enabled)
 				{
-					if(icon != null){
-						editArea.restoreClass(icon);
-						editArea.switchClassSticky(icon, 'editAreaButtonSelected', true);
-					}
+					checkIcon(icon);
 					this.enabled= true;
 				}
 				else
 				{
 					this.enabled= false;
-					if(icon != null)
-						editArea.switchClassSticky(icon, 'editAreaButtonNormal', false);
+					check2Icon(icon)
 				}
 				return true;
 		}
 		return true;
 	}
-	,_checkDelayAndCursorBeforeDisplay: function()
+	,_checkDelayAndCursorBeforeDisplay()
 	{
 		this.checkDelayTimer = setTimeout("if(editArea.textarea.selectionStart == "+ editArea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - editArea.check_line_selection_timer - 5 );
 	}
 	// hide the suggested box
-	,_hide: function(){
+	,_hide(){
 		this.container.style.display="none";
 		this.selectIndex	= -1;
 		this.shown	= false;
@@ -195,7 +205,7 @@ var EditArea_autocompletion= {
 		this.autoSelectIfOneResult = false;
 	}
 	// display the suggested box
-	,_show: function(){
+	,_show(){
 		if( !this._isShown() )
 		{
 			this.container.style.display="block";
@@ -204,20 +214,20 @@ var EditArea_autocompletion= {
 		}
 	}
 	// is the suggested box displayed?
-	,_isShown: function(){
+	,_isShown(){
 		return this.shown;
 	}
 	// setter and getter
-	,_isInMiddleWord: function( new_value ){
-		if( typeof( new_value ) == "undefined" )
+	,_isInMiddleWord( newValue ){
+		if( typeof( newValue ) === "undefined" )
 			return this.isInMiddleWord;
 		else
-			this.isInMiddleWord	= new_value;
+			this.isInMiddleWord	= newValue;
 	}
 	// select the next element in the suggested box
-	,_selectNext: function()
+	,_selectNext()
 	{
-		var as	= this.container.getElementsByTagName('A');
+		var as	= this.container.getElementsByTagName("A");
 		
 		// clean existing elements
 		for( var i=0; i<as.length; i++ )
@@ -231,15 +241,15 @@ var EditArea_autocompletion= {
 		as[ this.selectIndex ].className	+= " focus";
 	}
 	// select the previous element in the suggested box
-	,_selectBefore: function()
+	,_selectBefore()
 	{
-		var as	= this.container.getElementsByTagName('A');
+		var as	= this.container.getElementsByTagName("A");
 		
 		// clean existing elements
 		for( var i=0; i<as.length; i++ )
 		{
 			if( as[i].className )
-				as[i].className	= as[ i ].className.replace(/ focus/g, '');
+				as[i].className	= as[ i ].className.replace(/ focus/g, "");
 		}
 		
 		this.selectIndex--;
@@ -247,35 +257,35 @@ var EditArea_autocompletion= {
 		this.selectIndex	= ( this.selectIndex >= as.length || this.selectIndex < 0 ) ? as.length-1 : this.selectIndex;
 		as[ this.selectIndex ].className	+= " focus";
 	}
-	,_select: function( content )
+	,_select( content )
 	{
-		cursor_forced_position	= content.indexOf( '{@}' );
-		content	= content.replace(/{@}/g, '' );
+		cursorForcedPosition	= content.indexOf( "{@}" );
+		content	= content.replace(/{@}/g, "" );
 		editArea.getIESelection();
 		
 		// retrive the number of matching characters
-		var start_index	= Math.max( 0, editArea.textarea.selectionEnd - content.length );
+		var startIndex	= Math.max( 0, editArea.textarea.selectionEnd - content.length );
 		
-		line_string	= 	editArea.textarea.value.substring( start_index, editArea.textarea.selectionEnd + 1);
-		limit	= line_string.length -1;
-		nbMatch	= 0;
+		var lineString	= 	editArea.textarea.value.substring( startIndex, editArea.textarea.selectionEnd + 1);
+		var limit	= lineString.length -1;
+		var nbMatch	= 0;
 		for( i =0; i<limit ; i++ )
 		{
-			if( line_string.substring( limit - i - 1, limit ) == content.substring( 0, i + 1 ) )
-				nbMatch = i + 1;
+			if( lineString.substring( limit - i - 1, limit ) === content.substring( 0, i + 1 ) )
+			{	nbMatch = i + 1;}
 		}
 		// if characters match, we should include them in the selection that will be replaced
 		if( nbMatch > 0 )
-			parent.editAreaLoader.setSelectionRange(editArea.id, editArea.textarea.selectionStart - nbMatch , editArea.textarea.selectionEnd);
+		{	parent.editAreaLoader.setSelectionRange(editArea.id, editArea.textarea.selectionStart - nbMatch , editArea.textarea.selectionEnd);}
 		
 		parent.editAreaLoader.setSelectedText(editArea.id, content );
-		range= parent.editAreaLoader.getSelectionRange(editArea.id);
-		
-		if( cursor_forced_position != -1 )
-			new_pos	= range["end"] - ( content.length-cursor_forced_position );
+		var range= parent.editAreaLoader.getSelectionRange(editArea.id);
+		var newPos;
+		if( cursorForcedPosition != -1 )
+		{	newPos	= range["end"] - ( content.length-cursorForcedPosition );}
 		else
-			new_pos	= range["end"];	
-		parent.editAreaLoader.setSelectionRange(editArea.id, new_pos, new_pos);
+		{	newPos	= range["end"];	}
+		parent.editAreaLoader.setSelectionRange(editArea.id, newPos, newPos);
 		this._hide();
 	}
 	
@@ -283,25 +293,25 @@ var EditArea_autocompletion= {
 	/**
 	 * Parse the AUTO_COMPLETION part of syntax definition files
 	 */
-	,_parseSyntaxAutoCompletionDatas: function(){
+	,_parseSyntaxAutoCompletionDatas(){
 		//foreach syntax loaded
 		for(var lang in parent.editAreaLoader.load_syntax)
 		{
-			if(!parent.editAreaLoader.syntax[lang]['autocompletion'])	// init the regexp if not already initialized
+			if(!parent.editAreaLoader.syntax[lang]["autocompletion"])	// init the regexp if not already initialized
 			{
-				parent.editAreaLoader.syntax[lang]['autocompletion']= {};
+				parent.editAreaLoader.syntax[lang]["autocompletion"]= {};
 				// the file has auto completion datas
-				if(parent.editAreaLoader.load_syntax[lang]['AUTO_COMPLETION'])
+				if(parent.editAreaLoader.load_syntax[lang]["AUTO_COMPLETION"])
 				{
 					// parse them
 					for(var i in parent.editAreaLoader.load_syntax[lang]['AUTO_COMPLETION'])
 					{
-						datas	= parent.editAreaLoader.load_syntax[lang]['AUTO_COMPLETION'][i];
-						tmp	= {};
-						if(datas["CASE_SENSITIVE"]!="undefined" && datas["CASE_SENSITIVE"]==false)
-							tmp["modifiers"]="i";
-						else
-							tmp["modifiers"]="";
+						var datas	= parent.editAreaLoader.load_syntax[lang]['AUTO_COMPLETION'][i];
+						var tmp	= {};
+						if(datas["CASE_SENSITIVE"]!="undefined" && datas["CASE_SENSITIVE"]===false)
+						{	tmp["modifiers"]="i";}
+						else{
+							tmp["modifiers"]="";}
 						tmp["prefix_separator"]= datas["REGEXP"]["prefix_separator"];
 						tmp["match_prefix_separator"]= new RegExp( datas["REGEXP"]["prefix_separator"] +"$", tmp["modifiers"]);
 						tmp["match_word"]= new RegExp("(?:"+ datas["REGEXP"]["before_word"] +")("+ datas["REGEXP"]["possible_words_letters"] +")$", tmp["modifiers"]);
@@ -318,20 +328,20 @@ var EditArea_autocompletion= {
 							};
 							for( var j=0; j<datas["KEYWORDS"][prefix].length; j++ )
 							{
-								tmp["keywords"][prefix]['datas'][j]= {
+								tmp["keywords"][prefix]["datas"][j]= {
 									is_typing: datas["KEYWORDS"][prefix][j][0],
 									// if replace with is empty, replace with the is_typing value
-									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('ง', datas["KEYWORDS"][prefix][j][0] ) : '',
+									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('ยง', datas["KEYWORDS"][prefix][j][0] ) : "",
 									comment: datas["KEYWORDS"][prefix][j][2] ? datas["KEYWORDS"][prefix][j][2] : '' 
 								};
 								
 								// the replace with shouldn't be empty
 								if( tmp["keywords"][prefix]['datas'][j]['replace_with'].length == 0 )
-									tmp["keywords"][prefix]['datas'][j]['replace_with'] = tmp["keywords"][prefix]['datas'][j]['is_typing'];
+									tmp["keywords"][prefix]["datas"][j]["replace_with"] = tmp["keywords"][prefix]["datas"][j]["is_typing"];
 								
 								// if the comment is empty, display the replace_with value
 								if( tmp["keywords"][prefix]['datas'][j]['comment'].length == 0 )
-									 tmp["keywords"][prefix]['datas'][j]['comment'] = tmp["keywords"][prefix]['datas'][j]['replace_with'].replace(/{@}/g, '' );
+									 tmp["keywords"][prefix]["datas"][j]["comment"] = tmp["keywords"][prefix]["datas"][j]["replace_with"].replace(/{@}/g, "" );
 							}
 								
 						}
@@ -343,27 +353,27 @@ var EditArea_autocompletion= {
 		}
 	}
 	
-	,_checkLetter: function(){
+	,_checkLetter(){
 		// check that syntax hasn't changed
 		if( this.curr_syntax_str != editArea.settings['syntax'] )
 		{
-			if( !parent.editAreaLoader.syntax[editArea.settings['syntax']]['autocompletion'] )
-				this._parseSyntaxAutoCompletionDatas();
-			this.curr_syntax= parent.editAreaLoader.syntax[editArea.settings['syntax']]['autocompletion'];
-			this.curr_syntax_str = editArea.settings['syntax'];
+			if( !parent.editAreaLoader.syntax[editArea.settings["syntax"]]["autocompletion"] )
+			{	this._parseSyntaxAutoCompletionDatas();}
+			this.curr_syntax= parent.editAreaLoader.syntax[editArea.settings["syntax"]]["autocompletion"];
+			this.curr_syntax_str = editArea.settings["syntax"];
 			//console.log( this.curr_syntax );
 		}
 		
 		if( editArea.is_editable )
 		{
-			time=new Date;
-			t1= time.getTime();
+			var time=new Date;
+			var t1= time.getTime();
 			editArea.getIESelection();
 			this.selectIndex	= -1;
-			start=editArea.textarea.selectionStart;
+			var start=editArea.textarea.selectionStart;
 			var str	= editArea.textarea.value;
 			var results= [];
-			
+			var hasMatch;
 			
 			for(var i in this.curr_syntax)
 			{
@@ -373,73 +383,73 @@ var EditArea_autocompletion= {
 				if( matchNextletter || this.forceDisplay )
 				{
 					// check if the last chars match a separator
-					var match_prefix_separator = last_chars.match(this.curr_syntax[i]["match_prefix_separator"]);
+					var matchPrefixSeparator = last_chars.match(this.curr_syntax[i]["match_prefix_separator"]);
 			
 					// check if it match a possible word
-					var match_word= last_chars.match(this.curr_syntax[i]["match_word"]);
+					var matchWord= last_chars.match(this.curr_syntax[i]["match_word"]);
 					
 					//console.log( match_word );
-					if( match_word )
+					if( matchWord )
 					{
-						var begin_word= match_word[1];
-						var match_curr_word= new RegExp("^"+ parent.editAreaLoader.get_escaped_regexp( begin_word ), this.curr_syntax[i]["modifiers"]);
+						var beginWord= matchWord[1];
+						var matchCurrWord= new RegExp("^"+ parent.editAreaLoader.get_escaped_regexp( beginWord ), this.curr_syntax[i]["modifiers"]);
 						//console.log( match_curr_word );
 						for(var prefix in this.curr_syntax[i]["keywords"])
 						{
 						//	parent.console.log( this.curr_syntax[i]["keywords"][prefix] );
-							for(var j=0; j<this.curr_syntax[i]["keywords"][prefix]['datas'].length; j++)
+							for(var j=0; j<this.curr_syntax[i]["keywords"][prefix]["datas"].length; j++)
 							{
 						//		parent.console.log( this.curr_syntax[i]["keywords"][prefix]['datas'][j]['is_typing'] );
 								// the key word match or force display 
-								if( this.curr_syntax[i]["keywords"][prefix]['datas'][j]['is_typing'].match(match_curr_word) )
+								if( this.curr_syntax[i]["keywords"][prefix]["datas"][j]["is_typing"].match(matchCurrWord) )
 								{
 							//		parent.console.log('match');
 									hasMatch = false;
-									var before = last_chars.substr( 0, last_chars.length - begin_word.length );
+									var before = last_chars.substr( 0, last_chars.length - beginWord.length );
 									
 									// no prefix to match => it's valid
-									if( !match_prefix_separator && this.curr_syntax[i]["keywords"][prefix]['prefix'].length == 0 )
+									if( !matchPrefixSeparator && this.curr_syntax[i]["keywords"][prefix]["prefix"].length === 0 )
 									{
-										if( ! before.match( this.curr_syntax[i]["keywords"][prefix]['prefix_reg'] ) )
-											hasMatch = true;
+										if( ! before.match( this.curr_syntax[i]["keywords"][prefix]["prefix_reg"] ) )
+										{	hasMatch = true;}
 									}
 									// we still need to check the prefix if there is one
 									else if( this.curr_syntax[i]["keywords"][prefix]['prefix'].length > 0 )
 									{
-										if( before.match( this.curr_syntax[i]["keywords"][prefix]['prefix_reg'] ) )
-											hasMatch = true;
+										if( before.match( this.curr_syntax[i]["keywords"][prefix]["prefix_reg"] ) )
+										{	hasMatch = true;}
 									}
 									
 									if( hasMatch )
-										results[results.length]= [ this.curr_syntax[i]["keywords"][prefix], this.curr_syntax[i]["keywords"][prefix]['datas'][j] ];
+									{	results[results.length]= [ this.curr_syntax[i]["keywords"][prefix], this.curr_syntax[i]["keywords"][prefix]["datas"][j] ];}
 								}	
 							}
 						}
 					}
 					// it doesn't match any possible word but we want to display something
 					// we'll display to list of all available words
-					else if( this.forceDisplay || match_prefix_separator )
+					else if( this.forceDisplay || matchPrefixSeparator )
 					{
 						for(var prefix in this.curr_syntax[i]["keywords"])
 						{
-							for(var j=0; j<this.curr_syntax[i]["keywords"][prefix]['datas'].length; j++)
+							for(var j=0; j<this.curr_syntax[i]["keywords"][prefix]["datas"].length; j++)
 							{
 								hasMatch = false;
 								// no prefix to match => it's valid
-								if( !match_prefix_separator && this.curr_syntax[i]["keywords"][prefix]['prefix'].length == 0 )
+								if( !matchPrefixSeparator && this.curr_syntax[i]["keywords"][prefix]["prefix"].length === 0 )
 								{
 									hasMatch	= true;
 								}
 								// we still need to check the prefix if there is one
-								else if( match_prefix_separator && this.curr_syntax[i]["keywords"][prefix]['prefix'].length > 0 )
+								else if( matchPrefixSeparator && this.curr_syntax[i]["keywords"][prefix]["prefix"].length > 0 )
 								{
 									var before = last_chars; //.substr( 0, last_chars.length );
-									if( before.match( this.curr_syntax[i]["keywords"][prefix]['prefix_reg'] ) )
+									if( before.match( this.curr_syntax[i]["keywords"][prefix]["prefix_reg"] ) )
 										hasMatch = true;
 								}	
 									
 								if( hasMatch )
-									results[results.length]= [ this.curr_syntax[i]["keywords"][prefix], this.curr_syntax[i]["keywords"][prefix]['datas'][j] ];	
+									results[results.length]= [ this.curr_syntax[i]["keywords"][prefix], this.curr_syntax[i]["keywords"][prefix]["datas"][j] ];	
 							}
 						}
 					}
@@ -447,10 +457,10 @@ var EditArea_autocompletion= {
 			}
 			
 			// there is only one result, and we can select it automatically
-			if( results.length == 1 && this.autoSelectIfOneResult )
+			if( results.length === 1 && this.autoSelectIfOneResult )
 			{
 			//	console.log( results );
-				this._select( results[0][1]['replace_with'] );
+				this._select( results[0][1]["replace_with"] );
 			}
 			else if( results.length == 0 )
 			{
@@ -460,16 +470,17 @@ var EditArea_autocompletion= {
 			{
 				// build the suggestion box content
 				var lines=[];
+				var line;
 				for(var i=0; i<results.length; i++)
 				{
 					var line= "<li><a href=\"#\" class=\"entry\" onmousedown=\"EditArea_autocompletion._select('"+ results[i][1]['replace_with'].replace(new RegExp('"', "g"), "&quot;") +"');return false;\">"+ results[i][1]['comment'];
 					if(results[i][0]['prefix_name'].length>0)
-						line+='<span class="prefix">'+ results[i][0]['prefix_name'] +'</span>';
+						line+='<span class="prefix">'+ results[i][0]["prefix_name"] +'</span>';
 					line+='</a></li>';
 					lines[lines.length]=line;
 				}
 				// sort results
-				this.container.innerHTML		= '<ul>'+ lines.sort().join('') +'</ul>';
+				this.container.innerHTML		= '<ul>'+ lines.sort().join("") +'</ul>';
 				
 				var cursor	= _$("cursor_pos");
 				this.container.style.top		= ( cursor.cursor_top + editArea.lineHeight ) +"px";
@@ -487,5 +498,5 @@ var EditArea_autocompletion= {
 };
 
 // Load as a plugin
-editArea.settings['plugins'][ editArea.settings['plugins'].length ] = 'autocompletion';
-editArea.add_plugin('autocompletion', EditArea_autocompletion);
+editArea.settings['plugins'][ editArea.settings['plugins'].length ] = "autocompletion";
+editArea.add_plugin('autocompletion', EditAreaAutocompletion);

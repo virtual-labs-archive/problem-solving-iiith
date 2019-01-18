@@ -9,8 +9,8 @@
 function EditAreaLoader(){
 	var t=this;
 	t.version= "0.8.2";
-	date= new Date();
-	t.start_time=date.getTime();
+	var date= new Date();
+	t.startTime=date.getTime();
 	t.win= "loading";	// window loading state
 	t.error= false;	// to know if load is interrrupt
 	t.baseURL="";
@@ -83,44 +83,79 @@ function EditAreaLoader(){
 			['redo', 'redo.gif', 'redo', true],
 			['change_smooth_selection', 'smooth_selection.gif', 'change_smooth_selection_mode', true],
 			['reset_highlight', 'reset_highlight.gif', 'resync_highlight', true],
-			['highlight', 'highlight.gif','change_highlight', true],
-			['help', 'help.gif', 'show_help', false],
-			['save', 'save.gif', 'save', false],
-			['load', 'load.gif', 'load', false],
-			['fullscreen', 'fullscreen.gif', 'toggle_full_screen', false],
-			['word_wrap', 'word_wrap.gif', 'toggle_word_wrap', true],
-			['autocompletion', 'autocompletion.gif', 'toggle_autocompletion', true]
+			["highlight", "highlight.gif","hange_highlight", true],
+			["help", "help.gif", "show_help", false],
+			["save", "save.gif", "save", false],
+			["load", "load.gif", "load", false],
+			["fullscreen", "fullscreen.gif", "toggle_full_screen", false],
+			["word_wrap", "word_wrap.gif", "toggle_word_wrap", true],
+			["autocompletion", "autocompletion.gif", "toggle_autocompletion", true]
 		];
 			
 	// navigator identification
 	t.set_browser_infos(t);
 
 	if(t.isIE>=6 || t.isGecko || ( t.isWebKit && !t.isSafari<3 ) || t.isOpera>=9  || t.isCamino )
-		t.isValidBrowser=true;
-	else
+	{t.isValidBrowser=true;}
+	else{
 		t.isValidBrowser=false;
-
+	}
 	t.set_base_url();		
-	
 	for(var i=0; i<t.scripts_to_load.length; i++){
-		setTimeout("editAreaLoader.load_script('"+t.baseURL + t.scripts_to_load[i]+ ".js');", 1);	// let the time to Object editAreaLoader to be created before loading additionnal scripts
-		t.waiting_loading[t.scripts_to_load[i]+ ".js"]= false;
+		setTimeout("editAreaLoader.load_script('"+t.baseURL + t.scripts_to_load.getElementById(i)+ ".js');", 1);	// let the time to Object editAreaLoader to be created before loading additionnal scripts
+		t.waiting_loading[t.scripts_to_load.getElementById(i)+ ".js"]= false;
 	}
 	t.add_event(window, "load", EditAreaLoader.prototype.window_loaded);
-};
-	
+}
+	function hasErrorSub()
+	{
+		for(var i in EditAreaLoader.prototype){
+			if(EditAreaLoader.prototype.getElementById(i))
+			{
+				EditAreaLoader.prototype.getElementById(i)=function(){};		
+			}
+		}
+	}
 EditAreaLoader.prototype ={
-	has_error : function(){
+	function hasError(){
 		this.error= true;
 		// set to empty all EditAreaLoader functions
-		for(var i in EditAreaLoader.prototype){
-			EditAreaLoader.prototype[i]=function(){};		
-		}
+		
 	},
 	
 	// add browser informations to the object passed in parameter
+	function setBrowser(o,ua)
+	{
+		if(o.isFirefox =(ua.indexOf('Firefox') != -1))
+			o.isFirefox = ua.replace(/^.*?Firefox.*?([0-9\.]+).*$/i, "$1");
+		// Firefox clones 	
+		if( ua.indexOf('Iceweasel') != -1 )
+			o.isFirefox	= ua.replace(/^.*?Iceweasel.*?([0-9\.]+).*$/i, "$1");
+		if( ua.indexOf('GranParadiso') != -1 )
+			o.isFirefox	= ua.replace(/^.*?GranParadiso.*?([0-9\.]+).*$/i, "$1");
+	}
+	function checkBrowser2(o,ua)
+	{
+		if( ua.indexOf('BonEcho') != -1 )
+			o.isFirefox	= ua.replace(/^.*?BonEcho.*?([0-9\.]+).*$/i, "$1");
+		if( ua.indexOf('SeaMonkey') != -1)
+			o.isFirefox = (ua.replace(/^.*?SeaMonkey.*?([0-9\.]+).*$/i, "$1") ) + 1;
+			
+		if(o.isCamino =(ua.indexOf('Camino') != -1))
+			o.isCamino = ua.replace(/^.*?Camino.*?([0-9\.]+).*$/i, "$1");
+	}
+	function checkBrowser3(o,ua)
+	{
+		if(o.isSafari =(ua.indexOf('Safari') != -1))
+			o.isSafari= ua.replace(/^.*?Version\/([0-9]+\.[0-9]+).*$/i, "$1");
+	
+		if(o.isChrome =(ua.indexOf('Chrome') != -1)) {
+			o.isChrome = ua.replace(/^.*?Chrome.*?([0-9\.]+).*$/i, "$1");
+			o.isSafari	= false;
+		}
+	}
 	set_browser_infos : function(o){
-		ua= navigator.userAgent;
+		var ua= navigator.userAgent;
 		
 		// general detection
 		o.isWebKit	= /WebKit/.test(ua);
@@ -141,29 +176,9 @@ EditAreaLoader.prototype ={
 			o.isIE=false;			
 		}
 
-		if(o.isFirefox =(ua.indexOf('Firefox') != -1))
-			o.isFirefox = ua.replace(/^.*?Firefox.*?([0-9\.]+).*$/i, "$1");
-		// Firefox clones 	
-		if( ua.indexOf('Iceweasel') != -1 )
-			o.isFirefox	= ua.replace(/^.*?Iceweasel.*?([0-9\.]+).*$/i, "$1");
-		if( ua.indexOf('GranParadiso') != -1 )
-			o.isFirefox	= ua.replace(/^.*?GranParadiso.*?([0-9\.]+).*$/i, "$1");
-		if( ua.indexOf('BonEcho') != -1 )
-			o.isFirefox	= ua.replace(/^.*?BonEcho.*?([0-9\.]+).*$/i, "$1");
-		if( ua.indexOf('SeaMonkey') != -1)
-			o.isFirefox = (ua.replace(/^.*?SeaMonkey.*?([0-9\.]+).*$/i, "$1") ) + 1;
-			
-		if(o.isCamino =(ua.indexOf('Camino') != -1))
-			o.isCamino = ua.replace(/^.*?Camino.*?([0-9\.]+).*$/i, "$1");
-			
-		if(o.isSafari =(ua.indexOf('Safari') != -1))
-			o.isSafari= ua.replace(/^.*?Version\/([0-9]+\.[0-9]+).*$/i, "$1");
-	
-		if(o.isChrome =(ua.indexOf('Chrome') != -1)) {
-			o.isChrome = ua.replace(/^.*?Chrome.*?([0-9\.]+).*$/i, "$1");
-			o.isSafari	= false;
-		}
-		
+		checkBrowser(o,ua);
+		checkBrowser2(o,ua);
+		checkBrowser3(o,ua);
 	},
 	
 	window_loaded : function(){
@@ -205,7 +220,7 @@ EditAreaLoader.prototype ={
 		
 	init : function(settings){
 		var t=this,s=settings,i;
-		
+		var editAreas={};
 		if(!s["id"])
 			t.has_error();
 		if(t.error)
@@ -860,7 +875,7 @@ EditAreaLoader.prototype ={
     // allow to set the selection with the given start and end positions
     setSelectionRange : function(id, new_start, new_end){
     	var fs=window.frames;
-    	
+    	var elem;
         if(fs["frame_"+id] && editAreas[id]["displayed"]==true){
             fs["frame_"+ id].editArea.area_select(new_start, new_end-new_start);  
 			// make an auto-scroll to the selection
@@ -918,7 +933,7 @@ EditAreaLoader.prototype ={
     	var old_sel,new_sel;
     	
     	old_sel	= this.getSelectionRange(id);
-    	text	= open_tag + this.getSelectedText(id) + close_tag;
+    	var text	= open_tag + this.getSelectedText(id) + close_tag;
     	 
 		editAreaLoader.setSelectedText(id, text);
 		
@@ -973,7 +988,7 @@ EditAreaLoader.prototype ={
 	
 	// restore hidden EditArea and normal textarea
 	show : function(id){
-		var fs= window.frames,d=document,t=this,span;
+		var fs= window.frames,d=document,t=this,span,elem,sel,scrollTop,scrollLeft;
 		if((elem=d.getElementById(id)) && t.hidden[id])
 		{
 			elem.style.display= "inline";

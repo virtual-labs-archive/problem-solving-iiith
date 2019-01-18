@@ -45,41 +45,41 @@ editAreaLoader.load_syntax["css"] = {
 			'georgian', 'gray', 'green', 'groove', 'hebrew', 'help', 'hidden', 'hide', 'higher',
 			'high', 'hiragana-iroha', 'hiragana', 'icon', 'inherit', 'inline-table', 'inline',
 			'inset', 'inside', 'invert', 'italic', 'justify', 'katakana-iroha', 'katakana',
-			'landscape', 'larger', 'large', 'left-side', 'leftwards', 'level', 'lighter', 'lime', 'line-through', 'list-item', 'loud', 'lower-alpha', 'lower-greek', 'lower-roman', 'lowercase', 'ltr', 'lower', 'low',
+			"landscape', 'larger', 'large', 'left-side', 'leftwards', 'level', 'lighter', 'lime', 'line-through', 'list-item', 'loud', 'lower-alpha', 'lower-greek', 'lower-roman', 'lowercase', 'ltr', 'lower', 'low",
 			'maroon', 'medium', 'message-box', 'middle', 'mix', 'monospace',
 			'n-resize', 'narrower', 'navy', 'ne-resize', 'no-close-quote', 'no-open-quote', 'no-repeat', 'none', 'normal', 'nowrap', 'nw-resize',
 			'oblique', 'olive', 'once', 'open-quote', 'outset', 'outside', 'overline',
-			'pointer', 'portrait', 'purple', 'px',
-			'red', 'relative', 'repeat-x', 'repeat-y', 'repeat', 'rgb', 'ridge', 'right-side', 'rightwards',
-			's-resize', 'sans-serif', 'scroll', 'se-resize', 'semi-condensed', 'semi-expanded', 'separate', 'serif', 'show', 'silent', 'silver', 'slow', 'slower', 'small-caps', 'small-caption', 'smaller', 'soft', 'solid', 'spell-out', 'square',
-			'static', 'status-bar', 'super', 'sw-resize',
-			'table-caption', 'table-cell', 'table-column', 'table-column-group', 'table-footer-group', 'table-header-group', 'table-row', 'table-row-group', 'teal', 'text', 'text-bottom', 'text-top', 'thick', 'thin', 'transparent',
-			'ultra-condensed', 'ultra-expanded', 'underline', 'upper-alpha', 'upper-latin', 'upper-roman', 'uppercase', 'url',
-			'visible',
-			'w-resize', 'wait', 'white', 'wider',
-			'x-fast', 'x-high', 'x-large', 'x-loud', 'x-low', 'x-small', 'x-soft', 'xx-large', 'xx-small',
-			'yellow', 'yes'
+			"pointer", "portrait", "purple", "px",
+			"red", "relative", "repeat-x", "repeat-y", "repeat", "rgb", "ridge", "right-side", "rightwards",
+			"s-resize", "sans-serif", "scroll", "se-resize", "semi-condensed", "semi-expanded", "separate", "serif", "show", "silent", "silver", "slow", "slower", "small-caps", "small-caption", "smaller", "soft", "solid", "spell-out", "square",
+			"static", "status-bar", "super", "sw-resize",
+			"table-caption", "table-cell", "table-column", "table-column-group", "table-footer-group", "table-header-group", "table-row", "table-row-group", "teal", "text", "text-bottom", "text-top", "thick", "thin", "transparent",
+			"ultra-condensed", "ultra-expanded", "underline", "upper-alpha", "upper-latin", "upper-roman", "uppercase", "url",
+			"visible",
+			"w-resize", "wait", "white", "wider",
+			"x-fast", "x-high", "x-large", "x-loud", "x-low", "x-small", "x-soft", "xx-large", "xx-small",
+			"yellow", "yes"
 		]
-		,'specials' : [
-			'important'
+		,"specials" : [
+			"important"
 		]
 	}
-	,'OPERATORS' :[
-		':', ';', '!', '.', '#'
+	,"OPERATORS" :[
+		":", ";", "!", ".", "#"
 	]
-	,'DELIMITERS' :[
-		'{', '}'
+	,"DELIMITERS" :[
+		"{", "}"
 	]
-	,'STYLES' : {
-		'COMMENTS': 'color: #AAAAAA;'
-		,'QUOTESMARKS': 'color: #6381F8;'
-		,'KEYWORDS' : {
-			'attributes' : 'color: #48BDDF;'
-			,'values' : 'color: #2B60FF;'
-			,'specials' : 'color: #FF0000;'
+	,"STYLES" : {
+		"COMMENTS": "color: #AAAAAA;"
+		,"QUOTESMARKS": "color: #6381F8;"
+		,"KEYWORDS" : {
+			"attributes" : "color: #48BDDF;"
+			,"values" : "color: #2B60FF;"
+			,"specials" : "color: #FF0000;"
 			}
-		,'OPERATORS' : 'color: #FF00FF;'
-		,'DELIMITERS' : 'color: #60CA00;'
+		,"OPERATORS" : "color: #FF00FF;"
+		,"DELIMITERS" : "color: #60CA00;"
 				
 	}
 };
