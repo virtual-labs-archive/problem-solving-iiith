@@ -1,17 +1,18 @@
 	//replace tabulation by the good number of white spaces
-	EditArea.prototype.replace_tab= function(text){
-		return text.replace(/((\n?)([^\t\n]*)\t)/gi, editArea.smartTab);		// slower than simple replace...	
-	};
 	
 	// call by the replace_tab function
 	EditArea.prototype.smartTab= function(){
-		val="                   ";
-		return EditArea.prototype.smartTab.arguments[2] + EditArea.prototype.smartTab.arguments[3] + val.substr(0, editArea.tab_nb_char - (EditArea.prototype.smartTab.arguments[3].length)%editArea.tab_nb_char);
+		var val="";
+		return EditArea.prototype.smartTab.arguments[2] + EditArea.prototype.smartTab.arguments[3] + val.substr(0, EditArea.tab_nb_char - (EditArea.prototype.smartTab.arguments[3].length)%editArea.tab_nb_char);
+	};
+
+	EditArea.prototype.replaceTab= function(text){
+		return text.replace(/((\n?)([^\t\n]*)\t)/gi, EditArea.smartTab);		// slower than simple replace...	
 	};
 	
-	EditArea.prototype.show_waiting_screen= function(){
-		width	= this.editor_area.offsetWidth;
-		height	= this.editor_area.offsetHeight;
+	EditArea.prototype.showWaitingScreen= function(){
+		var width	= this.editor_area.offsetWidth;
+		var height	= this.editor_area.offsetHeight;
 		if( !(this.isIE && this.isIE<6) )
 		{
 			width	-= 2;
@@ -23,14 +24,14 @@
 		this.waiting_screen_displayed		= true;
 	};
 	
-	EditArea.prototype.hide_waiting_screen= function(){
+	EditArea.prototype.hideWaitingScreen= function(){
 		this.processing_screen.style.display="none";
 		this.waiting_screen_displayed= false;
 	};
 	
-	EditArea.prototype.add_style= function(styles){
+	EditArea.prototype.addStyle= function(styles){
 		if(styles.length>0){
-			newcss = document.createElement("style");
+			var newcss = document.createElement("style");
 			newcss.type="text/css";
 			newcss.media="all";
 			if(newcss.styleSheet){ // IE
@@ -42,25 +43,25 @@
 		}
 	};
 	
-	EditArea.prototype.set_font= function(family, size){
-		var t=this, a=this.textarea, s=this.settings, elem_font, i, elem;
+	EditArea.prototype.setFont= function(family, size){
+		var t=this, a=this.textarea, s=this.settings, elemFont, i, elem;
 		// list all elements concerned by font changes
-		var elems= ["textarea", "content_highlight", "cursor_pos", "end_bracket", "selection_field", "selection_field_text", "line_number"];
+		var elems= ["textarea", "contentHighlight", "cursorPos", "endBracket", "selectionField", "selectionFieldText", "lineNumber"];
 		
-		if(family && family!="")
-			s["font_family"]= family;
-		if(size && size>0)
-			s["font_size"]	= size;
-		if( t.isOpera && t.isOpera < 9.6 )	// opera<9.6 can't manage non monospace font
-			s['font_family']="monospace";
+		if(family!=="")
+			s["fontFamily"]= family;
+		if(size>0)
+			s["fontSize"]	= size;
+		if(t.isOpera < 9.6 )	// opera<9.6 can't manage non monospace font
+			s["fontFamily"]="monospace";
 			
 		// update the select tag
-		if( elem_font = _$("area_font_size") )
+		if( elemFont = _$("area_font_size") )
 		{	
-			for( i = 0; i < elem_font.length; i++ )
+			for( i = 0; i < elemFont.length; i++ )
 			{
-				if( elem_font.options[i].value && elem_font.options[i].value == s["font_size"] )
-					elem_font.options[i].selected=true;
+				if( elemFont.options[i].value && elemFont.options[i].value === s["fontSize"] )
+					elemFont.options[i].selected=true;
 			}
 		}
 		
@@ -75,19 +76,19 @@
 		{
 			var nbTry = 3;
 			do {
-				var div1 = document.createElement( 'div' ), text1 = document.createElement( 'textarea' );
+				var div1 = document.createElement( "div" ), text1 = document.createElement( "textarea" );
 				var styles = {
-					width:		'40px',
-					overflow:	'scroll',
+					width:		"40px",
+					overflow:	"scroll",
 					zIndex: 	50,
-					visibility:	'hidden',
-					fontFamily:	s["font_family"],
-					fontSize:	s["font_size"]+"pt",
+					visibility:	"hidden",
+					fontFamily:	s["fontFamily"],
+					fontSize:	s["fontSize"]+"pt",
 					lineHeight:	t.lineHeight+"px",
-					padding:	'0',
-					margin:		'0',
-					border:		'none',
-					whiteSpace:	'nowrap'
+					padding:	"0",
+					margin:		"0",
+					border:		"none",
+					whiteSpace:	"nowrap",
 				};
 				var diff, changed = false;
 				for( i in styles )
@@ -96,19 +97,19 @@
 					text1.style[ i ]	= styles[i];
 				}
 				// no wrap for this text
-				text1.wrap = 'off';
-				text1.setAttribute('wrap', 'off');
+				text1.wrap = "off";
+				text1.setAttribute("wrap", "off");
 				t.container.appendChild( div1 );
 				t.container.appendChild( text1 );
 				// try to make FF to bug
-				div1.innerHTML 		= text1.value	= 'azertyuiopqsdfghjklm';
-				div1.innerHTML 		= text1.value	= text1.value+'wxcvbn^p*ù$!:;,,';
+				div1.innerHTML 		= text1.value	= "azertyuiopqsdfghjklm";
+				div1.innerHTML 		= text1.value	= text1.value+"wxcvbn^p*ù$!:;,,";
 				diff	=  text1.scrollWidth - div1.scrollWidth;
 				
 				// firefox return here a diff of 1 px between equals scrollWidth (can't explain)
 				if( Math.abs( diff ) >= 2 )
 				{
-					s["font_size"]++;
+					s["fontSize"]++;
 					changed	= true;
 				}
 				t.container.removeChild( div1 );
@@ -120,8 +121,8 @@
 		
 		// calc line height
 		elem					= t.test_font_size;
-		elem.style.fontFamily	= ""+s["font_family"];
-		elem.style.fontSize		= s["font_size"]+"pt";				
+		elem.style.fontFamily	= ""+s["fontFamily"];
+		elem.style.fontSize		= s["fontSize"]+"pt";				
 		elem.innerHTML			= "0";		
 		t.lineHeight			= elem.offsetHeight;
 
@@ -129,12 +130,12 @@
 		for( i=0; i<elems.length; i++)
 		{
 			elem	= _$(elems[i]);	
-			elem.style.fontFamily	= s["font_family"];
-			elem.style.fontSize		= s["font_size"]+"pt";
+			elem.style.fontFamily	= s["fontFamily"];
+			elem.style.fontSize		= s["fontSize"]+"pt";
 			elem.style.lineHeight	= t.lineHeight+"px";
 		}
 		// define a css for <pre> tags
-		t.add_style("pre{font-family:"+s["font_family"]+"}");
+		t.add_style("pre{font-family:"+s["fontFamily"]+"}");
 		
 		// old opera and IE>=8 doesn't update font changes to the textarea
 		if( ( t.isOpera && t.isOpera < 9.6 ) || t.isIE >= 8 )
@@ -151,24 +152,24 @@
 		this.check_line_selection();
 	};
 	
-	EditArea.prototype.change_font_size= function(){
-		var size=_$("area_font_size").value;
+	EditArea.prototype.changeFontSize= function(){
+		var size=_$("areaFontSize").value;
 		if(size>0)
 			this.set_font("", size);			
 	};
 	
 	
-	EditArea.prototype.open_inline_popup= function(popup_id){
+	EditArea.prototype.openInlinePopup= function(popupId){
 		this.close_all_inline_popup();
-		var popup= _$(popup_id);		
+		var popup= _$(popupId);		
 		var editor= _$("editor");
 		
 		// search matching icon
 		for(var i=0; i<this.inlinePopup.length; i++){
-			if(this.inlinePopup[i]["popup_id"]==popup_id){
+			if(this.inlinePopup[i]["popup_id"]===popupId){
 				var icon= _$(this.inlinePopup[i]["icon_id"]);
 				if(icon){
-					this.switchClassSticky(icon, 'editAreaButtonSelected', true);			
+					this.switchClassSticky(icon, "editAreaButtonSelected", true);			
 					break;
 				}
 			}
@@ -183,13 +184,13 @@
 		}
 		
 		if(!popup.positionned){
-			var new_left= editor.offsetWidth /2 - popup.offsetWidth /2;
-			var new_top= editor.offsetHeight /2 - popup.offsetHeight /2;
+			var newLeft= editor.offsetWidth /2 - popup.offsetWidth /2;
+			var newTop= editor.offsetHeight /2 - popup.offsetHeight /2;
 			//var new_top= area.offsetHeight /2 - popup.offsetHeight /2;
 			//var new_left= area.offsetWidth /2 - popup.offsetWidth /2;
 			//alert("new_top: ("+new_top+") = calculeOffsetTop(area) ("+calculeOffsetTop(area)+") + area.offsetHeight /2("+ area.offsetHeight /2+") - popup.offsetHeight /2("+popup.offsetHeight /2+") - scrollTop: "+document.body.scrollTop);
-			popup.style.left= new_left+"px";
-			popup.style.top= new_top+"px";
+			popup.style.left= newLeft+"px";
+			popup.style.top= newTop+"px";
 			popup.positionned=true;
 		}
 		popup.style.visibility="visible";
@@ -197,14 +198,14 @@
 		//popup.style.display="block";
 	};
 
-	EditArea.prototype.close_inline_popup= function(popup_id){
-		var popup= _$(popup_id);		
+	EditArea.prototype.closeTnlinePopup= function(popupId){
+		var popup= _$(popupId);		
 		// search matching icon
 		for(var i=0; i<this.inlinePopup.length; i++){
-			if(this.inlinePopup[i]["popup_id"]==popup_id){
+			if(this.inlinePopup[i]["popup_id"]==popupId){
 				var icon= _$(this.inlinePopup[i]["icon_id"]);
 				if(icon){
-					this.switchClassSticky(icon, 'editAreaButtonNormal', false);			
+					this.switchClassSticky(icon, "editAreaButtonNormal", false);			
 					break;
 				}
 			}
@@ -213,25 +214,25 @@
 		popup.style.visibility="hidden";	
 	};
 	
-	EditArea.prototype.close_all_inline_popup= function(e){
+	EditArea.prototype.closeAllInlinePopup= function(e){
 		for(var i=0; i<this.inlinePopup.length; i++){
-			this.close_inline_popup(this.inlinePopup[i]["popup_id"]);		
+			this.closeInlinePopup(this.inlinePopup[i]["popup_id"]);		
 		}
 		this.textarea.focus();
 	};
 	
-	EditArea.prototype.show_help= function(){
+	EditArea.prototype.showHelp= function(){
 		
-		this.open_inline_popup("edit_area_help");
+		this.openInlinePopup("edit_area_help");
 		
 	};
 			
-	EditArea.prototype.new_document= function(){
+	EditArea.prototype.newDocument= function(){
 		this.textarea.value="";
 		this.area_select(0,0);
 	};
 	
-	EditArea.prototype.get_all_toolbar_height= function(){
+	EditArea.prototype.getAllToolbarHeight= function(){
 		var area= _$("editor");
 		var results= parent.getChildren(area, "div", "class", "area_toolbar", "all", "0");	// search only direct children
 		//results= results.concat(getChildren(area, "table", "class", "area_toolbar", "all", "0"));
@@ -243,18 +244,20 @@
 		return height;
 	};
 	
-	EditArea.prototype.go_to_line= function(line){	
+	EditArea.prototype.goToLine= function(line){	
 		if(!line)
 		{	
-			var icon= _$("go_to_line");
-			if(icon != null){
+			var icon= _$("goToLine");
+			if(icon !== null){
 				this.restoreClass(icon);
-				this.switchClassSticky(icon, 'editAreaButtonSelected', true);
+				this.switchClassSticky(icon, "editAreaButtonSelected", true);
 			}
 			
 			line= prompt(this.get_translation("go_to_line_prompt"));
 			if(icon != null)
-				this.switchClassSticky(icon, 'editAreaButtonNormal', false);
+			{
+				this.switchClassSticky(icon, "editAreaButtonNormal", false);
+			}
 		}
 		if(line && line!=null && line.search(/^[0-9]+$/)!=-1){
 			var start=0;
@@ -272,104 +275,114 @@
 	};
 	
 	
-	EditArea.prototype.change_smooth_selection_mode= function(setTo){
+	EditArea.prototype.changeSmoothSelectionMode= function(setTo){
 		//alert("setTo: "+setTo);
-		if(this.do_highlight)
+		if(this.doHighlight)
 			return;
 			
-		if(setTo != null){
+		if(setTo !== null){
 			if(setTo === false)
-				this.smooth_selection=true;
-			else
-				this.smooth_selection=false;
+			{
+				this.smoothSelection=true;
+			}
+			else{
+				this.smoothSelection=false;
+			}
 		}
 		var icon= _$("change_smooth_selection");
 		this.textarea.focus();
-		if(this.smooth_selection===true){
+		if(this.smoothSelection===true){
 			//setAttribute(icon, "class", getAttribute(icon, "class").replace(/ selected/g, "") );
 			/*setAttribute(icon, "oldClassName", "editAreaButtonNormal" );
 			setAttribute(icon, "className", "editAreaButtonNormal" );*/
 			//this.restoreClass(icon);
 			//this.restoreAndSwitchClass(icon,'editAreaButtonNormal');
-			this.switchClassSticky(icon, 'editAreaButtonNormal', false);
+			this.switchClassSticky(icon, "editAreaButtonNormal", false);
 			
 			this.smooth_selection=false;
 			this.selection_field.style.display= "none";
-			_$("cursor_pos").style.display= "none";
-			_$("end_bracket").style.display= "none";
+			_$("cursorPos").style.display= "none";
+			_$("endBracket").style.display= "none";
 		}else{
 			//setAttribute(icon, "class", getAttribute(icon, "class") + " selected");
 			//this.switchClass(icon,'editAreaButtonSelected');
-			this.switchClassSticky(icon, 'editAreaButtonSelected', false);
-			this.smooth_selection=true;
-			this.selection_field.style.display= "block";
-			_$("cursor_pos").style.display= "block";
-			_$("end_bracket").style.display= "block";
+			this.switchClassSticky(icon, "editAreaButtonSelected", false);
+			this.smoothSelection=true;
+			this.selectionField.style.display= "block";
+			_$("cursorPos").style.display= "block";
+			_$("endBracket").style.display= "block";
 		}	
 	};
 	
 	// the auto scroll of the textarea has some lacks when it have to show cursor in the visible area when the textarea size change
 	// show specifiy whereas it is the "top" or "bottom" of the selection that is showned
-	EditArea.prototype.scroll_to_view= function(show){
+	EditArea.prototype.scrollToView= function(show){
 		var zone, lineElem;
-		if(!this.smooth_selection)
+		if(!this.smoothSelection)
+		{
 			return;
+		}
 		zone= _$("result");
 		
 		// manage height scroll
-		var cursor_pos_top= _$("cursor_pos").cursor_top;
-		if(show=="bottom")
+		var cursorPosTop= _$("cursorPos").cursor_top;
+		if(show==="bottom")
 		{
 			//cursor_pos_top+=  (this.last_selection["line_nb"]-1)* this.lineHeight;
-			cursor_pos_top+= this.getLinePosTop( this.last_selection['line_start'] + this.last_selection['line_nb'] - 1 );
+			cursorPosTop+= this.getLinePosTop( this.last_selection["lineStart"] + this.last_selection["line_Nb"] - 1 );
 		}
 			
-		var max_height_visible= zone.clientHeight + zone.scrollTop;
-		var miss_top	= cursor_pos_top + this.lineHeight - max_height_visible;
-		if(miss_top>0){
+		var maxHeightVisible= zone.clientHeight + zone.scrollTop;
+		var missTop	= cursorPosTop + this.lineHeight - maxHeightVisible;
+		if(missTop>0){
 			//alert(miss_top);
-			zone.scrollTop=  zone.scrollTop + miss_top;
-		}else if( zone.scrollTop > cursor_pos_top){
+			zone.scrollTop=  zone.scrollTop + missTop;
+		}else if( zone.scrollTop > cursorPosTop){
 			// when erase all the content -> does'nt scroll back to the top
 			//alert("else: "+cursor_pos_top);
-			zone.scrollTop= cursor_pos_top;	 
+			zone.scrollTop= cursorPosTop;	 
 		}
 		
 		// manage left scroll
 		//var cursor_pos_left= parseInt(_$("cursor_pos").style.left.replace("px",""));
-		var cursor_pos_left= _$("cursor_pos").cursor_left;
-		var max_width_visible= zone.clientWidth + zone.scrollLeft;
-		var miss_left= cursor_pos_left + 10 - max_width_visible;
-		if(miss_left>0){			
-			zone.scrollLeft= zone.scrollLeft + miss_left + 50;
-		}else if( zone.scrollLeft > cursor_pos_left){
-			zone.scrollLeft= cursor_pos_left ;
-		}else if( zone.scrollLeft == 45){
+		var cursorPosLeft= _$("cursorPos").cursor_left;
+		var maxWidthVisible= zone.clientWidth + zone.scrollLeft;
+		var missLeft= cursorPosLeft + 10 - maxWidthVisible;
+		if(missLeft>0){			
+			zone.scrollLeft= zone.scrollLeft + missLeft + 50;
+		}else if( zone.scrollLeft > cursorPosLeft){
+			zone.scrollLeft= cursorPosLeft ;
+		}else if( zone.scrollLeft === 45){
 			// show the line numbers if textarea align to it's left
 			zone.scrollLeft=0;
 		}
 	};
 	
-	EditArea.prototype.check_undo= function(only_once){
+	EditArea.prototype.checkUndo= function(onlyOnce){
 		if(!editAreas[this.id])
+		{
 			return false;
-		if(this.textareaFocused && editAreas[this.id]["displayed"]==true){
+		}
+		if(this.textareaFocused && editAreas[this.id]["displayed"]===true){
 			var text=this.textarea.value;
 			if(this.previous.length<=1)
-				this.switchClassSticky(_$("undo"), 'editAreaButtonDisabled', true);
-		
-			if(!this.previous[this.previous.length-1] || this.previous[this.previous.length-1]["text"] != text){
+			{
+				this.switchClassSticky(_$("undo"), "editAreaButtonDisabled", true);
+			}
+			if(!this.previous[this.previous.length-1] || this.previous[this.previous.length-1]["text"] !== text){
 				this.previous.push({"text": text, "selStart": this.textarea.selectionStart, "selEnd": this.textarea.selectionEnd});
-				if(this.previous.length > this.settings["max_undo"]+1)
+				if(this.previous.length > this.settings["maxUndo"]+1)
 					this.previous.shift();
 				
 			}
 			if(this.previous.length >= 2)
-				this.switchClassSticky(_$("undo"), 'editAreaButtonNormal', false);		
+			{
+				this.switchClassSticky(_$("undo"), "editAreaButtonNormal", false);		
+			}
 		}
 
-		if(!only_once)
-			setTimeout("editArea.check_undo()", 3000);
+		if(!onlyOnce)
+			setTimeout("editArea.checkUndo()", 3000);
 	};
 	
 	EditArea.prototype.undo= function(){
@@ -383,7 +396,7 @@
 			if( prev["text"] == this.textarea.value && this.previous.length > 0 )
 				prev	=this.previous.pop();						
 			this.textarea.value	= prev["text"];
-			this.last_undo		= prev["text"];
+			this.lastUndo		= prev["text"];
 			this.area_select(prev["selStart"], prev["selEnd"]-prev["selStart"]);
 			this.switchClassSticky(_$("redo"), 'editAreaButtonNormal', false);
 			this.resync_highlight(true);
@@ -402,117 +415,119 @@
 			this.textarea.value= next["text"];
 			this.last_undo= next["text"];
 			this.area_select(next["selStart"], next["selEnd"]-next["selStart"]);
-			this.switchClassSticky(_$("undo"), 'editAreaButtonNormal', false);
+			this.switchClassSticky(_$("undo"), "editAreaButtonNormal", false);
 			this.resync_highlight(true);
 			this.check_file_changes();
 		}
-		if(	this.next.length == 0)
+		if(	this.next.length === 0)
 			this.switchClassSticky(_$("redo"), 'editAreaButtonDisabled', true);
 	};
 	
 	EditArea.prototype.check_redo= function(){
-		if(editArea.next.length == 0 || editArea.textarea.value!=editArea.last_undo){
+		if(editArea.next.length === 0 || editArea.textarea.value!=editArea.last_undo){
 			editArea.next= [];	// undo the ability to use "redo" button
 			editArea.switchClassSticky(_$("redo"), 'editAreaButtonDisabled', true);
 		}
 		else
 		{
-			this.switchClassSticky(_$("redo"), 'editAreaButtonNormal', false);
+			this.switchClassSticky(_$("redo"),"editAreaButtonNormal", false);
 		}
 	};
 	
 	
 	// functions that manage icons roll over, disabled, etc...
-	EditArea.prototype.switchClass = function(element, class_name, lock_state) {
+	EditArea.prototype.switchClass = function(element, className, lockState) {
 		var lockChanged = false;
 	
-		if (typeof(lock_state) != "undefined" && element != null) {
-			element.classLock = lock_state;
+		if (typeof(lockState) !== "undefined" && element !== null) {
+			element.classLock = lockState;
 			lockChanged = true;
 		}
 	
-		if (element != null && (lockChanged || !element.classLock)) {
+		if (element !== null && (lockChanged || !element.classLock)) {
 			element.oldClassName = element.className;
-			element.className = class_name;
+			element.className = className;
 		}
 	};
 	
-	EditArea.prototype.restoreAndSwitchClass = function(element, class_name) {
-		if (element != null && !element.classLock) {
+	EditArea.prototype.restoreAndSwitchClass = function(element, className) {
+		if (element !== null && !element.classLock) {
 			this.restoreClass(element);
 			this.switchClass(element, class_name);
 		}
 	};
 	
 	EditArea.prototype.restoreClass = function(element) {
-		if (element != null && element.oldClassName && !element.classLock) {
+		if (element !== null && element.oldClassName && !element.classLock) {
 			element.className = element.oldClassName;
 			element.oldClassName = null;
 		}
 	};
 	
-	EditArea.prototype.setClassLock = function(element, lock_state) {
-		if (element != null)
-			element.classLock = lock_state;
+	EditArea.prototype.setClassLock = function(element, lockState) {
+		if (element !== null)
+			element.classLock = lockState;
 	};
 	
-	EditArea.prototype.switchClassSticky = function(element, class_name, lock_state) {
+	EditArea.prototype.switchClassSticky = function(element, className, lockState) {
 		var lockChanged = false;
-		if (typeof(lock_state) != "undefined" && element != null) {
-			element.classLock = lock_state;
+		if (typeof(lockState) !== "undefined" && element !== null) {
+			element.classLock = lockState;
 			lockChanged = true;
 		}
 	
-		if (element != null && (lockChanged || !element.classLock)) {
-			element.className = class_name;
-			element.oldClassName = class_name;
+		if (element !== null && (lockChanged || !element.classLock)) {
+			element.className = className;
+			element.oldClassName = className;
 		}
 	};
 	
 	//make the "page up" and "page down" buttons works correctly
-	EditArea.prototype.scroll_page= function(params){
-		var dir= params["dir"], shift_pressed= params["shift"];
+	EditArea.prototype.scrollPage= function(params){
+		var dir= params["dir"], shiftPressed= params["shift"];
 		var lines= this.textarea.value.split("\n");		
-		var new_pos=0, length=0, char_left=0, line_nb=0, curLine=0;
+		var newPos=0, length=0, charLeft=0, lineNb=0, curLine=0;
 		var toScrollAmount	= _$("result").clientHeight -30;
 		var nbLineToScroll	= 0, diff= 0;
-		
-		if(dir=="up"){
+		var view;
+		if(dir==="up"){
 			nbLineToScroll	= Math.ceil( toScrollAmount / this.lineHeight );
 			
 			// fix number of line to scroll
-			for( i = this.last_selection["line_start"]; i - diff > this.last_selection["line_start"] - nbLineToScroll ; i-- )
+			for( i = this.last_selection["lineStart"]; i - diff > this.last_selection["lineStart"] - nbLineToScroll ; i-- )
 			{
-				if( elem = _$('line_'+ i) )
+				if( elem = _$("line"+ i) )
 				{
 					diff +=  Math.floor( ( elem.offsetHeight - 1 ) / this.lineHeight );
 				}
 			}
 			nbLineToScroll	-= diff;
 			
-			if(this.last_selection["selec_direction"]=="up"){
-				for(line_nb=0; line_nb< Math.min(this.last_selection["line_start"]-nbLineToScroll, lines.length); line_nb++){
-					new_pos+= lines[line_nb].length + 1;
+			if(this.last_selection["selecDirection"]==="up"){
+				for(lineNb=0; lineNb< Math.min(this.last_selection["lineStart"]-nbLineToScroll, lines.length); lineNb++){
+					newPos+= lines[lineNb].length + 1;
 				}
-				char_left=Math.min(lines[Math.min(lines.length-1, line_nb)].length, this.last_selection["curr_pos"]-1);
-				if(shift_pressed)
-					length=this.last_selection["selectionEnd"]-new_pos-char_left;	
-				this.area_select(new_pos+char_left, length);
+				charLeft=Math.min(lines[Math.min(lines.length-1, lineNb)].length, this.last_selection["currPos"]-1);
+				if(shiftPressed)
+				{
+					length=this.last_selection["selectionEnd"]-newPos-charLeft;	
+				}
+				this.area_select(newPos+charLeft, length);
 				view="top";
 			}else{			
 				view="bottom";
-				for(line_nb=0; line_nb< Math.min(this.last_selection["line_start"]+this.last_selection["line_nb"]-1-nbLineToScroll, lines.length); line_nb++){
-					new_pos+= lines[line_nb].length + 1;
+				for(lineNb=0; lineNb< Math.min(this.last_selection["lineStart"]+this.last_selection["lineNb"]-1-nbLineToScroll, lines.length); line_nb++){
+					newPos+= lines[lineNb].length + 1;
 				}
-				char_left=Math.min(lines[Math.min(lines.length-1, line_nb)].length, this.last_selection["curr_pos"]-1);
-				if(shift_pressed){
+				charLeft=Math.min(lines[Math.min(lines.length-1, lineNb)].length, this.last_selection["currPos"]-1);
+				if(shiftPressed){
 					//length=this.last_selection["selectionEnd"]-new_pos-char_left;	
-					start= Math.min(this.last_selection["selectionStart"], new_pos+char_left);
-					length= Math.max(new_pos+char_left, this.last_selection["selectionStart"] )- start ;
-					if(new_pos+char_left < this.last_selection["selectionStart"])
+					start= Math.min(this.last_selection["selectionStart"], newPos+charLeft);
+					length= Math.max(newPos+charLeft, this.last_selection["selectionStart"] )- start ;
+					if(newPos+charLeft < this.last_selection["selectionStart"])
 						view="top";
 				}else
-					start=new_pos+char_left;
+					start=newPos+charLeft;
 				this.area_select(start, length);
 				
 			}
@@ -521,48 +536,53 @@
 		{
 			var nbLineToScroll= Math.floor( toScrollAmount / this.lineHeight );
 			// fix number of line to scroll
-			for( i = this.last_selection["line_start"]; i + diff < this.last_selection["line_start"] + nbLineToScroll ; i++ )
+			for( i = this.last_selection["linestart"]; i + diff < this.last_selection["linestart"] + nbLineToScroll ; i++ )
 			{
-				if( elem = _$('line_'+ i) )
+				if( elem = _$("line"+ i) )
 				{
 					diff +=  Math.floor( ( elem.offsetHeight - 1 ) / this.lineHeight );
 				}
 			}
 			nbLineToScroll	-= diff;
 				
-			if(this.last_selection["selec_direction"]=="down"){
+			if(this.last_selection["selec_direction"]==="down"){
 				view="bottom";
-				for(line_nb=0; line_nb< Math.min(this.last_selection["line_start"]+this.last_selection["line_nb"]-2+nbLineToScroll, lines.length); line_nb++){
-					if(line_nb==this.last_selection["line_start"]-1)
-						char_left= this.last_selection["selectionStart"] -new_pos;
-					new_pos+= lines[line_nb].length + 1;
+				for(lineNb=0; lineNb< Math.min(this.last_selection["lineStart"]+this.last_selection["lineNb"]-2+nbLineToScroll, lines.length); line_nb++){
+					if(lineNb===this.last_selection["lineStart"]-1)
+					{
+						charLeft= this.last_selection["selectionStart"] -newPos;
+					}
+					newPos+= lines[lineNb].length + 1;
 									
 				}
-				if(shift_pressed){
+				if(shiftPressed){
 					length=Math.abs(this.last_selection["selectionStart"]-new_pos);	
-					length+=Math.min(lines[Math.min(lines.length-1, line_nb)].length, this.last_selection["curr_pos"]);
+					length+=Math.min(lines[Math.min(lines.length-1, lineNb)].length, this.last_selection["currPos"]);
 					//length+=Math.min(lines[Math.min(lines.length-1, line_nb)].length, char_left);
-					this.area_select(Math.min(this.last_selection["selectionStart"], new_pos), length);
+					this.area_select(Math.min(this.last_selection["selectionStart"], newPos), length);
 				}else{
-					this.area_select(new_pos+char_left, 0);
+					this.area_select(newPos+charLeft, 0);
 				}
 				
 			}else{
 				view="top";
-				for(line_nb=0; line_nb< Math.min(this.last_selection["line_start"]+nbLineToScroll-1, lines.length, lines.length); line_nb++){
-					if(line_nb==this.last_selection["line_start"]-1)
-						char_left= this.last_selection["selectionStart"] -new_pos;
-					new_pos+= lines[line_nb].length + 1;									
+				for(lineNb=0; lineNb< Math.min(this.last_selection["lineStart"]+nbLineToScroll-1, lines.length, lines.length); line_nb++){
+					if(lineNb===this.last_selection["lineStart"]-1)
+					{
+						charLeft= this.last_selection["selectionStart"] -newPos;
+					}
+					newPos+= lines[lineNb].length + 1;									
 				}
-				if(shift_pressed){
-					length=Math.abs(this.last_selection["selectionEnd"]-new_pos-char_left);	
-					length+=Math.min(lines[Math.min(lines.length-1, line_nb)].length, this.last_selection["curr_pos"])- char_left-1;
+				if(shiftPressed){
+					length=Math.abs(this.last_selection["selectionEnd"]-newPos-charLeft);	
+					length+=Math.min(lines[Math.min(lines.length-1, lineNb)].length, this.last_selection["currPos"])- char_left-1;
 					//length+=Math.min(lines[Math.min(lines.length-1, line_nb)].length, char_left);
-					this.area_select(Math.min(this.last_selection["selectionEnd"], new_pos+char_left), length);
-					if(new_pos+char_left > this.last_selection["selectionEnd"])
-						view="bottom";
+					this.area_select(Math.min(this.last_selection["selectionEnd"], newPos+charLeft), length);
+					if(newPos+charLeft > this.last_selection["selectionEnd"])
+					{	view="bottom";
+					}
 				}else{
-					this.area_select(new_pos+char_left, 0);
+					this.area_select(newPos+charLeft, 0);
 				}
 				
 			}
@@ -572,10 +592,10 @@
 		this.scroll_to_view(view);
 	};
 	
-	EditArea.prototype.start_resize= function(e){
+	EditArea.prototype.startResize= function(e){
 		parent.editAreaLoader.resize["id"]		= editArea.id;		
-		parent.editAreaLoader.resize["start_x"]	= (e)? e.pageX : event.x + document.body.scrollLeft;		
-		parent.editAreaLoader.resize["start_y"]	= (e)? e.pageY : event.y + document.body.scrollTop;
+		parent.editAreaLoader.resize["startX"]	= (e)? e.pageX : event.x + document.body.scrollLeft;		
+		parent.editAreaLoader.resize["startY"]	= (e)? e.pageY : event.y + document.body.scrollTop;
 		if(editArea.isIE)
 		{
 			editArea.textarea.focus();
@@ -586,19 +606,20 @@
 		parent.editAreaLoader.start_resize_area();
 	};
 	
-	EditArea.prototype.toggle_full_screen= function(to){
+	EditArea.prototype.toggleFullScreen= function(to){
 		var t=this, p=parent, a=t.textarea, html, frame, selStart, selEnd, old, icon;
-		if(typeof(to)=="undefined")
-			to= !t.fullscreen['isFull'];
-		old			= t.fullscreen['isFull'];
-		t.fullscreen['isFull']= to;
+		if(typeof(to)==="undefined"){
+			to= !t.fullscreen["isFull"];
+		}
+		old= t.fullscreen["isFull"];
+		t.fullscreen["isFull"]= to;
 		icon		= _$("fullscreen");
 		selStart	= t.textarea.selectionStart;
 		selEnd		= t.textarea.selectionEnd;
 		html		= p.document.getElementsByTagName("html")[0];
 		frame		= p.document.getElementById("frame_"+t.id);
 		
-		if(to && to!=old)
+		if(to && to!==old)
 		{	// toogle on fullscreen		
 			
 			t.fullscreen['old_overflow']	= p.get_css_property(html, "overflow");
@@ -651,7 +672,7 @@
 			
 	
 		}
-		else if(to!=old)
+		else if(to!==old)
 		{	// toogle off fullscreen
 			frame.style.position="static";
 			frame.style.zIndex= t.fullscreen['old_zIndex'];
@@ -689,61 +710,61 @@
 		
 	};
 	
-	EditArea.prototype.allow_resize= function(allow){
+	EditArea.prototype.allowResize= function(allow){
 		var resize= _$("resize_area");
 		if(allow){
 			
 			resize.style.visibility="visible";
-			parent.editAreaLoader.add_event(resize, "mouseup", editArea.start_resize);
+			parent.editAreaLoader.add_event(resize, "mouseup", editArea.startResize);
 		}else{
 			resize.style.visibility="hidden";
-			parent.editAreaLoader.remove_event(resize, "mouseup", editArea.start_resize);
+			parent.editAreaLoader.remove_event(resize, "mouseup", editArea.startResize);
 		}
 		this.resize_allowed= allow;
 	};
 	
 	
-	EditArea.prototype.change_syntax= function(new_syntax, is_waiting){
+	EditArea.prototype.changeSyntax= function(newSyntax, isWaiting){
 	//	alert("cahnge to "+new_syntax);
 		// the syntax is the same
-		if(new_syntax==this.settings['syntax'])
-			return true;
-		
+		if(newSyntax===this.settings["syntax"])
+		{	return true;
+		}
 		// check that the syntax is one allowed
 		var founded= false;
 		for(var i=0; i<this.syntax_list.length; i++)
 		{
-			if(this.syntax_list[i]==new_syntax)
+			if(this.syntax_list[i]==newSyntax)
 				founded= true;
 		}
 		
-		if(founded==true)
+		if(founded===true)
 		{
 			// the reg syntax file is not loaded
-			if(!parent.editAreaLoader.load_syntax[new_syntax])
+			if(!parent.editAreaLoader.loadSyntax[newSyntax])
 			{
 				// load the syntax file and wait for file loading
-				if(!is_waiting)
-					parent.editAreaLoader.load_script(parent.editAreaLoader.baseURL + "reg_syntax/" + new_syntax + ".js");
-				setTimeout("editArea.change_syntax('"+ new_syntax +"', true);", 100);
-				this.show_waiting_screen();
+				if(!isWaiting)
+					parent.editAreaLoader.loadScript(parent.editAreaLoader.baseURL + "reg_syntax/" + newSyntax + ".js");
+				setTimeout("editArea.change_syntax('"+ newSyntax +"', true);", 100);
+				this.showWaitingScreen();
 			}
 			else
 			{
-				if(!this.allready_used_syntax[new_syntax])
+				if(!this.allreadyUsedSyntax[newSyntax])
 				{	// the syntax has still not been used
 					// rebuild syntax definition for new languages
 					parent.editAreaLoader.init_syntax_regexp();
 					// add style to the new list
-					this.add_style(parent.editAreaLoader.syntax[new_syntax]["styles"]);
-					this.allready_used_syntax[new_syntax]=true;
+					this.add_style(parent.editAreaLoader.syntax[newSyntax]["styles"]);
+					this.allreadyUsedSyntax[newSyntax]=true;
 				}
 				// be sure that the select option is correctly updated
-				var sel= _$("syntax_selection");
-				if(sel && sel.value!=new_syntax)
+				var sel= _$("syntaxSelection");
+				if(sel && sel.value!=newSyntax)
 				{
 					for(var i=0; i<sel.length; i++){
-						if(sel.options[i].value && sel.options[i].value == new_syntax)
+						if(sel.options[i].value && sel.options[i].value === newSyntax)
 							sel.options[i].selected=true;
 					}
 				}
@@ -755,9 +776,9 @@
 					this.change_highlight(true);
 				}
 				*/
-				this.settings['syntax']= new_syntax;
-				this.resync_highlight(true);
-				this.hide_waiting_screen();
+				this.settings["syntax"]= newSyntax;
+				this.resyncHighlight(true);
+				this.hideWaitingScreen();
 				return true;
 			}
 		}
@@ -766,67 +787,68 @@
 	
 	
 	// check if the file has changed
-	EditArea.prototype.set_editable= function(is_editable){
-		if(is_editable)
+	EditArea.prototype.setEditable= function(isEditable){
+		if(isEditable)
 		{
 			document.body.className= "";
 			this.textarea.readOnly= false;
-			this.is_editable= true;
+			this.isEditable= true;
 		}
 		else
 		{
-			document.body.className= "non_editable";
+			document.body.className= "nonEditable";
 			this.textarea.readOnly= true;
-			this.is_editable= false;
+			this.isEditable= false;
 		}
 		
-		if(editAreas[this.id]["displayed"]==true)
-			this.update_size();
+		if(editAreas[this.id]["displayed"]===true)
+			this.updateSize();
 	};
 	
 	/***** Wrap mode *****/
 	
 	// toggling function for set_wrap_mode
-	EditArea.prototype.toggle_word_wrap= function(){
-		this.set_word_wrap( !this.settings['word_wrap'] );
+	EditArea.prototype.toggleWordWrap= function(){
+		this.setWordWrap( !this.settings["wordWrap"] );
 	};
 	
 	
 	// open a new tab for the given file
-	EditArea.prototype.set_word_wrap= function(to){
+	EditArea.prototype.setWordWrap= function(to){
 		var t=this, a= t.textarea;
+		var wrapMode;
 		if( t.isOpera && t.isOpera < 9.8 )
 		{
-			this.settings['word_wrap']= false;
-			t.switchClassSticky( _$("word_wrap"), 'editAreaButtonDisabled', true );
+			this.settings["wordWrap"]= false;
+			t.switchClassSticky( _$("wordWrap"), "editAreaButtonDisabled", true );
 			return false;
 		}
 		
 		if( to )
 		{
-			wrap_mode = 'soft';
-			this.container.className+= ' word_wrap';
+			wrapMode = "soft";
+			this.container.className+= "wordWrap";
 			this.container.style.width="";
-			this.content_highlight.style.width="";
+			this.contentHighlight.style.width="";
 			a.style.width="100%";
 			if( t.isIE && t.isIE < 7 )	// IE 6 count 50 px too much
 			{
 				a.style.width	= ( a.offsetWidth-5 )+"px";
 			}
 			
-			t.switchClassSticky( _$("word_wrap"), 'editAreaButtonSelected', false );
+			t.switchClassSticky( _$("wordWrap"), "editAreaButtonSelected", false );
 		}
 		else
 		{
-			wrap_mode = 'off';
+			wrapMode = "off";
 			this.container.className	= this.container.className.replace(/word_wrap/g, '');
-			t.switchClassSticky( _$("word_wrap"), 'editAreaButtonNormal', true );
+			t.switchClassSticky( _$("wordWrap"), "editAreaButtonNormal", true );
 		}
 		this.textarea.previous_scrollWidth = '';
 		this.textarea.previous_scrollHeight = '';
 		
-		a.wrap= wrap_mode;
-		a.setAttribute('wrap', wrap_mode);
+		a.wrap= wrapMode;
+		a.setAttribute("wrap", wrapMode);
 		// only IE can change wrap mode on the fly without element reloading
 		if(!this.isIE)
 		{
@@ -837,7 +859,7 @@
 			this.area_select(start, end-start);
 		}
 		// reset some optimisation
-		this.settings['word_wrap']	= to;
+		this.settings["wordWrap"]	= to;
 		this.focus();
 		this.update_size();
 		this.check_line_selection();
@@ -845,47 +867,47 @@
 	/***** tabbed files managing functions *****/
 	
 	// open a new tab for the given file
-	EditArea.prototype.open_file= function(settings){
+	EditArea.prototype.openFile= function(settings){
 		
-		if(settings['id']!="undefined")
+		if(settings["id"]!=="undefined")
 		{
-			var id= settings['id'];
+			var id= settings["id"];
 			// create a new file object with defautl values
-			var new_file= {};
-			new_file['id']			= id;
-			new_file['title']		= id;
-			new_file['text']		= "";
-			new_file['last_selection']	= "";		
-			new_file['last_text_to_highlight']	= "";
-			new_file['last_hightlighted_text']	= "";
-			new_file['previous']	= [];
-			new_file['next']		= [];
-			new_file['last_undo']	= "";
-			new_file['smooth_selection']	= this.settings['smooth_selection'];
-			new_file['do_highlight']= this.settings['start_highlight'];
-			new_file['syntax']		= this.settings['syntax'];
-			new_file['scroll_top']	= 0;
-			new_file['scroll_left']	= 0;
-			new_file['selection_start']= 0;
-			new_file['selection_end']= 0;
-			new_file['edited']		= false;
-			new_file['font_size']	= this.settings["font_size"];
-			new_file['font_family']	= this.settings["font_family"];
-			new_file['word_wrap']	= this.settings["word_wrap"];
-			new_file['toolbar']		= {'links':{}, 'selects': {}};
-			new_file['compare_edited_text']= new_file['text'];
+			var newFile= {};
+			newFile["id"]			= id;
+			newFile["title"]		= id;
+			newFile["text"]		= "";
+			newFile["lastSelection"]	= "";		
+			newFile["lastTextToHighlight"]	= "";
+			newFile["lastHightlightedText"]	= "";
+			newFile["previous"]	= [];
+			newFile["next"]		= [];
+			newFile["lastUndo"]	= "";
+			newFile["smoothSelection"]= this.settings['smoothSelection'];
+			newFile["doHighlight"]= this.settings['startHighlight'];
+			newFile["syntax"]= this.settings['syntax'];
+			newFile["scrollTop"]= 0;
+			newFile["scrollLeft"	= 0;
+			newFile["selectionStart"]= 0;
+			newFile["selectionEnd"]= 0;
+			newFile["edited"]		= false;
+			newFile["fontSize"]	= this.settings["fontSize"];
+			newFile["fontFamily"]	= this.settings["fontFamily"];
+			newFile["wordWrap"]	= this.settings["wordWrap"];
+			newFile["toolbar"]		= {'links':{}, 'selects': {}};
+			newFile["compareEditedText"]= newFile["text"];
 			
 			
-			this.files[id]= new_file;
+			this.files[id]= newFile;
 			this.update_file(id, settings);
-			this.files[id]['compare_edited_text']= this.files[id]['text'];
+			this.files[id]["compareEditedText"]= this.files[id]["text"];
 			
 			
-			var html_id= 'tab_file_'+encodeURIComponent(id);
-			this.filesIdAssoc[html_id]= id;
-			this.files[id]['html_id']= html_id;
+			var htmlId= "tabFile"+encodeURIComponent(id);
+			this.filesIdAssoc[htmlId]= id;
+			this.files[id]["htmlId"]= htmlId;
 		
-			if(!_$(this.files[id]['html_id']) && id!="")
+			if(!_$(this.files[id]["htmlId"]) && id!=="")
 			{
 				// be sure the tab browsing area is displayed
 				this.tab_browsing_area.style.display= "block";
@@ -894,108 +916,112 @@
 				var close= "<img src=\""+ parent.editAreaLoader.baseURL +"images/close.gif\" title=\""+ this.get_translation('close_tab', 'word') +"\" onclick=\"editArea.execCommand('close_file', editArea.filesIdAssoc['"+ html_id +"']);return false;\" class=\"hidden\" onmouseover=\"this.className=''\" onmouseout=\"this.className='hidden'\" />";
 				elem.innerHTML= "<a onclick=\"javascript:editArea.execCommand('switch_to_file', editArea.filesIdAssoc['"+ html_id +"']);\" selec=\"none\"><b><span><strong class=\"edited\">*</strong>"+ this.files[id]['title'] + close +"</span></b></a>";
 				_$('tab_browsing_list').appendChild(elem);
-				var elem= document.createElement('text');
+				var elem= document.createElement("text");
 				this.update_size();
 			}
 			
 			// open file callback (for plugin)
-			if(id!="")
-				this.execCommand('file_open', this.files[id]);
-			
-			this.switch_to_file(id, true);
+			if(id!=="")
+			{
+				this.execCommand("file_open", this.files[id]);
+			}
+			this.switchToFile(id, true);
 			return true;
 		}
-		else
+		else{
 			return false;
+		}
 	};
 	
 	// close the given file
-	EditArea.prototype.close_file= function(id){
+	EditArea.prototype.closeFile= function(id){
 		if(this.files[id])
 		{
-			this.save_file(id);
+			this.saveFile(id);
 			
 			// close file callback
-			if(this.execCommand('file_close', this.files[id])!==false)
+			if(this.execCommand("fileClose", this.files[id])!==false)
 			{
 				// remove the tab in the toolbar
-				var li= _$(this.files[id]['html_id']);
+				var li= _$(this.files[id]["htmlId"]);
 				li.parentNode.removeChild(li);
 				// select a new file
-				if(id== this.curr_file)
+				if(id=== this.currFile)
 				{
-					var next_file= "";
-					var is_next= false;
+					var nextFile= "";
+					var isNext= false;
 					for(var i in this.files)
 					{
-						if( is_next )
+						if( isNext )
 						{
-							next_file	= i;
+							nextFile= i;
 							break;
 						}
-						else if( i == id )
-							is_next		= true;
-						else
-							next_file	= i;
+						else if( i === id ){
+							isNext		= true;}
+						else{
+							nextFile	= i;
+						}
 					}
 					// display the next file
-					this.switch_to_file(next_file);
+					this.switchToFile(nextFile);
 				}
 				// clear datas
 				delete (this.files[id]);
-				this.update_size();
+				this.updateSize();
 			}	
 		}
 	};
 	
 	// backup current file datas
-	EditArea.prototype.save_file= function(id){
-		var t= this, save, a_links, a_selects, save_butt, img, i;
+	EditArea.prototype.saveSile= function(id){
+		var t= this, save, aSelects, saveButt, img, i;
+		var aLinks={};
 		if(t.files[id])
 		{
 			var save= t.files[id];
-			save['last_selection']			= t.last_selection;		
-			save['last_text_to_highlight']	= t.last_text_to_highlight;
-			save['last_hightlighted_text']	= t.last_hightlighted_text;
-			save['previous']				= t.previous;
-			save['next']					= t.next;
-			save['last_undo']				= t.last_undo;
-			save['smooth_selection']		= t.smooth_selection;
-			save['do_highlight']			= t.do_highlight;
-			save['syntax']					= t.settings['syntax'];
-			save['text']					= t.textarea.value;
-			save['scroll_top']				= t.result.scrollTop;
-			save['scroll_left']				= t.result.scrollLeft;
-			save['selection_start']			= t.last_selection["selectionStart"];
-			save['selection_end']			= t.last_selection["selectionEnd"];
-			save['font_size']				= t.settings["font_size"];
-			save['font_family']				= t.settings["font_family"];
-			save['word_wrap']				= t.settings["word_wrap"];
-			save['toolbar']					= {'links':{}, 'selects': {}};
+			save["lastSelection"]			= t.lastSelection;		
+			save["lastTextToHighlight"]	= t.lastTextToHighlight;
+			save["lastHightlightedText"]	= t.lastHightlightedText;
+			save["previous"]				= t.previous;
+			save["next"]					= t.next;
+			save["lastUndo"]				= t.lastUndo;
+			save["smoothSelection"]		= t.smoothSelection;
+			save["do_highlight"]			= t.doHighlight;
+			save["syntax"]					= t.settings["syntax"];
+			save["text"]					= t.textarea.value;
+			save["scroll_Top"]				= t.result.scrollTop;
+			save["scrollLeft"]				= t.result.scrollLeft;
+			save["selectionStart"]			= t.last_selection["selectionStart"];
+			save["selectionEnd"]			= t.last_selection["selectionEnd"];
+			save["fontSize"]				= t.settings["fontSize"];
+			save["fontFamily"]				= t.settings["fontFamily"];
+			save["wordWrap"]				= t.settings["wordWrap"];
+			save["toolbar"]					= {'links':{}, 'selects': {}};
 			
 			// save toolbar buttons state for fileSpecific buttons
-			a_links= _$("toolbar_1").getElementsByTagName("a");
-			for( i=0; i<a_links.length; i++ )
+			aLinks= _$("toolbar_1").getElementsByTagName("a");
+			for( i=0; i<aLinks.length; i++ )
 			{
-				if( a_links[i].getAttribute('fileSpecific') == 'yes' )
+				if( aLinks[i].getAttribute("fileSpecific") === "yes" )
 				{
-					save_butt	= {};
-					img			= a_links[i].getElementsByTagName('img')[0];
-					save_butt['classLock']		= img.classLock;
-					save_butt['className']		= img.className;
-					save_butt['oldClassName']	= img.oldClassName;
+					saveButt	= {};
+					img			= aLinks[i].getElementsByTagName("img")[0];
+					saveButt['classLock']		= img.classLock;
+					saveButt['className']		= img.className;
+					saveButt['oldClassName']	= img.oldClassName;
 					
-					save['toolbar']['links'][a_links[i].id]= save_butt;
+					save["toolbar"]["links"][aLinks[i].id]= saveButt;
 				}
 			}
 			
 			// save toolbar select state for fileSpecific buttons
-			a_selects= _$("toolbar_1").getElementsByTagName("select");
-			for( i=0; i<a_selects.length; i++)
+			aSelects= _$("toolbar_1").getElementsByTagName("select");
+			for( i=0; i<aSelects.length; i++)
 			{
-				if(a_selects[i].getAttribute('fileSpecific')=='yes')
+				if(aSelects[i].getAttribute("fileSpecific")==="yes")
 				{
-					save['toolbar']['selects'][a_selects[i].id]= a_selects[i].value;
+					save['toolbar']['selects'][aSelects[i].id]= aSelects[i].value;
 				}
 			}
 				
@@ -1008,32 +1034,35 @@
 	};
 	
 	// update file_datas
-	EditArea.prototype.update_file= function(id, new_values){
-		for(var i in new_values)
+	EditArea.prototype.updateFile= function(id, newValues){
+		for(var i in newValues)
 		{
-			this.files[id][i]= new_values[i];
+			this.files[id][i]= newValues[i];
 		}
 	};
 	
 	// display file datas
-	EditArea.prototype.display_file= function(id){
-		var t = this, a= t.textarea, new_file, a_lis, a_selects, a_links, a_options, i, j;
-		
+	EditArea.prototype.displayFile= function(id){
+		var t = this, a= t.textarea, newFile,  i, j;
+		var aLis={};
+		var aOptions={};
+		var aSelects={};
+		var aLinks={};
 		// we're showing the empty file
-		if(id=='')
+		if(id==='')
 		{
 			a.readOnly= true;
 			t.tab_browsing_area.style.display= "none";
-			_$("no_file_selected").style.display= "block";
+			_$("noFileSelected").style.display= "block";
 			t.result.className= "empty";
 			// clear current datas
-			if(!t.files[''])
+			if(!t.files[""])
 			{
-				t.open_file({id: ''});
+				t.open_file({id: ""});
 			}
 		}
 		// we try to show a non existent file, so we left
-		else if( typeof( t.files[id] ) == 'undefined' )
+		else if( typeof( t.files[id] ) === "undefined" )
 		{
 			return false;
 		}
@@ -1041,78 +1070,78 @@
 		else
 		{
 			t.result.className= "";
-			a.readOnly= !t.is_editable;
-			_$("no_file_selected").style.display= "none";
+			a.readOnly= !t.isEditable;
+			_$("noFileSelected").style.display= "none";
 			t.tab_browsing_area.style.display= "block";
 		}
 		
 		// ensure to have last state for undo/redo actions
 		t.check_redo(true);
 		t.check_undo(true);
-		t.curr_file= id;
+		t.currFile= id;
 		
 		// replace selected tab file
-		a_lis= t.tab_browsing_area.getElementsByTagName('li');
-		for( i=0; i<a_lis.length; i++)
+		aLis= t.tab_browsing_area.getElementsByTagName("li");
+		for( i=0; i<aLis.length; i++)
 		{
-			if(a_lis[i].id == t.files[id]['html_id'])
-				a_lis[i].className='selected';
+			if(aLis[i].id === t.files[id]["htmlId"])
+				aLis[i].className="selected";
 			else
-				a_lis[i].className='';
+				aLis[i].className="";
 		}
 		
 		// replace next files datas
-		new_file= t.files[id];
+		newFile= t.files[id];
 	
 		// restore text content
-		a.value= new_file['text'];
+		a.value= newFile["text"];
 		
 		// restore font-size
-		t.set_font(new_file['font_family'], new_file['font_size']);
+		t.set_font(newFile["fontFamily"], newFile["fontSize"]);
 		
 		// restore selection and scroll
-		t.area_select(new_file['selection_start'], new_file['selection_end'] - new_file['selection_start']);
+		t.area_select(newFile["selectionStart"], newFile["selectionEnd"] - newFile["selectionStart"]);
 		t.manage_size(true);
-		t.result.scrollTop= new_file['scroll_top'];
-		t.result.scrollLeft= new_file['scroll_left'];
+		t.result.scrollTop= newFile["scrollTop"];
+		t.result.scrollLeft= newFile["scrollLeft"];
 		
 		// restore undo, redo
-		t.previous=	new_file['previous'];
-		t.next=	new_file['next'];
-		t.last_undo=	new_file['last_undo'];
+		t.previous=	newFile['previous'];
+		t.next=	newFile['next'];
+		t.last_undo=	newFile["lastUndo"];
 		t.check_redo(true);
 		t.check_undo(true);
 		
 		// restore highlight
-		t.execCommand("change_highlight", new_file['do_highlight']);
-		t.execCommand("change_syntax", new_file['syntax']);
+		t.execCommand("changeHighlight", newFile["doHighlight"]);
+		t.execCommand("changeSyntax", newFile["syntax"]);
 		
 		// smooth mode
-		t.execCommand("change_smooth_selection_mode", new_file['smooth_selection']);
+		t.execCommand("changeSmoothSelectionMode", newFile["smoothSelection"]);
 		
 		// word_wrap
-		t.execCommand("set_word_wrap", new_file['word_wrap']);
+		t.execCommand("setWordWrap", newFile["wordWrap"]);
 			
 		// restore links state in toolbar
-		a_links= new_file['toolbar']['links'];
-		for( i in a_links)
+		aLinks= newFile["toolbar"]["links"];
+		for( i in aLinks)
 		{
-			if( img =  _$(i).getElementsByTagName('img')[0] )
+			if( img =  _$(i).getElementsByTagName("img")[0] )
 			{
-				img.classLock	= a_links[i]['classLock'];
-				img.className	= a_links[i]['className'];
-				img.oldClassName= a_links[i]['oldClassName'];
+				img.classLock	= aLinks[i]["classLock"];
+				img.className	= aLinks[i]["className"];
+				img.oldClassName= aLinks[i]["oldClassName"];
 			}
 		}
 		
 		// restore select state in toolbar
-		a_selects = new_file['toolbar']['selects'];
-		for( i in a_selects)
+		aSelects = newFile["toolbar"]["selects"];
+		for( i in aSelects)
 		{
-			a_options	= _$(i).options;
-			for( j=0; j<a_options.length; j++)
+			aOptions	= _$(i).options;
+			for( j=0; j<aOptions.length; j++)
 			{
-				if( a_options[j].value == a_selects[i] )
+				if( aOptions[j].value === aSelects[i] )
 					_$(i).options[j].selected=true;
 			}
 		}
@@ -1120,83 +1149,87 @@
 	};
 
 	// change tab for displaying a new one
-	EditArea.prototype.switch_to_file= function(file_to_show, force_refresh){
-		if(file_to_show!=this.curr_file || force_refresh)
+	EditArea.prototype.switchToFile= function(fileToShow, forceRefresh){
+		if(fileToShow!==this.curr_file || forceRefresh)
 		{
 			this.save_file(this.curr_file);
-			if(this.curr_file!='')
-				this.execCommand('file_switch_off', this.files[this.curr_file]);
-			this.display_file(file_to_show);
-			if(file_to_show!='')
-				this.execCommand('file_switch_on', this.files[file_to_show]);
+			if(this.currFile!=="")
+				this.execCommand("file_switch_off", this.files[this.currFile]);
+			this.display_file(fileToShow);
+			if(fileToShow!=="")
+				this.execCommand("file_switch_on", this.files[fileToShow]);
 		}
 	};
 
 	// get all infos for the given file
-	EditArea.prototype.get_file= function(id){
-		if(id==this.curr_file)
-			this.save_file(id);
+	EditArea.prototype.getFile= function(id){
+		if(id===this.currFile)
+			this.saveFile(id);
 		return this.files[id];
 	};
 	
 	// get all available files infos
-	EditArea.prototype.get_all_files= function(){
-		tmp_files= this.files;
-		this.save_file(this.curr_file);
-		if(tmp_files[''])
-			delete(this.files['']);
-		return tmp_files;
+	EditArea.prototype.getAllFiles= function(){
+		var tmpFiles= this.files;
+		this.save_file(this.currFile);
+		if(tmpFiles[""])
+			delete(this.files[""]);
+		return tmpFiles;
 	};
 	
 	
 	// check if the file has changed
-	EditArea.prototype.check_file_changes= function(){
+	EditArea.prototype.checkFileChanges= function(){
 	
-		var id= this.curr_file;
-		if(this.files[id] && this.files[id]['compare_edited_text']!=undefined)
+		var id= this.currFile;
+		if(this.files[id] && this.files[id]["compare_edited_text"]!== "undefined")
 		{
-			if(this.files[id]['compare_edited_text'].length==this.textarea.value.length && this.files[id]['compare_edited_text']==this.textarea.value)
+			if(this.files[id]["compare_edited_text"].length===this.textarea.value.length && this.files[id]["compare_edited_text"]===this.textarea.value)
 			{
-				if(this.files[id]['edited']!= false)
-					this.set_file_edited_mode(id, false);
+				if(this.files[id]["edited"]!== false)
+					this.setFileEditedMode(id, false);
 			}
 			else
 			{
-				if(this.files[id]['edited']!= true)
-					this.set_file_edited_mode(id, true);
+				if(this.files[id]["edited"]!== true)
+					this.setFileEditedMode(id, true);
 			}
 		}
 	};
 	
 	// set if the file is edited or not
-	EditArea.prototype.set_file_edited_mode= function(id, to){
+	EditArea.prototype.setFileEditedMode= function(id, to){
 		// change CSS for edited tab
-		if(this.files[id] && _$(this.files[id]['html_id']))
+		if(this.files[id] && _$(this.files[id]["htmlId"]))
 		{
-			var link= _$(this.files[id]['html_id']).getElementsByTagName('a')[0];
-			if(to==true)
+			var link= _$(this.files[id]["htmlId"]).getElementsByTagName("a")[0];
+			if(to===true)
 			{
-				link.className= 'edited';
+				link.className= "edited";
 			}
 			else
 			{
-				link.className= '';
-				if(id==this.curr_file)
+				link.className= "";
+				if(id===this.currFile)
+				{
 					text= this.textarea.value;
+				}
 				else
-					text= this.files[id]['text'];
-				this.files[id]['compare_edited_text']= text;
+				{
+					text= this.files[id]["text"];
+				}
+				this.files[id]["compare_edited_text"]= text;
 			}
 				
-			this.files[id]['edited']= to;
+			this.files[id]["edited"]= to;
 		}
 	};
 
-	EditArea.prototype.set_show_line_colors = function(new_value){
-		this.show_line_colors = new_value;
+	EditArea.prototype.setShowLineColors = function(newValue){
+		this.showLineColors = newValue;
 		
-		if( new_value )
-			this.selection_field.className	+= ' show_colors';
+		if( newValue )
+			this.selectionField.className	+= "showColors";
 		else
-			this.selection_field.className	= this.selection_field.className.replace( / show_colors/g, '' );
+			this.selectionField.className	= this.selectionField.className.replace( / showColors/g, "" );
 	};

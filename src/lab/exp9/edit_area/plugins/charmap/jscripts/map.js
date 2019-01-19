@@ -168,7 +168,7 @@ var char_range_list={
 "Variation Selectors Supplement":"E0100,E01EF"
 };
 */
-var char_range_list={
+var charRangeList={
 "Aegean Numbers":"10100,1013F",
 "Alphabetic Presentation Forms":"FB00,FB4F",
 "Ancient Greek Musical Notation":"1D200,1D24F",
@@ -316,25 +316,45 @@ var char_range_list={
 
 var insert="charmap_insert";
 
-function map_load(){
+function renderCharMapHTML() {
+	var range= document.getElementById("select_range").value.split(",");
+
+	var start= parseInt(range[0],16);
+	var end= parseInt(range[1],16);
+	var charsPerRow = 20, tdWidth=20, tdHeight=20;
+	var html="";
+	for (var i=start; i<end; i++) {
+		html+="<a class='char' onmouseover='previewChar(\""+ i + "\");' onclick='insertChar(\""+ i + "\");' title='"+ insert +"'>"+ String.fromCharCode(i) +"</a>";
+	}
+	document.getElementById("char_list").textContent= html;
+	document.getElementById("preview_char").textContent="";
+}
+
+function mapLoad(charRangeList){
 	editArea=opener.editArea;
 	// translate the document
 	insert= editArea.get_translation(insert, "word");
 	//alert(document.title);
 	document.title= editArea.get_translation(document.title, "template");
-	document.body.innerHTML= editArea.get_translation(document.body.innerHTML, "template");
+	var hello=editArea.get_translation(document.body.innerHTML, "template");
+	document.body.textContent=hello;
 	//document.title= editArea.get_translation(document.getElementBytitle, "template");
 	
-	var selected_lang=opener.EditArea_charmap.default_language.toLowerCase();
+	var selectedLang=opener.EditArea_charmap.default_language.toLowerCase();
 	var selected=0;
 	
-	var select= document.getElementById("select_range")
-	for(var i in char_range_list){
-		if(i.toLowerCase()==selected_lang)
-			selected=select.options.length;
-		select.options[select.options.length]=new Option(i, char_range_list[i]);
+	var select= document.getElementById("select_range");
+	for(var i in charRangeList)
+	{
+		if(charRangeList){
+			if(i.toLowerCase()===selectedLang)
+			{
+				selected=select.options.length;
+			}
+		}
+		select.options.getElementById(select.options.length)=new Option(i, charRangeList[i]);
 	}
-	select.options[selected].selected=true;
+	select.options.getElementById(selected).selected=true;
 /*	start=0;
 	end=127;
 	content="";
@@ -346,28 +366,14 @@ function map_load(){
 }
 
 
-function renderCharMapHTML() {
-	range= document.getElementById("select_range").value.split(",");
-
-	start= parseInt(range[0],16);
-	end= parseInt(range[1],16);
-	var charsPerRow = 20, tdWidth=20, tdHeight=20;
-	html="";
-	for (var i=start; i<end; i++) {
-		html+="<a class='char' onmouseover='previewChar(\""+ i + "\");' onclick='insertChar(\""+ i + "\");' title='"+ insert +"'>"+ String.fromCharCode(i) +"</a>";
-	}
-	document.getElementById("char_list").innerHTML= html;
-	document.getElementById("preview_char").innerHTML="";
-}
-
 function previewChar(i){
-	document.getElementById("preview_char").innerHTML= String.fromCharCode(i);
-	document.getElementById("preview_code").innerHTML= "&amp;#"+ i +";";
+	document.getElementById("preview_char").textContent= String.fromCharCode(i);
+	document.getElementById("preview_code").textContent= "&amp;#"+ i +";";
 }
 
 function insertChar(i){
-	opener.parent.editAreaLoader.setSelectedText(editArea.id, String.fromCharCode( i));
-	range= opener.parent.editAreaLoader.getSelectionRange(editArea.id);
+	opener.parent.editAreaLoader.setSelectedText(editArea.id, String.fromCharCode(i));
+	var range= opener.parent.editAreaLoader.getSelectionRange(editArea.id);
 	opener.parent.editAreaLoader.setSelectionRange(editArea.id, range["end"], range["end"]);
 	window.focus();
 }

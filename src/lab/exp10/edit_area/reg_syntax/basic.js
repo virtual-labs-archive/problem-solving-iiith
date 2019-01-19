@@ -30,7 +30,7 @@ editAreaLoader.load_syntax["basic"] = {
 			'strig', 'string', 'swap', 'system', 'time', 'timer',
 			'troff', 'tron', 'type', 'unlock', 'using', 'view',
 			'wait', 'width', 'window', 'write'
-	        ]
+		]
 		,'functions' : [
 			'abs', 'asc', 'atn', 'cdbl', 'chr', 'cint', 'clng',
 			'cos', 'csng', 'csrlin', 'cvd', 'cvdmbf', 'cvi', 'cvl',
@@ -54,7 +54,7 @@ editAreaLoader.load_syntax["basic"] = {
 	,'DELIMITERS' :[
 		'(', ')', '[', ']', '{', '}'
 	]
-	,'STYLES' : {
+	,"STYLES" : {
 		'COMMENTS': 'color: #99CC00;'
 		,'QUOTESMARKS': 'color: #333399;'
 		,'KEYWORDS' : {
