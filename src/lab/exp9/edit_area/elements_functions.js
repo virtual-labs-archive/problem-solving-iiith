@@ -3,29 +3,34 @@
  *
  ****/  
 	
-	
+	function checkName(taName,elm,aValue,aName)
+	{
+		for( i = 0; i < elm.attributes.length; i ++ ) {
+				taName = elm.attributes.getElementById(i) .name.toLowerCase();
+				if( taName === aName ) {
+					aValue = elm.attributes.getElementById(i) .value;
+					return aValue;
+				}
+			}
+	}
 	// need to redefine this functiondue to IE problem
 	function getAttribute( elm, aName ) {
 		var aValue,taName,i;
 		try{
 			aValue = elm.getAttribute( aName );
-		}catch(exept){}
+		}catch(exept){
+			return;
+		}
 		
 		if( ! aValue ){
-			for( i = 0; i < elm.attributes.length; i ++ ) {
-				taName = elm.attributes[i] .name.toLowerCase();
-				if( taName == aName ) {
-					aValue = elm.attributes[i] .value;
-					return aValue;
-				}
-			}
+			checkName(taName,elm,aValue,aName);
 		}
 		return aValue;
-	};
+	}
 	
 	// need to redefine this function due to IE problem
 	function setAttribute( elm, attr, val ) {
-		if(attr=="class"){
+		if(attr==="class"){
 			elm.setAttribute("className", val);
 			elm.setAttribute("class", val);
 		}else{
@@ -41,51 +46,61 @@
 		option: "all" if must return an array of all children, otherwise return the first match element
 		depth: depth of search (-1 or no set => unlimited)
 	*/
-	function getChildren(elem, elem_type, elem_attribute, elem_attribute_match, option, depth)
-	{           
-		if(!option)
-			var option="single";
-		if(!depth)
-			var depth=-1;
-		if(elem){
-			var children= elem.childNodes;
-			var result=null;
-			var results= [];
-			for (var x=0;x<children.length;x++) {
-				strTagName = new String(children[x].tagName);
-				children_class="?";
-				if(strTagName!= "undefined"){
-					child_attribute= getAttribute(children[x],elem_attribute);
-					if((strTagName.toLowerCase()==elem_type.toLowerCase() || elem_type=="") && (elem_attribute=="" || child_attribute==elem_attribute_match)){
-						if(option=="all"){
-							results.push(children[x]);
-						}else{
-							return children[x];
-						}
-					}
+	function checkChildren(elemType,children,elemAttribute,elemAttributeMatch,strTagName,option,results)
+	{
+		var childAttribute= getAttribute(children[x],elemAttribute);
+		if((strTagName.toLowerCase()===elemType.toLowerCase() || elemType==="") && (elemAttribute==="" || childAttribute===elemAttributeMatch)){
+			if(option==="all"){
+				results.push(children[x]);
+			}else{
+				return children[x];
+			}
+		}
+	}
+	function checkResult(elemType,children,elemAttribute,elemAttributeMatch,strTagName,option,results,depth,result)
+	{
+		if(strTagName!== "undefined"){
+						children=checkChildren(elemType,children,elemAttribute,elemAttributeMatch,strTagName,option,results)
 					if(depth!=0){
-						result=getChildren(children[x], elem_type, elem_attribute, elem_attribute_match, option, depth-1);
-						if(option=="all"){
+						result=getChildren(children[x], elemType, elemAttribute, elemAttributeMatch, option, depth-1);
+						if(option==="all"){
 							if(result.length>0){
 								results= results.concat(result);
 							}
-						}else if(result!=null){                                                                          
+						}else if(result!==null){                                                                          
 							return result;
 						}
 					}
 				}
+	}
+	function getChildren(elem, elemType, elemAttribute, elemAttributeMatch, option, depth)
+	{           
+		if(!option)
+		{option="single";}
+		if(!depth)
+		{depth=-1;}
+		if(elem){
+			var children =[];
+			children = elem.childNodes;
+			var result=null;
+			var results= [];
+			for (var x=0;x<children.length;x++) {
+				var strTagName = new String(children[x].tagName);
+				var childrenClass="?";
+				result=checkResult(elemType,children,elemAttribute,elemAttributeMatch,strTagName,option,results,depth,result)
+				return result;
 			}
 			if(option=="all")
-			   return results;
+			{return results;}
 		}
 		return null;
 	};       
 	
 	function isChildOf(elem, parent){
 		if(elem){
-			if(elem==parent)
-				return true;
-			while(elem.parentNode != 'undefined'){
+			if(elem===parent)
+			{	return true;}
+			while(elem.parentNode !== "undefined"){
 				return isChildOf(elem.parentNode, parent);
 			}
 		}
@@ -109,6 +124,14 @@
 		}
 	};
 	
+	function calculeOffset(element,attr){
+		var offset=0;
+		while(element){
+			offset+=element.getElementById(attr);
+			element=element.offsetParent;
+		}
+		return offset;
+	};
 	function calculeOffsetLeft(r){
 		return calculeOffset(r,"offsetLeft");
 	};
@@ -116,21 +139,11 @@
 	function calculeOffsetTop(r){
 		return calculeOffset(r,"offsetTop");
 	};
-	
-	function calculeOffset(element,attr){
-		var offset=0;
-		while(element){
-			offset+=element[attr];
-			element=element.offsetParent;
-		}
-		return offset;
-	};
-	
 	/** return the computed style
 	 *	@param: elem: the reference to the element
 	 *	@param: prop: the name of the css property	 
 	 */
-	function get_css_property(elem, prop)
+	function getSssProperty(elem, prop)
 	{
 		if(document.defaultView)
 		{
@@ -138,13 +151,14 @@
 		}
 		else if(elem.currentStyle)
 		{
-			var prop = prop.replace(/-\D/gi, function(sMatch)
+			prop = prop.replace(/-\D/gi, function(sMatch)
 			{
 				return sMatch.charAt(sMatch.length - 1).toUpperCase();
 			});
-			return elem.currentStyle[prop];
+			return elem.currentStyle.getElementById(prop);
 		}
-		else return null;
+		else
+		{return null;}
 	}
 	
 /****
@@ -162,29 +176,35 @@
 		or
 			in javascript: document.getElementById("my_div").onmousedown= start_move_element
 	*/
-	function start_move_element(e, id, frame){
-		var elem_id=(e.target || e.srcElement).id;
-		if(id)
-			elem_id=id;		
-		if(!frame)
-			frame=window;
-		if(frame.event)
-			e=frame.event;
-			
-		_mCE= frame.document.getElementById(elem_id);
-		_mCE.frame=frame;
-		frame.document.onmousemove= move_element;
-		frame.document.onmouseup= end_move_element;
-		/*_mCE.onmousemove= move_element;
-		_mCE.onmouseup= end_move_element;*/
-		
-		//alert(_mCE.frame.document.body.offsetHeight);
-		
+	function checkMouse()
+	{
 		mouse_x= getMouseX(e);
 		mouse_y= getMouseY(e);
 		//window.status=frame+ " elem: "+elem_id+" elem: "+ _mCE + " mouse_x: "+mouse_x;
 		_mCE.start_pos_x = mouse_x - (_mCE.style.left.replace("px","") || calculeOffsetLeft(_mCE));
 		_mCE.start_pos_y = mouse_y - (_mCE.style.top.replace("px","") || calculeOffsetTop(_mCE));
+	}
+	function Sub(frame)
+	{
+		_mCE= frame.document.getElementById(elemId);
+		_mCE.frame=frame;
+		frame.document.onmousemove= move_element;
+		frame.document.onmouseup= end_move_element;
+	}
+	function startMoveElement(e, id, frame){
+		var elemId=(e.target || e.srcElement).id;
+		if(id)
+		{	elemId=id;		}
+		if(!frame)
+		{	frame=window;}
+		if(frame.event)
+		{e=frame.event;}
+		Sub(frame);		
+		/*_mCE.onmousemove= move_element;
+		_mCE.onmouseup= end_move_element;*/
+		
+		//alert(_mCE.frame.document.body.offsetHeight);
+		checkMouse();
 		return false;
 	};
 	
