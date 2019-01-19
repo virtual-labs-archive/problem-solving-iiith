@@ -157,7 +157,7 @@ def index(req):
 					result = "Wrong Answer"
 					JudgeData_html+="<td> Failed </td>"
 					JudgeData_html+="<td> Check your algo </td>"
-					JudgeData_html+="</tr>";	
+					JudgeData_html+="</tr>";
 					break;
 			else:
 				JudgeData_html+="<td> Failed </td>"
