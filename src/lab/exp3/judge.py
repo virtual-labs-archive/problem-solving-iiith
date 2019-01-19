@@ -52,7 +52,6 @@ def getHint(codeId,HintNo):
 	  	dir = PATH + "Hints1/"
 	elif(codeId=="Problem2"):
 	  	dir = PATH + "Hints2/"
-	
 	try:
 		F = open(dir+"Hint_"+str(HintNo)+".html","r");
 		s = F.read()
@@ -92,7 +91,7 @@ def index(req):
 	action = FormData['type']
 	Hints = FormData['hintC']
 	highHint = FormData['highHint']    
-#	HighestHint = FormData['hintGenerate']
+        #HighestHint = FormData['hintGenerate']
 	#save the code in a file 
 	codeName = PATH + "currentCode."+langauge;
 	F = open(codeName,"w");
