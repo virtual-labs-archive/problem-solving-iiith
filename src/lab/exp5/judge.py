@@ -52,7 +52,6 @@ def getHint(codeId,HintNo):
 	  	dir = PATH + "Hints1/"
 	elif(codeId=="Problem2"):
 	  	dir = PATH + "Hints2/"
-	
 	try:
 		F = open(dir+"Hint_"+str(HintNo)+".html","r");
 		s = F.read()
