@@ -52,7 +52,6 @@ def getHint(codeId,HintNo):
 	  	dir = PATH + "Hints1/"
 	elif(codeId=="Problem2"):
 	  	dir = PATH + "Hints2/"
-	
 	try:
 		F = open(dir+"Hint_"+str(HintNo)+".html","r");
 		s = F.read()
@@ -109,7 +108,7 @@ def index(req):
 	elif(action=="Compile" and compileErrors==""):
 			result = "Compilation successful"
 
-	elif(action=="Run" and compileErrors==""):	
+	elif(action=="Run" and compileErrors==""):
 		#code compiled successfully
 		#now have to execute current.out
 		TEST_DIRECTORY = PATH +codeId  #directory where final-build cases are there
