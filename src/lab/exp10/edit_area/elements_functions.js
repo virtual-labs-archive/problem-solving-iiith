@@ -109,22 +109,25 @@
 		}
 	};
 	
-	function calculeOffsetLeft(r){
-		return calculeOffset(r,"offsetLeft")
-	};
-	
-	function calculeOffsetTop(r){
-		return calculeOffset(r,"offsetTop")
-	};
-	
-	function calculeOffset(element,attr){
+
+        function calculeOffset(element,attr){
 		var offset=0;
 		while(element){
 			offset+=element[attr];
-			element=element.offsetParent
+			element=element.offsetParent;
 		}
 		return offset;
 	};
+
+	function calculeOffsetLeft(r){
+		return calculeOffset(r,"offsetLeft");
+	};
+	
+	function calculeOffsetTop(r){
+		return calculeOffset(r,"offsetTop");
+	};
+	
+	
 	
 	/** return the computed style
 	 *	@param: elem: the reference to the element
@@ -163,14 +166,16 @@
 			in javascript: document.getElementById("my_div").onmousedown= start_move_element
 	*/
 	function start_move_element(e, id, frame){
-		var elem_id=(e.target || e.srcElement).id;
-		if(id)
-			elem_id=id;		
-		if(!frame)
+		var elemId=(e.target || e.srcElement).id;
+		if(id){
+			elemId=id;
+		}
+		if(!frame){
 			frame=window;
-		if(frame.event)
+		}
+		if(frame.event){
 			e=frame.event;
-			
+		}			
 		_mCE= frame.document.getElementById(elem_id);
 		_mCE.frame=frame;
 		frame.document.onmousemove= move_element;
