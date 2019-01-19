@@ -82,16 +82,16 @@
 		}
 			
 		// retrieve the init parameter for syntax
-		if(t.settings["syntax_selection_allow"] && t.settings["syntax_selection_allow"].length>0)
+		if(t.settings["syntax_selection_allow"] && t.settings["syntax_selection_allow"].length>0){
 			t.syntax_list= t.settings["syntax_selection_allow"].replace(/ /g,"").split(",");
-		
-		if(t.settings['syntax'])
+		}
+		if(t.settings["syntax"]){
 			t.allready_used_syntax[t.settings['syntax']]=true;
-		
+		}
 		
 	};
 	EditArea.prototype.init= function(){
-		var t=this, a, s=t.settings;
+		var t=this, _$, a, s=t.settings;
 		t.textarea			= _$("textarea");
 		t.container			= _$("container");
 		t.result			= _$("result");
@@ -100,8 +100,8 @@
 		t.selection_field_text= _$("selection_field_text");
 		t.processing_screen	= _$("processing");
 		t.editor_area		= _$("editor");
-		t.tab_browsing_area	= _$("tab_browsing_area");
-		t.test_font_size	= _$("test_font_size");
+		t.tabBrowsingArea	= _$("tabBrowsingArea");
+		t.testFontSize	= _$("testFontSize");
 		a = t.textarea;
 		
 		if(!s['is_editable'])
@@ -182,9 +182,9 @@
 				_$(t.inlinePopup[i]["popup_id"]).onkeydown	= keyDown;
 		}
 		
-		if(s["allow_resize"]=="both" || s["allow_resize"]=="x" || s["allow_resize"]=="y")
+		if(s["allow_resize"]=="both" || s["allow_resize"]=="x" || s["allow_resize"]=="y"){
 			t.allow_resize(true);
-		
+		}
 		parent.editAreaLoader.toggle(t.id, "on");
 		//a.focus();
 		// line selection init

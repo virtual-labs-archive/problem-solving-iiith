@@ -175,19 +175,20 @@ var EditArea_autocompletion= {
 				else
 				{
 					this.enabled= false;
-					if(icon != null)
+					if(icon != null){
 						editArea.switchClassSticky(icon, 'editAreaButtonNormal', false);
+					}
 				}
 				return true;
 		}
 		return true;
 	}
-	,_checkDelayAndCursorBeforeDisplay: function()
-	{
+	,_checkDelayAndCursorBeforeDisplay()
+	{        var editArea;
 		this.checkDelayTimer = setTimeout("if(editArea.textarea.selectionStart == "+ editArea.textarea.selectionStart +") EditArea_autocompletion._checkLetter();",  this.delayBeforeDisplay - editArea.check_line_selection_timer - 5 );
 	}
 	// hide the suggested box
-	,_hide: function(){
+	,_hide(){
 		this.container.style.display="none";
 		this.selectIndex	= -1;
 		this.shown	= false;
@@ -195,7 +196,7 @@ var EditArea_autocompletion= {
 		this.autoSelectIfOneResult = false;
 	}
 	// display the suggested box
-	,_show: function(){
+	,_show(){
 		if( !this._isShown() )
 		{
 			this.container.style.display="block";
@@ -321,7 +322,7 @@ var EditArea_autocompletion= {
 								tmp["keywords"][prefix]['datas'][j]= {
 									is_typing: datas["KEYWORDS"][prefix][j][0],
 									// if replace with is empty, replace with the is_typing value
-									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('ง', datas["KEYWORDS"][prefix][j][0] ) : '',
+									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('ยง', datas["KEYWORDS"][prefix][j][0] ) : '',
 									comment: datas["KEYWORDS"][prefix][j][2] ? datas["KEYWORDS"][prefix][j][2] : '' 
 								};
 								
