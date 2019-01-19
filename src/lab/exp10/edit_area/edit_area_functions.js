@@ -47,12 +47,12 @@
 		// list all elements concerned by font changes
 		var elems= ["textarea", "content_highlight", "cursor_pos", "end_bracket", "selection_field", "selection_field_text", "line_number"];
 		
-		if(family && family!="")
-			s["font_family"]= family;
-		if(size && size>0)
-			s["font_size"]	= size;
-		if( t.isOpera && t.isOpera < 9.6 )	// opera<9.6 can't manage non monospace font
-			s['font_family']="monospace";
+		if(family && family!=""){
+			s["font_family"]= family;}
+		if(size && size>0){
+			s["font_size"]	= size;}
+		if( t.isOpera && t.isOpera < 9.6 ){	// opera<9.6 can't manage non monospace font
+			s['font_family']="monospace";}
 			
 		// update the select tag
 		if( elem_font = _$("area_font_size") )
@@ -153,8 +153,8 @@
 	
 	EditArea.prototype.change_font_size= function(){
 		var size=_$("area_font_size").value;
-		if(size>0)
-			this.set_font("", size);			
+		if(size>0){
+			this.set_font("", size);}			
 	};
 	
 	
@@ -351,25 +351,25 @@
 	};
 	
 	EditArea.prototype.check_undo= function(only_once){
-		if(!editAreas[this.id])
-			return false;
+		if(!editAreas[this.id]){
+			return false;}
 		if(this.textareaFocused && editAreas[this.id]["displayed"]==true){
 			var text=this.textarea.value;
-			if(this.previous.length<=1)
-				this.switchClassSticky(_$("undo"), 'editAreaButtonDisabled', true);
+			if(this.previous.length<=1){
+				this.switchClassSticky(_$("undo"), 'editAreaButtonDisabled', true);}
 		
 			if(!this.previous[this.previous.length-1] || this.previous[this.previous.length-1]["text"] != text){
 				this.previous.push({"text": text, "selStart": this.textarea.selectionStart, "selEnd": this.textarea.selectionEnd});
-				if(this.previous.length > this.settings["max_undo"]+1)
-					this.previous.shift();
+				if(this.previous.length > this.settings["max_undo"]+1){
+					this.previous.shift();}
 				
 			}
-			if(this.previous.length >= 2)
-				this.switchClassSticky(_$("undo"), 'editAreaButtonNormal', false);		
+			if(this.previous.length >= 2){
+				this.switchClassSticky(_$("undo"), 'editAreaButtonNormal', false);	}	
 		}
 
-		if(!only_once)
-			setTimeout("editArea.check_undo()", 3000);
+		if(!only_once){
+			setTimeout("editArea.check_undo()", 3000);}
 	};
 	
 	EditArea.prototype.undo= function(){
@@ -406,8 +406,8 @@
 			this.resync_highlight(true);
 			this.check_file_changes();
 		}
-		if(	this.next.length == 0)
-			this.switchClassSticky(_$("redo"), 'editAreaButtonDisabled', true);
+		if(	this.next.length == 0){
+			this.switchClassSticky(_$("redo"), 'editAreaButtonDisabled', true);}
 	};
 	
 	EditArea.prototype.check_redo= function(){
@@ -452,8 +452,8 @@
 	};
 	
 	EditArea.prototype.setClassLock = function(element, lock_state) {
-		if (element != null)
-			element.classLock = lock_state;
+		if (element != null){
+			element.classLock = lock_state;}
 	};
 	
 	EditArea.prototype.switchClassSticky = function(element, class_name, lock_state) {
