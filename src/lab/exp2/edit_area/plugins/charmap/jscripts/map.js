@@ -328,12 +328,13 @@ function map_load(){
 	var selected_lang=opener.EditArea_charmap.default_language.toLowerCase();
 	var selected=0;
 	
-	var select= document.getElementById("select_range")
+	var select= document.getElementById("select_range");
 	for(var i in char_range_list){
-		if(i.toLowerCase()==selected_lang)
+		if(i.toLowerCase()==selected_lang){
 			selected=select.options.length;
 		select.options[select.options.length]=new Option(i, char_range_list[i]);
-	}
+		}
+		}
 	select.options[selected].selected=true;
 /*	start=0;
 	end=127;
