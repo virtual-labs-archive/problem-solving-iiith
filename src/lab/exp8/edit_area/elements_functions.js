@@ -43,10 +43,10 @@
 	*/
 	function getChildren(elem, elem_type, elem_attribute, elem_attribute_match, option, depth)
 	{           
-		if(!option)
-			var option="single";
-		if(!depth)
-			var depth=-1;
+		if(!option){
+			var option="single";}
+		if(!depth){
+			var depth=-1;}
 		if(elem){
 			var children= elem.childNodes;
 			var result=null;
@@ -75,8 +75,8 @@
 					}
 				}
 			}
-			if(option=="all")
-			   return results;
+			if(option=="all"){
+			   return results;}
 		}
 		return null;
 	};       
@@ -164,12 +164,12 @@
 	*/
 	function start_move_element(e, id, frame){
 		var elem_id=(e.target || e.srcElement).id;
-		if(id)
-			elem_id=id;		
-		if(!frame)
-			frame=window;
-		if(frame.event)
-			e=frame.event;
+		if(id){
+			elem_id=id;}		
+		if(!frame){
+			frame=window;}
+		if(frame.event){
+			e=frame.event;}
 			
 		_mCE= frame.document.getElementById(elem_id);
 		_mCE.frame=frame;
@@ -197,8 +197,8 @@
 	function move_element(e){
 		var newTop,newLeft,maxLeft;
 
-		if( _mCE.frame && _mCE.frame.event )
-			e=_mCE.frame.event;
+		if( _mCE.frame && _mCE.frame.event ){
+			e=_mCE.frame.event;}
 		newTop	= getMouseY(e) - _mCE.start_pos_y;
 		newLeft	= getMouseX(e) - _mCE.start_pos_x;
 		
@@ -240,8 +240,8 @@
 		t.selectionEnd		= end;		
 		//textarea.setSelectionRange(start, end);
 		
-		if(nav.isIE)
-			set_IE_selection(t);
+		if(nav.isIE){
+			set_IE_selection(t);}
 	};
 
 	
