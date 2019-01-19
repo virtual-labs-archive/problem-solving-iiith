@@ -92,7 +92,7 @@ def index(req):
 	action = FormData['type']
 	Hints = FormData['hintC']
 	highHint = FormData['highHint']    
-#	HighestHint = FormData['hintGenerate']
+        #HighestHint = FormData['hintGenerate']
 	#save the code in a file 
 	codeName = PATH + "currentCode."+langauge;
 	F = open(codeName,"w");
@@ -108,7 +108,6 @@ def index(req):
 			result = "Compile Error"
 	elif(action=="Compile" and compileErrors==""):
 			result = "Compilation successful"
-
 	elif(action=="Run" and compileErrors==""):	
 		#code compiled successfully
 		#now have to execute current.out
