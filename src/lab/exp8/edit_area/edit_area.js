@@ -58,9 +58,9 @@
 		/*t.default_font_family= "monospace";
 		t.default_font_size= 10;*/
 		t.tab_nb_char= 8;	//nb of white spaces corresponding to a tabulation
-		if(t.isOpera)
+		if(t.isOpera){
 			t.tab_nb_char= 6;
-
+		}
 		t.is_tabbing= false;
 		
 		t.fullscreen= {'isFull': false};
@@ -85,9 +85,9 @@
 		if(t.settings["syntax_selection_allow"] && t.settings["syntax_selection_allow"].length>0)
 			t.syntax_list= t.settings["syntax_selection_allow"].replace(/ /g,"").split(",");
 		
-		if(t.settings['syntax'])
+		if(t.settings['syntax']){
 			t.allready_used_syntax[t.settings['syntax']]=true;
-		
+		}
 		
 	};
 	EditArea.prototype.init= function(){
