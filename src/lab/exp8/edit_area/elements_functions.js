@@ -144,7 +144,7 @@
 			});
 			return elem.currentStyle[prop];
 		}
-		else return null;
+		else return{ null;}
 	}
 	
 /****
