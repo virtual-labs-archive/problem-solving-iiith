@@ -18,9 +18,9 @@
 		
 		parent.editAreaLoader.set_browser_infos(t); 	// navigator identification
 		// fix IE8 detection as we run in IE7 emulate mode through X-UA <meta> tag
-		if( t.isIE >= 8 )
+		if( t.isIE >= 8 ){
 			t.isIE	= 7;
-		
+		}
 		t.last_selection={};		
 		t.last_text_to_highlight="";
 		t.last_hightlighted_text= "";
@@ -58,9 +58,9 @@
 		/*t.default_font_family= "monospace";
 		t.default_font_size= 10;*/
 		t.tab_nb_char= 8;	//nb of white spaces corresponding to a tabulation
-		if(t.isOpera)
+		if(t.isOpera){
 			t.tab_nb_char= 6;
-
+		}
 		t.is_tabbing= false;
 		
 		t.fullscreen= {'isFull': false};
@@ -91,7 +91,7 @@
 		
 	};
 	EditArea.prototype.init= function(){
-		var t=this, a, s=t.settings;
+		var t=this, a, _$, s=t.settings; 
 		t.textarea			= _$("textarea");
 		t.container			= _$("container");
 		t.result			= _$("result");
@@ -100,8 +100,8 @@
 		t.selection_field_text= _$("selection_field_text");
 		t.processing_screen	= _$("processing");
 		t.editor_area		= _$("editor");
-		t.tab_browsing_area	= _$("tab_browsing_area");
-		t.test_font_size	= _$("test_font_size");
+		t.tabBrowsingArea	= _$("tabBrowsingArea");
+		t.testFontSize	= _$("testFontSize");
 		a = t.textarea;
 		
 		if(!s['is_editable'])

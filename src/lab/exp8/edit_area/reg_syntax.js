@@ -2,8 +2,8 @@
 		//res="( |=|\\n|\\r|\\[|\\(|µ|)(";
 		res="(\\b)(";
 		for(i=0; i<text_array.length; i++){
-			if(i>0)
-				res+="|";
+			if(i>0){
+				res+="|";}
 			//res+="("+ tab_text[i] +")";
 			//res+=tab_text[i].replace(/(\.|\?|\*|\+|\\|\(|\)|\[|\]|\{|\})/g, "\\$1");
 			res+=this.get_escaped_regexp(text_array[i]);
