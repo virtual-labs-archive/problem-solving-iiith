@@ -11,7 +11,7 @@ editAreaLoader.load_syntax["js"] = {
 			'instanceof', 'return', 'switch', 'this', 'throw', 'try', 'typeof', 'void',
 			'while', 'write', 'with'
 		]
- 		,'keywords' : [
+		,'keywords' : [
 			'class', 'const', 'default', 'debugger', 'export', 'extends', 'false',
 			'function', 'import', 'namespace', 'new', 'null', 'package', 'private',
 			'protected', 'public', 'super', 'true', 'use', 'var', 'window', 'document',		
@@ -32,7 +32,7 @@ editAreaLoader.load_syntax["js"] = {
 			'JavaClass', 'onUnload', 'routeEvent', 'watch', 'Document', 'JavaObject', 'open', 'scroll', 'window', 
 			'Element', 'JavaPackage', 'opener', 'scrollbars', 'Window', 'escape', 'length', 'Option', 'scrollBy'			
 		]
-    	,'functions' : [
+	,'functions' : [
 			// common functions for Window object
 			'alert', 'Array', 'back', 'blur', 'clearInterval', 'close', 'confirm', 'eval ', 'focus', 'forward', 'home',
 			'name', 'navigate', 'onblur', 'onerror', 'onfocus', 'onload', 'onmove',
