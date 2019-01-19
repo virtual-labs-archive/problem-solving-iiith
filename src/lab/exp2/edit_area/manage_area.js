@@ -5,13 +5,13 @@
 
 
 	EditArea.prototype.check_line_selection= function(timer_checkup){
-		var changes, infos, new_top, new_width,i;
+		var changes, infos, new_top, editAreas, new_width,i;
 		
 		var t1=t2=t2_1=t3=tLines=tend= new Date().getTime();
 		// l'editeur n'existe plus => on quitte
-		if(!editAreas[this.id])
+		if(!editAreas[this.id]){
 			return false;
-		
+		}
 		if(!this.smooth_selection && !this.do_highlight)
 		{
 			//do nothing
@@ -94,7 +94,7 @@
 				var no_real_move=true;
 				if(infos["line_nb"]==1 && (this.assocBracket[selec_char] || this.revertAssocBracket[selec_char]) ){
 					
-					no_real_move=false;					
+					var noRealMove=false;					
 					//findEndBracket(infos["line_start"], infos["curr_pos"], selec_char);
 					if(this.findEndBracket(infos, selec_char) === true){
 						_$("end_bracket").style.visibility	="visible";
