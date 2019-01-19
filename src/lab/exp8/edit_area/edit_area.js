@@ -18,8 +18,8 @@
 		
 		parent.editAreaLoader.set_browser_infos(t); 	// navigator identification
 		// fix IE8 detection as we run in IE7 emulate mode through X-UA <meta> tag
-		if( t.isIE >= 8 )
-			t.isIE	= 7;
+		if( t.isIE >= 8 ){
+			t.isIE	= 7;}
 		
 		t.last_selection={};		
 		t.last_text_to_highlight="";
@@ -75,18 +75,18 @@
 		{
 			t.tab_nb_char= t.settings['replace_tab_by_spaces'];
 			t.tabulation="";
-			for(var i=0; i<t.tab_nb_char; i++)
-				t.tabulation+=" ";
+			for(var i=0; i<t.tab_nb_char; i++){
+				t.tabulation+=" ";}
 		}else{
 			t.tabulation="\t";
 		}
 			
 		// retrieve the init parameter for syntax
-		if(t.settings["syntax_selection_allow"] && t.settings["syntax_selection_allow"].length>0)
-			t.syntax_list= t.settings["syntax_selection_allow"].replace(/ /g,"").split(",");
+		if(t.settings["syntax_selection_allow"] && t.settings["syntax_selection_allow"].length>0){
+			t.syntax_list= t.settings["syntax_selection_allow"].replace(/ /g,"").split(",");}
 		
-		if(t.settings['syntax'])
-			t.allready_used_syntax[t.settings['syntax']]=true;
+		if(t.settings['syntax']){
+			t.allready_used_syntax[t.settings['syntax']]=true;}
 		
 		
 	};
@@ -104,8 +104,8 @@
 		t.test_font_size	= _$("test_font_size");
 		a = t.textarea;
 		
-		if(!s['is_editable'])
-			t.set_editable(false);
+		if(!s['is_editable']){
+			t.set_editable(false);}
 		
 		t.set_show_line_colors( s['show_line_colors'] );
 		
@@ -157,8 +157,8 @@
 		// init size		
 		//this.update_size();
 		
-		if(_$("redo") != null)
-			t.switchClassSticky(_$("redo"), 'editAreaButtonDisabled', true);
+		if(_$("redo") != null){
+			t.switchClassSticky(_$("redo"), 'editAreaButtonDisabled', true);}
 		
 		// insert css rules for highlight mode		
 		if(typeof(parent.editAreaLoader.syntax[s["syntax"]])!="undefined"){
@@ -170,16 +170,16 @@
 		}
 	
 		// init key events
-		if(t.isOpera)
-			_$("editor").onkeypress	= keyDown;
-		else
-			_$("editor").onkeydown	= keyDown;
+		if(t.isOpera){
+			_$("editor").onkeypress	= keyDown;}
+		else{
+			_$("editor").onkeydown	= keyDown;}
 
 		for(var i=0; i<t.inlinePopup.length; i++){
-			if(t.isOpera)
-				_$(t.inlinePopup[i]["popup_id"]).onkeypress	= keyDown;
-			else
-				_$(t.inlinePopup[i]["popup_id"]).onkeydown	= keyDown;
+			if(t.isOpera){
+				_$(t.inlinePopup[i]["popup_id"]).onkeypress	= keyDown;}
+			else{
+				_$(t.inlinePopup[i]["popup_id"]).onkeydown	= keyDown;}
 		}
 		
 		if(s["allow_resize"]=="both" || s["allow_resize"]=="x" || s["allow_resize"]=="y")
