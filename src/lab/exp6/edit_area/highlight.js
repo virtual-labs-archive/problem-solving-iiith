@@ -6,18 +6,18 @@
 			return false;
 		}
 		
-		if(this.do_highlight==change_to)
-			return false;
+		if(this.do_highlight==change_to){
+			return false;}
 	
 			
 		this.getIESelection();
 		var pos_start= this.textarea.selectionStart;
 		var pos_end= this.textarea.selectionEnd;
 		
-		if(this.do_highlight===true || change_to==false)
-			this.disable_highlight();
-		else
-			this.enable_highlight();
+		if(this.do_highlight===true || change_to==false){
+			this.disable_highlight();}
+		else{
+			this.enable_highlight();}
 		this.textarea.focus();
 		this.textarea.selectionStart = pos_start;
 		this.textarea.selectionEnd = pos_end;
@@ -78,8 +78,8 @@
 		t.switchClassSticky(_$("reset_highlight"), 'editAreaButtonNormal', false);
 		
 		t.smooth_selection_before_highlight=t.smooth_selection;
-		if(!t.smooth_selection)
-			t.change_smooth_selection_mode(true);
+		if(!t.smooth_selection){
+			t.change_smooth_selection_mode(true);}
 		t.switchClassSticky(_$("change_smooth_selection"), 'editAreaButtonDisabled', true);
 		
 		
