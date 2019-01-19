@@ -43,10 +43,10 @@
 	*/
 	function getChildren(elem, elem_type, elem_attribute, elem_attribute_match, option, depth)
 	{           
-		if(!option)
-			var option="single";
-		if(!depth)
-			var depth=-1;
+		if(!option){
+			var option="single";}
+		if(!depth){
+			var depth=-1;}
 		if(elem){
 			var children= elem.childNodes;
 			var result=null;
@@ -75,8 +75,8 @@
 					}
 				}
 			}
-			if(option=="all")
-			   return results;
+			if(option=="all"){
+			   return results;}
 		}
 		return null;
 	};       
