@@ -11,21 +11,25 @@
  * - Button name: "autocompletion"
  */  
 
-var EditArea_autocompletion= {
-	
+var EditAreaAutocompletion= {
+	var editArea;
 	/**
 	 * Get called once this file is loaded (editArea still not initialized)
 	 *
 	 * @return nothing	 
 	 */	 	 	
-	init: function(){	
+	init(){	
 		//	alert("test init: "+ this._someInternalFunction(2, 3));
 		
 		if(editArea.settings["autocompletion"])
-			this.enabled= true;
+		{
+		     this.enabled= true; 
+	        }
 		else
-			this.enabled= false;
-		this.current_word		= false;
+		{
+		      this.enabled= false;
+		}	
+		this.currentWord		= false;
 		this.shown				= false;
 		this.selectIndex		= -1;
 		this.forceDisplay		= false;
@@ -33,9 +37,9 @@ var EditArea_autocompletion= {
 		this.autoSelectIfOneResult	= false;
 		this.delayBeforeDisplay	= 100;
 		this.checkDelayTimer	= false;
-		this.curr_syntax_str	= '';
+		this.currSyntaxStr	= " ";
 		
-		this.file_syntax_datas	= {};
+		this.fileSyntaxDatas	= {};
 	}
 	/**
 	 * Returns the HTML code for a specific control string or false if this plugin doesn't have that control.
@@ -61,21 +65,22 @@ var EditArea_autocompletion= {
 	 *	 
 	 * @return nothing
 	 */	 	 	
-	,onload: function(){ 
+	,onload(){ 
 		if(this.enabled)
 		{
 			var icon= document.getElementById("autocompletion");
-			if(icon)
-				editArea.switchClassSticky(icon, 'editAreaButtonSelected', true);
-		}
+			if(icon){
+				editArea.switchClassSticky(icon, "editAreaButtonSelected", true);
+		                }
+		}	
 		
-		this.container	= document.createElement('div');
+		this.container	= document.createElement("div");
 		this.container.id	= "auto_completion_area";
 		editArea.container.insertBefore( this.container, editArea.container.firstChild );
 		
 		// add event detection for hiding suggestion box
-		parent.editAreaLoader.add_event( document, "click", function(){ editArea.plugins['autocompletion']._hide();} );
-		parent.editAreaLoader.add_event( editArea.textarea, "blur", function(){ editArea.plugins['autocompletion']._hide();} );
+		parent.editAreaLoader.add_event( document, "click", function(){ editArea.plugins["autocompletion"]._hide();} );
+		parent.editAreaLoader.add_event( editArea.textarea, "blur", function(){ editArea.plugins["autocompletion"]._hide();} );
 		
 	}
 	
@@ -86,32 +91,36 @@ var EditArea_autocompletion= {
 	 * @return true - pass to next handler in chain, false - stop chain execution
 	 * @type boolean	 
 	 */
-	,onkeydown: function(e){
-		if(!this.enabled)
+          
+	,onkeydown(e){ 
+		var letter;
+		if(!this.enabled){
 			return true;
-			
-		if (EA_keys[e.keyCode])
-			letter=EA_keys[e.keyCode];
-		else
+		}
+		else if (EAKeys[e.keyCode]){
+		      letter =EAKeys[e.keyCode];
+		}
+		else{
 			letter=String.fromCharCode(e.keyCode);	
+		}
 		// shown
 		if( this._isShown() )
 		{	
 			// if escape, hide the box
-			if(letter=="Esc")
+			if(letter==="Esc")
 			{
 				this._hide();
 				return false;
 			}
 			// Enter
-			else if( letter=="Entrer")
+			else if( letter==="Enter")
 			{
-				var as	= this.container.getElementsByTagName('A');
+				var as	= this.container.getElementsByTagName("A");
 				// select a suggested entry
 				if( this.selectIndex >= 0 && this.selectIndex < as.length )
 				{
 					as[ this.selectIndex ].onmousedown();
-					return false
+					return false;
 				}
 				// simply add an enter in the code
 				else
@@ -131,19 +140,14 @@ var EditArea_autocompletion= {
 				return false;
 			}
 		}
-		// hidden
-		else
-		{
-			
-		}
 		
 		// show current suggestion list and do autoSelect if possible (no matter it's shown or hidden)
-		if( letter=="Space" && CtrlPressed(e) )
+		if( letter==="Space" && CtrlPressed(e) )
 		{
 			//parent.console.log('SHOW SUGGEST');
 			this.forceDisplay 			= true;
 			this.autoSelectIfOneResult	= true;
-			this._checkLetter();
+			this.CheckLetter();
 			return false;
 		}
 		
@@ -160,24 +164,25 @@ var EditArea_autocompletion= {
 	 * @return true - pass to next handler in chain, false - stop chain execution
 	 * @type boolean	
 	 */
-	,execCommand: function(cmd, param){
+	,execCommand(cmd, param){
 		switch( cmd ){
-			case 'toggle_autocompletion':
+			case "toggle_autocompletion":
 				var icon= document.getElementById("autocompletion");
 				if(!this.enabled)
 				{
 					if(icon != null){
 						editArea.restoreClass(icon);
-						editArea.switchClassSticky(icon, 'editAreaButtonSelected', true);
+						editArea.switchClassSticky(icon, "editAreaButtonSelected", true);
 					}
 					this.enabled= true;
 				}
 				else
 				{
 					this.enabled= false;
-					if(icon != null)
-						editArea.switchClassSticky(icon, 'editAreaButtonNormal', false);
-				}
+					if(icon != null){
+						editArea.switchClassSticky(icon, "editAreaButtonNormal", false);
+				                        }
+				}	
 				return true;
 		}
 		return true;
@@ -321,7 +326,7 @@ var EditArea_autocompletion= {
 								tmp["keywords"][prefix]['datas'][j]= {
 									is_typing: datas["KEYWORDS"][prefix][j][0],
 									// if replace with is empty, replace with the is_typing value
-									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('§', datas["KEYWORDS"][prefix][j][0] ) : '',
+									replace_with: datas["KEYWORDS"][prefix][j][1] ? datas["KEYWORDS"][prefix][j][1].replace('ï¿½', datas["KEYWORDS"][prefix][j][0] ) : '',
 									comment: datas["KEYWORDS"][prefix][j][2] ? datas["KEYWORDS"][prefix][j][2] : '' 
 								};
 								
