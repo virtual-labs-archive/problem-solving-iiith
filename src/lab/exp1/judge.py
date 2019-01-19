@@ -82,32 +82,32 @@ def getInputFileNames(directory):
 	Files = Files.split('\n');
 	return Files;
 def index(req):	
-	FormData = util.FieldStorage(req);
-	langauge= FormData['language'];
-	try:
-		code = FormData['code'];
-	except:
-		code = ""
-	codeId=FormData['codeId'];
-	action = FormData['type']
-	Hints = FormData['hintC']
-	highHint = FormData['highHint']    
-#	HighestHint = FormData['hintGenerate']
-	#save the code in a file 
-	codeName = PATH + "currentCode."+langauge;
-	F = open(codeName,"w");
-	F.write(code);
-	F.close();
-	#Compile the code now and keep the executable in a a variable exename
-	exename = PATH+"current.out";
-	
-	compileErrors = Compile(exename,langauge,codeName);
-	JudgeData_html="";
-	if(action=="Compile" and compileErrors!=""):
-			#return compilation error
-			result = "Compile Error"
-	elif(action=="Compile" and compileErrors==""):
-			result = "Compilation successful"
+FormData = util.FieldStorage(req);
+langauge= FormData['language'];
+try:
+	code = FormData['code'];
+except:
+	code = ""
+codeId=FormData['codeId'];
+action = FormData['type']
+Hints = FormData['hintC']
+highHint = FormData['highHint']    
+#HighestHint = FormData['hintGenerate']
+#save the code in a file 
+codeName = PATH + "currentCode."+langauge;
+F = open(codeName,"w");
+F.write(code);
+F.close();
+#Compile the code now and keep the executable in a a variable exename
+exename = PATH+"current.out";
+
+compileErrors = Compile(exename,langauge,codeName);
+JudgeData_html="";
+if(action=="Compile" and compileErrors!=""):
+		#return compilation error
+		result = "Compile Error"
+elif(action=="Compile" and compileErrors==""):
+		result = "Compilation successful"
 
 	elif(action=="Run" and compileErrors==""):	
 		#code compiled successfully
