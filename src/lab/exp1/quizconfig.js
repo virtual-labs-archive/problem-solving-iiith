@@ -47,6 +47,11 @@ if (document.cookie=='')
 alert("Your browser does not accept cookies. Please adjust your browser settings.")
 else
 window.location="results.htm"
+for (q=1;q<=totalquestions;q++){
+actualchoices[q]=-2;
+}
+document.myquiz.reset();
+
 }
 
 
