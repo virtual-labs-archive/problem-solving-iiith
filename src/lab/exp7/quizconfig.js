@@ -57,7 +57,6 @@ else{
 		actualchoices[q] = 0;
 	}
 	window.location="results.htm";
-	}
 }
 }
 
