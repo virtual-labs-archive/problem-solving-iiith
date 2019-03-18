@@ -379,10 +379,17 @@ printf("%d ",i);
  		</div>
 	</footer>
 
-
+	<br>
 </div> <!-- top div -->
 
+	<script>
+		window.onload = function(){
+document.querySelectorAll("INPUT[type='radio']").forEach(function(rd){rd.addEventListener("mousedown",
+        function(){
+                if (this.checked) {this.onclick=function(){this.checked=false}} else{this.onclick=null}
+        })})}
 
+	</script>
 
 </body>
 
@@ -436,6 +443,7 @@ printf("%d ",i);
 	  });
 	 
 	});
+
 	</script>
 	
 </html>
