@@ -45,10 +45,16 @@ incorrect="a/b"
 document.cookie='q='+incorrect
 if (document.cookie=='')
 alert("Your browser does not accept cookies. Please adjust your browser settings.")
-else
+else{
 window.location="results.htm"
+document.myquiz.reset()
+for(f=1;f<=totalquestions;f++)
+{
+    actualchoices[f]='e'
 }
 
+}
+}
 
 function showsolution(){
 var win2=window.open("","win2","width=200,height=350, scrollbars")
