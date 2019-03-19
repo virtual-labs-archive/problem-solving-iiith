@@ -144,6 +144,8 @@
 		function generateHint(selObj){
 			var hintNo = selObj.options[selObj.selectedIndex].value;
 			if(hintNo ==0){
+				var obj = document.getElementById("hintBox");
+				obj.innerHTML="";
 				return;
 			}
 			xmlhttp=new XMLHttpRequest();
@@ -181,7 +183,20 @@
 
 
 		}
-	
+		function hintReset(qno) {
+			var hint=document.getElementById("hintNumber");
+			var obj = document.getElementById("hintBox");
+			obj.innerHTML="";
+			hint.value=0;
+			if(qno.value == "Problem1") {
+				document.getElementById("highHint").innerHTML = hintC1;
+				document.getElementById("highHint_id").value = hintC1;
+			}
+			if(qno.value == "Problem2") {
+				document.getElementById("highHint").innerHTML = hintC2;
+				document.getElementById("highHint_id").value = hintC2;
+			}
+		}
 		/* ----------------------- */
 		
 	
@@ -247,7 +262,7 @@ Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
 
-<select name="codeId"  id="probId" >
+<select name="codeId"  id="probId" onchange="hintReset(this)">
 <option value="Problem1"> 1  </option>
 <option value="Problem2"> 2  </option>
 </select>
@@ -266,7 +281,7 @@ Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
 
    </div>
    <!--button  type="button" id="genHint"  value="Hint" onclick="generateHint();">Generate Hint</button -->
-   <select name="hintGenerate" onchange="generateHint(this)">
+   <select name="hintGenerate" onchange="generateHint(this)" id="hintNumber">
 	<option value='0'>Hint Level 0</option>
 	<option value='1'>Hint Level 1</option>
 	<option value='2'>Hint Level 2</option>
