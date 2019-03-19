@@ -1,0 +1,33 @@
+<pre>
+#include&lt;stdio.h&gt;
+main(){
+int N;
+	cout&gt;&gt;N;
+	char input_chars[N];
+	int i;
+	for(i=0;i&lt;N ;i++)
+	{
+		cout&gt;&gt;input_chars[i];
+	}
+	char input[100];
+	cout&gt;&gt;input;
+	int position=0,j=0; 
+	int addValue[N];
+	for(i=0,j=N-1;i&lt;N ;i++,j--)
+	   addValue[i] = (1&lt;&lt;j);
+	
+	
+	for(i=0,j=0;input[i];i++){
+       		while(input_chars[j]!=input[i]){ 
+			position+=addValue[j];
+			j++;
+		}
+		j++;
+		position++;	
+	}
+	cin&lt;&lt;position;
+
+	return 0;
+}
+
+</pre>
