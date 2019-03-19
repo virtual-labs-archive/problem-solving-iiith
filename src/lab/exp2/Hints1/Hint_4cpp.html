@@ -1,0 +1,31 @@
+<pre>
+#include&lt;iostream&gt;
+#include&lt;cmath&gt;
+using namespace std;
+main(){
+	/*perfect number or not*/
+	
+	long long n;
+	cin&gt;&gt;n;
+	long long sum_factors = 0;
+	long long temp = (int)sqrt((double)n);
+	long long i;
+	
+	for(i=2;i&lt;=temp;i++){
+		if(n%i==0)
+			sum_factors+=i+(n/i);
+	}
+	if(n&gt;1) //adding 1 to the sum of factors if n&gt;1
+		sum_factors++;
+
+	/*if the number is a perfect square then 
+	 observe that the square root gets added twice , i=n/i will occur */
+	if(n==temp*temp) 
+		sum_factors-=temp;
+	if(sum_factors==n)
+		cout&lt;&lt;"YES\n";
+	else
+		cout&lt;&lt;"NO\n";
+	return 0;
+}
+</pre>

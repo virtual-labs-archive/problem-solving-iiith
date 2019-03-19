@@ -1,0 +1,26 @@
+<pre>
+#include&lt;iostream&gt;
+using namespace std;
+int N;
+int no_ways(int W,int index){
+	
+	if(!W)
+		return 1;
+	if(index==N)
+		return 0;
+
+	int ans = 0,i;
+	for(i=0;i*(1&lt;&lt;index)&lt;=W;i++)
+		ans+=no_ways(W-i*(1&lt;&lt;index),index+1);
+
+	return ans;
+	
+}
+main(){
+	int W;
+	cin&gt;&gt;N&gt;&gt;W;
+
+	cout&lt;&lt;no_ways(W,0)&lt;&lt;endl;
+	return 0;
+}
+</pre>
