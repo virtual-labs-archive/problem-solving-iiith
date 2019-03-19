@@ -7,7 +7,7 @@ for x in sfpath[0:-1]:
         PATH=PATH+'/'+x
 PATH=PATH+'/'
 
-def index(req,qNo,hintNo,lang,msid):
+def index(req,qNo,hintNo,lang,sid):
         if(qNo=="1"):
                 dir = PATH + "Hints1/"
         elif(qNo=="2"):
