@@ -1,0 +1,27 @@
+<pre>
+#include&lt;iostream&gt;
+using namespace std;
+main(){
+	int a,b;
+	cin&gt;&gt;a&gt;&gt;b;
+	/* the positive Rational number
+	   as represented as a/b*/
+
+	while(1){
+		int x = a/b;
+		int y = a-b*x;
+
+		
+		if(!y){                      
+            cout&lt;&lt;x-1&lt;&lt;endl;
+			break;
+		}
+		cout&lt;&lt;x;
+		a = b;
+		b = y;
+
+
+	}
+	return 0;
+}
+</pre>
