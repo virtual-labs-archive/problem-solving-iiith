@@ -26,12 +26,19 @@
 	<script type="text/javascript" src = 'tabs.js'></script>
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-67020197-1', 'auto');ga('send', 'pageview');</script>	
 
+<script>
+          
+          window.onload = function(){
+document.querySelectorAll("INPUT[type='radio']").forEach(function(rd){rd.addEventListener("mousedown",
+	function(){
+		if (this.checked) {this.onclick=function(){this.checked=false}} else{this.onclick=null}
+	})})}
+</script>
 
 <style>
 .qheader{
 font:bold 14px Arial;
 }
-
 .qselections{
 font:normal 13px Arial;
 }
@@ -41,14 +48,12 @@ font:normal 13px Arial;
 </script>
 
 <script>
-
 /***********************************************
 * JavaScriptKit.com Multiple Choice Quiz Script (http://www.javascriptkit.com)
 * Copyright 2003 JavaScript Kit- http://www.javascriptkit.com
 * This notice and footnote must stay intact for use
 * Visit JavaScript Kit (http://www.javascriptkit.com/) for full source code
 ***********************************************/
-
 var actualchoices=new Array()
 document.cookie="ready=yes"
 </script>
@@ -127,6 +132,8 @@ document.cookie="ready=yes"
 					<a href="Introduction.html?domain=Computer Science&lab=Problem Solving Lab" class="sidebar-a" > <h3 class="text-h3-darkblue" style="margin-top: 2px;">Introduction</h3></a><a href="Theory.html?domain=Computer Science&lab=Problem Solving Lab" class="sidebar-a" > <h3 class="text-h3-darkblue" style="margin-top: 2px;">Theory</h3></a><a href="Objective.html?domain=Computer Science&lab=Problem Solving Lab" class="sidebar-a" > <h3 class="text-h3-darkblue" style="margin-top: 2px;">Objective</h3></a><a href="Experiment.html?domain=Computer Science&lab=Problem Solving Lab" class="sidebar-a" > <h3 class="text-h3-darkblue" style="margin-top: 2px;">Experiment</h3></a><a href="Manual.html?domain=Computer Science&lab=Problem Solving Lab" class="sidebar-a" > <h3 class="text-h3-darkblue" style="margin-top: 2px;">Manual</h3></a><a href="Quizzes.html?domain=Computer Science&lab=Problem Solving Lab" class="sidebar-a" > <h3 class="text-h3-darkblue" style="margin-top: 2px;">Quizzes</h3></a><a href="Procedure.html?domain=Computer Science&lab=Problem Solving Lab" class="sidebar-a" > <h3 class="text-h3-darkblue" style="margin-top: 2px;">Procedure</h3></a><a href="Further Readings.html?domain=Computer Science&lab=Problem Solving Lab" class="sidebar-a" > <h3 class="text-h3-darkblue" style="margin-top: 2px;">Further Readings</h3></a><a href="http://feedback.vlabs.ac.in/" class="sidebar-a" > <h3 class="text-h3-darkblue" style="margin-top: 2px;">Feedback</h3></a>						</div>
 						
 
+                    
+                  
 
 
 
@@ -136,61 +143,6 @@ document.cookie="ready=yes"
 							<!--edit -->
 <h1 class="text-h2-lightblue">Factorials</h1><div class="content" id="experiment-article-section-6-content">
 <p>
-<!-- <form method="post" name="quiz" onsubmit='evaluate()' target="_blank">
-<ol>
-<li><b>1. The execution of a loop typically starts with: </b></li>
-<input name="Q1" type="radio" value="1">initialization statements<br>
-<input name="Q1" type="radio" value="2">Loop body<br>
-<input name="Q1" type="radio" value="3">test condition<br>
-<input name="Q1" type="radio" value="4">update statements<br>
-
-<br>
-<li><b>2. The break statement is used to exit from:</b> </li>
-<input name="Q2" type="radio" value="1">an if statement<br>
-<input name="Q2" type="radio" value="2">a for loop<br>
-<input name="Q2" type="radio" value="3">a program<br>
-<input name="Q2" type="radio" value="4">the main( ) function<br>
-<br>
-<li><b>3. A do-while loop is useful when we want that the statements within the loop must be executed</b></li>
-<input name="Q3" type="radio" value="1">Only once<br>
-<input name="Q3" type="radio" value="2">At Least Once<br>
-<input name="Q3" type="radio" value="3">More than once<br>
-
-<input name="Q3" type="radio" value="4">None of the above<br>
-<br>
-<li><b>4. In what sequence the initialization, testing and execution of body is done in a do-while loop </b></li>
-<input name="Q4" type="radio" value="1">Initialization, execution of body, testing<br>
-<input name="Q4" type="radio" value="2">Execution of body, initialization, testing <br>
-<input name="Q4" type="radio" value="3">Initialization, testing, execution of body <br>
-<input name="Q4" type="radio" value="4">None of the above<br>
-<br>
-<li><b>5. Which of the following is not an infinite loop. </b></li>
-<input name="Q5" type="radio" value="1"><code>int i = 1 ;          
-while ( 1 ) 
-{ 
-    i++ ; 
-}</code><br>
-<input name="Q5" type="radio" value="2">
-<code>for( int i =1; i &lt; 10 ; i--)   printf("Hello World");
-		</code><br>
-<input name="Q5" type="radio" value="3"><code>for(int i =1; i&lt;100; i++)
-printf("Hello World");
-		</code><br>
-<input name="Q5" type="radio" value="4">
-<code>int i = 0; 
-do{
-i--
-printf("%d ",i);
-}while(i&gt;0);
-</code>
-</ol>
-<br>
-</br></input></br></input></br></input></br></input></br></br></input></br></input></br></input></br></input></br></br></input></br></input></br></input></br></input></br></br></input></br></input></br></input></br></input></br></br></input></br></input></br></input></br></input></ol>
-<br>
-<p> <button type="submit" onclick="evaluate()">Submit answers for evaluation</button></p>
-</br></form> -->
-
-
 
 <form method="POST" name="myquiz">
 
