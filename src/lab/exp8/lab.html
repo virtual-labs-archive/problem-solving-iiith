@@ -144,6 +144,8 @@
 		function generateHint(selObj){
 			var hintNo = selObj.options[selObj.selectedIndex].value;
 			if(hintNo ==0){
+				var obj = document.getElementById("hintBox");
+				obj.innerHTML="";
 				return;
 			}
 			xmlhttp=new XMLHttpRequest();
