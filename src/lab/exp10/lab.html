@@ -181,6 +181,14 @@
 
 
 		}
+		function reset_hint()
+		{
+			var x= document.getElementById('hintBox')
+				x.innerHTML='';
+				document.getElementById('hintNumber').value=0;
+
+
+		}
 	
 		/* ----------------------- */
 		
@@ -248,7 +256,7 @@ Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
 
-<select name="codeId"  id="probId" >
+<select name="codeId"  id="probId" onchange="reset_hint()">
 <option value="Problem1"> 1  </option>
 <option value="Problem2"> 2  </option>
 </select>
@@ -267,7 +275,7 @@ Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
 
    </div>
    <!--button  type="button" id="genHint"  value="Hint" onclick="generateHint();">Generate Hint</button -->
-   <select name="hintGenerate" onchange="generateHint(this)">
+   <select name="hintGenerate" onchange="generateHint(this)" id="hintNumber">
 	<option value='0'>Hint Level 0</option>
 	<option value='1'>Hint Level 1</option>
 	<option value='2'>Hint Level 2</option>
