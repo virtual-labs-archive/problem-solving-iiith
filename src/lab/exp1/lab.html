@@ -144,6 +144,8 @@
 		function generateHint(selObj){
 			var hintNo = selObj.options[selObj.selectedIndex].value;
 			if(hintNo ==0){
+				var x= document.getElementById('hintBox')
+				x.innerHTML='';
 				return;
 			}
 			xmlhttp=new XMLHttpRequest();
@@ -179,6 +181,14 @@
 			}
 			xmlhttp.open("GET",url,true);
 			xmlhttp.send();     
+
+
+		}
+		function reset_hint()
+		{
+			var x= document.getElementById('hintBox')
+				x.innerHTML='';
+				document.getElementById('hintNumber').value=0;
 
 
 		}
@@ -246,8 +256,8 @@ Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;
 
-<select name="codeId"  id="probId" >
-<option value="Problem1"> 1  </option>
+<select name="codeId"  id="probId" onchange="reset_hint()">
+<option value="Problem1"> 1 </option>
 <option value="Problem2"> 2  </option>
 </select>
 <a href="prob_desc.html?height=500&width=650" class="thickbox"><img src="images/info.jpg" height=20px width=20px></a>
@@ -262,10 +272,9 @@ Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
 <div id="contentRight">
    <h4> HINTS </h4><br>
    <div id="hintBox">
-
    </div>
    <!--button  type="button" id="genHint"  value="Hint" onclick="generateHint();">Generate Hint</button -->
-   <select name="hintGenerate" onchange="generateHint(this)">
+   <select name="hintGenerate" onchange="generateHint(this)" id="hintNumber">
 	<option value='0'>Hint Level 0</option>
 	<option value='1'>Hint Level 1</option>
 	<option value='2'>Hint Level 2</option>
