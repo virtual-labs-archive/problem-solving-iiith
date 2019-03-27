@@ -54,7 +54,7 @@ def getHint(codeId,HintNo):
 	  	dir = PATH + "Hints2/"
 	
 	try:
-		F = open(dir+"Hint_"+str(HintNo)+".html","r");
+		F = open(dir+"Hint_"+str(HintNo)+"_C.html","r");
 		s = F.read()
 		F.close()
 	except:
