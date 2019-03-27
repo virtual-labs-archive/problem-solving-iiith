@@ -154,8 +154,12 @@
 			}
 			var qObj = document.getElementById("probId");
 			var qno = qObj.options[qObj.selectedIndex].text;
+
+			var langObj = document.getElementById("syntax_selection");
+			var lang = langObj.options[langObj.selectedIndex].text;
+
 			var url="getHint.py"; //the backend file to fetch hint from
-			url = url+"?qNo="+qno+"&hintNo="+hintNo;
+			url = url+"?qNo="+qno+"&hintNo="+hintNo+"&lang="+lang;
 			url=url+"&sid="+Math.random();
 			xmlhttp.onreadystatechange=function()
 			{
