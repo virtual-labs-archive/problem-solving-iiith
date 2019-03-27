@@ -1,0 +1,28 @@
+<pre>
+    #include&lt;iostream&gt;
+    #include&lt;cmath&gt;
+    using namespace std;
+    int N;
+    double mysqrt(double start,double end){
+    
+        
+        double mid = (start+end)/2;
+    
+        if(fabs(mid*mid-N)&lt;=1e-4)
+            return mid;
+    
+        if(mid*mid &gt; N){
+            return mysqrt(start,mid-1);
+        }
+        else {
+            return mysqrt(mid+1,end);
+        }
+    
+    }
+    int main(void){
+        cin >> n;
+        printf("%.4lf\n",mysqrt(1,N)); //use printf for easier output formatting
+    return 0;
+    }
+    </pre>
+    
