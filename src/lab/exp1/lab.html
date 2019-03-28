@@ -184,8 +184,15 @@
 		}
 	
 		/* ----------------------- */
-		
-	
+		var check=0;
+		function hide(){
+			check++;
+			var hi = document.getElementById("contentRight");
+			if(check%2==0)
+				hi.style.display="none";
+			else
+				hi.style.display="initial";
+		}
 	</script>
 <!-- Google Analytics script starts here -->
 <script>
@@ -259,8 +266,9 @@ Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
  <input type="hidden" value="0" name="highHint" id="highHint_id"/>
 </div> <!--contentLeft -->
 
+<button id="hq" onclick="hide()">Click here for HINTS</button>
 <div id="contentRight">
-   <h4> HINTS </h4><br>
+
    <div id="hintBox">
 
    </div>
@@ -284,6 +292,5 @@ Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &
 		</div>
 	</form>		
 
-	
 </body>
 </html>
