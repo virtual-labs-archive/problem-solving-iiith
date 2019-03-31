@@ -114,6 +114,7 @@
 				open_file2();
 			}
 		}
+
 		
 		function open_file1()
 		{
@@ -136,6 +137,41 @@
 		{
 			editAreaLoader.execCommand(id, 'set_editable', !editAreaLoader.execCommand(id, 'is_editable'));
 		}
+		/------validation of extensions--------*/
+		var _validFileExtensions = [".c", ".cpp"];    
+		function Validate(oForm) 
+		{
+    		var arrInputs = oForm.getElementsByTagName("input");
+    		for (var i = 0; i < arrInputs.length; i++) 
+    		{
+        		var oInput = arrInputs[i];
+        		if (oInput.type == "file") 
+        		{
+            		var sFileName = oInput.value;
+            		if(sFileName.length > 0) 
+            		{
+                		var blnValid = false;
+            			for (var j = 0; j < _validFileExtensions.length; j++) 
+            			{
+                			var sCurExtension = _validFileExtensions[j];
+                 			if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) 
+                 			{
+                        		blnValid = true;
+                        		break;
+                    		}
+               			}
+                		if (!blnValid) 
+                		{
+                    		alert("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                    		return false;
+                		}
+            		}
+            	}
+    		}
+  
+    		return true;
+		}
+		
 
 		/* --------HINTS ---------*/
 		var hintC1 = 0;
@@ -157,6 +193,7 @@
 			var url="getHint.py"; //the backend file to fetch hint from
 			url = url+"?qNo="+qno+"&hintNo="+hintNo;
 			url=url+"&sid="+Math.random();
+
 			xmlhttp.onreadystatechange=function()
 			{
 				if(xmlhttp.readyState==4 && xmlhttp.status==200)
@@ -221,9 +258,11 @@
 <div id="contentLeft">
 <span>
 <form id="file_upload_form" name="file_upload_form" method="post" enctype="multipart/form-data" action="upload.php">
-CHOOSE FILE TO LOAD: 
+CHOOSE FILE TO LOAD:
+<form onsubmit="return Validate(this);"> 
 <input name="file" id="file" size="20" type="file" />&nbsp;
-<input type="submit" name="action" value="Upload" style="display:none;"/><br>
+<input type="submit" name="action" value="Upload" /><br>
+</form>
 <span style="font-size:12px;">After browsing the file, click on load button (Last button in the menu bar of edit area, looks like <img src="load.gif"/>) </span>
 <iframe id="upload_target" name="upload_target" src="" style="width:0;height:0;border:0px solid #fff;"></iframe>
 </form>
