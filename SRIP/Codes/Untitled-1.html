@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notes</title>
+</head>
+
+<body>
+    <form id="txtform">
+        <textarea name="" id="notetxt" cols="30" rows="10"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <div>
+        <ul id="notes"></ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("http://localhost:5000/getnotes").done(function(data) {
+                var p=[]
+                data.forEach(element => {
+                    p.push("<li>"+element.note+"</li>")
+                });
+                $('#notes').html(p)
+            })
+
+            $('#txtform').submit(function (e) {
+                e.preventDefault()
+                $.post("http://localhost:5000/insertnote", { note: $('#notetxt').val() }).done(function (data) {
+                    console.log(data)
+                    location.reload(true)
+                })
+            })
+        });
+    </script>
+</body>
+
+</html>
