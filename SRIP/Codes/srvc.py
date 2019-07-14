@@ -6,7 +6,7 @@ app=Flask(__name__)
 CORS(app)
 
 def connect():
-    client=MongoClient('mongodb://localhost:27017')
+    client=MongoClient('mongodb://(name)')
     db=client.sampledb
     return db
 
