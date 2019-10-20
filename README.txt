@@ -118,7 +118,7 @@ Install Docker Engine - Community
 4.Clone Repositery
 	$ git clone https://github.com/virtual-labs/problem-solving-iiith.git
 
-5.Make sure you’re in the directory data-structures-iiith in a terminal , and build your data-structures-iiith image:
+5.Make sure you’re in the directory data-structures-iiith in a terminal , and build your problem-solving-iiith image:
 	docker image build -t problem-solving-iiith:1.0 
 
 6.Start a container based on your new image:
