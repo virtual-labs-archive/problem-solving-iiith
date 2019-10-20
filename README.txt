@@ -100,3 +100,32 @@ Go to Command Terminal
 
 * Now, open ui/build/index.html in the browser to test the template.
 
+
+Runing the project using Dockers
+
+
+Install Docker Engine - Community
+
+1. Update the apt package index.
+	$ sudo apt-get update
+
+2.Install the latest version of Docker Engine - Community and containerd
+	$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+3.Verify that Docker Engine - Community is installed correctly by running the hello-world image.
+	$ sudo docker run hello-world
+
+4.Clone Repositery
+	$ git clone https://github.com/virtual-labs/problem-solving-iiith.git
+
+5.Make sure you’re in the directory data-structures-iiith in a terminal , and build your data-structures-iiith image:
+	docker image build -t problem-solving-iiith:1.0 
+
+6.Start a container based on your new image:
+	docker container run --detach -P --name bb problem-solving-iiith:1.0
+
+Visit your application in a browser at localhost:8080 
+
+
+
+
