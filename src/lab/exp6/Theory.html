@@ -120,7 +120,6 @@
                   Recursion can be applied to a problem if the problem for the given input can be expressed as dependent upon the solution of the same problem for simpler inputs. One has to hardcode the solution for some simple cases, so that this recursion does not go on endlessly. Now, the given problem of expressing a weight(W) as a sum of other weights can be expressed as the problem of choosing one weight(w) such that it is not greater than W and then solving the same problem for the remaining weight W-w. For this particular problem, the solution can be expressed easily by choosing all the possible multiples(m) of a given unit, 2^(i), iteratively for all the values of m for which m*2^(i) is less than W, and subsequently solving the same problem for the remaining weight, W-w, and for multiples of weights for higher order. So, our recursion function would be needing 2 variable, one signifying multiples of which order of weight should be used this time and other signifying remaining weight to be accrued.
                 </p>
                 <p align="right"></p>
-                <br/>
                 <h2>Problem 2</h2>
                 <p>
                   Let us assume we have kept weight D on left pan. From amongst the N weights you can choose to keep some weights on left side and some weights on right side and we may not use some weights at all. Lets say we keep a total weight of w1 on left side and w2+D on right pan, then for balancing w1=w2+D.We keep track the difference between the two pans and if at any stage the difference of weights between two pans is 0 we report yes. Consider the i<sup>th </sup>weight and suppose the current difference between left pan and right pan is x. If x is 0 then yes we donot choose any weight and thus return 1.
@@ -128,7 +127,6 @@
                 <p>
                   Otherwise we have three options
                 </p>
-                <br/>
                 <p>
                   <b>Option1:</b>
                   Put the i<sup>th</sup> weight on right pan.In which case the difference between left and right pan becomes x - weight[i].
@@ -138,7 +136,7 @@
                   <br/>
                   <b>Option3:</b>
                   Donot put the i<sup>th</sup> weight on either pan.In which case the difference between left and right pan remains x.
-                  <br/><br/>
+                  
                 </p>
                 <p>
                   <br/>
@@ -156,7 +154,6 @@
                   <br/>
                 </p>
                 <p align="right"></p>
-                <br/><br/>
               </div>
             </div>
           </div>
@@ -256,6 +253,7 @@
       </script-->&gt;
   
   
+
 
 
 

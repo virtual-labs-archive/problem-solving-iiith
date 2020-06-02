@@ -116,7 +116,6 @@
               <h1 class="text-h1-lightblue">String Operations</h1>
               <div class="content" id="experiment-article-section-2-content">
                 <h2>Problem 1</h2>
-                <br/>
                 <p>
                   A palindrome is a string which reads same wheter it is read from start to end of from end to the start. In literature, however, even the capitalization of words and punctuations are ignored. So, "Rats live on no evil stars". is also a palindrome. Detection of such palindromes can be done by creating a new string in which all the punctuations have been removed and all the upper case characters have been converted to lower case characters, and then doing a test for plaindome on the new string.
                 </p>
@@ -124,12 +123,9 @@
                   Alternatively, one can create two indices and put them at the end and beginning of the string. The index at the beginning moves towards the end and vice versa. If a character at any of the indices is not an alphabet the corresponding indice is moved until an alphabet is encountered. If the alphabet is in Upper case, then it is converted into lower case. Now, the values at the indices are compared and if they are not same then the string is not a palindome. Otherwise, the check is repeated for new values of indices obtained by moving them by suffiecient amount so that an alphabet is encountered. If at any time the indices are coincident or the indices cross each other, then the string is a palindrome.
                 </p>
                 <p align="right"></p>
-                <br/>
                 <h2>Problem 2</h2>
                 <p>
                   Inorder to obtain string2 from string1 by deleting 0 or more characters it is fairly obvious that the characters in string2 must appear in the same order as in string1.
-                  <br/>
-                  <br/>
                 </p>
                 <p></p>
                 <h4> Mathematical formulation </h4>
@@ -141,12 +137,9 @@
                   ..<br/>
                   ..<br/>
                   B[N-1] occurs at X[N-1]<br/>
-                  <br/><br/>
                 </p>
                 <p>
                   Now, we remove all other characters from A except those which appear at positions indicated by array X. Then we get string B.Thus the problem formulation is correct. The order constraint between X[i]'s is element because we want the characters in B to appear in order in A.
-                  <br/>
-                  <br/>
                 </p>
                 <br/>
                 <h4> Solution</h4>
@@ -156,8 +149,6 @@
                   X[0] has only one constraint to be satisfied which is A[X[0]] = B[0] . There can be many values
                   of X[0] which can satisfy the above constraint. So which value should X[0] take?
                   <br/>
-                  <br/>
-                  <br/><br/>
                 </p>
                 <h4> Proofs </h4>
                 <p>
@@ -168,9 +159,7 @@
                   and for X[i] in [X[i-1]+1,M].Thus if we can find the array X then we say YES else NO.
                 </p>
                 <p align="right"></p>
-                <br/>
                 <p></p>
-                <br/>
               </div>
             </div>
           </div>
@@ -270,6 +259,7 @@
       -->
   
   
+
 
 
 </body><!-- jQuery --></html>
