@@ -1,0 +1,24 @@
+Data Structures Lab
+1.Quick sort
+2.Merge sort
+3.Insertion sort
+
+Pattern Recognition Lab
+4.Generation of random variables
+
+Problem solving lab
+5.Numerical representation
+
+Computer programming lab
+6.1D arrays
+7.2D arrays
+8.Advanced control flow
+9.Structures
+10.Basic Control flow
+11.Pointers
+12.Recursion
+13.Expression evaluation
+14.Functions
+15.Numerical integration
+
+9/10 for the implementation, as some experiments would simply not work
