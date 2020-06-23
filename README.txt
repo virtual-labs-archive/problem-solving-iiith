@@ -1,6 +1,6 @@
-Some changes need to be made to the web server configuration (in this case, Apache) in order to run the python scripts.
+some changes need to be made to the web server configuration (in this case, apache) in order to run the python scripts.
 
-1. Install mod python
+1. install mod python
 
         apt-get install libapache2-mod-python
 
@@ -76,7 +76,7 @@ element, You can also include images with <img> tag -->
 
 </section>
 
-// PASTE the CHANGE.html content here..
+// PASTE the CHANGE.html content here.
 
 
 /*****************************************************************/
