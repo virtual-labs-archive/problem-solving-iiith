@@ -79,8 +79,10 @@ element, You can also include images with <img> tag -->
 // PASTE the CHANGE.html content here..
 
 
-/*****************************************************************/
-
+Python can be obtained from the Python Software Foundation website at python.org. Typically, that involves downloading the appropriate installer for your operating system and running it on your machine.
+Some operating systems, notably Linux, provide a package manager that can be run to install Python.
+On macOS, the best way to install Python 3 involves installing a package manager called Homebrew. You’ll see how to do this in the relevant section in the tutorial.
+On mobile operating systems like Android and iOS, you can install apps that provide a Python programming environment. This can be a great way to practice your coding skills on the go.
 
 
 
