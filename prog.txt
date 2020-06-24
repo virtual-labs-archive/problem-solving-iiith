@@ -1,0 +1,26 @@
+<html>
+<head>
+<style>
+.box{
+height:135px;
+width:95px;
+background-color:#2db34a;
+cursor:pointer;
+border-radius:6px;
+text-align:center;
+font-weight:bold;
+color:white;
+transition-property:background,border-radius;
+transition-timing-function:linear;
+transition-duration:1s;
+}
+.box:hover{
+background:blue;
+border-radius:50px;
+}
+</style>
+</head>
+<body>
+<div class="box">click me..!</div>
+</body>
+</html>
