@@ -1,15 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html><head><!--Google Tag Manager--><script class="gtm">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W59SWTR');</script><!--End Google Tag Manager-->
-		<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<title>OJ</title>
-		<link href="default.css" media="screen" rel="stylesheet" type="text/css"/>
+		<link href="default.css" rel="stylesheet" media="screen" type="text/css"/>
 		<script src="jqminmax.js" type="text/javascript"></script>
 	</head>
-	<body><!--Google Tag Manager (noscript)--><noscript class="gtm"><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-W59SWTR" style="display:none;visibility:hidden" width="0"></iframe></noscript><!--End Google Tag Manager (noscript)-->
+	<body>
 		<header id="site_head">
 		<div class="header_cont"> <!-- 960px header-->
 			<!-- LOGO of the company-->
@@ -38,8 +35,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		</nav>
 				<div id="content">
         <h2>Theory</h2>
-        <p></p><h3>Problem 1</h3>
-<pre>     Lets look at the remainder after with 9 for 10,100,1000,10000 etc. It is equal to 1 in all the cases. It is not difficult of see that for multiples of these numbers, the remainder after division with 9 will only depend on the multiple. So, for 20,40,800,500,7000,2000 etc., the remainder after division with 9 are 2,4,8,5,7 and 2. Now, any number, say N, written as sequence, WXYZ can be expressed as
+        <p><h3>Problem 1</h3>
+<pre>
+     Lets look at the remainder after with 9 for 10,100,1000,10000 etc. It is equal to 1 in all the cases. It is not difficult of see that for multiples of these numbers, the remainder after division with 9 will only depend on the multiple. So, for 20,40,800,500,7000,2000 etc., the remainder after division with 9 are 2,4,8,5,7 and 2. Now, any number, say N, written as sequence, WXYZ can be expressed as
         N=W*1000*X+100+Y*10+Z
         eg: For N=3548
         N=3*1000+5*100+4*10+8
@@ -57,16 +55,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	Now, SUM=4 is not divisible by 9. Hence, 346 is not divisible by 9.
 	
 </pre>       
-<p></p>
-<p></p><h3>Problem 2</h3>
-<pre>	Suppose the number we require is say (X[0],X[1],...,X[N]) . We dont know what X[0] ,X[1],...X[N-1] are 
+</p>
+<p><h3>Problem 2</h3>
+<pre>
+	Suppose the number we require is say (X[0],X[1],...,X[N]) . We dont know what X[0] ,X[1],...X[N-1] are 
 	and also the value of N. But fortunately we know some properties  about this number with which we can find
 	out what number it is :) . We know the value of X[N]. Let take the sample input. X[N] = 4 in that case. 
 	Say we represent the product as (P[0],P[1],...,P[M]). Now X[N] = 4 and when we multiply it with 
 	<b>X[N]</b> we get 16(which is 4*4), which implies  P[M]=6.Since the number has to be circular it is obvious
 	that X[N-1] must be 6.Now again multiplying X[N-1] = 6 with X[N]=4 and yea dont forget to add the carry which 
 	we obtained in previous step.So P[M-1] = (6*4 + 1)%10 = 5 and carry is 2 this time.So we carry on like this.
-	<br/> <br/> 
+	<br> <br> 
 	Step1: xxxxxx4
 		    *4 
 		------    
@@ -116,7 +115,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			<div id="footer">
 			<!---GPL License . Designed By <a href="http://students.iiit.ac.in/~rajatgoel">Rajat Goel</a> -->
 			</div>
-		
-	
-
-</body></html>
+		</div>
+	</body>
+</html>

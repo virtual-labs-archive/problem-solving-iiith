@@ -1,11 +1,8 @@
-<html><head><!--Google Tag Manager--><script class="gtm">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W59SWTR');</script><!--End Google Tag Manager--></head><body><!--Google Tag Manager (noscript)--><noscript class="gtm"><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-W59SWTR" style="display:none;visibility:hidden" width="0"></iframe></noscript><!--End Google Tag Manager (noscript)--><pre>#include&lt;stdio.h&gt;
+<pre>
+#include&lt;stdio.h&gt;
 #include&lt;stdlib.h&gt;
 int search(int *arr,int start,int end,int num){
-	-&gt;termination condition
+	->termination condition
 	int mid = (start+end)&gt;&gt;1;
 	if(arr[mid]&gt; num)
 		return (end-mid+1)+search(arr,start,mid-1,num);
@@ -13,14 +10,13 @@ int search(int *arr,int start,int end,int num){
 		return search(arr,mid+1,end,num);
 }
 main(){
-	-&gt;declare and scan N
-	-&gt;declare and scan the array
-	-&gt;sort the array
-	-&gt;for(i=0;i&lt; N;i++)
+	->declare and scan N
+	->declare and scan the array
+	->sort the array
+	->for(i=0;i&lt; N;i++)
 		for(j=i+1;j&lt; N;j++)
 			ans+=search(arr,0,N-1,arr[i]+arr[j]);
 
-	-&gt;print the final answer
+	->print the final answer
 }
 </pre>
-</body></html>

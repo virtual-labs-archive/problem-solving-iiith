@@ -1,17 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"><head><!--Google Tag Manager--><script class="gtm">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W59SWTR');</script><!--End Google Tag Manager-->
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>EditArea - the code editor in a textarea</title>
-		<link href="default.css" media="screen" rel="stylesheet" type="text/css"/>
-		<link href="thickbox/thickbox.css" media="screen" rel="stylesheet" type="text/css"/>
+		<link href="default.css" rel="stylesheet" media="screen" type="text/css"/>
+		<link href="thickbox/thickbox.css" rel="stylesheet" media="screen" type="text/css"/>
 		<script src="jqminmax.js" type="text/javascript"></script>
 		<script src="jquery.js" type="text/javascript"></script>
 		<script src="thickbox/thickbox.js" type="text/javascript"></script>
-	<script language="Javascript" src="edit_area/edit_area_full.js" type="text/javascript"></script>
+	<script language="Javascript" type="text/javascript" src="edit_area/edit_area_full.js"></script>
 	<script language="Javascript" type="text/javascript">
 		// initialisation
 		editAreaLoader.init({
@@ -190,7 +187,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	
 	</script>
 </head>
-<body><!--Google Tag Manager (noscript)--><noscript class="gtm"><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-W59SWTR" style="display:none;visibility:hidden" width="0"></iframe></noscript><!--End Google Tag Manager (noscript)-->
+<body>
 		<header id="site_head">
 		<div class="header_cont"> <!-- 960px header-->
 			<!-- LOGO of the company-->
@@ -208,7 +205,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				<div id="content">
 <div id="contentLeft">
 <span>
-<form action="upload.php" enctype="multipart/form-data" id="file_upload_form" method="post" name="file_upload_form">
+<form id="file_upload_form" name="file_upload_form" method="post" enctype="multipart/form-data" action="upload.php">
 <!-- CHOOSE FILE TO LOAD: 
 <input name="file" id="file" size="20" type="file" />&nbsp;
 <input type="submit" name="action" value="Upload" style="display:none;"/><span style="color:#cccccc; font-size:12px;">After choosing file, click load button below </span> -->
@@ -220,26 +217,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <center> <p style="color:green">Accepted!! </p></center><form action="judge.py" method="get" name="judge">
 <fieldset>
-		<textarea id="editArea" name="code" style="height: 400px; width: 100%;">	
+		<textarea id="editArea" style="height: 400px; width: 100%;" name="code">
 	
 	
 	
-		#include&lt;stdio.h&gt;
+	
+		#include<stdio.h>
 main(){
 int N;
-	scanf("%d",&amp;N);
+	scanf("%d",&N);
 	char input_chars[N];
 	int i;
-	for(i=0;i&lt;N ;i++)
+	for(i=0;i<N ;i++)
 	{
-		scanf(" %c",&amp;input_chars[i]);
+		scanf(" %c",&input_chars[i]);
 	}
 	char input[100];
 	scanf("%s",input);
 	int position=0,j=0; 
 	int addValue[N];
-	for(i=0,j=N-1;i&lt;N ;i++,j--)
-	   addValue[i] = (1&lt;&lt;j);
+	for(i=0,j=N-1;i<N ;i++,j--)
+	   addValue[i] = (1<<j);
 	
 	
 	for(i=0,j=0;input[i];i++){
@@ -255,34 +253,34 @@ int N;
 	return 0;
 }</textarea>
 	</fieldset>
-Language                              ProblemNo
+Language &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;ProblemNo
 
-<br/>
+<br>
 
-<select id="codeId" name="language">
+<select name="language" id="codeId">
 
-<option selected="selected" value="c"> C (gcc 4.3.2) </option>
+<option value="c" selected="selected"> C (gcc 4.3.2) </option>
 
 <option value="cpp"> C++ (g++ 4.3.2) </option>
 
-</select>                   
-    
+</select>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
 
-<select id="codeId" name="codeId">
+<select name="codeId" id="codeId">
 
 <option value="Problem1"> 1  </option>
 
-<option selected="selected" value="Problem2"> 2  </option>
+<option value="Problem2" selected="selected"> 2  </option>
 
-</select><a class="thickbox" href="prob_desc.html?height=500&amp;width=650"><img height="20px" src="images/info.jpg" width="20px"/></a>
-<input id="hintCount" name="hintC" type="hidden" value="0"/>
-               
- <input name="type" type="submit" value="Compile"/>
-       
- <input name="type" type="submit" value="Run"/>
-<input id="highHint_id" name="highHint" type="hidden" value="0"/>
+</select><a href="prob_desc.html?height=500&width=650" class="thickbox"><img src="images/info.jpg" height=20px width=20px></a>
+<input type="hidden" name="hintC" id="hintCount" value="0"/>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+ <input type="submit" value="Compile" name="type"/>
+ &nbsp; &nbsp; &nbsp; 
+ <input type="submit" value="Run" name="type"/>
+<input type="hidden" value="0" name="highHint" id="highHint_id"/>
 
-<br/><br/><table border="1" cellpadding="15" id="tableInpOut"><tbody><tr>
+<br><br><table border="1" cellpadding="15" id="tableInpOut" ><tr>
 		<td> Input Data </td> 
 		<td> Expected Output </td>
 		<td> Code Output </td>
@@ -303,22 +301,23 @@ Language                              ProblemNo
 </td><td> Passed </td></tr><tr><td>15 A X S R O V G N M D U I Q J Z JZ
 </td><td>32766
 </td><td>32766
-</td><td> Passed </td></tr></tbody></table></form></div> <!--contentLeft -->
+</td><td> Passed </td></tr></table></div> <!--contentLeft -->
 <div id="contentRight">
-   <h4> HINTS </h4><br/>
+   <h4> HINTS </h4><br>
    <div id="hintBox">
 
-<pre></pre>
+<pre>
+</pre>
  </div> <!--contentLeft -->
   <!--button  type="button" id="genHint"  value="Hint" onclick="generateHint();">Generate Hint</button -->
    <select name="hintGenerate" onchange="generateHint(this)">
-	<option value="0">Hint Level 0</option>
-	<option value="1">Hint Level 1</option>
-	<option value="2">Hint Level 2</option>
-	<option value="3">Hint Level 3</option>
-	<option value="4">Hint Level 4</option>
+	<option value='0'>Hint Level 0</option>
+	<option value='1'>Hint Level 1</option>
+	<option value='2'>Hint Level 2</option>
+	<option value='3'>Hint Level 3</option>
+	<option value='4'>Hint Level 4</option>
    </select>
-   <span>Highest Level Hint used: <span id="highHint">
+   <span>Highest Level Hint used: <span  id="highHint">
 
 0
  </span></span>
@@ -331,11 +330,10 @@ Language                              ProblemNo
 			<div id="footer">
 	<!--		  Developed By  --> 
 			</div>
-		
-			
+		</div>
+	</form>		
 
 	
+</body>
+</html>
 
-
-
-</body></html>
