@@ -1,12 +1,15 @@
-<pre>
-#include&lt;stdio.h&gt;
+<html><head><!--Google Tag Manager--><script class="gtm">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W59SWTR');</script><!--End Google Tag Manager--></head><body><!--Google Tag Manager (noscript)--><noscript class="gtm">&amp;amp;lt;iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-W59SWTR" style="display:none;visibility:hidden" width="0"&amp;amp;gt;&amp;amp;lt;/iframe&amp;amp;gt;</noscript><!--End Google Tag Manager (noscript)--><pre>#include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 
 main(){
 	int N;
 	char str[1000001];
 	scanf("%s",str);
-	scanf("%d",&N);
+	scanf("%d",&amp;N);
 	if(!N)
 	{
 		printf("0\n");
@@ -15,7 +18,7 @@ main(){
 	int i,j;
 	char input_char[N];
 	for(i=0;i&lt; N;i++){
-		scanf(" %c",&input_char[i]);
+		scanf(" %c",&amp;input_char[i]);
 	}
 	
 	int pos[N];
@@ -34,7 +37,7 @@ main(){
 			if(minValue &gt;  pos[j])
 				minValue = pos[j];
 
-		if(minValue!=-1 && minLength&gt; (i-minValue+1)){
+		if(minValue!=-1 &amp;&amp; minLength&gt; (i-minValue+1)){
 			minLength = i-minValue+1;
 		}
 
@@ -48,3 +51,4 @@ main(){
 	return 0;
 }
 </pre>
+</body></html>
