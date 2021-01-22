@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"><head><!--Google Tag Manager--><script class="gtm">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W59SWTR');</script><!--End Google Tag Manager-->
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+	<title>EditArea - the code editor in a textarea</title>
+		<link href="default.css" media="screen" rel="stylesheet" type="text/css"/>
+		<script src="jqminmax.js" type="text/javascript"></script>
+	<script language="Javascript" src="edit_area/edit_area_full.js" type="text/javascript"></script>
+	<script language="Javascript" type="text/javascript">
+		// initialisation
+		editAreaLoader.init({
+			id: "editArea"	// id of the textarea to transform	
+			,start_highlight: true
+			,allow_toggle: true
+			,word_wrap: true
+			,language: "en"
+			,syntax: "c"	
+			,toolbar: "search, go_to_line, |, undo, redo, |, select_font, |, syntax_selection, |, change_smooth_selection, highlight, reset_highlight, |, help"
+			,syntax_selection_allow: "c,cpp"
+			,is_multi_files: false
+			,EA_load_callback: "editAreaLoaded"
+			,show_line_colors: true
+		});
+		
+		// callback functions
+		function my_save(id, content){
+			alert("Here is the content of the EditArea '"+ id +"' as received by the save callback function:\n"+content);
+		}
+		
+		function my_load(id){
+			editAreaLoader.setValue(id, "The content is loaded from the load_callback function into EditArea");
+		}
+		
+		function test_setSelectionRange(id){
+			editAreaLoader.setSelectionRange(id, 100, 150);
+		}
+		
+		function test_getSelectionRange(id){
+			var sel =editAreaLoader.getSelectionRange(id);
+			alert("start: "+sel["start"]+"\nend: "+sel["end"]); 
+		}
+		
+		function test_setSelectedText(id){
+			text= "[REPLACED SELECTION]"; 
+			editAreaLoader.setSelectedText(id, text);
+		}
+		
+		function test_getSelectedText(id){
+			alert(editAreaLoader.getSelectedText(id)); 
+		}
+		
+		function editAreaLoaded(id){
+			if(id=="example_2")
+			{
+				open_file1();
+				open_file2();
+			}
+		}
+		
+		function open_file1()
+		{
+			var new_file= {id: "to\\ é # € to", text: "$authors= array();\n$news= array();", syntax: 'php', title: 'beautiful title'};
+			editAreaLoader.openFile('example_2', new_file);
+		}
+		
+		function open_file2()
+		{
+			var new_file= {id: "Filename", text: "<a href=\"toto\">\n\tbouh\n</a>\n<!-- it's a comment -->", syntax: 'html'};
+			editAreaLoader.openFile('example_2', new_file);
+		}
+		
+		function close_file1()
+		{
+			editAreaLoader.closeFile('example_2', "to\\ é # € to");
+		}
+		
+		function toogle_editable(id)
+		{
+			editAreaLoader.execCommand(id, 'set_editable', !editAreaLoader.execCommand(id, 'is_editable'));
+		}
+	
+	</script>
+</head>
+<body><!--Google Tag Manager (noscript)--><noscript class="gtm"><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-W59SWTR" style="display:none;visibility:hidden" width="0"></iframe></noscript><!--End Google Tag Manager (noscript)-->
+<form action="judge.py" method="get">
+		<header id="site_head">
+		<div class="header_cont"> <!-- 960px header-->
+			<!-- LOGO of the company-->
+			<div id="logo">
+			<h1> <a href="index.html"> Virtual Labs </a> </h1>
+			</div>
+
+			<div id="help-menu">
+			<!--h1> <a href="../help/index.html"> Help </a> </h1-->
+			</div>
+		</div>
+			<!-- Menu -->
+	</header>
+	<article id="main_content"> <!--960px limit -->
+		<header id="main-title">
+			<!--h1>OJ ... Happily judging your solution</h1-->
+		</header>	
+		<nav id="head-nav">
+					<ul>
+						<li><a href="index.html">Introduction</a></li>
+						<li><a href="theory.html">THEORY</a></li>
+						<li><a href="objective.html ">OBJECTIVE</a></li>
+						<li><a href="lab.html">LAB</a></li>
+						<li><a href="quiz.html">QUIZ</a></li>
+						<li><a href="furtherReadings.html">FURTHER READINGS</a></li>
+					</ul>
+		</nav>
+				<div id="content">
+<p>Please insert your code here</p>
+<fieldset>
+		<textarea id="editArea" name="code" style="height: 250px; width: 50%;">		</textarea>
+	</fieldset>
+<br/>
+Language                              ProblemNo
+<br/>
+<select id="codeId" name="language">
+<option value="c"> C (gcc 4.3.2) </option>
+<option value="cpp"> C++ (g++ 4.3.2) </option>
+</select>
+                    
+    
+
+<select name="codeId">
+<option value="Problem1"> 1  </option>
+<option value="Problem2"> 2  </option>
+</select>
+<input name="SubmissionID" type="hidden" value="0"/>
+               
+ <input name="type" type="submit" value="Compile"/>
+       
+ <input name="type" type="submit" value="Run"/>
+				</div>
+			</article>
+			<div id="footer">
+			<!---GPL License . Designed By <a href="http://students.iiit.ac.in/~rajatgoel">Rajat Goel</a> -->
+			</div>
+		
+	</form>		
+
+	
+
+
+</body></html>

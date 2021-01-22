@@ -1,0 +1,37 @@
+<html><head><!--Google Tag Manager--><script class="gtm">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W59SWTR');</script><!--End Google Tag Manager--></head><body><!--Google Tag Manager (noscript)--><noscript class="gtm"><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-W59SWTR" style="display:none;visibility:hidden" width="0"></iframe></noscript><!--End Google Tag Manager (noscript)--><pre>#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+main(){
+	char s1[51],s2[51];
+	scanf("%s %s",s1,s2);
+	char sum[52];
+	
+	int l1 = strlen(s1),l2 = strlen(s2),index = 0,carry=0,value,i,j;
+	for(i=l1-1,j=l2-1;i&gt;=0 || j&gt;=0;){
+                           
+		value = carry;
+		if(i&gt;=0){
+			value+=(s1[i]-'0');
+			i--;
+		}
+		if(j&gt;=0){
+			value+=(s2[j]-'0');
+			j--;
+		}
+		sum[index++]=(char)(value%10 + '0');
+		carry = value/10;
+	}
+	//take care of the cases like 99+1
+	if(carry)
+		sum[index++]='1';
+		
+	for(i=index-1;i&gt;=0;i--)
+		printf("%c",sum[i]);
+	puts("");
+	return 0;
+}
+</pre>
+</body></html>

@@ -1,0 +1,35 @@
+<html><head><!--Google Tag Manager--><script class="gtm">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W59SWTR');</script><!--End Google Tag Manager--></head><body><!--Google Tag Manager (noscript)--><noscript class="gtm"><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-W59SWTR" style="display:none;visibility:hidden" width="0"></iframe></noscript><!--End Google Tag Manager (noscript)--><pre>#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+main(){
+int N;
+scanf("%d",&amp;N);
+int *arr=0,*best=0;
+if(N){
+    arr=(int *)malloc(sizeof(int)*N);
+    best=(int *)malloc(sizeof(int)*N);
+}
+
+int longest_length=0,i,j;
+for(i=0;i&lt; N;i++)
+   scanf("%d",arr+i);
+for(i=0;i&lt; N;i++){
+	best[i] = 1;
+	for(j=0;j&lt; i;j++){
+		if(arr[i]&gt; arr[j])
+			best[i] = (best[i]&gt;(best[j]+1))?best[i]:(best[j]+1);
+
+	}
+	if(longest_length&lt;best[i])
+		  longest_length = best[i];
+	
+}
+printf("%d\n",longest_length);
+return 0;	
+}
+	
+</pre>
+</body></html>
