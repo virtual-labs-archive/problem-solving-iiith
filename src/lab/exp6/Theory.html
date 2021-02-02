@@ -99,7 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						<div class="col-md-10 lab-list-col-10">
 							
 							<!--edit -->
-<h1 class="text-h2-lightblue">Recursion</h1><div class="content" id="experiment-article-section-2-content">
+<h1 class="text-h1-lightblue">Recursion</h1><div class="content" id="experiment-article-section-2-content">
 <h2>Problem 1</h2>
 <p>
 Recursion can be applied to a problem if the problem for the given input can be expressed as dependent upon the solution of the same problem for simpler inputs. One has to hardcode the solution for some simple cases, so that this recursion does not go on endlessly. Now, the given problem of expressing a weight(W) as a sum of other weights can be expressed as the problem of choosing one weight(w) such that it is not greater than W and then solving the same problem for the remaining weight W-w. For this particular problem, the solution can be expressed easily by choosing all the possible multiples(m) of a given unit, 2^(i),   iteratively for all the values of m for which m*2^(i) is less than W, and subsequently solving the same problem for the remaining weight, W-w, and for multiples of weights for higher order. So, our recursion function would be needing 2 variable, one signifying multiples of which order of weight should be used this time and other signifying remaining weight to be accrued.

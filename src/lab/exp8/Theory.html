@@ -99,7 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						<div class="col-md-10 lab-list-col-10">
 							
 							<!--edit -->
-<h1 class="text-h2-lightblue">Searching and Sorting</h1><div class="content" id="experiment-article-section-2-content">
+<h1 class="text-h1-lightblue">Searching and Sorting</h1><div class="content" id="experiment-article-section-2-content">
 <h2>Problem 1</h2>
 <p>
 Consider three numbers from the set say a,b,c. If either a+b&lt; c or b+c&lt; a or c+a&lt; b  then (a,b,c) cannot form a triangle. Lets state the problem little differently for each pair (a,b) we want to find out how many numbers c are there such that a+b &lt; c. We consider each pair (a,b) and search for how many numbers are there which are greater than a+b. This can be done easily using binary search. Sort the array and consider the interval (start,end). If arr[mid]&gt; a+b then (mid-end+1) numbers are greater than a+b otherwise if arr[mid]&lt; a+b then we don't add anything to the result and search in (start,mid-1).
