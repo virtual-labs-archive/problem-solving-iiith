@@ -100,3 +100,4 @@ Go to Command Terminal
 
 * Now, open ui/build/index.html in the browser to test the template.
 
+//Pull Request from Aadhar Bhatnagar on 22 June
