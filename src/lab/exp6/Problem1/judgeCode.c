@@ -31,7 +31,7 @@ int no_ways(int W,int index){
 		ans+=no_ways(W-i*(1<<index),index+1);
 	return ans;
 }
-main(){
+int main(){
 	int W;
 	scanf("%d%d",&N,&W);
 	
