@@ -6,7 +6,7 @@ int isPossible(int N,int D,int *weight){
   	return isPossible(N-1,D+weight[N-1],weight)||isPossible(N-1,D-weight[N-1],weight)||isPossible(N-1,D,weight);
 }
 
-int main(){
+main(){
 	int N;
 	scanf("%d",&N);
 	int weights[N],i,D;

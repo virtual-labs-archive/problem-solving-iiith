@@ -21,7 +21,7 @@ int isPossible(int N,int D,int *weight){
 	*/
 	return isPossible(N-1,D+weight[N-1],weight)||isPossible(N-1,D-weight[N-1],weight)||isPossible(N-1,D,weight);
 }
-int main(){
+main(){
     //Assume weight D is on left side and we are adding other weights on any side.
 	int N,D;
 	scanf("%d",&N);
