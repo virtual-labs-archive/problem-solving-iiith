@@ -33,7 +33,7 @@ typedef long long LL;
 #define INF 100000000
 #define F first
 #define S second
-main(){
+int main(){
 
 	string s1,s2;
 	cin>>s1>>s2;
