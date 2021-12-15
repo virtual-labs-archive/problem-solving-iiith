@@ -10,7 +10,7 @@ int func(int N,int *weight,int S){
            */
 	return func(N-1,weight,S-weight[N-1])+func(N-1,weight,S); 
 }
-main(){
+int main(){
 	int N;
 	scanf("%d",&amp;N);
 	int weight[N],i;
