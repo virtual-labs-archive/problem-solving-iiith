@@ -1,4 +1,8 @@
-<html><head><!--Google Tag Manager--><!--End Google Tag Manager--><!--Google Tag Manager--><!--End Google Tag Manager--></head><body><!--Google Tag Manager (noscript)--><!--End Google Tag Manager (noscript)--><!--Google Tag Manager (noscript)--><!--End Google Tag Manager (noscript)--><pre>#include&lt;stdio.h&gt;
+<html><head>
+  
+</head>
+<body>
+  <pre>#include&lt;stdio.h&gt;
 
 int func(int N,int *weight,int S)
 {
@@ -8,9 +12,9 @@ int func(int N,int *weight,int S)
 -&gt;Handle termination cases
 
 -&gt;option1. Donot keep weight[N-1] in basket
-	which means we need to attain 
-	S from the next N-1 weights 
-	so call func(N-1,weight,S);
+  which means we need to attain 
+  S from the next N-1 weights 
+  so call func(N-1,weight,S);
 -&gt;option2. keep weight[N-1] in basket 
   which means we need to attain
   S-weight[N-1] next N-1 weights
@@ -19,7 +23,7 @@ int func(int N,int *weight,int S)
 return the sum of the above solutions
 }
 
-main(){
+int main(){
 -&gt;scan the input
 -&gt;call the function with 
   appropriate parameters
